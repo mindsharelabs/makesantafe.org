@@ -1,0 +1,26 @@
+#header-flare path {
+  stroke: $primary;
+}
+#intro-logo-load {
+
+  .circle {
+    fill: $primary;
+    stroke: $primary;
+  }
+  .dot {
+    stroke: $primary;
+    fill: transparent;
+  }
+  .lines {
+    fill: transparent;
+    stroke: $primary;
+  }
+  .fills {
+    stroke: $dark;
+  }
+  #banner {
+    .lines {
+      stroke: #000;
+    }
+  }
+}

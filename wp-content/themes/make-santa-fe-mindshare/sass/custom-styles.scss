@@ -1,0 +1,431 @@
+//
+// LAYOUTS
+// Place all of your custom styles in here. This stylesheet is loaded last,
+// and takes precedence over all others.
+//
+// --------------------------------------------------
+
+body {
+  opacity: 0;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  color: $dark;
+  -moz-osx-font-smoothing: grayscale; // enable font-smoothing for browsers that support it
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  -webkit-transition: opacity 250ms ease-out;
+  -moz-transition: opacity 250ms ease-out;
+  -ms-transition: opacity 250ms ease-out;
+  -o-transition: opacity 250ms ease-out;
+  transition: opacity 250ms ease-out;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+hr {
+  width: 100%;
+}
+#header-logo-holder, #intro-logo-holder {
+  height: 350px;
+  .bigtext {
+    font-size: 2.5em;
+    letter-spacing: 2px;
+  }
+}
+.fancy {
+  height: 40px;
+  font-size: 1.5em;
+  font-weight: bold;
+  float: left;
+  position: relative;
+  width: 100%;
+  &:after {
+    content: ' ';
+    background-image: url(img/fancy.svg);
+    height: 40px;
+    width: 100%;
+    float: right;
+    position: absolute;
+    right: 0;
+    background-position: right;
+    background-repeat: no-repeat;
+    top: 40px;
+    background-size: contain;
+  }
+}
+//Navigation Styles
+header.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  a.icon, .menu-toggle {
+    color: $dark;
+    font-size: 2em;
+    margin-right: 10px;
+  }
+  a:hover {
+    color: $secondary;
+  }
+
+  nav.desktop {
+    ul{
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-transform: uppercase;
+        font-size: .9em;
+        a {
+          padding: 5px 20px;
+          color: $dark;
+          text-decoration: none;
+        }
+        a:hover {
+          color: $secondary;
+        }
+      }
+    }
+  }
+
+}
+header.page-header {
+  margin-top: 70px;
+
+  .header-padding {
+    padding: 40px 0 40px 0;
+    width: 100%;
+    height: 350px;
+    svg{
+      width: 100%;
+    }
+  }
+}
+section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.admin-bar {
+  header.top-header {
+    margin-top: 32px;
+  }
+}
+
+#cd-logo, main.container{
+  padding-top: 150px; //This matches the height of the header
+}
+
+#certs {
+  i {
+
+  }
+  &.loading {
+    text-align: center;
+    padding: 50px;
+    svg {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}
+#prodCats {
+  display: flex;
+  flex-wrap: wrap;
+  svg {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .product {
+    flex-grow: 1;
+    max-width: 20%;
+    background: $light;
+    border: none;
+    padding: 20px;
+    color: $primary;
+    margin: 2px;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    &.selected {
+      background: $primary;
+      color: $light;
+    }
+  }
+}
+//Signup Section
+.signup {
+
+  .woocommerce {
+    width: 100%;
+    padding: 10px;
+  }
+  .signup-section {
+    opacity: 0;
+    height: 0;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+
+    &.show {
+      opacity: 1;
+      height: unset;
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -ms-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease;
+    }
+  }
+}
+.block {
+  background: $light;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  .image {
+    flex-grow: 1;
+    width: 40%;
+  }
+  .text{
+    flex-grow: 2;
+    width: 60%;
+    padding: 11px;
+    h3 {
+      color: $primary;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      margin: 0 0 10px 0;
+    }
+  }
+  .block-button {
+    width: 100%;
+    padding: 20px 0 0 0;
+  }
+}
+
+// Footer
+.newsletter {
+  .gfield_label {
+    display: none;
+  }
+  .gform_footer {
+    text-align: center;
+    padding: 0 0 40px 0;
+    .gform_button.button {
+      background: #fff;
+      color: $primary;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      text-transform: uppercase;
+    }
+  }
+  .gform_confirmation_message {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+  }
+}
+footer.footer {
+  border-top: 1px solid $light;
+  border-bottom: 1px solid $light;
+  text-align: right;
+  nav.footer-menu {
+    width: 100%;
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        padding: 5px 10px;;
+        margin: 0;
+        display: inline-block;
+        a {
+          color: $dark;
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+footer.bottom-footer{
+  p{
+    margin: 0;
+    padding: 0;
+  }
+}
+.footer-credit {
+  img {
+    float: left;
+    margin: 10px;
+  }
+}
+.woocommerce ul.products .onsale, span.onsale {
+  min-height: 50px;
+  min-width: 50px;
+  padding: 0px 5px;
+  font-size: 1em;
+  font-weight: 700;
+  position: absolute;
+  text-align: right;
+  line-height: 38px;
+  top: -.5em;
+  left: -.5em;
+  margin: 0;
+  border-radius: 0 0 0 100%;
+  background-color: #77a464;
+  color: #fff;
+  font-size: .857em;
+  z-index: 9;
+}
+footer.bottom-footer {
+  min-height: 50px;
+  line-height: 50px;
+}
+
+.bypostauthor > article .fn:before {
+  content: "\f408";
+  margin: 0 2px 0 -2px;
+  position: relative;
+  top: -1px;
+}
+
+/* single post */
+
+.alignleft, img.alignleft {
+  float: left;
+
+}
+
+.alignright, img.alignright {
+  float: right;
+
+}
+
+.aligncenter, img.aligncenter {
+  float: none;
+
+}
+
+.alignnone, img.alignnone {
+  float: none;
+
+}
+
+/* sidebars and asides */
+.has-sidebar {
+  padding-left: 30px;
+}
+aside.sidebar {
+  padding-top: 40px;
+  background: $background;
+  border-right: 1px solid $light;
+  .sidebar-cont {
+    float: right;
+    max-width: 300px;
+    .fancy {
+      color: $secondary;
+      padding-left: 36px;
+      font-size: 1em;
+      text-transform: uppercase;
+      &:after {
+        background-image: url(img/header-back.svg);
+        top: 10px;
+      }
+    }
+    ul {
+      float: left;
+      list-style: none;
+      margin-bottom: 40px;
+      li {
+        padding: 0;
+        margin: 0;
+        float: left;
+        width: 100%;
+        a {
+          padding: 10px 0;
+          border-bottom: 1px solid $dark;
+          float: left;
+          width: 100%;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .sidebar-social {
+    font-size: 3em;
+    border-bottom: 5px solid $light;
+    svg {
+      padding: 0 5px;
+    }
+  }
+}
+//Pages
+.variable-content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .column_content {
+    padding: 20px;
+    border-right: 1px solid #fff;
+    &:last-of-type{
+      border-right: 0;
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  .page-numbers {
+    background: $primary;
+    padding: 5px 10px;
+    margin: 0 2px;
+    color: #fff;
+    text-align: center;
+    flex: 1;
+    font-size: 1.4em;
+    font-weight: 500;
+    min-width: 30px;
+    white-space: nowrap;
+  }
+  .page-numbers.current {
+    background: $light;
+    color: $dark;
+  }
+  .page-numbers:first-child {
+    margin-left: 0;
+  }
+  .page-numbers:last-child {
+    margin-right: 0;
+  }
+}
+
+// Footer Styles

@@ -1,0 +1,37 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+
+//
+// Color system
+//
+
+$primary:       rgb(255, 205, 23);
+$secondary:     rgb(82, 129, 196);
+$success:       rgba(75,175,7, 1);
+$info:          rgb(225, 233, 214);
+$warning:       rgba(201,169,56, 1);
+$danger:        rgba(201,73,73, 1);
+$light:         rgba(220,220,220, 1);
+$dark:          rgba(99, 99, 99, 1);
+$lobo-blue:     rgba(117, 200, 232, 1);
+
+$grid-gutter-width:           10px;
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      'Raleway', sans-serif;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-base:            $font-family-sans-serif;
+// stylelint-enable value-keyword-case
+
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$font-size-lg:                ($font-size-base * 1.25);
+$font-size-sm:                ($font-size-base * .875);
+
+$h1-font-size:                $font-size-base * 2.5;
+$h2-font-size:                $font-size-base * 2;
+$h3-font-size:                $font-size-base * 1.75;
+$h4-font-size:                $font-size-base * 1.5;
+$h5-font-size:                $font-size-base * 1.25;
+$h6-font-size:                $font-size-base;
