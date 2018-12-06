@@ -1,41 +1,27 @@
-<?php get_header();
-if(have_posts()) :
+<?php get_header(); ?>
+<main role="main" aria-label="Content" class="container">
+    <div class="row">
+      <?php get_sidebar(); ?>
+        <div class="col-xs-12 col-md-8 has-sidebar">
+            <!-- section -->
+            <section>
+                <h1><?php the_title(); ?></h1>
 
-?>
-    <main role="main" aria-label="Content" <?php post_class('container'); ?>>
-      <?php while(have_posts()) : the_post(); ?>
-        <div class="row">
-            <div class="col-md-10 offset-md-1 col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <h1>
-                            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-                        </h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-7 offset-md-1 col-12">
-                <!-- section -->
-                <section>
-                    <!-- article -->
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <?php the_content(); ?>
+                <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+                  <!-- article -->
+                  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                      <?php the_content();?>
                     </article>
                     <!-- /article -->
-                </section>
-            </div>
-            <?php get_sidebar(); ?>
+
+                <?php endwhile; endif; ?>
+
+            </section>
         </div>
 
-        <!-- /section -->
-        <?php endwhile; ?>
-    </main>
-
+    </div>
+            <!-- /section -->
+</main>
 <?php
-
 include 'layout/top-footer.php';
- endif;
 get_footer();

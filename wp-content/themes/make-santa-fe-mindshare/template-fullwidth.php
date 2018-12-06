@@ -1,8 +1,8 @@
 <?php
 //Template Name: Full Width Page
 get_header();
-include 'layout/top-header.php';
-include 'layout/brand.php';
+
+// include 'layout/page-header.php';
 ?>
     <main role="main" aria-label="Content" class="container">
         <div class="row">

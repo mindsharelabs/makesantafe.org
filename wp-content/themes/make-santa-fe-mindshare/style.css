@@ -3,7 +3,7 @@
 * Theme Name: MindBlank - Development Theme
 * Theme URI: https://mind.sh/are/
 * Author: Mindshare Labs, Inc
-* Author URI: https://mind.sh/are/
+* Author URI: https://mind.sh/are/ 
 * Version: 1.0.0
 */
 .background { background: #fafbfc; }
@@ -6132,6 +6132,7 @@ body { width: 100%; height: 100%; }
 
 #header-flare path { stroke: #be202e; }
 
+#intro-logo-load { height: 357px; position: absolute; left: 0; right: 0; top: 0; padding-top: 20px; }
 #intro-logo-load .circle { fill: #be202e; stroke: #be202e; }
 #intro-logo-load .dot { stroke: #be202e; fill: transparent; }
 #intro-logo-load .lines { fill: transparent; stroke: #be202e; }
@@ -6164,7 +6165,7 @@ header.top-header nav.desktop ul li { display: inline-block; margin: 0; padding:
 header.top-header nav.desktop ul li a { padding: 5px 20px; color: #010101; text-decoration: none; }
 header.top-header nav.desktop ul li a:hover { color: #b3afac; }
 
-header.page-header { margin-top: 70px; }
+header.page-header { margin-top: 70px; background-size: cover; background-position: center; }
 header.page-header .header-padding { padding: 40px 0 40px 0; width: 100%; height: 350px; }
 header.page-header .header-padding svg { width: 100%; }
 
@@ -6191,6 +6192,10 @@ section { padding-top: 30px; padding-bottom: 30px; }
 .block .text { flex-grow: 2; width: 60%; padding: 11px; }
 .block .text h3 { color: #be202e; font-size: 1.2em; text-transform: uppercase; margin: 0 0 10px 0; }
 .block .block-button { width: 100%; padding: 20px 0 0 0; }
+
+.product h1.product_title { font-size: 1.8em; }
+.product .woocommerce div.product form.cart .variations { white-space: nowrap; }
+.product .single_variation_wrap { margin-bottom: 20px; }
 
 .newsletter .gfield_label { display: none; }
 .newsletter .gform_footer { text-align: center; padding: 0 0 40px 0; }

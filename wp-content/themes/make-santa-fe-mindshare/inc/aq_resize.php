@@ -232,7 +232,7 @@ if(!function_exists('aq_resize')) {
      * This is just a tiny wrapper function for the class above so that there is no
      * need to change any code in your own WP themes. Usage is still the same :)
      */
-    function aq_resize( $url, $width = null, $height = null, $crop = null, $single = true, $upscale = false ) {
+    function aq_resize( $url, $width = null, $height = null, $crop = true, $single = true, $upscale = true ) {
         /* WPML Fix */
         if ( defined( 'ICL_SITEPRESS_VERSION' ) ){
             global $sitepress;
@@ -244,4 +244,3 @@ if(!function_exists('aq_resize')) {
         return $aq_resize->process( $url, $width, $height, $crop, $single, $upscale );
     }
 }
-

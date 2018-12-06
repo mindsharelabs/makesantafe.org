@@ -1,7 +1,18 @@
-<?php $color = get_field('color'); ?>
+<?php
+
+$color = get_field('color');
+if(has_post_thumbnail()){
+	$thumb = get_the_post_thumbnail_url( get_the_id(), 'full');
+	$image = aq_resize($thumb, 1500, 300);
+	$background_str = 'background-image: url(' . $image . ')';
+} else {
+	$background_str = 'background-color:' . $color;
+}
+
+?>
 <style>
 	.header-container {
-    background: <?php echo $color; ?>;
+    <?php echo $background_str; ?>;
   }
   #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
     fill: #fff;
@@ -29,7 +40,7 @@
   }
 
 </style>
-<header class="page-header container-fluid" style="background-color:<?php the_field('color'); ?>">
+<header class="page-header container-fluid" style="<?php echo $background_str; ?>">
   <div class="header-padding">
     <div id="intro-logo-holder">
       <svg id="intro-logo-load" width="100%" height="100%" ></svg>

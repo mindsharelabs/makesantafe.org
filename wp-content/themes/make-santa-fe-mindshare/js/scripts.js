@@ -81,7 +81,6 @@
 					$('#certs').on('click', '.add-to-cart', function(){
 						var cartItem = $(this).data('item');
 						addToCart(cartItem);
-
 					})
 
 

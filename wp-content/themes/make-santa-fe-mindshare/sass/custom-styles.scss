@@ -113,7 +113,8 @@ header.top-header {
 }
 header.page-header {
   margin-top: 70px;
-
+  background-size: cover;
+  background-position: center;
   .header-padding {
     padding: 40px 0 40px 0;
     width: 100%;
@@ -225,6 +226,20 @@ section {
     padding: 20px 0 0 0;
   }
 }
+
+//Shop Page
+.product{
+  h1.product_title{
+    font-size: 1.8em;
+  }
+  .woocommerce div.product form.cart .variations {
+    white-space: nowrap;
+  }
+  .single_variation_wrap {
+    margin-bottom: 20px;
+  }
+}
+
 
 // Footer
 .newsletter {
