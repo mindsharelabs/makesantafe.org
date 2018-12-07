@@ -33,19 +33,12 @@
     <meta name="theme-color" content="#ffffff">
 
     <?php wp_head(); ?>
-    <script>
-        // conditionizr.com
-        // configure environment tests
-        conditionizr.config({
-            assets: '<?php echo get_template_directory_uri(); ?>',
-            tests: {}
-        });
-    </script>
+
 </head>
 
 <body <?php body_class(); ?>>
 
-<nav id="main-nav" class="nav" role="navigation">
+<nav id="main-nav" class="nav pt-5 d-block d-md-none" role="navigation">
     <?php
     if(is_user_logged_in()) :
       mindblank_nav('member-menu');

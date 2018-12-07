@@ -1,22 +1,19 @@
 <?php get_header();
 
 include 'layout/page-header.php';
+include 'layout/notice.php';
 ?>
-<main role="main" aria-label="Content" class="container-fluid">
+<main role="main" aria-label="Content" class="container">
     <div class="row">
       <?php get_sidebar(); ?>
         <div class="col-xs-12 col-md-8 has-sidebar">
             <!-- section -->
             <section>
                 <h1><?php the_title(); ?></h1>
-
                 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-
                     <!-- article -->
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
                         <?php the_content();
-
                             $variable_content = get_field('variable_content');
                             if ($variable_content):
                                     foreach ($variable_content as $content) :
@@ -68,18 +65,11 @@ include 'layout/page-header.php';
                                     endforeach;
 
                             endif;
-                            ?>
 
-                        <?php edit_post_link(); ?>
-
-                    </article>
-                    <!-- /article -->
-
-                <?php endwhile; ?>
-
-
-                <?php endif; ?>
-
+                            edit_post_link();
+                    echo '</article>';
+                    endwhile;
+                  endif; ?>
             </section>
         </div>
 

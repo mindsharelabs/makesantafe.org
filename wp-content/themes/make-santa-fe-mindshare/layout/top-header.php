@@ -28,7 +28,7 @@
               endforeach;
             endif;
             ?>
-            <span class="menu-toggle"><i class="fas fa-bars"></i></span>
+            <span class="menu-toggle d-block d-md-none"><i class="fas fa-bars"></i></span>
           </div>
 
     </div>

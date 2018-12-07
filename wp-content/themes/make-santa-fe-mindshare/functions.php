@@ -63,6 +63,19 @@ function mapi_write_log($message) {
         }
     }
 }
+
+add_action( 'pre_get_posts', 'team_post_type_archive' );
+
+function team_post_type_archive( $query ) {
+
+if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
+		$query->set( 'posts_per_page', -1 );
+		$query->set( 'orderby', 'title' );
+    $query->set( 'order', 'DESC' );
+	}
+}
+
+
 // mind Blank navigation
 function mindblank_nav($menu)
 {
@@ -257,9 +270,9 @@ if (function_exists('register_sidebar')) {
         'name' => __('Widget Area 1', 'mindblank'),
         'description' => __('Widgets on all sub-pages', 'mindblank'),
         'id' => 'page-sidebar',
-        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'before_widget' => '<div id="%1$s" class="%2$s widget-container">',
         'after_widget' => '</div>',
-        'before_title' => '<h3 class="fancy">',
+        'before_title' => '<h3 class="fancy mt-4">',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(

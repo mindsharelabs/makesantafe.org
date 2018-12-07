@@ -1,6 +1,7 @@
 <?php get_header();
 
 include 'layout/banner.php';
+include 'layout/notice.php';
 include 'layout/signup.php';
 include 'layout/blocks.php';
 include 'layout/newsletter.php';

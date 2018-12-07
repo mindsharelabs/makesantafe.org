@@ -1,12 +1,12 @@
 <?php
 //Template Name: Full Width Page
 get_header();
-
-// include 'layout/page-header.php';
+include 'layout/page-header.php';
+include 'layout/notice.php';
 ?>
     <main role="main" aria-label="Content" class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-10 offset-md-1">
                 <!-- section -->
                 <section>
                     <h1><?php the_title(); ?></h1>

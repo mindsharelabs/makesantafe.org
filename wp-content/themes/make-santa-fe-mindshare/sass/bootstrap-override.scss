@@ -1,4 +1,14 @@
-
 .btn-lg {
   font-size: 1.75rem;
+}
+.notice-container {
+  .alert {
+    border-top: 3px dashed $primary;
+    border-bottom: 3px dashed $primary;
+  }
+}
+.rounded-circle {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }

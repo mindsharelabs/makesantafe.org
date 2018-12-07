@@ -2,8 +2,8 @@
 /*!
 * Theme Name: MindBlank - Development Theme
 * Theme URI: https://mind.sh/are/
-* Author: Mindshare Labs, Inc
-* Author URI: https://mind.sh/are/ 
+* Author: Mindshare Labs, Inc  
+* Author URI: https://mind.sh/are/
 * Version: 1.0.0
 */
 .background { background: #fafbfc; }
@@ -5189,6 +5189,10 @@ template { display: none; }
 
 .btn-lg, .btn-group-lg > .btn, .gform_wrapper .btn-group-lg > .button { font-size: 1.75rem; }
 
+.notice-container .alert, .notice-container .validation_error { border-top: 3px dashed #be202e; border-bottom: 3px dashed #be202e; }
+
+.rounded-circle { padding: 4px; background-color: #fff; border: 1px solid #ddd; }
+
 .align-baseline { vertical-align: baseline !important; }
 
 .align-top { vertical-align: top !important; }
@@ -6111,7 +6115,7 @@ body { width: 100%; height: 100%; }
 
 .menu-toggle { color: #be202e; cursor: pointer; }
 
-.slideout-menu { position: fixed; top: 0; bottom: 0; right: 0; z-index: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; display: none; padding: 50px 0 0 0; background: #be202e; color: #fff; }
+.slideout-menu { z-index: 100; position: fixed; top: 0; bottom: 0; right: 0; z-index: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; display: none; padding: 50px 0 0 0; background: #be202e; color: #fff; }
 .slideout-menu a { color: #fff; }
 .slideout-menu ul { list-style: none; margin: 0; padding: 0; }
 .slideout-menu ul ul.sub-menu li a { padding-left: 40px; }
@@ -6139,7 +6143,7 @@ body { width: 100%; height: 100%; }
 #intro-logo-load .fills { stroke: #010101; }
 #intro-logo-load #banner .lines { stroke: #000; }
 
-body { opacity: 0; font-family: 'Ubuntu', sans-serif; font-weight: 400; color: #010101; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004); -webkit-transition: opacity 250ms ease-out; -moz-transition: opacity 250ms ease-out; -ms-transition: opacity 250ms ease-out; -o-transition: opacity 250ms ease-out; transition: opacity 250ms ease-out; }
+body { opacity: 0; font-family: 'Ubuntu', sans-serif; font-weight: 400; color: #010101; overflow-x: hidden; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004); -webkit-transition: opacity 250ms ease-out; -moz-transition: opacity 250ms ease-out; -ms-transition: opacity 250ms ease-out; -o-transition: opacity 250ms ease-out; transition: opacity 250ms ease-out; }
 
 body.fade-in { opacity: 1; }
 
@@ -6169,11 +6173,9 @@ header.page-header { margin-top: 70px; background-size: cover; background-positi
 header.page-header .header-padding { padding: 40px 0 40px 0; width: 100%; height: 350px; }
 header.page-header .header-padding svg { width: 100%; }
 
-section { padding-top: 30px; padding-bottom: 30px; }
-
 .admin-bar header.top-header { margin-top: 32px; }
 
-#cd-logo, main.container { padding-top: 150px; }
+#cd-logo { margin-top: 150px; }
 
 #certs.loading { text-align: center; padding: 50px; }
 #certs.loading svg { margin: 0 auto; text-align: center; }
@@ -6231,15 +6233,25 @@ footer.bottom-footer { min-height: 50px; line-height: 50px; }
 /* sidebars and asides */
 .has-sidebar { padding-left: 30px; }
 
+section.team .team-content h3 { font-size: 1.2em; color: #be202e; }
+section.team .team-content h4 { font-size: 1.1em; }
+
 aside.sidebar { padding-top: 40px; background: #fafbfc; border-right: 1px solid #e6e6e6; }
 aside.sidebar .sidebar-cont { float: right; max-width: 300px; }
-aside.sidebar .sidebar-cont .fancy { color: #b3afac; padding-left: 36px; font-size: 1em; text-transform: uppercase; }
+aside.sidebar .sidebar-cont .fancy { color: #b3afac; padding-left: 36px; font-size: 1em; text-transform: uppercase; margin-top: 30px; }
 aside.sidebar .sidebar-cont .fancy:after { background-image: url(img/header-back.svg); top: 10px; }
 aside.sidebar .sidebar-cont ul { float: left; list-style: none; margin-bottom: 40px; }
 aside.sidebar .sidebar-cont ul li { padding: 0; margin: 0; float: left; width: 100%; }
-aside.sidebar .sidebar-cont ul li a { padding: 10px 0; border-bottom: 1px solid #010101; float: left; width: 100%; font-weight: bold; }
+aside.sidebar .sidebar-cont ul li a { padding: 10px 0; width: 100%; font-weight: bold; }
 aside.sidebar .sidebar-social { font-size: 3em; border-bottom: 5px solid #e6e6e6; }
 aside.sidebar .sidebar-social svg { padding: 0 5px; }
+aside.sidebar .widget-container div { margin-left: 36px; }
+aside.sidebar .sidebar-content .related_content { margin-left: 36px; }
+aside.sidebar .sidebar-content .related_content h4 { font-size: 1.2em; font-weight: bold; margin-bottom: 0; }
+aside.sidebar .sidebar-content .related_content h5 { font-size: 1em; color: #aaaaaa; }
+
+.embed-container { position: relative; padding-bottom: 56.25%; overflow: hidden; max-width: 100%; height: auto; }
+.embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 .variable-content { margin-top: 20px; margin-bottom: 20px; }
 .variable-content .column_content { padding: 20px; border-right: 1px solid #fff; }

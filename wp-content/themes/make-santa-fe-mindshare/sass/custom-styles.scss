@@ -10,6 +10,7 @@ body {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   color: $dark;
+  overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale; // enable font-smoothing for browsers that support it
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
@@ -124,18 +125,14 @@ header.page-header {
     }
   }
 }
-section {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
 .admin-bar {
   header.top-header {
     margin-top: 32px;
   }
 }
 
-#cd-logo, main.container{
-  padding-top: 150px; //This matches the height of the header
+#cd-logo{
+  margin-top: 150px; //This matches the height of the header
 }
 
 #certs {
@@ -355,6 +352,17 @@ footer.bottom-footer {
 .has-sidebar {
   padding-left: 30px;
 }
+section.team {
+  .team-content{
+    h3 {
+      font-size: 1.2em;
+      color: $primary;
+    }
+    h4{
+      font-size: 1.1em;
+    }
+  }
+}
 aside.sidebar {
   padding-top: 40px;
   background: $background;
@@ -367,6 +375,7 @@ aside.sidebar {
       padding-left: 36px;
       font-size: 1em;
       text-transform: uppercase;
+      margin-top: 30px;
       &:after {
         background-image: url(img/header-back.svg);
         top: 10px;
@@ -383,8 +392,6 @@ aside.sidebar {
         width: 100%;
         a {
           padding: 10px 0;
-          border-bottom: 1px solid $dark;
-          float: left;
           width: 100%;
           font-weight: bold;
         }
@@ -399,7 +406,44 @@ aside.sidebar {
       padding: 0 5px;
     }
   }
+  .widget-container {
+    div {
+      margin-left: 36px;
+    }
+  }
+  .sidebar-content{
+    .related_content {
+      margin-left: 36px;
+      h4 {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+      h5 {
+        font-size: 1em;
+        color: #aaaaaa;
+      }
+    }
+  }
 }
+
+.embed-container {
+		position: relative;
+		padding-bottom: 56.25%;
+		overflow: hidden;
+		max-width: 100%;
+		height: auto;
+    iframe, object, embed {
+    		position: absolute;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100%;
+    	}
+	}
+
+
+
 //Pages
 .variable-content {
   margin-top: 20px;
