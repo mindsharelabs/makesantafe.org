@@ -21,7 +21,14 @@
 // the defined @grid-float-breakpoint-max (usually 767px).
 
 @media (max-width: map-get($grid-breakpoints, md)) {
-
+  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
+    font-size: 20px;
+  }
+  .admin-bar {
+    header.top-header {
+      margin-top: 46px;
+    }
+  }
 }
 
 // XS styles - default: x <= 479px
@@ -31,23 +38,39 @@
 //lg: 992px,
 //xl: 1200px
 @media (max-width: 576px) {
-
+  .admin-bar {
+    header.top-header {
+      margin-top: 46px;
+    }
+  }
 }
 
 // Small styles - default: 480px <= x <= 991px
 @media (min-width: 576px) and (max-width: 992px) {
 
-
+  .admin-bar {
+    header.top-header {
+      margin-top: 32px;
+    }
+  }
 }
 
 // Medium styles - default: 992px <= x <= 1199px
 @media (min-width: 992px) and (max-width: 1200px) {
-
+  .admin-bar {
+    header.top-header {
+      margin-top: 32px;
+    }
+  }
 }
 
 // Large styles - default: 1200px <= x
 @media (min-width: 1200px) {
-
+  .admin-bar {
+    header.top-header {
+      margin-top: 32px;
+    }
+  }
 }
 
 /* Define xs styles after defaults so they take precedence */

@@ -48,12 +48,28 @@ if(get_field('show_header')) :
 	  </div>
 	</header>
 	<?php
+elseif(is_product()) :
+		echo '<header class="header-padding shop-header">';
+			echo '<div class="header-padding">';
+				echo '<div id="intro-logo-holder">';
+					echo '<svg id="intro-logo-load" width="100%" height="100%" ></svg>';
+				echo '</div>';
+			echo '</div>';
+		echo '</header>';
+elseif(is_product_category()) :
+		echo '<header class="header-padding shop-header">';
+			echo '<div class="header-padding">';
+				echo '<div id="intro-logo-holder">';
+					echo '<svg id="intro-logo-load" width="100%" height="100%" ></svg>';
+				echo '</div>';
+			echo '</div>';
+		echo '</header>';
 else :
-	echo '<div class="header-padding mb-5 mt-4">';
+	echo '<header class="header-padding mb-5 mt-4">';
 		echo '<div class="row">';
 			echo '<div class="col-12">';
 
 			echo '</div>';
 		echo '</div>';
-	echo '</div>';
+	echo '</header>';
 endif;

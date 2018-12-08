@@ -9,10 +9,15 @@ include 'layout/notice.php';
             <div class="col-12 col-md-10 offset-md-1">
                 <!-- section -->
                 <section>
-                    <h1><?php the_title(); ?></h1>
-                    <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+                    <?php
+                    if(!get_field('show_header')):
+                      echo '<h1>';
+                        the_title();
+                      echo '</h1>';
+                    endif;
+                    if (have_posts()): while (have_posts()) : the_post(); ?>
                         <!-- article -->
-                        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                        <article id="post-<?php the_ID(); ?>" <?php post_class('mt-3'); ?>>
 
                             <?php the_content(); ?>
 

@@ -1,5 +1,5 @@
 <?php
-$sidebar_content = get_field('additional_content', get_the_id());
+$sidebar_content = get_field('sidebar_blocks', get_the_id());
 ?>
 <!-- sidebar -->
 <aside class="sidebar col-md-4 col-12" role="complementary">
@@ -29,7 +29,9 @@ $sidebar_content = get_field('additional_content', get_the_id());
 						endforeach;
 					elseif($s_content['acf_fc_layout'] == 'general_content'):
 						echo '<h3 class="fancy">' . $s_content['title'] . '</h3>';
-						echo $s_content['text'];
+						echo '<div class="sub-content">';
+							echo $s_content['text'];
+						echo '</div>'; 
 					endif;
 				endforeach;
 			echo '</div>';

@@ -170,21 +170,9 @@ function mindblank_header_scripts()
         wp_register_script('slideout-js', get_template_directory_uri() . '/js/slideout.min.js', array(), '1.0');
         wp_enqueue_script('slideout-js');
 
-          wp_register_script('snapsvg-js', get_template_directory_uri() . '/js/svg.js', array(), '');
-          wp_enqueue_script('snapsvg-js');
+        wp_register_script('snapsvg-js', get_template_directory_uri() . '/js/svg.js', array(), '');
+        wp_enqueue_script('snapsvg-js');
 
-          wp_register_script('svgintro-js', get_template_directory_uri() . '/js/svg-intro.js', array('snapsvg-js'), '', true);
-          wp_enqueue_script('svgintro-js');
-
-          wp_localize_script( 'svgintro-js', 'svgvars', array(
-            'words' => strtoupper(get_bloginfo('description')),
-            'color' => '#36383E',
-            'litcolor' => shadeColor('#36383E', 20),
-            'home' => false,
-            'logo' => get_template_directory_uri()."/img/make-santa-fe.svg",
-            'intro' => get_template_directory_uri()."/img/banner.svg",
-            'circuit' => get_template_directory_uri()."/img/circuit.svg" )
-          );
 
 
 
@@ -193,6 +181,44 @@ function mindblank_header_scripts()
         wp_register_script('slick-slider', get_template_directory_uri() . '/js/slick.min.js', array(), '1.0');
         wp_enqueue_script('slick-slider');
     }
+}
+
+
+add_action('wp', 'localize_header_svg_script');
+function localize_header_svg_script() {
+  wp_register_script('svgintro-js', get_template_directory_uri() . '/js/svg-intro.js', array('snapsvg-js'), '', true);
+  wp_enqueue_script('svgintro-js');
+
+  wp_localize_script( 'svgintro-js', 'svgvars', array(
+    'words' => strtoupper(make_get_title()),
+    'color' => make_header_text_color(),
+    'litcolor' => shadeColor('#36383E', 20),
+    'home' => false,
+    'logo' => get_template_directory_uri()."/img/make-santa-fe.svg",
+    'intro' => get_template_directory_uri()."/img/banner.svg",
+    'circuit' => get_template_directory_uri()."/img/circuit.svg" )
+  );
+
+}
+
+function make_get_title() {
+  if(is_home()) :
+    $title = get_bloginfo('description');
+  elseif(is_product_category()) :
+    $title = single_term_title('', false);
+  else :
+    $title = get_the_title();
+  endif;
+  return $title;
+}
+
+function make_header_text_color() {
+  if(is_home()){
+    $color = '#555555';
+  } else {
+    $color = '#ffffff';
+  }
+  return $color;
 }
 
 // Load mind Blank conditional scripts
