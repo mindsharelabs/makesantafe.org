@@ -69,6 +69,28 @@ hr {
     background-size: contain;
   }
 }
+.fancy-header{
+  height: 40px;
+
+  float: left;
+  position: relative;
+  width: 100%;
+  text-transform: uppercase;
+  color: $primary;
+  display: flex;
+  background: #fff;
+  .page-title{
+    font-size: 1.4em;
+    line-height: 40px;
+    margin-right: 20px;
+  }
+  .header-flex-svg {
+    flex-grow: 1;
+    svg{
+      fill:#fff;
+    }
+  }
+}
 //Navigation Styles
 header.top-header {
   position: fixed;
@@ -81,8 +103,8 @@ header.top-header {
   z-index: 2;
   a.icon, .menu-toggle {
     color: $dark;
-    font-size: 2em;
-    margin-right: 10px;
+    font-size: 1.5em;
+    margin-right: 5px;
   }
   a:hover {
     color: $secondary;
@@ -113,7 +135,6 @@ header.top-header {
 
 }
 header.page-header {
-  margin-top: 70px;
   background-size: cover;
   background-position: center;
   .header-padding {
@@ -125,14 +146,8 @@ header.page-header {
     }
   }
 }
-.admin-bar {
-  header.top-header {
-    margin-top: 32px;
-  }
-}
-
-#cd-logo{
-  margin-top: 150px; //This matches the height of the header
+.header-padding {
+  margin-top: 70px;
 }
 
 #certs {
@@ -173,7 +188,6 @@ header.page-header {
 }
 //Signup Section
 .signup {
-
   .woocommerce {
     width: 100%;
     padding: 10px;
@@ -198,6 +212,15 @@ header.page-header {
     }
   }
 }
+.woocommerce-breadcrumb{
+    text-align: right;
+    padding: 10px!important;
+    background: $primary;
+    color: #fff!important;
+    a{
+      color: #fff!important;
+    }
+  }
 .block {
   background: $light;
   padding: 20px;
@@ -266,16 +289,18 @@ footer.footer {
   text-align: right;
   nav.footer-menu {
     width: 100%;
+    font-size: .9em;
+
     ul{
       padding: 0;
       margin: 0;
       list-style: none;
       li {
-        padding: 5px 10px;;
+        padding: 5px 15px;
         margin: 0;
         display: inline-block;
         a {
-          color: $dark;
+          color: $light;
           &:hover {
             color: $primary;
           }
@@ -285,6 +310,8 @@ footer.footer {
   }
 }
 footer.bottom-footer{
+  border-top: 5px solid $primary;
+  background-color: $background;
   p{
     margin: 0;
     padding: 0;
@@ -364,18 +391,18 @@ section.team {
   }
 }
 aside.sidebar {
-  padding-top: 40px;
   background: $background;
   border-right: 1px solid $light;
   .sidebar-cont {
     float: right;
-    max-width: 300px;
+    max-width: 330px;
     .fancy {
       color: $secondary;
-      padding-left: 36px;
+      padding-left: 56px;
       font-size: 1em;
       text-transform: uppercase;
       margin-top: 30px;
+      white-space: nowrap;
       &:after {
         background-image: url(img/header-back.svg);
         top: 10px;
@@ -397,6 +424,13 @@ aside.sidebar {
         }
       }
     }
+    .sidebar-widget {
+      .textwidget {
+        margin-left: 56px;
+        font-weight: 100;
+        font-size: .95em;
+      }
+    }
   }
 
   .sidebar-social {
@@ -413,7 +447,10 @@ aside.sidebar {
   }
   .sidebar-content{
     .related_content {
-      margin-left: 36px;
+      margin-left: 56px;
+      h3 {
+        white-space: nowrap;
+      }
       h4 {
         font-size: 1.2em;
         font-weight: bold;
@@ -424,6 +461,43 @@ aside.sidebar {
         color: #aaaaaa;
       }
     }
+    .sub-content {
+      float: left;
+      margin-left: 56px;
+      color: lighten($dark, 10%);
+      font-weight: 100;
+      font-size: .95em;
+    }
+  }
+}
+//Prioducts
+
+
+.shop-header {
+  background: $primary;
+  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
+    fill: #fff;
+    color: #fff;
+  }
+  #intro-logo-load .dot {
+    stroke: #fff;
+  }
+  #intro-logo-load .fills {
+    fill: lighten($primary, 20%);
+  }
+  #intro-logo-load .lines {
+    stroke: #fff;
+  }
+  #intro-logo-load .circle {
+    fill: transparent;
+    stroke: #fff;
+  }
+  .sidebar-cont a {
+    color: $primary;
+  }
+  .color-back {
+    background-color: $primary;
+    color: #fff;
   }
 }
 

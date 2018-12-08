@@ -2,7 +2,7 @@
 /*!
 * Theme Name: MindBlank - Development Theme
 * Theme URI: https://mind.sh/are/
-* Author: Mindshare Labs, Inc  
+* Author: Mindshare Labs, Inc
 * Author URI: https://mind.sh/are/
 * Version: 1.0.0
 */
@@ -6136,7 +6136,7 @@ body { width: 100%; height: 100%; }
 
 #header-flare path { stroke: #be202e; }
 
-#intro-logo-load { height: 357px; position: absolute; left: 0; right: 0; top: 0; padding-top: 20px; }
+#intro-logo-load { height: 357px; position: absolute; left: 0; right: 0; top: 0; padding-top: 30px; }
 #intro-logo-load .circle { fill: #be202e; stroke: #be202e; }
 #intro-logo-load .dot { stroke: #be202e; fill: transparent; }
 #intro-logo-load .lines { fill: transparent; stroke: #be202e; }
@@ -6161,21 +6161,24 @@ hr { width: 100%; }
 .fancy { height: 40px; font-size: 1.5em; font-weight: bold; float: left; position: relative; width: 100%; }
 .fancy:after { content: ' '; background-image: url(img/fancy.svg); height: 40px; width: 100%; float: right; position: absolute; right: 0; background-position: right; background-repeat: no-repeat; top: 40px; background-size: contain; }
 
+.fancy-header { height: 40px; float: left; position: relative; width: 100%; text-transform: uppercase; color: #be202e; display: flex; background: #fff; }
+.fancy-header .page-title { font-size: 1.4em; line-height: 40px; margin-right: 20px; }
+.fancy-header .header-flex-svg { flex-grow: 1; }
+.fancy-header .header-flex-svg svg { fill: #fff; }
+
 header.top-header { position: fixed; top: 0; left: 0; width: 100%; height: 70px; background: rgba(255, 255, 255, 0.95); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); z-index: 2; }
-header.top-header a.icon, header.top-header .menu-toggle { color: #010101; font-size: 2em; margin-right: 10px; }
+header.top-header a.icon, header.top-header .menu-toggle { color: #010101; font-size: 1.5em; margin-right: 5px; }
 header.top-header a:hover { color: #b3afac; }
 header.top-header nav.desktop ul { margin: 0; padding: 0; }
 header.top-header nav.desktop ul li { display: inline-block; margin: 0; padding: 0; list-style: none; text-transform: uppercase; font-size: .9em; }
 header.top-header nav.desktop ul li a { padding: 5px 20px; color: #010101; text-decoration: none; }
 header.top-header nav.desktop ul li a:hover { color: #b3afac; }
 
-header.page-header { margin-top: 70px; background-size: cover; background-position: center; }
+header.page-header { background-size: cover; background-position: center; }
 header.page-header .header-padding { padding: 40px 0 40px 0; width: 100%; height: 350px; }
 header.page-header .header-padding svg { width: 100%; }
 
-.admin-bar header.top-header { margin-top: 32px; }
-
-#cd-logo { margin-top: 150px; }
+.header-padding { margin-top: 70px; }
 
 #certs.loading { text-align: center; padding: 50px; }
 #certs.loading svg { margin: 0 auto; text-align: center; }
@@ -6188,6 +6191,9 @@ header.page-header .header-padding svg { width: 100%; }
 .signup .woocommerce { width: 100%; padding: 10px; }
 .signup .signup-section { opacity: 0; height: 0; -webkit-transition: all 300ms ease; -moz-transition: all 300ms ease; -ms-transition: all 300ms ease; -o-transition: all 300ms ease; transition: all 300ms ease; }
 .signup .signup-section.show { opacity: 1; height: unset; -webkit-transition: all 300ms ease; -moz-transition: all 300ms ease; -ms-transition: all 300ms ease; -o-transition: all 300ms ease; transition: all 300ms ease; }
+
+.woocommerce-breadcrumb { text-align: right; padding: 10px !important; background: #be202e; color: #fff !important; }
+.woocommerce-breadcrumb a { color: #fff !important; }
 
 .block { background: #e6e6e6; padding: 20px; display: flex; flex-wrap: wrap; }
 .block .image { flex-grow: 1; width: 40%; }
@@ -6205,12 +6211,13 @@ header.page-header .header-padding svg { width: 100%; }
 .newsletter .gform_confirmation_message { padding: 20px; text-align: center; font-size: 1.5em; }
 
 footer.footer { border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; text-align: right; }
-footer.footer nav.footer-menu { width: 100%; }
+footer.footer nav.footer-menu { width: 100%; font-size: .9em; }
 footer.footer nav.footer-menu ul { padding: 0; margin: 0; list-style: none; }
-footer.footer nav.footer-menu ul li { padding: 5px 10px; margin: 0; display: inline-block; }
-footer.footer nav.footer-menu ul li a { color: #010101; }
+footer.footer nav.footer-menu ul li { padding: 5px 15px; margin: 0; display: inline-block; }
+footer.footer nav.footer-menu ul li a { color: #e6e6e6; }
 footer.footer nav.footer-menu ul li a:hover { color: #be202e; }
 
+footer.bottom-footer { border-top: 5px solid #be202e; background-color: #fafbfc; }
 footer.bottom-footer p { margin: 0; padding: 0; }
 
 .footer-credit img { float: left; margin: 10px; }
@@ -6236,19 +6243,31 @@ footer.bottom-footer { min-height: 50px; line-height: 50px; }
 section.team .team-content h3 { font-size: 1.2em; color: #be202e; }
 section.team .team-content h4 { font-size: 1.1em; }
 
-aside.sidebar { padding-top: 40px; background: #fafbfc; border-right: 1px solid #e6e6e6; }
-aside.sidebar .sidebar-cont { float: right; max-width: 300px; }
-aside.sidebar .sidebar-cont .fancy { color: #b3afac; padding-left: 36px; font-size: 1em; text-transform: uppercase; margin-top: 30px; }
+aside.sidebar { background: #fafbfc; border-right: 1px solid #e6e6e6; }
+aside.sidebar .sidebar-cont { float: right; max-width: 330px; }
+aside.sidebar .sidebar-cont .fancy { color: #b3afac; padding-left: 56px; font-size: 1em; text-transform: uppercase; margin-top: 30px; white-space: nowrap; }
 aside.sidebar .sidebar-cont .fancy:after { background-image: url(img/header-back.svg); top: 10px; }
 aside.sidebar .sidebar-cont ul { float: left; list-style: none; margin-bottom: 40px; }
 aside.sidebar .sidebar-cont ul li { padding: 0; margin: 0; float: left; width: 100%; }
 aside.sidebar .sidebar-cont ul li a { padding: 10px 0; width: 100%; font-weight: bold; }
+aside.sidebar .sidebar-cont .sidebar-widget .textwidget { margin-left: 56px; font-weight: 100; font-size: .95em; }
 aside.sidebar .sidebar-social { font-size: 3em; border-bottom: 5px solid #e6e6e6; }
 aside.sidebar .sidebar-social svg { padding: 0 5px; }
 aside.sidebar .widget-container div { margin-left: 36px; }
-aside.sidebar .sidebar-content .related_content { margin-left: 36px; }
+aside.sidebar .sidebar-content .related_content { margin-left: 56px; }
+aside.sidebar .sidebar-content .related_content h3 { white-space: nowrap; }
 aside.sidebar .sidebar-content .related_content h4 { font-size: 1.2em; font-weight: bold; margin-bottom: 0; }
 aside.sidebar .sidebar-content .related_content h5 { font-size: 1em; color: #aaaaaa; }
+aside.sidebar .sidebar-content .sub-content { float: left; margin-left: 56px; color: #1b1b1b; font-weight: 100; font-size: .95em; }
+
+.shop-header { background: #be202e; }
+.shop-header #header-logo-holder .bigtext, .shop-header #intro-logo-holder .bigtext { fill: #fff; color: #fff; }
+.shop-header #intro-logo-load .dot { stroke: #fff; }
+.shop-header #intro-logo-load .fills { fill: #e4606c; }
+.shop-header #intro-logo-load .lines { stroke: #fff; }
+.shop-header #intro-logo-load .circle { fill: transparent; stroke: #fff; }
+.shop-header .sidebar-cont a { color: #be202e; }
+.shop-header .color-back { background-color: #be202e; color: #fff; }
 
 .embed-container { position: relative; padding-bottom: 56.25%; overflow: hidden; max-width: 100%; height: auto; }
 .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
@@ -6266,6 +6285,12 @@ aside.sidebar .sidebar-content .related_content h5 { font-size: 1em; color: #aaa
 /* Responsive Text Centering */
 .text-center-sm, .text-center-md, .text-center-lg, .text-right-sm, .text-right-md, .text-right-lg { text-align: inherit; }
 
+@media (max-width: 768px) { #header-logo-holder .bigtext, #intro-logo-holder .bigtext { font-size: 20px; }
+  .admin-bar header.top-header { margin-top: 46px; } }
+@media (max-width: 576px) { .admin-bar header.top-header { margin-top: 46px; } }
+@media (min-width: 576px) and (max-width: 992px) { .admin-bar header.top-header { margin-top: 32px; } }
+@media (min-width: 992px) and (max-width: 1200px) { .admin-bar header.top-header { margin-top: 32px; } }
+@media (min-width: 1200px) { .admin-bar header.top-header { margin-top: 32px; } }
 /* Define xs styles after defaults so they take precedence */
 .text-xs-left { text-align: left; }
 

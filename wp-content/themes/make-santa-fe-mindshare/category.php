@@ -1,6 +1,6 @@
 <?php get_header();
-include 'layout/top-header.php';
-include 'layout/brand.php';
+include 'layout/page-header.php';
+include 'layout/notice.php';
  ?>
 
     <main role="main" aria-label="Content" <?php post_class('container'); ?>>

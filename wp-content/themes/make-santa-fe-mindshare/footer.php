@@ -1,5 +1,5 @@
 			<!-- footer -->
-			<footer class="bottom-footer container" role="contentinfo">
+			<footer class="bottom-footer container-fluid" role="contentinfo">
                 <div class="row">
                     <div class="my-auto col-8 col-md-10">
                         <p class="align-middle"> &copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>.</p>

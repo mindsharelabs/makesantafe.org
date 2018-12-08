@@ -1,14 +1,14 @@
 <header class="header top-header" role="banner">
   <div class="container">
     <div class="row">
-        <div class="col-1">
+        <div class="col-3 col-md-1">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
             <svg id="header-logo-load" width="100%" height="100%" viewBox="0 0 370 240"></svg>
           </a>
         </div>
 
-        <div class="col my-auto">
-          <nav class="desktop d-none d-md-block text-right">
+        <div class="col-9 my-auto d-none d-md-block ">
+          <nav class="desktop text-right">
             <?php
             if(is_user_logged_in()) :
               mindblank_nav('member-menu');
@@ -18,7 +18,7 @@
             ?>
           </nav>
         </div>
-        <div class="col-2 text-right my-auto">
+        <div class="col text-right my-auto">
             <?php
             if($icons = get_field('header_icons', 'options')) :
               foreach ($icons as $icon) :
@@ -28,7 +28,7 @@
               endforeach;
             endif;
             ?>
-            <span class="menu-toggle d-block d-md-none"><i class="fas fa-bars"></i></span>
+            <span class="menu-toggle d-inline d-md-none"><i class="fas fa-bars"></i></span>
           </div>
 
     </div>
