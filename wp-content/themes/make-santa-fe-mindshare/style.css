@@ -6175,7 +6175,7 @@ header.top-header a.icon, header.top-header .menu-toggle { color: #010101; font-
 header.top-header a:hover { color: #b3afac; }
 header.top-header nav.desktop ul { margin: 0; padding: 0; }
 header.top-header nav.desktop ul li { display: inline-block; margin: 0; padding: 0; list-style: none; text-transform: uppercase; font-size: .9em; }
-header.top-header nav.desktop ul li a { padding: 5px 20px; color: #010101; text-decoration: none; }
+header.top-header nav.desktop ul li a { padding: 5px 5px; color: #010101; text-decoration: none; }
 header.top-header nav.desktop ul li a:hover { color: #b3afac; }
 
 header.page-header { background-size: cover; background-position: center; }
