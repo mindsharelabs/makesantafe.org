@@ -12,15 +12,15 @@
     foreach ($blocks as $key => $block) :
         echo '<div class="col-12 col-md-4">';
           echo '<div class="card">';
-            echo '<div class="image">';
-              echo '<img class="card-img-top" src="' . $block['image']['url'] . '"/>';
-            echo '</div>';
+            if($block['image']['url']) :
+              echo '<div class="image">';
+                echo '<img class="card-img-top" src="' . $block['image']['url'] . '"/>';
+              echo '</div>';
+            endif;
             echo '<div class="card-body text">';
-              echo '<h3>' . $block['title'] . '</h3>';
-              echo '<span class="content">' . $block['content'] . '</span>';
-            echo '</div>';
-            echo '<div class="card-body block-button">';
-              echo '<a href="' . $block['link'] . '" class="btn btn-primary float-right" title="' . $block['title'] . '">Learn More</a>';
+              echo '<h3 class="text-center">' . $block['title'] . '</h3>';
+              echo '<div class="content text-center">' . $block['content'] . '</div>';
+              echo '<a href="' . $block['link'] . '" class="btn btn-primary btn-block mt-1 mb-1" title="' . $block['title'] . '">Learn More</a>';
             echo '</div>';
           echo '</div>';
         echo '</div>';
