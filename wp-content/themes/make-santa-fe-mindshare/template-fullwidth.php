@@ -1,5 +1,6 @@
 <?php
 //Template Name: Full Width Page
+acf_form_head();
 get_header();
 include 'layout/page-header.php';
 include 'layout/notice.php';

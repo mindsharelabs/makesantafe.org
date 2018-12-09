@@ -75,3 +75,10 @@ function make_add_custom_fees($cart) {
     endforeach;
 
 }
+
+
+
+add_action('woocommerce_account_dashboard', 'make_add_acf_form');
+function make_add_acf_form() {
+  include get_template_directory() . '/inc/user-edit-form.php';
+}

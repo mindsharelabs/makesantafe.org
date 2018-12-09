@@ -63,6 +63,7 @@ hr {
     font-size: 1.4em;
     line-height: 40px;
     margin-right: 20px;
+    white-space: nowrap;
   }
   .header-flex-svg {
     flex-grow: 1;
@@ -344,7 +345,11 @@ article.tool {
   }
 }
 /* single post */
-
+.tool-gallery{
+  .tool-image{
+    max-width: 20%;
+  }
+}
 .alignleft, img.alignleft {
   float: left;
 
