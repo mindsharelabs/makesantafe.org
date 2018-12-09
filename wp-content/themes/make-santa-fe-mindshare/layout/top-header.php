@@ -1,9 +1,9 @@
 <header class="header top-header" role="banner">
   <div class="container">
     <div class="row">
-        <div class="col-3 col-md-1">
+        <div class="col-3 col-md-1 mt-2">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-            <svg id="header-logo-load" width="100%" height="100%" viewBox="0 0 370 240"></svg>
+            <img src="<?php echo get_template_directory_uri() . '/img/logo.svg';?>"/>
           </a>
         </div>
 

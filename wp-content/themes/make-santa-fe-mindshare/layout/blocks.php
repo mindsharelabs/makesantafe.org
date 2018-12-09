@@ -1,5 +1,5 @@
-<?php if($blocks = get_field('other_details', 'options')) : ?>
-<section class="blocks background">
+<?php if($blocks = get_field('home_page_blocks', 'options')) : ?>
+<section class="blocks background mb-5">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -11,16 +11,16 @@
     <?php
     foreach ($blocks as $key => $block) :
         echo '<div class="col-12 col-md-4">';
-          echo '<div class="block">';
+          echo '<div class="card">';
             echo '<div class="image">';
-              echo '<img src="' . $block['image'] . '"/>';
+              echo '<img class="card-img-top" src="' . $block['image']['url'] . '"/>';
             echo '</div>';
-            echo '<div class="text">';
+            echo '<div class="card-body text">';
               echo '<h3>' . $block['title'] . '</h3>';
               echo '<span class="content">' . $block['content'] . '</span>';
             echo '</div>';
-            echo '<div class="block-button">';
-              echo '<a href="' . $block['link_to'] . '" class="btn btn-primary float-right" title="' . $block['title'] . '">Learn More</a>';
+            echo '<div class="card-body block-button">';
+              echo '<a href="' . $block['link'] . '" class="btn btn-primary float-right" title="' . $block['title'] . '">Learn More</a>';
             echo '</div>';
           echo '</div>';
         echo '</div>';

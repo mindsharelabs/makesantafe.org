@@ -48,7 +48,7 @@ function switchHeader(){
       'opacity': '0'
     }).transform("t-0,100");
 
-		logo.animate({opacity:"1"},2000);
+		//logo.animate({opacity:"1"},2000);
 
 		introHeader.select('#intro-logo').animate({opacity:"0"},2000, function(){
 		  var banner = introHeader.append(f).attr({opacity: 0});
@@ -75,24 +75,3 @@ function addCircuit(){
 	});
 
 }
-
-
-
-Snap.load( svgvars.logo, function(f) {
-      logo.append(f);
-
-			var t = logo.text(50,120,'MAKE').attr({
-        fontSize: '90px',
-        'fill':'black',
-        fontWeight: 700,
-        "text-anchor": "right"
-      });
-			var t = logo.text(110,183,'santa fe').attr({
-        fontSize: '56px',
-        'fill':'black',
-        fontWeight: 400,
-        "letter-spacing": 0,
-        "text-anchor": "right"
-      });
-
-});
