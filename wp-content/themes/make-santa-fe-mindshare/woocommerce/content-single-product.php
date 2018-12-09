@@ -29,7 +29,8 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class('row'); ?>>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class(''); ?>>
+
 		<?php
 			/**
 			 * Hook: woocommerce_before_single_product_summary.
@@ -58,6 +59,7 @@ if ( post_password_required() ) {
 		?>
 	</div>
 </div>
+<hr class="clear"/>
 <div class="row">
 	<div class="col-12">
 	<?php

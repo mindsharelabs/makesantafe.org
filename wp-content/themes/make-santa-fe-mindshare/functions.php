@@ -243,6 +243,17 @@ function mindblank_styles()
 }
 
 
+
+function make_widget_title( $title, $instance, $id_base ) {
+    $new_title = '<h3 class="fancy">' . $title;
+    ob_start();
+    include get_template_directory() . '/inc/header-back.php';
+    $new_title .= '</h3>' . ob_get_clean();
+    return $new_title;
+}
+add_filter( 'widget_title', 'make_widget_title', 10, 3 );
+
+
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
 function my_wp_nav_menu_args($args = '')
 {
@@ -298,8 +309,8 @@ if (function_exists('register_sidebar')) {
         'id' => 'page-sidebar',
         'before_widget' => '<div id="%1$s" class="%2$s widget-container">',
         'after_widget' => '</div>',
-        'before_title' => '<h3 class="fancy mt-4">',
-        'after_title' => '</h3>'
+        'before_title' => '',
+        'after_title' => ''
     ));
     register_sidebar(array(
         'name' => __('Footer Widgets', 'mindblank'),

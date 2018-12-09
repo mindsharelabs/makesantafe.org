@@ -10,10 +10,10 @@
           <div class="col-12 col-md-6 offset-md-3 newsletter">
             <?php
             if(function_exists('gravity_form')) :
-              gravity_form(1, false, false, false, null, true);
+              gravity_form(4, false, false, false, null, true);
             endif;
             ?>
           </div>
         </div>
     </div>
-</footer>
+</section>

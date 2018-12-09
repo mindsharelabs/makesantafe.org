@@ -5,7 +5,11 @@ add_theme_support('wc-product-gallery-lightbox');
 add_theme_support('wc-product-gallery-slider');
 
 
-//REmoved Actions
+//Removed Actions
+remove_action(' woocommerce_sidebar', 'woocommerce_get_sidebar');
+
+
+
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 add_action('woocommerce_single_product_summary', 'make_display_content', 25);
 function make_display_content() {
@@ -40,4 +44,34 @@ function make_woo_after_content_wrapper() {
   echo '</div>';
   do_action('make_shop_after_container');
   include get_template_directory() . '/layout/top-footer.php';
+}
+
+
+
+add_action( 'woocommerce_after_cart_item_quantity_update', 'make_add_custom_fees' );
+add_action( 'woocommerce_cart_calculate_fees','make_add_custom_fees' );
+function make_add_custom_fees($cart) {
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) )
+        return;
+
+    // going through each cart items
+    foreach( WC()->cart->get_cart() as $values ) :
+        $item = $values['data'];
+        if ( empty( $item ) )
+            break;
+
+        $quantity = $values[ 'quantity' ];
+        $fees = get_field('additional_fees', $item->get_ID());
+
+        if($fees) :
+          foreach ($fees as $key => $fee) {
+            $fee_amount = $fee['fee_amount'] * $quantity;
+            $fee_name = $fee['fee_name'];
+
+            // add_fee method (TAX will NOT be applied here)
+            WC()->cart->add_fee( $fee_name . ': ', $fee_amount, false );
+          }
+        endif;
+    endforeach;
+
 }

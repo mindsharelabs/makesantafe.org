@@ -8,8 +8,12 @@ $sidebar_content = get_field('sidebar_blocks', get_the_id());
 		if($sidebar_content) :
 			echo '<div class="sidebar-content">';
 				foreach($sidebar_content as $s_content) :
+					echo '<h3 class="fancy">' . $s_content['title'] . '</h3>';
+					ob_start();
+						include get_template_directory() . '/inc/header-back.php';
+					echo ob_get_clean();
 					if($s_content['acf_fc_layout'] == 'related_content'):
-						echo '<h3 class="fancy">' . $s_content['title'] . '</h3>';
+
 						foreach($s_content['related_content'] as $c_post) :
 							$thumb = get_the_post_thumbnail_url( $c_post->ID, 'full');
 							$image = aq_resize($thumb, 200, 200);
@@ -28,10 +32,9 @@ $sidebar_content = get_field('sidebar_blocks', get_the_id());
 							echo '</div>';
 						endforeach;
 					elseif($s_content['acf_fc_layout'] == 'general_content'):
-						echo '<h3 class="fancy">' . $s_content['title'] . '</h3>';
 						echo '<div class="sub-content">';
 							echo $s_content['text'];
-						echo '</div>'; 
+						echo '</div>';
 					endif;
 				endforeach;
 			echo '</div>';

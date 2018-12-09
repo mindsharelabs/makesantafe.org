@@ -59,3 +59,27 @@
 .validation_message {
   display: none;
 }
+
+
+//Home Page form
+section.newsletter{
+  #gform_4{
+    .ginput_container_name{
+      span{
+        width: 50%;
+        float: left;
+        display: block;
+        padding: 5px;
+        label{
+          display: none;
+        }
+        &:first-child{
+          padding-left: 0;
+        }
+        &:last-child{
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
