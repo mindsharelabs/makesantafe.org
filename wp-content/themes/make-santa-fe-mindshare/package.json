@@ -9,10 +9,11 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
+    "grunt-contrib-sass": "~0.9.0",
     "grunt-contrib-watch": "~0.4.4",
     "grunt-newer": "",
-    "matchdep": "",
-    "grunt-contrib-sass": "~0.9.0"
+    "grunt-real-favicon": "^0.2.2",
+    "matchdep": ""
   },
   "author": "Mindshare Labs, Inc.",
   "license": "GPL-3.0"

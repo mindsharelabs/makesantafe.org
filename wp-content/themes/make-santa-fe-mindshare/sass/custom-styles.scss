@@ -408,13 +408,15 @@ aside.sidebar {
       h3.fancy {
         color: $primary;
         padding-left: 13%;
-        font-size: 1em;
+        font-size: 1.4em;
         text-transform: uppercase;
         margin-top: 30px;
         margin-bottom: 6px;
+        font-weight: bold;
       }
       svg{
         margin-top: -20px;
+        margin-bottom: -20px;
         fill: none;
         stroke: #B3AFAC;
         .svg-sidebar-line{
@@ -456,7 +458,7 @@ aside.sidebar {
   }
   .widget-container {
     div {
-      margin-left: 36px;
+      margin-left: 56px;
     }
   }
 
