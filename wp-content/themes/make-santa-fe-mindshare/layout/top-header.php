@@ -1,4 +1,4 @@
-<header class="header top-header" role="banner">
+<header class="header top-header container-fluid" role="banner">
   <div class="container">
     <div class="row">
         <div class="col-3 col-md-1 mt-2">
@@ -16,7 +16,7 @@
               mindblank_nav('header-menu');
             endif;
             ?>
-          </nav> 
+          </nav>
         </div>
         <div class="col text-right my-auto">
             <?php

@@ -3,13 +3,21 @@
 
 	$(function () {
 
-        var windowWidth = $(window).width();
+		var docWidth = document.documentElement.offsetWidth;
 
-        if (windowWidth < 400) {
-            var menuWidth = windowWidth - 50;
-        } else {
-            var menuWidth = 400;
-        }
+		[].forEach.call(
+		  document.querySelectorAll('*'),
+		  function(el) {
+		    if (el.offsetWidth > docWidth) {
+		      console.log($(el));
+		    }
+		  }
+		);
+
+
+
+        var windowWidth = $(window).width();
+				var menuWidth = windowWidth;
         var slideout = new Slideout({
             'panel': document.getElementById('main-panel'),
             'menu': document.getElementById('main-nav'),

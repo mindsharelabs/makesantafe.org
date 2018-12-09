@@ -4,7 +4,7 @@
 * Theme URI: https://mind.sh/are/
 * Author: Mindshare Labs, Inc
 * Author URI: https://mind.sh/are/
-* Version: 1.0.0
+* Version: 1.0.0 
 */
 .background { background: #fafbfc; }
 
@@ -6122,7 +6122,7 @@ body { width: 100%; height: 100%; }
 
 .menu-toggle { color: #be202e; cursor: pointer; }
 
-.slideout-menu { z-index: 100; position: fixed; top: 0; bottom: 0; right: 0; z-index: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; display: none; padding: 50px 0 0 0; background: #be202e; color: #fff; }
+.slideout-menu { z-index: 100; position: fixed; opacity: 0; top: 0; bottom: 0; right: 0; z-index: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; display: none; padding: 50px 0 0 0; background: #be202e; color: #fff; -webkit-transition: all 100ms ease-out; -moz-transition: all 100ms ease-out; -ms-transition: all 100ms ease-out; -o-transition: all 100ms ease-out; transition: all 100ms ease-out; }
 .slideout-menu a { color: #fff; }
 .slideout-menu ul { list-style: none; margin: 0; padding: 0; }
 .slideout-menu ul ul.sub-menu li a { padding-left: 40px; }
@@ -6136,7 +6136,7 @@ body { width: 100%; height: 100%; }
 
 .slideout-panel { position: relative; z-index: 1; will-change: transform; background-color: #fff; min-height: 100vh; }
 
-.slideout-open { overflow: hidden; }
+.slideout-open { overflow: hidden; opacity: 1; -webkit-transition: all 100ms ease-out; -moz-transition: all 100ms ease-out; -ms-transition: all 100ms ease-out; -o-transition: all 100ms ease-out; transition: all 100ms ease-out; }
 .slideout-open body { overflow: hidden; }
 .slideout-open .slideout-panel { overflow: hidden; }
 .slideout-open .slideout-menu { display: block; }
@@ -6170,7 +6170,7 @@ hr { width: 100%; }
 .fancy-header .header-flex-svg { flex-grow: 1; }
 .fancy-header .header-flex-svg svg { fill: #fff; }
 
-header.top-header { position: fixed; top: 0; left: 0; width: 100%; height: 70px; background: rgba(255, 255, 255, 0.95); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); z-index: 2; }
+header.top-header { position: fixed; top: 0; left: 0; width: 100%; height: 70px; background: rgba(255, 255, 255, 0.9); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); z-index: 2; }
 header.top-header a.icon, header.top-header .menu-toggle { color: #010101; font-size: 1.5em; margin-right: 5px; }
 header.top-header a:hover { color: #b3afac; }
 header.top-header nav.desktop ul { margin: 0; padding: 0; }
