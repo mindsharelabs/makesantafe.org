@@ -31,7 +31,7 @@
 
 <body <?php body_class(); ?>>
 
-<nav id="main-nav" class="nav pt-5 d-block d-md-none" role="navigation">
+<nav id="main-nav" class="nav d-block d-md-none" role="navigation">
     <?php
     if(is_user_logged_in()) :
       mindblank_nav('member-menu');

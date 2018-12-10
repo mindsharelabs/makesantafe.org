@@ -10,7 +10,7 @@
     <div class="row">
     <?php
     foreach ($blocks as $key => $block) :
-        echo '<div class="col-12 col-md-4">';
+        echo '<div class="col-12 col-md-4 mb-4">';
           echo '<div class="card">';
             if($block['image']['url']) :
               echo '<div class="image">';

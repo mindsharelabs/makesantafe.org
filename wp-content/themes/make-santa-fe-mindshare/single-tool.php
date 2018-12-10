@@ -63,13 +63,30 @@ if(has_post_thumbnail()){
                     <?php endif; ?>
 
 
+
+
+
+
                 <?php endwhile; endif; ?>
               </article>
             </section>
         </div>
 
     </div>
-            <!-- /section -->
+    <div class="row">
+      <div class="col-12">
+        <h4>Reserve this tool.</h4>
+      </div>
+      <hr/>
+      <div class="col-12">
+        <?php
+        if('allow_reservations') :
+          include get_template_directory() . '/inc/tool-reservation.php';
+        endif;
+        ?>
+      </div>
+    </div>
+
 </main>
 <?php
 include 'layout/top-footer.php';

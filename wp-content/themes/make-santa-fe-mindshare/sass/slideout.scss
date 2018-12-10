@@ -18,8 +18,8 @@ body {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   display: none;
-  padding: 50px 0 0 0;
-  background: $primary;
+  padding: 70px 0 0 0;
+  background: #fff;
   color: #fff;
   -webkit-transition: all 100ms ease-out;
   -moz-transition: all 100ms ease-out;
@@ -27,7 +27,7 @@ body {
   -o-transition: all 100ms ease-out;
   transition: all 100ms ease-out;
   a {
-    color: #fff;
+    color: $primary;
   }
 
   ul {
@@ -74,12 +74,12 @@ body {
 
 }
 
-.slideout-menu-left {
-  left: 0;
-}
-.slideout-menu-right {
-  right: 0;
-}
+// .slideout-menu-left {
+//   left: 0;
+// }
+// .slideout-menu-right {
+//   right: 0;
+// }
 .slideout-panel {
   position: relative;
   z-index: 1;
@@ -87,9 +87,11 @@ body {
   background-color: #fff;
   min-height: 100vh;
 }
+.slideout-open .slideout-menu{
+  opacity: 1 !important;
+}
 .slideout-open {
   overflow: hidden;
-  opacity: 1;
   -webkit-transition: all 100ms ease-out;
   -moz-transition: all 100ms ease-out;
   -ms-transition: all 100ms ease-out;

@@ -76,7 +76,11 @@ function make_add_custom_fees($cart) {
 
 }
 
-
+add_filter('woocommerce_form_field_args',  'wc_form_field_args',10,3);
+  function wc_form_field_args($args, $key, $value) {
+  $args['input_class'] = array( 'form-control' );
+  return $args;
+}
 
 add_action('woocommerce_account_dashboard', 'make_add_acf_form');
 function make_add_acf_form() {

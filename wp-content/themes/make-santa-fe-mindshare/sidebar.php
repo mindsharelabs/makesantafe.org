@@ -2,7 +2,7 @@
 $sidebar_content = get_field('sidebar_blocks', get_the_id());
 ?>
 <!-- sidebar -->
-<aside class="sidebar col-md-4 col-12" role="complementary">
+<aside class="sidebar col-md-4 col-12 order-last order-md-first" role="complementary">
 	<div class="sidebar-cont">
 		<?php
 		if($sidebar_content) :

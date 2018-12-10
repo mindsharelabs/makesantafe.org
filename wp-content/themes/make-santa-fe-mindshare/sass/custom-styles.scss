@@ -42,7 +42,7 @@ hr {
   width: 100%;
 }
 #header-logo-holder, #intro-logo-holder {
-  height: 350px;
+
   .bigtext {
     font-size: 2.5em;
     letter-spacing: 2px;
@@ -121,7 +121,6 @@ header.page-header {
   .header-padding {
     padding: 40px 0 40px 0;
     width: 100%;
-    height: 350px;
     svg{
       width: 100%;
     }
@@ -306,28 +305,7 @@ footer.bottom-footer{
     margin: 10px;
   }
 }
-.woocommerce ul.products .onsale, span.onsale {
-  min-height: 50px;
-  min-width: 50px;
-  padding: 0px 5px;
-  font-size: 1em;
-  font-weight: 700;
-  position: absolute;
-  text-align: right;
-  line-height: 38px;
-  top: -.5em;
-  left: -.5em;
-  margin: 0;
-  border-radius: 0 0 0 100%;
-  background-color: #77a464;
-  color: #fff;
-  font-size: .857em;
-  z-index: 9;
-}
-footer.bottom-footer {
-  min-height: 50px;
-  line-height: 50px;
-}
+
 
 .bypostauthor > article .fn:before {
   content: "\f408";
@@ -370,10 +348,7 @@ article.tool {
 
 }
 
-/* sidebars and asides */
-.has-sidebar {
-  padding-left: 30px;
-}
+
 section.team {
   .team-content{
     h3 {

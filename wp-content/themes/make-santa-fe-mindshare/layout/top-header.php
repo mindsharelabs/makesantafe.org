@@ -1,7 +1,7 @@
 <header class="header top-header container-fluid" role="banner">
   <div class="container">
     <div class="row">
-        <div class="col-3 col-md-1 mt-2">
+        <div class="col-3 col-sm-2 col-md-2 col-lg-1 mt-2 mt-2">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
             <img src="<?php echo get_template_directory_uri() . '/img/logo.svg';?>"/>
           </a>
