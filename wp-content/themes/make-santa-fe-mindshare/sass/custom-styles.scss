@@ -313,12 +313,12 @@ footer.bottom-footer{
   position: relative;
   top: -1px;
 }
-article.tool {
+article.tool, article.certs {
   .terms-list {
     color: $secondary;
     text-transform: uppercase;
   }
-  h5.tool-title {
+  h5.post-title {
     font-weight: bold;
   }
 }
@@ -348,15 +348,50 @@ article.tool {
 
 }
 
+section.certifications {
+  background: $background;
+  border-top: 1px solid $light;
+  .certification-products {
 
-section.team {
-  .team-content{
+  }
+}
+section.team, section.makers {
+  .content{
     h3 {
       font-size: 1.2em;
       color: $primary;
     }
     h4{
       font-size: 1.1em;
+      color: lighten($dark, 30%);
+    }
+  }
+}
+section.maker-profile {
+  .sidebar-title {
+    text-transform: uppercase;
+    color: $primary;
+    font-size: 1.1em;
+  }
+  .maker-image {
+    img{
+      width: 100%;
+    }
+  }
+  .certifications {
+    display: flex;
+    .cert-holder{
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      min-width: 20%;
+      &.false{
+        opacity: .3;
+      }
+      .cert-name {
+        font-size: .7em;
+        color: lighten($dark, 40%);
+      }
     }
   }
 }
@@ -430,6 +465,25 @@ aside.sidebar {
         font-size: .95em;
       }
     }
+    .facet-options{
+      padding-left: 13%;
+      .facetwp-type-checkboxes {
+        .facetwp-checkbox{
+          background: darken($background, 20%);
+          border-left: 15px solid $background;
+          margin: 0 0 5px 0;
+          padding: 5px 10px;
+          &.checked{
+            border-left: 15px solid $primary;
+          }
+          &.disabled {
+            opacity: .4;
+          }
+        }
+      }
+    }
+
+
   }
 
   .sidebar-social {

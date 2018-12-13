@@ -7,7 +7,7 @@
           </a>
         </div>
 
-        <div class="col-10 my-auto d-none d-md-block ">
+        <div class="col-9 my-auto d-none d-md-block ">
           <nav class="desktop text-right">
             <?php
             if(is_user_logged_in()) :

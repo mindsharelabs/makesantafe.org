@@ -378,6 +378,9 @@ function lobob_excerpt_length($length)
 add_filter('excerpt_length', 'lobob_excerpt_length', 999);
 
 
+
+
+
 // Custom View Article link to Post
 function mind_blank_view_article($more)
 {
@@ -476,39 +479,11 @@ add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
 add_filter( 'woocommerce_helper_suppress_admin_notices', '__return_true' );
 add_filter( 'jetpack_just_in_time_msgs', '_return_false' );
 
-/*------------------------------------*\
-    Signup Functions
-\*------------------------------------*/
-
-add_action( 'wp_ajax_nopriv_get_certs', 'make_get_certs' );
-add_action( 'wp_ajax_get_certs', 'make_get_certs' );
-function make_get_certs() {
-  ob_start();
-    echo do_shortcode('[products limit="4" columns="4" category="' . $_POST['category'] . '"]');
-  $return = ob_get_clean();
-  wp_send_json_success($return);
-
-}
 
 
-
-
-
-add_action( 'wp_ajax_nopriv_get_prod_cats', 'make_get_prod_cats' );
-add_action( 'wp_ajax_get_prod_cats', 'make_get_prod_cats' );
-function make_get_prod_cats() {
-  $terms = get_terms( 'product_cat', array(
-      'hide_empty' => true,
-      'child_of' => $_POST['parent']
-  ));
-
-  if($terms) :
-    ob_start();
-    foreach ($terms as $key => $term) : ?>
-      <button class="product get-products" data-term="<?php echo $term->term_id; ?>"><?php echo $term->name; ?></button>
-    <?php endforeach;
-    $return = ob_get_clean();
-    wp_send_json_success($return);
-  endif;
-
+add_action('init', 'make_author_base');
+function make_author_base() {
+    global $wp_rewrite;
+    $author_slug = 'maker'; // change slug name
+    $wp_rewrite->author_base = $author_slug;
 }

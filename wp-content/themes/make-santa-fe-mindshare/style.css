@@ -3,7 +3,7 @@
 * Theme Name: MindBlank - Development Theme
 * Theme URI: https://mind.sh/are/
 * Author: Mindshare Labs, Inc
-* Author URI: https://mind.sh/are/
+* Author URI: https://mind.sh/are/ 
 * Version: 1.0.0
 */
 .background { background: #fafbfc; }
@@ -5193,6 +5193,8 @@ template { display: none; }
 
 .rounded-circle { padding: 4px; background-color: #fff; border: 1px solid #ddd; }
 
+.card-body { margin-bottom: 15px; }
+
 .align-baseline { vertical-align: baseline !important; }
 
 .align-top { vertical-align: top !important; }
@@ -6094,6 +6096,16 @@ section.newsletter #gform_4 .ginput_container_name span:last-child { padding-rig
 .woocommerce form .form-row label { line-height: 2; width: 100%; margin-bottom: 0; text-transform: uppercase; font-size: .9em; }
 .woocommerce form .form-row span.woocommerce-input-wrapper { width: 100%; }
 
+.no-image-product .product_title { text-align: center; }
+
+.btn-default { border: 1px solid #be202e; }
+
+.woocommerce ul.products li.product .button { display: block; background-color: #be202e; text-align: center; color: #fff; }
+
+.woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3 { padding: .5em 0; margin: 0; font-size: 1em; text-align: center; text-transform: capitalize; min-height: 60px; }
+
+.woocommerce ul.products li.product .price { text-align: center; }
+
 /* Slider */
 .slick-loading .slick-list { background: #fff url("./ajax-loader.gif") center center no-repeat; }
 
@@ -6234,8 +6246,8 @@ footer.bottom-footer p { margin: 0; padding: 0; }
 
 .bypostauthor > article .fn:before { content: "\f408"; margin: 0 2px 0 -2px; position: relative; top: -1px; }
 
-article.tool .terms-list { color: #b3afac; text-transform: uppercase; }
-article.tool h5.tool-title { font-weight: bold; }
+article.tool .terms-list, article.certs .terms-list { color: #b3afac; text-transform: uppercase; }
+article.tool h5.post-title, article.certs h5.post-title { font-weight: bold; }
 
 /* single post */
 .tool-gallery .tool-image { max-width: 20%; }
@@ -6248,8 +6260,17 @@ article.tool h5.tool-title { font-weight: bold; }
 
 .alignnone, img.alignnone { float: none; }
 
-section.team .team-content h3 { font-size: 1.2em; color: #be202e; }
-section.team .team-content h4 { font-size: 1.1em; }
+section.certifications { background: #fafbfc; border-top: 1px solid #e6e6e6; }
+
+section.team .content h3, section.makers .content h3 { font-size: 1.2em; color: #be202e; }
+section.team .content h4, section.makers .content h4 { font-size: 1.1em; color: #4e4e4e; }
+
+section.maker-profile .sidebar-title { text-transform: uppercase; color: #be202e; font-size: 1.1em; }
+section.maker-profile .maker-image img { width: 100%; }
+section.maker-profile .certifications { display: flex; }
+section.maker-profile .certifications .cert-holder { display: flex; flex-grow: 1; flex-direction: column; min-width: 20%; }
+section.maker-profile .certifications .cert-holder.false { opacity: .3; }
+section.maker-profile .certifications .cert-holder .cert-name { font-size: .7em; color: #676767; }
 
 aside.sidebar { background: #fafbfc; border-right: 1px solid #e6e6e6; }
 aside.sidebar .sidebar-cont { float: right; width: 100%; }
@@ -6265,6 +6286,10 @@ aside.sidebar .sidebar-cont .sidebar-content .related_content h4, aside.sidebar 
 aside.sidebar .sidebar-cont .sidebar-content .related_content h5, aside.sidebar .sidebar-cont .sidebar-widget .related_content h5 { font-size: 1em; color: #aaaaaa; }
 aside.sidebar .sidebar-cont .sidebar-content .related_content svg, aside.sidebar .sidebar-cont .sidebar-widget .related_content svg { margin-top: -20px; }
 aside.sidebar .sidebar-cont .sidebar-content .sub-content, aside.sidebar .sidebar-cont .sidebar-widget .sub-content { float: left; margin-left: 56px; color: #1b1b1b; font-weight: 100; font-size: .95em; }
+aside.sidebar .sidebar-cont .facet-options { padding-left: 13%; }
+aside.sidebar .sidebar-cont .facet-options .facetwp-type-checkboxes .facetwp-checkbox { background: #bac8d6; border-left: 15px solid #fafbfc; margin: 0 0 5px 0; padding: 5px 10px; }
+aside.sidebar .sidebar-cont .facet-options .facetwp-type-checkboxes .facetwp-checkbox.checked { border-left: 15px solid #be202e; }
+aside.sidebar .sidebar-cont .facet-options .facetwp-type-checkboxes .facetwp-checkbox.disabled { opacity: .4; }
 aside.sidebar .sidebar-social { font-size: 3em; border-bottom: 5px solid #e6e6e6; }
 aside.sidebar .widget-container div { margin-left: 56px; }
 

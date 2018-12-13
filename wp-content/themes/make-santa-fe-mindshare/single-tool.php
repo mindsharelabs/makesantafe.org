@@ -29,7 +29,7 @@ if(has_post_thumbnail()){
                if (have_posts()): while (have_posts()) : the_post(); ?>
 
                     <?php if($image) : ?>
-                      <div class="col">
+                      <div class="col-12 col-md-4">
                         <img class="rounded-circle" src="<?php echo $image; ?>" title="<?php the_title_attribute(); ?>"/>
                       </div>
                     <?php endif; ?>
@@ -62,29 +62,11 @@ if(has_post_thumbnail()){
                       </div>
                     <?php endif; ?>
 
-
-
-
-
-
                 <?php endwhile; endif; ?>
               </article>
             </section>
         </div>
 
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <h4>Reserve this tool.</h4>
-      </div>
-      <hr/>
-      <div class="col-12">
-        <?php
-        if('allow_reservations') :
-          include get_template_directory() . '/inc/tool-reservation.php';
-        endif;
-        ?>
-      </div>
     </div>
 
 </main>
