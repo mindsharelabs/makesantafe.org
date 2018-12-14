@@ -6,7 +6,7 @@
 * Author URI: https://mind.sh/are/
 * Version: 1.0.0
 */
-.background { background: #fafbfc; }
+.background { background: #fafbfc; } 
 
 .alert, .validation_error { position: relative; padding: 0.75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: 0.25rem; }
 
@@ -6094,6 +6094,8 @@ section.newsletter #gform_4 .ginput_container_name span:last-child { padding-rig
 .woocommerce form .form-row label { line-height: 2; width: 100%; margin-bottom: 0; text-transform: uppercase; font-size: .9em; }
 .woocommerce form .form-row span.woocommerce-input-wrapper { width: 100%; }
 
+.btn-default { background: #fff; color: #be202e; border-color: #be202e; padding: 10px 20px; font-size: 1.2em; text-transform: uppercase; }
+
 /* Slider */
 .slick-loading .slick-list { background: #fff url("./ajax-loader.gif") center center no-repeat; }
 
@@ -6258,12 +6260,15 @@ aside.sidebar .sidebar-cont ul li { padding: 0; margin: 0; float: left; width: 1
 aside.sidebar .sidebar-cont ul li a { padding: 10px 0; width: 100%; font-weight: bold; }
 aside.sidebar .sidebar-cont .sidebar-content, aside.sidebar .sidebar-cont .sidebar-widget { width: 100%; float: left; }
 aside.sidebar .sidebar-cont .sidebar-content h3.fancy, aside.sidebar .sidebar-cont .sidebar-widget h3.fancy { color: #be202e; padding-left: 13%; font-size: 1.4em; text-transform: uppercase; margin-top: 30px; margin-bottom: 6px; font-weight: bold; }
-aside.sidebar .sidebar-cont .sidebar-content svg, aside.sidebar .sidebar-cont .sidebar-widget svg { margin-top: -20px; margin-bottom: -20px; fill: none; stroke: #B3AFAC; }
+aside.sidebar .sidebar-cont .sidebar-content svg, aside.sidebar .sidebar-cont .sidebar-widget svg { margin-top: -20px; fill: none; stroke: #B3AFAC; }
 aside.sidebar .sidebar-cont .sidebar-content svg .svg-sidebar-circle, aside.sidebar .sidebar-cont .sidebar-widget svg .svg-sidebar-circle { fill: #fff; }
-aside.sidebar .sidebar-cont .sidebar-content .related_content, aside.sidebar .sidebar-cont .sidebar-widget .related_content { margin-left: 56px; }
-aside.sidebar .sidebar-cont .sidebar-content .related_content h4, aside.sidebar .sidebar-cont .sidebar-widget .related_content h4 { font-size: 1.2em; font-weight: bold; margin-bottom: 0; }
-aside.sidebar .sidebar-cont .sidebar-content .related_content h5, aside.sidebar .sidebar-cont .sidebar-widget .related_content h5 { font-size: 1em; color: #aaaaaa; }
-aside.sidebar .sidebar-cont .sidebar-content .related_content svg, aside.sidebar .sidebar-cont .sidebar-widget .related_content svg { margin-top: -20px; }
+aside.sidebar .sidebar-cont .sidebar-content .related_content, aside.sidebar .sidebar-cont .sidebar-content .facet-options, aside.sidebar .sidebar-cont .sidebar-widget .related_content, aside.sidebar .sidebar-cont .sidebar-widget .facet-options { margin-left: 56px; }
+aside.sidebar .sidebar-cont .sidebar-content .related_content h4, aside.sidebar .sidebar-cont .sidebar-content .facet-options h4, aside.sidebar .sidebar-cont .sidebar-widget .related_content h4, aside.sidebar .sidebar-cont .sidebar-widget .facet-options h4 { font-size: 1.2em; font-weight: bold; margin-bottom: 0; }
+aside.sidebar .sidebar-cont .sidebar-content .related_content h5, aside.sidebar .sidebar-cont .sidebar-content .facet-options h5, aside.sidebar .sidebar-cont .sidebar-widget .related_content h5, aside.sidebar .sidebar-cont .sidebar-widget .facet-options h5 { font-size: 1em; color: #aaaaaa; }
+aside.sidebar .sidebar-cont .sidebar-content .related_content svg, aside.sidebar .sidebar-cont .sidebar-content .facet-options svg, aside.sidebar .sidebar-cont .sidebar-widget .related_content svg, aside.sidebar .sidebar-cont .sidebar-widget .facet-options svg { margin-top: -20px; }
+aside.sidebar .sidebar-cont .sidebar-content .facet-options .facetwp-checkbox, aside.sidebar .sidebar-cont .sidebar-widget .facet-options .facetwp-checkbox { background: none; background-color: #e4e2e1; border-left: 20px solid #b3afac; padding: 5px 0 5px 9px; margin-bottom: 1px; }
+aside.sidebar .sidebar-cont .sidebar-content .facet-options .facetwp-checkbox.checked, aside.sidebar .sidebar-cont .sidebar-widget .facet-options .facetwp-checkbox.checked { border-left: 20px solid #be202e; }
+aside.sidebar .sidebar-cont .sidebar-content .facet-options .facetwp-checkbox.disabled, aside.sidebar .sidebar-cont .sidebar-widget .facet-options .facetwp-checkbox.disabled { color: #b3afac; }
 aside.sidebar .sidebar-cont .sidebar-content .sub-content, aside.sidebar .sidebar-cont .sidebar-widget .sub-content { float: left; margin-left: 56px; color: #1b1b1b; font-weight: 100; font-size: .95em; }
 aside.sidebar .sidebar-social { font-size: 3em; border-bottom: 5px solid #e6e6e6; }
 aside.sidebar .widget-container div { margin-left: 56px; }

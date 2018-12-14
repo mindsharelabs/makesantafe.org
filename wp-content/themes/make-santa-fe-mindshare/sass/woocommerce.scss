@@ -35,7 +35,7 @@
 
 .woocommerce form {
   .form-row{
-    width: 100%;
+    width: 100%; 
     label {
       line-height: 2;
       width: 100%;
@@ -47,4 +47,13 @@
       width: 100%;
     }
   }
+}
+
+.btn-default {
+  background: #fff;
+  color: $primary;
+  border-color: $primary;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  text-transform: uppercase;
 }
