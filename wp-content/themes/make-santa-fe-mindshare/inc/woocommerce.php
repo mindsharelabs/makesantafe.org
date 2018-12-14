@@ -7,7 +7,7 @@ add_theme_support('wc-product-gallery-slider');
 
 //Removed Actions
 remove_action(' woocommerce_sidebar', 'woocommerce_get_sidebar');
-
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
@@ -29,8 +29,11 @@ function make_woo_before_content_wrapper() {
   include get_template_directory() . '/layout/notice.php';
   do_action('make_shop_before_container');
   echo '<div class="container">';
+  if(!is_single()){
+    include 'shop-header.php';
+  }
     echo '<div class="row">';
-      echo '<div class="col-12">';
+      echo '<div class="col-12 facetwp-template">';
 
 }
 
@@ -47,6 +50,33 @@ function make_woo_after_content_wrapper() {
 }
 
 
+
+
+
+
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail');
+add_action('woocommerce_before_shop_loop_item_title', 'make_loop_product_thumbnail');
+function make_loop_product_thumbnail() {
+  $id = get_the_ID();
+  $thumb = get_the_post_thumbnail_url($id, 'full');
+  if($thumb):
+    $src_320 = aq_resize($thumb, 320, 200);
+    $src_480 = aq_resize($thumb, 480, 300);
+    $src_800 = aq_resize($thumb, 800, 500);
+    $src = $src_800;
+    echo '<img src=" ' . $src . '" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt=""
+        srcset="' . $src_320 . ' 320w,
+                ' . $src_480 . ' 480w,
+                ' . $src_800 . ' 800w"
+        sizes=" (max-width: 320px) 280px,
+                (max-width: 480px) 440px,
+                800px"
+       src="elva-fairy-800w.jpg">';
+  else :
+    echo '<img src="' . get_template_directory_uri() . '/img/makeheader.svg"/>';
+  endif;
+
+}
 
 add_action( 'woocommerce_after_cart_item_quantity_update', 'make_add_custom_fees' );
 add_action( 'woocommerce_cart_calculate_fees','make_add_custom_fees' );
@@ -82,9 +112,24 @@ add_filter('woocommerce_form_field_args',  'wc_form_field_args',10,3);
   return $args;
 }
 
-add_action('woocommerce_account_dashboard', 'make_add_acf_form');
-function make_add_acf_form() {
-  include get_template_directory() . '/inc/user-edit-form.php';
+
+
+
+function get_active_members_for_membership($memberships){
+    global $wpdb;
+
+    // Getting all User IDs and data for a membership plan
+    return $wpdb->get_results( "
+        SELECT DISTINCT um.user_id
+        FROM {$wpdb->prefix}posts AS p
+        LEFT JOIN {$wpdb->prefix}posts AS p2 ON p2.ID = p.post_parent
+        LEFT JOIN {$wpdb->prefix}users AS u ON u.id = p.post_author
+        LEFT JOIN {$wpdb->prefix}usermeta AS um ON u.id = um.user_id
+        WHERE p.post_type = 'wc_user_membership'
+        AND p.post_status IN ('wcm-active')
+        AND p2.post_type = 'wc_membership_plan'
+        AND p2.post_title LIKE '$memberships'
+    ");
 }
 
 /**
@@ -164,3 +209,58 @@ function save_event_date_meta( $id, $post, $update ) {
 
 }
 add_action( 'save_post', 'save_event_date_meta', 10, 3 );
+
+
+/**
+ * @snippet       WooCommerce Add New Tab @ My Account
+ * @how-to        Watch tutorial @ https://businessbloomer.com/?p=19055
+ * @sourcecode    https://businessbloomer.com/?p=21253
+ * @credits       https://github.com/woothemes/woocommerce/wiki/2.6-Tabbed-My-Account-page
+ * @author        Rodolfo Melogli
+ * @testedwith    WooCommerce 3.4.5
+ */
+
+
+// ------------------
+// 1. Register new endpoint to use for My Account page
+// Note: Resave Permalinks or it will give 404 error
+
+function make_add_premium_support_endpoint() {
+    add_rewrite_endpoint( 'make-profile', EP_ROOT | EP_PAGES );
+}
+
+add_action( 'init', 'make_add_premium_support_endpoint' );
+
+
+// ------------------
+// 2. Add new query var
+
+function make_premium_support_query_vars( $vars ) {
+    $vars[] = 'make-profile';
+    return $vars;
+}
+
+add_filter( 'query_vars', 'make_premium_support_query_vars', 0 );
+
+
+// ------------------
+// 3. Insert the new endpoint into the My Account menu
+
+function make_add_premium_support_link_my_account( $items ) {
+    $items['make-profile'] = 'Edit My Public Profile';
+    return $items;
+}
+
+add_filter( 'woocommerce_account_menu_items', 'make_add_premium_support_link_my_account' );
+
+
+// ------------------
+// 4. Add content to the new endpoint
+
+function make_premium_support_content() {
+echo '<h3></h3>';
+include get_template_directory() . '/inc/user-edit-form.php';
+}
+
+add_action( 'woocommerce_account_make-profile_endpoint', 'make_premium_support_content' );
+// Note: add_action must follow 'woocommerce_account_{your-endpoint-slug}_endpoint' format

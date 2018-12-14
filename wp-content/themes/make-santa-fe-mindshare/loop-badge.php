@@ -1,20 +1,22 @@
 <?php
-if (has_post_thumbnail()) :
-  $image = get_the_post_thumbnail_url();
-  $image_url = aq_resize($image, 300, 300, true);
-endif;
 
+$color = get_field('cert_color');
+$icon = get_field('cert_icon');
+$icon_back = get_field('cert_icon_back')
 ?>
 <!-- article -->
 <article id="post-<?php the_ID(); ?>" <?php post_class('col-12'); ?>>
     <div class="row">
         <div class="col-4 col-md-2 pl-0">
           <!-- post image -->
-          <?php if(isset($image_url)) : ?>
-            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-              <img class="rounded-circle" src="<?php echo $image_url; ?>" alt="<?php the_title_attribute(); ?>">
-            </a>
-          <?php endif; ?>
+          <?php
+          echo '<div class="cert-holder m-1">';
+            echo '<span class="fa-stack fa-3x">';
+              echo '<i class="' . $icon_back . ' fa-stack-2x" style="color:' . $color . '"></i>';
+              echo '<i class="' . $icon . ' fa-stack-1x fa-inverse"></i>';
+            echo '</span>';
+          echo '</div>';
+          ?>
           <!-- /post image -->
         </div>
           <div class="col-8 col-md-10">

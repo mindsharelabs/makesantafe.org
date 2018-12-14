@@ -28,10 +28,13 @@ if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
+
+$display_images = get_field('display_image_section', get_the_id());
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class(''); ?>>
 
 		<?php
+		if($display_images ) :
 			/**
 			 * Hook: woocommerce_before_single_product_summary.
 			 *
@@ -40,7 +43,6 @@ if ( post_password_required() ) {
 			 */
 			do_action( 'woocommerce_before_single_product_summary' );
 		?>
-
 	<div class="summary entry-summary">
 		<?php
 			/**
@@ -58,6 +60,15 @@ if ( post_password_required() ) {
 			do_action( 'woocommerce_single_product_summary' );
 		?>
 	</div>
+<?php
+else :
+	echo '<div class="row no-image-product">';
+		echo '<div class="col-12 col-md-8 offset-md-2">';
+			do_action( 'woocommerce_single_product_summary' );
+		echo '</div>';
+	echo '</div>';
+endif;
+?>
 </div>
 <hr class="clear"/>
 <div class="row">

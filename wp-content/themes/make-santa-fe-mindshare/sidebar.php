@@ -1,5 +1,6 @@
 <?php
 $sidebar_content = get_field('sidebar_blocks', get_the_id());
+$social_media = get_field('social_media', get_the_ID());
 ?>
 <!-- sidebar -->
 <aside class="sidebar col-md-4 col-12 order-last order-md-first" role="complementary">
@@ -39,6 +40,29 @@ $sidebar_content = get_field('sidebar_blocks', get_the_id());
 				endforeach;
 			echo '</div>';
 		endif;
+
+		if($social_media) :
+			echo '<div class="sidebar-content">';
+				echo '<h3 class="fancy">Links</h3>';
+				ob_start();
+					include get_template_directory() . '/inc/header-back.php';
+				echo ob_get_clean();
+
+
+				echo '<div class="row related-contant pl-5 mb-4">';
+				foreach($social_media as $icon) :
+					echo '<div class="col">';
+						echo '<a href="' . $icon['link'] . '" target="_blank">';
+							echo '<i class="' . $icon['icon'] . ' fa-2x"></i>';
+						echo '</a>';
+					echo '</div>';
+				endforeach;
+				echo '</div>';
+			echo '</div>';
+
+
+		endif;
+
 		?>
 		<div class="sidebar-widget">
 			<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>

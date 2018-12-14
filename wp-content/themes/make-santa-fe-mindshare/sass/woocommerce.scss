@@ -35,7 +35,7 @@
 
 .woocommerce form {
   .form-row{
-    width: 100%; 
+    width: 100%;
     label {
       line-height: 2;
       width: 100%;
@@ -56,4 +56,30 @@
   padding: 10px 20px;
   font-size: 1.2em;
   text-transform: uppercase;
+
+.no-image-product {
+  .product_title {
+    text-align: center;
+  }
+}
+.btn-default {
+  border: 1px solid $primary;
+}
+
+.woocommerce ul.products li.product .button {
+  display: block;
+  background-color: $primary;
+  text-align: center;
+  color: #fff;
+}
+.woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3 {
+  padding: .5em 0;
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+    text-transform: capitalize;
+    min-height: 60px;
+}
+.woocommerce ul.products li.product .price {
+  text-align: center;
 }

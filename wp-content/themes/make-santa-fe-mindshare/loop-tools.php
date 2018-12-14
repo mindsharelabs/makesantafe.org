@@ -31,7 +31,7 @@ $terms = get_the_terms(get_the_ID(), 'tool_type');
             endif;
             ?>
             <!-- post title -->
-            <h5 class="tool-title">
+            <h5 class="post-title">
               <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                 <?php the_title(); ?>
               </a>
