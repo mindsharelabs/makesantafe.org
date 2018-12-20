@@ -328,22 +328,24 @@ class FooEvents_Checkout_Helper {
                 $WooCommerceEventsCaptureAttendeeDesignation    = get_post_meta($ticket['product_id'], 'WooCommerceEventsCaptureAttendeeDesignation', true);
                 
                 if($WooCommerceEventsCaptureAttendeeDetails === 'on') {
-                
-                    if ( ! $_POST[$ticket['product_id'].'_attendee_'.$x.'__'.$y] ) {
+                    
+                    $attendeeEmail = trim($_POST[$ticket['product_id'].'_attendeeemail_'.$x.'__'.$y]);
+                    
+                    if (!$_POST[$ticket['product_id'].'_attendee_'.$x.'__'.$y]) {
                         
                         $notice = sprintf(__( 'Name is required for %s attendee %d', 'woocommerce-events' ), $event, $y );
                         wc_add_notice( $notice, 'error' );
 
                     }  
                     
-                    if ( ! $_POST[$ticket['product_id'].'_attendeelastname_'.$x.'__'.$y] ) {
+                    if (!$_POST[$ticket['product_id'].'_attendeelastname_'.$x.'__'.$y]) {
                         
                         $notice = sprintf(__( 'Last name is required for %s attendee %d', 'woocommerce-events' ), $event, $y );
                         wc_add_notice( $notice, 'error' );
 
                     }
 
-                    if ( ! $_POST[$ticket['product_id'].'_attendeeemail_'.$x.'__'.$y] ) {
+                    if (!$attendeeEmail) {
                         
                         $notice = sprintf(__( 'Email is required for %s attendee %d', 'woocommerce-events' ), $event, $y);
                         wc_add_notice( $notice, 'error' );
@@ -351,7 +353,7 @@ class FooEvents_Checkout_Helper {
                     }
                     
                     if($WooCommerceEventsCaptureAttendeeTelephone === 'on') {
-                        if ( ! $_POST[$ticket['product_id'].'_attendeetelephone_'.$x.'__'.$y] ) {
+                        if (!$_POST[$ticket['product_id'].'_attendeetelephone_'.$x.'__'.$y]) {
 
                             $notice = sprintf(__( 'Telephone is required for %s attendee %d', 'woocommerce-events' ), $event, $y);
                             wc_add_notice( $notice, 'error' );
@@ -360,7 +362,7 @@ class FooEvents_Checkout_Helper {
                     }
                     
                     if($WooCommerceEventsCaptureAttendeeCompany === 'on') {
-                        if ( ! $_POST[$ticket['product_id'].'_attendeecompany_'.$x.'__'.$y] ) {
+                        if (!$_POST[$ticket['product_id'].'_attendeecompany_'.$x.'__'.$y]) {
 
                             $notice = sprintf(__( 'Company is required for %s attendee %d', 'woocommerce-events' ), $event, $y);
                             wc_add_notice( $notice, 'error' );
@@ -369,7 +371,7 @@ class FooEvents_Checkout_Helper {
                     }
                     
                     if($WooCommerceEventsCaptureAttendeeDesignation === 'on') {
-                        if ( ! $_POST[$ticket['product_id'].'_attendeedesignation_'.$x.'__'.$y] ) {
+                        if (!$_POST[$ticket['product_id'].'_attendeedesignation_'.$x.'__'.$y]) {
 
                             $notice = sprintf(__( 'Designation is required for %s attendee %d', 'woocommerce-events' ), $event, $y);
                             wc_add_notice( $notice, 'error' );
@@ -377,27 +379,27 @@ class FooEvents_Checkout_Helper {
                         }
                     }
                     
-                    if (!$this->is_email_valid($_POST[$ticket['product_id'].'_attendeeemail_'.$x.'__'.$y])) {
+                    if (!$this->is_email_valid($attendeeEmail)) {
                         
                         $notice = sprintf(__( 'Email is not valid for %s attendee %d', 'woocommerce-events' ), $event, $y);
                         wc_add_notice( $notice, 'error' );
                         
                     }
                     
-                    if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+                    if (!function_exists( 'is_plugin_active_for_network')) {
                         
                         require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
                         
                     }
 
-                    if ( $this->is_plugin_active( 'fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php' ) || is_plugin_active_for_network('fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php')) {
+                    if ($this->is_plugin_active( 'fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php' ) || is_plugin_active_for_network('fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php')) {
                         
                         $Fooevents_Custom_Attendee_Fields = new Fooevents_Custom_Attendee_Fields();
                         $Fooevents_Custom_Attendee_Fields->check_required_fields($ticket, $event, $x, $y);
                         
                     }
                     
-                    if ( $this->is_plugin_active( 'fooevents_seating/fooevents-seating.php' ) || is_plugin_active_for_network('fooevents_seating/fooevents-seating.php')) {
+                    if ($this->is_plugin_active( 'fooevents_seating/fooevents-seating.php' ) || is_plugin_active_for_network('fooevents_seating/fooevents-seating.php')) {
                         
                         $Fooevents_Seating = new Fooevents_Seating();
                         $Fooevents_Seating->check_required_field_availability($ticket["product_id"], $event, $x, $y);
@@ -470,9 +472,9 @@ class FooEvents_Checkout_Helper {
                 
                 if($WooCommerceEventsCaptureAttendeeDetails === 'on') {
                     
-                    $attendeeName           = $_POST[$ticket['product_id'].'_attendee_'.$x.'__'.$y];
-                    $attendeeLastName       = $_POST[$ticket['product_id'].'_attendeelastname_'.$x.'__'.$y];
-                    $attendeeEmail          = $_POST[$ticket['product_id'].'_attendeeemail_'.$x.'__'.$y];
+                    $attendeeName           = trim($_POST[$ticket['product_id'].'_attendee_'.$x.'__'.$y]);
+                    $attendeeLastName       = trim($_POST[$ticket['product_id'].'_attendeelastname_'.$x.'__'.$y]);
+                    $attendeeEmail          = trim($_POST[$ticket['product_id'].'_attendeeemail_'.$x.'__'.$y]);
                     $attendeeTelephone      = '';
                     $attendeeCompany        = '';
                     $attendeeDesignation    = '';

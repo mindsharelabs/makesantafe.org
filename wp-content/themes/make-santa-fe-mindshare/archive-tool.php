@@ -4,7 +4,7 @@ include 'layout/notice.php';
 ?>
 <main role="main" aria-label="Content" <?php post_class('container-fluid'); ?>>
   <div class="row">
-    <?php get_sidebar(); ?>
+    <?php get_sidebar('tools'); ?>
       <div class="col-12 col-md-8 has-sidebar">
         <?php
         echo '<div class="row">';
@@ -29,7 +29,12 @@ include 'layout/notice.php';
         ?>
       </div>
     </div>
-    <?php get_template_part('pagination'); ?>
+    <div class="row">
+      <div class="col-12">
+        <?php echo do_shortcode('[facetwp pager="true"]'); ?>
+      </div>
+    </div>
+
     </main>
 <?php
 include 'layout/top-footer.php';

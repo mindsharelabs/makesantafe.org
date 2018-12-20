@@ -169,7 +169,14 @@ class FooEvents_Ticket_Helper {
                     
                     //guest account
                     try {
-                        echo $order->get_billing_first_name().' '.$order->get_billing_last_name().' - ( '.$order->get_billing_email().' )';
+                        
+                        if(!empty($order)) {
+                            
+                            echo $order->get_billing_first_name().' '.$order->get_billing_last_name().' - ( '.$order->get_billing_email().' )';
+                        
+                            
+                        }
+                         
                     } catch (Exception $e) {
             
                     }   
@@ -1027,6 +1034,11 @@ class FooEvents_Ticket_Helper {
                         
                         $productVariation = new WC_Product_Variation($_POST['WooCommerceEventsSelectedVariation']);
                         
+                        /*echo "<pre>";
+                        print_r($productVariation);
+                        echo "</pre>";
+                        exit();*/
+                        
                         $price = wc_price($productVariation->get_price());
                         
                     }
@@ -1046,9 +1058,10 @@ class FooEvents_Ticket_Helper {
                         
                     }
                     
+                    $id = ($_POST['WooCommerceEventsSelectedVariation']) ? $_POST['WooCommerceEventsSelectedVariation'] : $_POST['WooCommerceEventsEvent'];
                     remove_action('save_post', array(&$this, 'save_add_ticket_meta_boxes'), 1, 2);
-                    $order = wc_create_order();
-                    $order->add_product( get_product( $_POST['WooCommerceEventsEvent'] ), 1, $productDetails );
+                    $order = wc_create_order($order_data);
+                    $order->add_product( get_product($id), 1, $productDetails );
                     $order->set_address( $address, 'billing' );
                     $order->set_address( $address, 'shipping' );
                     $order->calculate_totals();

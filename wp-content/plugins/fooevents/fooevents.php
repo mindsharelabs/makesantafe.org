@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FooEvents for WooCommerce
  * Description: Adds event and ticketing features to WooCommerce
- * Version: 1.8.1
+ * Version: 1.8.7
  * Author: FooEvents
  * Plugin URI: https://www.fooevents.com/
  * Author URI: https://www.fooevents.com/
@@ -424,7 +424,7 @@ class FooEvents {
      * 
      */
     static function activate_plugin($plugin) {
-        
+
         $salt = rand(111111,999999); 
         update_option('woocommerce_events_do_salt', $salt);
  
@@ -746,6 +746,9 @@ class FooEvents {
         $WooCommerceEventsDate = str_replace('/', '-', $WooCommerceEventsDate);
         $WooCommerceEventsDate = str_replace(',', '', $WooCommerceEventsDate);
         
+        $WooCommerceEventsPeriod = strtoupper(str_replace('.', '', $WooCommerceEventsPeriod));
+        $WooCommerceEventsEndPeriod = strtoupper(str_replace('.', '', $WooCommerceEventsEndPeriod));
+        
         if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
             require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
         }
@@ -765,8 +768,8 @@ class FooEvents {
             
             foreach($multiDayDates as $dayDate) {
                 
-                $startDate = date("Y-m-d H:i:s", strtotime($dayDate." ".$WooCommerceEventsHour.':'.$WooCommerceEventsMinutes.$WooCommerceEventsEndPeriod));
-                $endDate = date("Y-m-d H:i:s", strtotime($dayDate." ".$WooCommerceEventsHourEnd.':'.$WooCommerceEventsMinutesEnd.$WooCommerceEventsEndPeriod));
+                $startDate = date("Y-m-d H:i:s", strtotime($dayDate." ".$WooCommerceEventsHour.':'.$WooCommerceEventsMinutes.' '.$WooCommerceEventsPeriod));
+                $endDate = date("Y-m-d H:i:s", strtotime($dayDate." ".$WooCommerceEventsHourEnd.':'.$WooCommerceEventsMinutesEnd.' '.$WooCommerceEventsEndPeriod));
                 
                 $this->ICSHelper->build_ICS($startDate, $endDate,$post->post_title, get_bloginfo('name'), $WooCommerceEventsLocation); 
                 
@@ -774,8 +777,8 @@ class FooEvents {
             
         } else {
             
-            $startDate = date("Y-m-d H:i:s", strtotime($WooCommerceEventsDate." ".$WooCommerceEventsHour.':'.$WooCommerceEventsMinutes.$WooCommerceEventsEndPeriod));
-            $endDate = date("Y-m-d H:i:s", strtotime($WooCommerceEventsDate." ".$WooCommerceEventsHourEnd.':'.$WooCommerceEventsMinutesEnd.$WooCommerceEventsEndPeriod));
+            $startDate = date("Y-m-d H:i:s", strtotime($WooCommerceEventsDate." ".$WooCommerceEventsHour.':'.$WooCommerceEventsMinutes.' '.$WooCommerceEventsPeriod));
+            $endDate = date("Y-m-d H:i:s", strtotime($WooCommerceEventsDate." ".$WooCommerceEventsHourEnd.':'.$WooCommerceEventsMinutesEnd.' '.$WooCommerceEventsEndPeriod));
 
             $this->ICSHelper->build_ICS($startDate, $endDate,$post->post_title, get_bloginfo('name'), $WooCommerceEventsLocation); 
             
@@ -1218,7 +1221,7 @@ function fooevents_widget_display() {
    
     $fooevents_calendar_active = 'No';
     $fooevents_calendar = array('Version' => '');
-    if ( fooevents_check_plugin_active('fooevents_calendar/fooevents-calendar.php') || is_plugin_active_for_network('fooevents_calendar/fooevents-calendar.php')) {
+    if ( fooevents_check_plugin_active('fooevents-calendar/fooevents-calendar.php') || is_plugin_active_for_network('fooevents-calendar/fooevents-calendar.php')) {
         
         $fooevents_calendar_active = 'Yes';
         $fooevents_calendar = get_plugin_data(WP_PLUGIN_DIR.'/fooevents_calendar/fooevents-calendar.php');

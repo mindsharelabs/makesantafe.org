@@ -60,6 +60,11 @@
 		 	 	}
 
 
+				$('.footerDrawer .open').on('click', function() {
+			    $('.footerDrawer .content').slideToggle();
+
+			  });
+
 
 
     });

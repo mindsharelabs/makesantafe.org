@@ -59,22 +59,24 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
           echo '<h4 class="sidebar-title mt-4">Certifications</h4>';
           echo '<div class="certifications">';
             foreach ($all_certs as $key => $cert) :
-              $color = get_field('cert_color', $cert);
-              $icon = get_field('cert_icon', $cert);
-              $icon_back = get_field('cert_icon_back', $cert);
-              $user_has = in_array($cert, $certifications);
-              if($user_has){
-                $class = 'false';
-              } else {
-                $class = 'true';
-              }
-              echo '<div class="cert-holder m-1 ' . $class . '">';
-                echo '<span class="fa-stack fa-2x">';
-                  echo '<i class="' . $icon_back . ' fa-stack-2x" style="color:' . $color . '"></i>';
-                  echo '<i class="' . $icon . ' fa-stack-1x fa-inverse"></i>';
-                echo '</span>';
-                echo '<span class="cert-name text-center d-block">' . get_the_title($cert) . '</span>';
-              echo '</div>';
+              if(is_array($certifications)) :
+                $color = get_field('cert_color', $cert);
+                $icon = get_field('cert_icon', $cert);
+                $icon_back = get_field('cert_icon_back', $cert);
+                $user_has = in_array($cert, $certifications);
+                if($user_has){
+                  $class = 'true';
+                } else {
+                  $class = 'false';
+                }
+                echo '<div class="cert-holder m-1 ' . $class . '">';
+                  echo '<a href="' . get_permalink($cert) . '" class="fa-stack fa-2x">';
+                    echo '<i class="' . $icon_back . ' fa-stack-2x" style="color:' . $color . '"></i>';
+                    echo '<i class="' . $icon . ' fa-stack-1x fa-inverse"></i>';
+                  echo '</a>';
+                  //echo '<span class="cert-name text-center d-block">' . get_the_title($cert) . '</span>';
+                echo '</div>';
+              endif;
             endforeach;
           echo '</div>';
         endif;

@@ -123,7 +123,7 @@ if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
 
         </div>
 
-        <?php if ( fooevents_check_plugin_active('fooevents_calendar/fooevents-calendar.php') || is_plugin_active_for_network('fooevents_calendar/fooevents-calendar.php')) { $installed=true; } else { $installed=false; } ?>
+        <?php if ( fooevents_check_plugin_active('fooevents-calendar/fooevents-calendar.php') || is_plugin_active_for_network('fooevents-calendar/fooevents-calendar.php')) { $installed=true; } else { $installed=false; } ?>
         
         <div class="woocommerce-events-extension <?php if($installed==false) { echo 'not-installed'; } ?>">
             
@@ -133,10 +133,10 @@ if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
             <strong>Status:</strong> 
             
             <?php
-            if ( fooevents_check_plugin_active('fooevents_calendar/fooevents-calendar.php') || is_plugin_active_for_network('fooevents_calendar/fooevents-calendar.php')) {
+            if ( fooevents_check_plugin_active('fooevents-calendar/fooevents-calendar.php') || is_plugin_active_for_network('fooevents-calendar/fooevents-calendar.php')) {
                 echo "<span class='install-status installed'>Installed</span> | <a href='https://www.fooevents.com/fooevents-calendar/' target='new'>Plugin Details</a>";
             } else {
-                if( file_exists(ABSPATH . 'wp-content/plugins/fooevents_calendar/fooevents-calendar.php')) { 
+                if( file_exists(ABSPATH . 'wp-content/plugins/fooevents-calendar/fooevents-calendar.php')) { 
                     echo "<span class='install-status notinstalled'>Deactivated</span>"; 
                 } else { 
                 echo "<span class='install-status notinstalled'>Not Installed</span> | <a href='https://www.fooevents.com/fooevents-calendar/' target='new'>Get Plugin</a>";

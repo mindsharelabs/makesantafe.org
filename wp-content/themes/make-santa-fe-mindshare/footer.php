@@ -1,5 +1,5 @@
 <!-- footer -->
-<footer class="bottom-footer" role="contentinfo">
+<footer class="bottom-footer pb-5" role="contentinfo">
   <div class="container">
     <div class="row">
       <div class="my-auto col-6 col-md-10">
@@ -18,6 +18,27 @@
 		</div>
   </div>
 </footer>
+
+
+<?php
+  // if(wc_memberships_is_user_active_member()) :
+  //   echo '<div class="footerDrawer">';
+  // 		echo '<div class="open">';
+  //     echo '<h5 class="text-center">Member Menu <i class="fal fa-angle-double-up"></i></h5>';
+  //   		echo '<div class="content">';
+  //         mindblank_nav('member-menu');
+  //   		echo '</div>';
+  //     echo '</div>';
+  // 	echo '</div>';
+  //
+  // endif;
+
+
+
+?>
+
+
+
 <!-- /footer -->
 </div>
 <?php wp_footer(); ?>

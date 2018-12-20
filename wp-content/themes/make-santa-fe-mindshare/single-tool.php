@@ -28,7 +28,7 @@ if(has_post_thumbnail()){
 
                if (have_posts()): while (have_posts()) : the_post(); ?>
 
-                    <?php if($image) : ?>
+                    <?php if(isset($image)) : ?>
                       <div class="col-12 col-md-4">
                         <img class="rounded-circle" src="<?php echo $image; ?>" title="<?php the_title_attribute(); ?>"/>
                       </div>

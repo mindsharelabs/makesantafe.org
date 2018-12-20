@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FooEvents Multi-Day
  * Description: Adds Multi-Day Event Functionality to FooEvents
- * Version: 1.1.15
+ * Version: 1.1.17
  * Author: FooEvents
  * Plugin URI: https://www.fooevents.com/
  * Author URI: https://www.fooevents.com/

@@ -2,6 +2,11 @@
 UPDATE LOG
 
 ------------------
+1.1.17
+ADDED: Support for new FooEvents Calendar features
+UPDATED: Localizations 
+FIXED: Various small bugs
+
 1.1.15
 FIXED: Initial selection bug 
 FIXED: Various other small bugs

@@ -9,13 +9,7 @@
 
         <div class="col-9 my-auto d-none d-md-block ">
           <nav class="desktop text-right">
-            <?php
-            if(is_user_logged_in()) :
-              mindblank_nav('member-menu');
-            else :
-              mindblank_nav('header-menu');
-            endif;
-            ?>
+            <?php mindblank_nav('header-menu'); ?>
           </nav>
         </div>
         <div class="col text-right my-auto">

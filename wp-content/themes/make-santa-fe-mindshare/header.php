@@ -32,13 +32,7 @@
 <body <?php body_class(); ?>>
 
 <nav id="main-nav" class="nav d-block d-md-none" role="navigation">
-    <?php
-    if(is_user_logged_in()) :
-      mindblank_nav('member-menu');
-    else :
-      mindblank_nav('header-menu');
-    endif;
-     ?>
+    <?php mindblank_nav('header-menu'); ?>
 </nav>
 <?php include 'layout/top-header.php'; ?>
 <div id="main-panel">

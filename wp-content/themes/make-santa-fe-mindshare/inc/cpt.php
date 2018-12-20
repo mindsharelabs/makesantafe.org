@@ -35,10 +35,10 @@ function create_post_type_mind()
                 'author'
             ), // Go to Dashboard Custom mind Blank post for supports
             'can_export' => true, // Allows export in Tools > Export
-            // 'taxonomies' => array(
-            //     'post_tag',
-            //     'category'
-            // ) // Add Category and Post Tags support
+            'taxonomies' => array(
+                'post_tag',
+                // 'category'
+            ) // Add Category and Post Tags support
         ));
 
         register_post_type('team', // Register Custom Post Type

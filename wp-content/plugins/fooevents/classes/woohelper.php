@@ -171,11 +171,20 @@ class FooEvents_Woo_Helper {
             
         }
         
-        if ($this->is_plugin_active('fooevents_calendar/fooevents-calendar.php') || is_plugin_active_for_network('fooevents_calendar/fooevents-calendar.php')) {
+        $eventbrite_option = '';
+        if ($this->is_plugin_active('fooevents-calendar/fooevents-calendar.php') || is_plugin_active_for_network('fooevents-calendar/fooevents-calendar.php')) {
             
             $FooEvents_Calendar = new FooEvents_Calendar();
             $eventBackgroundColour = $FooEvents_Calendar->generate_event_background_color_option($post);
             $eventTextColour = $FooEvents_Calendar->generate_event_background_text_option($post);
+            
+            $globalFooEventsEventbriteToken = get_option('globalFooEventsEventbriteToken');
+            
+            if(!empty($globalFooEventsEventbriteToken)) {
+                
+                $eventbrite_option = $FooEvents_Calendar->generate_eventbrite_option($post);
+            
+            }
             
         }
         
@@ -186,6 +195,21 @@ class FooEvents_Woo_Helper {
             $Fooevents_Custom_Attendee_Fields = new Fooevents_Custom_Attendee_Fields($post);
             $eventsIncludeCustomAttendeeFields = $Fooevents_Custom_Attendee_Fields->generate_include_custom_attendee_options($post);
             
+            $fooevents_custom_attendee_fields_options = $Fooevents_Custom_Attendee_Fields->display_tickets_meta_custom_options_array($post->ID); 
+            if (!empty($fooevents_custom_attendee_fields_options["fooevents_custom_attendee_fields_options_serialized"])) {
+                $custom_fields = json_decode($fooevents_custom_attendee_fields_options["fooevents_custom_attendee_fields_options_serialized"], true);
+                $cf_array = [];
+               
+                foreach( $custom_fields as $key => $value) {
+                    foreach( $value as $key_cf => $value_cf) {
+                        if (strpos($key_cf, '_label') !== false)
+                        {
+                            
+                            $cf_array["fooevents_custom_" . str_replace(" ", "_", strtolower($value_cf))] = $value_cf;
+                        }   
+                    }
+                }
+            }
         }
 
         $themes = $this->get_ticket_themes();
@@ -431,7 +455,24 @@ class FooEvents_Woo_Helper {
             update_post_meta($post_id, 'WooCommerceEventsEndPeriod', $_POST['WooCommerceEventsEndPeriod']);
 
         }
+        
+        update_post_meta($post_id, 'WooCommerceEventsAddEventbrite', $_POST['WooCommerceEventsAddEventbrite']);
+        
+        if($_POST['WooCommerceEventsAddEventbrite']) {
 
+            if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+                require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+            }
+
+            if ($this->is_plugin_active('fooevents-calendar/fooevents-calendar.php') || is_plugin_active_for_network('fooevents-calendar/fooevents-calendar.php')) {
+                
+                $FooEvents_Calendar = new FooEvents_Calendar();
+                $FooEvents_Calendar->process_eventbrite($post_id);
+
+            }
+  
+        }
+        
         if(isset($_POST['WooCommerceEventsGPS'])) {
 
             $WooCommerceEventsGPS = htmlentities(stripslashes($_POST['WooCommerceEventsGPS']));
@@ -703,6 +744,7 @@ class FooEvents_Woo_Helper {
 
         }
 
+
     }
 
     /**
@@ -757,84 +799,91 @@ class FooEvents_Woo_Helper {
     public function create_tickets($order_id) {
 
         $WooCommerceEventsOrderTickets = get_post_meta($order_id, 'WooCommerceEventsOrderTickets', true);
+        $WooCommerceEventsSentTicket =  get_post_meta($order_id, 'WooCommerceEventsTicketsGenergated', true);
+        
+        if($WooCommerceEventsSentTicket != 'yes') {
+            
+            $x = 1;
+            foreach($WooCommerceEventsOrderTickets as $event => $tickets) {
 
-        $x = 1;
-        foreach($WooCommerceEventsOrderTickets as $event => $tickets) {
+                $y = 1;
+                foreach($tickets as $ticket) {
 
-            $y = 1;
-            foreach($tickets as $ticket) {
+                    $rand = rand(111111,999999);
 
-                $rand = rand(111111,999999);
+                    $post = array(
 
-                $post = array(
+                            'post_author' => $ticket['WooCommerceEventsCustomerID'],
+                            'post_content' => "Ticket",
+                            'post_status' => "publish",
+                            'post_title' => 'Assigned Ticket',
+                            'post_type' => "event_magic_tickets"
 
-                        'post_author' => $ticket['WooCommerceEventsCustomerID'],
-                        'post_content' => "Ticket",
-                        'post_status' => "publish",
-                        'post_title' => 'Assigned Ticket',
-                        'post_type' => "event_magic_tickets"
+                    );
 
-                );
+                    $post['ID'] = wp_insert_post( $post );
+                    $ticketID = $post['ID'].$rand;
+                    $post['post_title'] = '#'.$ticketID;
+                    $postID = wp_update_post( $post );
 
-                $post['ID'] = wp_insert_post( $post );
-                $ticketID = $post['ID'].$rand;
-                $post['post_title'] = '#'.$ticketID;
-                $postID = wp_update_post( $post );
+                    $ticketHash = $this->generate_random_string(8);
 
-                $ticketHash = $this->generate_random_string(8);
+                    update_post_meta($postID, 'WooCommerceEventsTicketID', $ticketID);
+                    update_post_meta($postID, 'WooCommerceEventsTicketHash', $ticketHash);
+                    update_post_meta($postID, 'WooCommerceEventsProductID', $ticket['WooCommerceEventsProductID']);
+                    update_post_meta($postID, 'WooCommerceEventsOrderID', $ticket['WooCommerceEventsOrderID']);
+                    update_post_meta($postID, 'WooCommerceEventsTicketType', $ticket['WooCommerceEventsTicketType']);
+                    update_post_meta($postID, 'WooCommerceEventsStatus', 'Unpaid');
+                    update_post_meta($postID, 'WooCommerceEventsCustomerID', $ticket['WooCommerceEventsCustomerID']);
+                    update_post_meta($postID, 'WooCommerceEventsAttendeeName', $ticket['WooCommerceEventsAttendeeName']);
+                    update_post_meta($postID, 'WooCommerceEventsAttendeeLastName', $ticket['WooCommerceEventsAttendeeLastName']);
+                    update_post_meta($postID, 'WooCommerceEventsAttendeeEmail', $ticket['WooCommerceEventsAttendeeEmail']);
+                    update_post_meta($postID, 'WooCommerceEventsAttendeeTelephone', $ticket['WooCommerceEventsAttendeeTelephone']);
+                    update_post_meta($postID, 'WooCommerceEventsAttendeeCompany', $ticket['WooCommerceEventsAttendeeCompany']);
+                    update_post_meta($postID, 'WooCommerceEventsAttendeeDesignation', $ticket['WooCommerceEventsAttendeeDesignation']);
+                    update_post_meta($postID, 'WooCommerceEventsVariations', $ticket['WooCommerceEventsVariations']);
+                    update_post_meta($postID, 'WooCommerceEventsVariationID', $ticket['WooCommerceEventsVariationID']);
 
-                update_post_meta($postID, 'WooCommerceEventsTicketID', $ticketID);
-                update_post_meta($postID, 'WooCommerceEventsTicketHash', $ticketHash);
-                update_post_meta($postID, 'WooCommerceEventsProductID', $ticket['WooCommerceEventsProductID']);
-                update_post_meta($postID, 'WooCommerceEventsOrderID', $ticket['WooCommerceEventsOrderID']);
-                update_post_meta($postID, 'WooCommerceEventsTicketType', $ticket['WooCommerceEventsTicketType']);
-                update_post_meta($postID, 'WooCommerceEventsStatus', 'Unpaid');
-                update_post_meta($postID, 'WooCommerceEventsCustomerID', $ticket['WooCommerceEventsCustomerID']);
-                update_post_meta($postID, 'WooCommerceEventsAttendeeName', $ticket['WooCommerceEventsAttendeeName']);
-                update_post_meta($postID, 'WooCommerceEventsAttendeeLastName', $ticket['WooCommerceEventsAttendeeLastName']);
-                update_post_meta($postID, 'WooCommerceEventsAttendeeEmail', $ticket['WooCommerceEventsAttendeeEmail']);
-                update_post_meta($postID, 'WooCommerceEventsAttendeeTelephone', $ticket['WooCommerceEventsAttendeeTelephone']);
-                update_post_meta($postID, 'WooCommerceEventsAttendeeCompany', $ticket['WooCommerceEventsAttendeeCompany']);
-                update_post_meta($postID, 'WooCommerceEventsAttendeeDesignation', $ticket['WooCommerceEventsAttendeeDesignation']);
-                update_post_meta($postID, 'WooCommerceEventsVariations', $ticket['WooCommerceEventsVariations']);
-                update_post_meta($postID, 'WooCommerceEventsVariationID', $ticket['WooCommerceEventsVariationID']);
+                    update_post_meta($postID, 'WooCommerceEventsPurchaserFirstName', $ticket['WooCommerceEventsPurchaserFirstName']);
+                    update_post_meta($postID, 'WooCommerceEventsPurchaserLastName', $ticket['WooCommerceEventsPurchaserLastName']);
+                    update_post_meta($postID, 'WooCommerceEventsPurchaserEmail', $ticket['WooCommerceEventsPurchaserEmail']);
 
-                update_post_meta($postID, 'WooCommerceEventsPurchaserFirstName', $ticket['WooCommerceEventsPurchaserFirstName']);
-                update_post_meta($postID, 'WooCommerceEventsPurchaserLastName', $ticket['WooCommerceEventsPurchaserLastName']);
-                update_post_meta($postID, 'WooCommerceEventsPurchaserEmail', $ticket['WooCommerceEventsPurchaserEmail']);
-                
-                update_post_meta($postID, 'WooCommerceEventsPrice', $ticket['WooCommerceEventsPrice']);
-                update_post_meta($postID, 'WooCommerceEventsPriceSymbol', $ticket['WooCommerceEventsPriceSymbol']);
+                    update_post_meta($postID, 'WooCommerceEventsPrice', $ticket['WooCommerceEventsPrice']);
+                    update_post_meta($postID, 'WooCommerceEventsPriceSymbol', $ticket['WooCommerceEventsPriceSymbol']);
 
-                if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
-                        require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+                    if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+                            require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+                    }
+
+                    if ( $this->is_plugin_active( 'fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php' ) || is_plugin_active_for_network('fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php') ) {
+
+                        $Fooevents_Custom_Attendee_Fields = new Fooevents_Custom_Attendee_Fields();
+                        $WooCommerceEventsCustomAttendeeFields = $Fooevents_Custom_Attendee_Fields->process_capture_custom_attendee_options($postID, $ticket['WooCommerceEventsCustomAttendeeFields']);
+
+                    }
+
+                    if ( $this->is_plugin_active( 'fooevents_seating/fooevents-seating.php' ) || is_plugin_active_for_network('fooevents_seating/fooevents-seating.php') ) {
+
+                        $Fooevents_Seating = new Fooevents_Seating();
+                        $WooCommerceEventsSeatingFields = $Fooevents_Seating->process_capture_seating_options($postID, $ticket['WooCommerceEventsSeatingFields']);
+
+                    }
+
+                    $product = get_post($ticket['WooCommerceEventsProductID']);
+
+                    update_post_meta($postID, 'WooCommerceEventsProductName', $product->post_title);
+
+                    $y++;
+
                 }
 
-                if ( $this->is_plugin_active( 'fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php' ) || is_plugin_active_for_network('fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php') ) {
-
-                    $Fooevents_Custom_Attendee_Fields = new Fooevents_Custom_Attendee_Fields();
-                    $WooCommerceEventsCustomAttendeeFields = $Fooevents_Custom_Attendee_Fields->process_capture_custom_attendee_options($postID, $ticket['WooCommerceEventsCustomAttendeeFields']);
-
-                }
-                
-                if ( $this->is_plugin_active( 'fooevents_seating/fooevents-seating.php' ) || is_plugin_active_for_network('fooevents_seating/fooevents-seating.php') ) {
-
-                    $Fooevents_Seating = new Fooevents_Seating();
-                    $WooCommerceEventsSeatingFields = $Fooevents_Seating->process_capture_seating_options($postID, $ticket['WooCommerceEventsSeatingFields']);
-
-                }
-
-                $product = get_post($ticket['WooCommerceEventsProductID']);
-
-                update_post_meta($postID, 'WooCommerceEventsProductName', $product->post_title);
-
-                $y++;
+                $x++;
 
             }
-
-            $x++;
-
+            
         }
+        
+        update_post_meta($order_id, 'WooCommerceEventsTicketsGenergated', 'yes');
 
     }    
     
@@ -863,7 +912,7 @@ class FooEvents_Woo_Helper {
         $customer = get_post_meta($order_id, '_customer_user', true);
         $usermeta = get_user_meta($customer);
 
-        $WooCommerceEventsSentTicket        =  get_post_meta($order_id, 'WooCommerceEventsSentTicket', true);
+        $WooCommerceEventsSentTicket =  get_post_meta($order_id, 'WooCommerceEventsSentTicket', true);
 
         if ( $this->is_plugin_active( 'fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php' ) || is_plugin_active_for_network('fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php') ) {
 
@@ -1454,7 +1503,7 @@ class FooEvents_Woo_Helper {
             $statuses = array('wc-processing', 'wc-on-hold' );
             $order_ids = $this->get_orders_ids_by_product_id( $event, $statuses );
             $order_ids = array_unique($order_ids);
-            
+
             $x = 0;
             $unpaidTickets = array();
             foreach($order_ids as $order_id) {
@@ -1469,113 +1518,117 @@ class FooEvents_Woo_Helper {
                 } 
 
                 $WooCommerceEventsOrderTickets = get_post_meta($order_id, 'WooCommerceEventsOrderTickets', true);
-                
+
                 if(!empty($WooCommerceEventsOrderTickets)) {
                     foreach ($WooCommerceEventsOrderTickets as $order => $unpaidOrderTickets) {
 
                         foreach($unpaidOrderTickets as $unpaidOrderTicket) {
+                            
+                            if($unpaidOrderTicket['WooCommerceEventsProductID'] == $_GET['event']) {
+                            
+                                $UnpaidWooCommerceEventsAttendeeName = $unpaidOrderTicket['WooCommerceEventsAttendeeName'];
+                                if(empty($UnpaidWooCommerceEventsAttendeeName)) {
 
-                            $UnpaidWooCommerceEventsAttendeeName = $unpaidOrderTicket['WooCommerceEventsAttendeeName'];
-                            if(empty($UnpaidWooCommerceEventsAttendeeName)) {
+                                    $UnpaidWooCommerceEventsAttendeeName = $unpaidOrderTicket['WooCommerceEventsPurchaserFirstName'];
 
-                                $UnpaidWooCommerceEventsAttendeeName = $unpaidOrderTicket['WooCommerceEventsPurchaserFirstName'];
+                                } 
 
-                            } 
+                                $UnpaidWooCommerceEventsAttendeeLastName = $unpaidOrderTicket['WooCommerceEventsAttendeeLastName'];
+                                if(empty($UnpaidWooCommerceEventsAttendeeLastName)) {
 
-                            $UnpaidWooCommerceEventsAttendeeLastName = $unpaidOrderTicket['WooCommerceEventsAttendeeLastName'];
-                            if(empty($UnpaidWooCommerceEventsAttendeeLastName)) {
+                                    $UnpaidWooCommerceEventsAttendeeLastName = $unpaidOrderTicket['WooCommerceEventsPurchaserLastName'];
 
-                                $UnpaidWooCommerceEventsAttendeeLastName = $unpaidOrderTicket['WooCommerceEventsPurchaserLastName'];
+                                } 
 
-                            } 
+                                $UnpaidWooCommerceEventsAttendeeEmail = $unpaidOrderTicket['WooCommerceEventsAttendeeEmail'];
+                                if(empty($UnpaidWooCommerceEventsAttendeeEmail)) {
 
-                            $UnpaidWooCommerceEventsAttendeeEmail = $unpaidOrderTicket['WooCommerceEventsAttendeeEmail'];
-                            if(empty($UnpaidWooCommerceEventsAttendeeEmail)) {
-
-                                $UnpaidWooCommerceEventsAttendeeEmail = $unpaidOrderTicket['WooCommerceEventsPurchaserEmail'];
-
-                            }
-
-                            $unpaidOrderWooCommerceEventsVariations = $unpaidOrderTicket['WooCommerceEventsVariations'];
-                            if(!empty($unpaidOrderWooCommerceEventsVariations) && !is_array($unpaidOrderWooCommerceEventsVariations)) {
-
-                                $unpaidOrderWooCommerceEventsVariations = json_decode($unpaidOrderWooCommerceEventsVariations);
-
-                            }
-
-                            $unpaidVariationOutput = '';
-                            $i = 0;
-                            if(!empty($unpaidOrderWooCommerceEventsVariations)) {
-                                foreach($unpaidOrderWooCommerceEventsVariations as $variationName => $variationValue) {
-
-                                    if($i > 0) {
-
-                                        $variationOutput .= ' | ';
-
-                                    }
-
-                                    $variationNameOutput = str_replace('attribute_', '', $variationName);
-                                    $variationNameOutput = str_replace('pa_', '', $variationNameOutput);
-                                    $variationNameOutput = str_replace('_', ' ', $variationNameOutput);
-                                    $variationNameOutput = str_replace('-', ' ', $variationNameOutput);
-                                    $variationNameOutput = str_replace('Pa_', '', $variationNameOutput);
-                                    $variationNameOutput = ucwords($variationNameOutput);
-
-                                    $variationValueOutput = str_replace('_', ' ', $variationValue);
-                                    $variationValueOutput = str_replace('-', ' ', $variationValueOutput);
-                                    $variationValueOutput = ucwords($variationValueOutput);
-
-                                    $unpaidVariationOutput .= $variationNameOutput.': '.$variationValueOutput;
-
-                                    $i++;
-                                }
-                            }
-
-                            $unpaidTickets[$x]["TicketID"] = 'NA';
-                            $unpaidTickets[$x]["OrderID"] = $unpaidOrderTicket['WooCommerceEventsOrderID'];
-                            $unpaidTickets[$x]["Attendee First Name"] = $UnpaidWooCommerceEventsAttendeeName;
-                            $unpaidTickets[$x]["Attendee Last Name"] = $UnpaidWooCommerceEventsAttendeeLastName;
-                            $unpaidTickets[$x]["Attendee Email"] = $UnpaidWooCommerceEventsAttendeeEmail;
-                            $unpaidTickets[$x]["Ticket Status"] = $unpaidOrderTicket['WooCommerceEventsStatus'];
-                            $unpaidTickets[$x]["Ticket Type"] = $unpaidOrderTicket['WooCommerceEventsTicketType'];
-                            $unpaidTickets[$x]["Variation"] = $unpaidVariationOutput;
-                            $unpaidTickets[$x]["Attendee Telephone"] = $unpaidOrderTicket['WooCommerceEventsAttendeeTelephone'];
-                            $unpaidTickets[$x]["Attendee Company"] = $unpaidOrderTicket['WooCommerceEventsAttendeeCompany'];
-                            $unpaidTickets[$x]["Attendee Designation"] = $unpaidOrderTicket['WooCommerceEventsAttendeeDesignation'];
-                            $unpaidTickets[$x]["Purchaser First Name"] = $unpaidOrderTicket['WooCommerceEventsPurchaserFirstName'];
-                            $unpaidTickets[$x]["Purchaser Last Name"] = $unpaidOrderTicket['WooCommerceEventsPurchaserLastName'];
-                            $unpaidTickets[$x]["Purchaser Email"] = $unpaidOrderTicket['WooCommerceEventsPurchaserEmail'];
-                            $unpaidTickets[$x]["Purchaser Phone"] = $unpaid_order->billing_phone;
-                            $unpaidTickets[$x]["Purchaser Company"] = $unpaid_order->get_billing_company();
-
-                            if(!empty($exportbillingdetails)) {
-
-                                $unpaidTickets[$x]["Billing Address 1"] = $unpaid_order->get_billing_address_1();
-                                $unpaidTickets[$x]["Billing Address 2"] = $unpaid_order->get_billing_address_2();
-                                $unpaidTickets[$x]["Billing City"] = $unpaid_order->get_billing_city();
-                                $unpaidTickets[$x]["Billing Postal Code"] = $unpaid_order->get_billing_postcode();
-                                $unpaidTickets[$x]["Billing Country"] = $unpaid_order->get_billing_country();
-                                $unpaidTickets[$x]["Billing State"] = $unpaid_order->get_billing_state();
-                                $unpaidTickets[$x]["Billing Phone Number"] = $unpaid_order->get_billing_phone();
-
-                            }
-
-                            if ($this->is_plugin_active( 'fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php') || is_plugin_active_for_network('fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php')) {
-
-                                $y = 15;
-                                if(!empty($unpaidOrderTicket['WooCommerceEventsCustomAttendeeFields'])) {
-
-                                    foreach($unpaidOrderTicket['WooCommerceEventsCustomAttendeeFields'] as $unpaidCustomField => $unpaidCustomValue) {
-
-                                        $unpaidTickets[$x][$unpaidCustomField] = $unpaidCustomValue;
-
-                                    }
+                                    $UnpaidWooCommerceEventsAttendeeEmail = $unpaidOrderTicket['WooCommerceEventsPurchaserEmail'];
 
                                 }
 
-                            }
+                                $unpaidOrderWooCommerceEventsVariations = $unpaidOrderTicket['WooCommerceEventsVariations'];
+                                if(!empty($unpaidOrderWooCommerceEventsVariations) && !is_array($unpaidOrderWooCommerceEventsVariations)) {
 
-                            $x++;
+                                    $unpaidOrderWooCommerceEventsVariations = json_decode($unpaidOrderWooCommerceEventsVariations);
+
+                                }
+
+                                $unpaidVariationOutput = '';
+                                $i = 0;
+                                if(!empty($unpaidOrderWooCommerceEventsVariations)) {
+                                    foreach($unpaidOrderWooCommerceEventsVariations as $variationName => $variationValue) {
+
+                                        if($i > 0) {
+
+                                            $variationOutput .= ' | ';
+
+                                        }
+
+                                        $variationNameOutput = str_replace('attribute_', '', $variationName);
+                                        $variationNameOutput = str_replace('pa_', '', $variationNameOutput);
+                                        $variationNameOutput = str_replace('_', ' ', $variationNameOutput);
+                                        $variationNameOutput = str_replace('-', ' ', $variationNameOutput);
+                                        $variationNameOutput = str_replace('Pa_', '', $variationNameOutput);
+                                        $variationNameOutput = ucwords($variationNameOutput);
+
+                                        $variationValueOutput = str_replace('_', ' ', $variationValue);
+                                        $variationValueOutput = str_replace('-', ' ', $variationValueOutput);
+                                        $variationValueOutput = ucwords($variationValueOutput);
+
+                                        $unpaidVariationOutput .= $variationNameOutput.': '.$variationValueOutput;
+
+                                        $i++;
+                                    }
+                                }
+
+                                $unpaidTickets[$x]["TicketID"] = 'NA';
+                                $unpaidTickets[$x]["OrderID"] = $unpaidOrderTicket['WooCommerceEventsOrderID'];
+                                $unpaidTickets[$x]["Attendee First Name"] = $UnpaidWooCommerceEventsAttendeeName;
+                                $unpaidTickets[$x]["Attendee Last Name"] = $UnpaidWooCommerceEventsAttendeeLastName;
+                                $unpaidTickets[$x]["Attendee Email"] = $UnpaidWooCommerceEventsAttendeeEmail;
+                                $unpaidTickets[$x]["Ticket Status"] = $unpaidOrderTicket['WooCommerceEventsStatus'];
+                                $unpaidTickets[$x]["Ticket Type"] = $unpaidOrderTicket['WooCommerceEventsTicketType'];
+                                $unpaidTickets[$x]["Variation"] = $unpaidVariationOutput;
+                                $unpaidTickets[$x]["Attendee Telephone"] = $unpaidOrderTicket['WooCommerceEventsAttendeeTelephone'];
+                                $unpaidTickets[$x]["Attendee Company"] = $unpaidOrderTicket['WooCommerceEventsAttendeeCompany'];
+                                $unpaidTickets[$x]["Attendee Designation"] = $unpaidOrderTicket['WooCommerceEventsAttendeeDesignation'];
+                                $unpaidTickets[$x]["Purchaser First Name"] = $unpaidOrderTicket['WooCommerceEventsPurchaserFirstName'];
+                                $unpaidTickets[$x]["Purchaser Last Name"] = $unpaidOrderTicket['WooCommerceEventsPurchaserLastName'];
+                                $unpaidTickets[$x]["Purchaser Email"] = $unpaidOrderTicket['WooCommerceEventsPurchaserEmail'];
+                                $unpaidTickets[$x]["Purchaser Phone"] = $unpaid_order->billing_phone;
+                                $unpaidTickets[$x]["Purchaser Company"] = $unpaid_order->get_billing_company();
+
+                                if(!empty($exportbillingdetails)) {
+
+                                    $unpaidTickets[$x]["Billing Address 1"] = $unpaid_order->get_billing_address_1();
+                                    $unpaidTickets[$x]["Billing Address 2"] = $unpaid_order->get_billing_address_2();
+                                    $unpaidTickets[$x]["Billing City"] = $unpaid_order->get_billing_city();
+                                    $unpaidTickets[$x]["Billing Postal Code"] = $unpaid_order->get_billing_postcode();
+                                    $unpaidTickets[$x]["Billing Country"] = $unpaid_order->get_billing_country();
+                                    $unpaidTickets[$x]["Billing State"] = $unpaid_order->get_billing_state();
+                                    $unpaidTickets[$x]["Billing Phone Number"] = $unpaid_order->get_billing_phone();
+
+                                }
+
+                                if ($this->is_plugin_active( 'fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php') || is_plugin_active_for_network('fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php')) {
+
+                                    $y = 15;
+                                    if(!empty($unpaidOrderTicket['WooCommerceEventsCustomAttendeeFields'])) {
+
+                                        foreach($unpaidOrderTicket['WooCommerceEventsCustomAttendeeFields'] as $unpaidCustomField => $unpaidCustomValue) {
+
+                                            $unpaidTickets[$x][$unpaidCustomField] = $unpaidCustomValue;
+
+                                        }
+
+                                    }
+
+                                }
+
+                                $x++;
+                            
+                            }
 
                         }
 

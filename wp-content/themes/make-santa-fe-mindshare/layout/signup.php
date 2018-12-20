@@ -6,7 +6,7 @@
         <div id="signup_1" class="signup-section show text-center mb-5">
           <h3 class="text-center"></h3>
 
-          <a href="/product-category/membership/" class="btn btn-primary btn-lg">Lets Get Makin'</a>
+          <a href="/product-category/learn/" class="btn btn-primary btn-lg">Lets Get Makin'</a>
         </div>
 
       </div>

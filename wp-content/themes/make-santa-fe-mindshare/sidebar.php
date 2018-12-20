@@ -6,7 +6,7 @@ $social_media = get_field('social_media', get_the_ID());
 <aside class="sidebar col-md-4 col-12 order-last order-md-first" role="complementary">
 	<div class="sidebar-cont">
 		<?php
-		if($sidebar_content) :
+		if($sidebar_content && is_singular()) :
 			echo '<div class="sidebar-content">';
 				foreach($sidebar_content as $s_content) :
 					echo '<h3 class="fancy">' . $s_content['title'] . '</h3>';

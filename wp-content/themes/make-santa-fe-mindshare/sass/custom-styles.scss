@@ -20,7 +20,14 @@ body {
   -o-transition: opacity 250ms ease-out;
   transition: opacity 250ms ease-out;
 }
-
+pre {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+    clear: both;
+    background: rgb(240, 240, 240);
+    padding: 10px;
+}
 body.fade-in {
   opacity: 1;
 }
@@ -268,7 +275,7 @@ section.newsletter {
 footer.footer {
   border-top: 1px solid $light;
   border-bottom: 1px solid $light;
-  text-align: right;
+
   nav.footer-menu {
     width: 100%;
     font-size: .9em;
@@ -290,6 +297,11 @@ footer.footer {
       }
     }
   }
+}
+
+.svg-sidebar-line {
+  fill: #fff;
+  stroke: $dark;
 }
 footer.bottom-footer{
   border-top: 5px solid $primary;
@@ -347,6 +359,24 @@ article.tool, article.certs {
   float: none;
 
 }
+.facetwp-pager {
+  display: flex;
+  flex-wrap: nowrap;
+  .facetwp-page, .facetwp-pager-label {
+    text-align: center;
+    color: #fff;
+    flex-grow: 1;
+    padding: 5px 10px;
+    background-color: $light;
+    margin: 1px;
+    a {
+      color:#fff !important;
+    }
+    &.active {
+      background-color: $primary;
+    }
+  }
+}
 
 section.certifications {
   background: $background;
@@ -380,17 +410,16 @@ section.maker-profile {
   }
   .certifications {
     display: flex;
+    flex-wrap: wrap;
     .cert-holder{
-      display: flex;
-      flex-grow: 1;
-      flex-direction: column;
-      min-width: 20%;
+      text-align: center;
       &.false{
-        opacity: .3;
+        opacity: .2;
       }
       .cert-name {
         font-size: .7em;
         color: lighten($dark, 40%);
+        white-space: pre-wrap;
       }
     }
   }

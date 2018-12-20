@@ -2,6 +2,13 @@
 UPDATE LOG
 
 ------------------
+1.8.6
+ADDED: New FooEvents Calendar feature support
+FIXED: .ics generation bugs
+FIXED: Admin add new ticket bugs
+FIXED: Various small bugs
+
+
 1.8.0
 ADDED: Attendee badge functionality
 ADDED: Multi-day support in ICS export 

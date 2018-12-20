@@ -1,8 +1,8 @@
 <div class="options_group" id ="WooCommerceEventsMultiDayTypeHolder">
     <p class="form-field">
         <label><?php _e('Multi-day type:', 'fooevents-multiday-events'); ?></label>
-        <input type="radio" name="WooCommerceEventsMultiDayType" value="sequential" <?php echo ($WooCommerceEventsMultiDayType !== 'select')? 'CHECKED' : '' ?>> Sequential days<br>
-        <input type="radio" name="WooCommerceEventsMultiDayType" value="select" <?php echo ($WooCommerceEventsMultiDayType == 'select')? 'CHECKED' : '' ?>> Select days<br>
+        <input type="radio" name="WooCommerceEventsMultiDayType" value="sequential" <?php echo ($WooCommerceEventsMultiDayType !== 'select')? 'CHECKED' : '' ?>> <?php _e('Sequential days', 'fooevents-multiday-events'); ?><br>
+        <input type="radio" name="WooCommerceEventsMultiDayType" value="select" <?php echo ($WooCommerceEventsMultiDayType == 'select')? 'CHECKED' : '' ?>> <?php _e('Select days', 'fooevents-multiday-events'); ?><br>
     </p>
 </div>
 <div class="options_group" id ="WooCommerceEventsSelectDateContainer">

@@ -67,6 +67,7 @@
                         <img class="help_tip" data-tip="<?php _e('The time that the event is scheduled to end', 'woocommerce-events'); ?>" src="<?php echo plugins_url(); ?>/woocommerce/assets/images/help.png" height="16" width="16" />
                 </p>
         </div>
+        <?php echo $eventbrite_option; ?>
         <div class="options_group">
                 <p class="form-field">
                        <label><?php _e('Venue:', 'woocommerce-events'); ?></label>
@@ -309,27 +310,6 @@
                 <a href="<?php echo site_url(); ?>/wp-admin/admin-ajax.php?action=woocommerce_events_csv&event=<?php echo $post->ID; ?><?php echo ($WooCommerceEventsExportUnpaidTickets == 'on')? '&exportunpaidtickets=true' : ''; ?><?php echo ($WooCommerceEventsExportBillingDetails == 'on')? '&exportbillingdetails=true' : ''; ?>" class="button" target="_BLANK"><?php _e('Download CSV of attendees', 'woocommerce-events'); ?></a>
             </p>
         </div>
-
-        <?php
-        if ($this->is_plugin_active( 'fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php') || is_plugin_active_for_network('fooevents_custom_attendee_fields/fooevents-custom-attendee-fields.php')) {
-            $Fooevents_Custom_Attendee_Fields = new Fooevents_Custom_Attendee_Fields();
-            $fooevents_custom_attendee_fields_options = $Fooevents_Custom_Attendee_Fields->display_tickets_meta_custom_options_array($post->ID); 
-            $custom_fields = json_decode($fooevents_custom_attendee_fields_options["fooevents_custom_attendee_fields_options_serialized"], true);
-            $cf_array = [];
-            foreach( $custom_fields as $key => $value) {
-           
-               foreach( $value as $key_cf => $value_cf) {
-                    if (strpos($key_cf, '_label') !== false)
-                    {
-                        
-                        $cf_array["fooevents_custom_" . str_replace(" ", "_", strtolower($value_cf))] = $value_cf;
-                    }
-                    
-                }
-        
-             }
-        }
-        ?>
 
 
         <div class="options_group">
