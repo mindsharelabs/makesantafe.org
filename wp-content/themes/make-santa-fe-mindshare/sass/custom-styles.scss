@@ -460,7 +460,6 @@ aside.sidebar {
       }
       svg{
         margin-top: -20px;
-        margin-bottom: -20px;
         fill: none;
         stroke: #B3AFAC;
         .svg-sidebar-line{
@@ -470,7 +469,7 @@ aside.sidebar {
           fill: #fff;
         }
       }
-      .related_content {
+      .related_content, .facet-options {
         margin-left: 56px;
 
         h4 {
@@ -484,6 +483,21 @@ aside.sidebar {
         }
         svg{
           margin-top: -20px;
+        }
+      }
+      .facet-options{
+        .facetwp-checkbox{
+          background: none;
+          background-color: lighten($secondary, 20%);
+          border-left: 20px solid $secondary;
+          padding: 5px 0 5px 9px;
+          margin-bottom: 1px;
+          &.checked {
+            border-left: 20px solid $primary;
+          }
+          &.disabled {
+            color: $secondary;
+          }
         }
       }
       .sub-content {
