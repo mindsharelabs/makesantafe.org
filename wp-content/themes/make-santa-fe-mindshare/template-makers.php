@@ -5,14 +5,16 @@ include 'layout/page-header.php';
 include 'layout/notice.php';
 
 // Get the results
-$makers = get_active_members_for_membership('Make Member');
+$paid_makers = get_active_members_for_membership('Make Member');
+$inkind_makers = get_active_members_for_membership('In Kind Membership');
+$makers = array_merge($paid_makers, $inkind_makers);
 $current_user = wp_get_current_user();
 $current_user_id = $current_user->ID;
 ?>
 <main role="main" aria-label="Content" class="container-fluid">
     <div class="row">
       <?php get_sidebar(); ?>
-        <div class="col-xs-12 col-md-8 has-sidebar">
+        <div class="col-12 col-md-8 has-sidebar">
             <!-- section -->
             <section class="mt-4">
               <?php
@@ -26,27 +28,35 @@ $current_user_id = $current_user->ID;
             			include get_template_directory() . '/inc/svgheader.php';
             		echo '</div>';
               echo '</header>';
-              $makers_shown = array();
-              $show_nag = 'show';
+
               if ($makers) :
                 echo '<hr class="clear">';
                 echo '<section class="row makers">';
                 foreach ($makers as $maker) :
                   $user_id = $maker->user_id;
-
-                  if($user_id == $current_user_id){
-                    $show_nag = 'dont_show';
-                  }
-                  $makers_shown[] = $user_id;
                   $public = get_field('display_profile_publicly', 'user_' . $user_id);
                   $name = get_field('display_name', 'user_' . $user_id );
-                  $photo = get_field('photo', 'user_' . $user_id);
-                  if($public && $name && $photo) :
-                    $image = aq_resize($photo['url'], 300, 300);
-                    $title = get_field('title', 'user_' . $user_id );
-                    $link = get_author_posts_url( $user_id );
+                  if(($public == 'TRUE') && $name) :
+                    if($user_id == $current_user_id){
+                      $show_nag = 'dont_show';
+                    }
 
-                    echo '<div class="col-12 col-md-3">';
+
+                    $photo = get_field('photo', 'user_' . $user_id);
+
+                    if(!$photo){
+                      $image = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
+                    } else {
+                      $image = aq_resize($photo['url'], 300, 300);
+                    }
+
+
+
+                    // mapi_var_dump($image);
+                    $title = get_field('title', 'user_' . $user_id );
+                    $link = get_permalink(get_page_by_path('maker-profile-page')) . '?maker_id=' . $user_id;
+
+                    echo '<div class="col-6 col-md-3">';
                       echo '<div class="maker-photo p-2">';
                         echo '<a href="' . $link . '" title="' . $name . '">';
                           echo '<img src="' . $image . '" class="rounded-circle"/>';
@@ -66,16 +76,6 @@ $current_user_id = $current_user->ID;
                 endforeach;
                 echo '</section>';
               endif;
-        
-              if($show_nag == 'show') {
-                echo '<section class="row">';
-                  echo '<div class="col-12">';
-                    echo '<h5>Are you a Make Santa Fe member? Do you want to see your profile here? Go to <a href="/my-account/make-profile/">your profile</a> and enable it!';
-                  echo '</div>';
-                echo '</section>';
-              }
-
-
 
               ?>
             </section>

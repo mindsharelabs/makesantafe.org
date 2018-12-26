@@ -76,21 +76,27 @@ add_action( 'pre_get_posts', 'make_post_type_archive' );
 
 function make_post_type_archive( $query ) {
 
-if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
-		$query->set( 'posts_per_page', -1 );
-		$query->set( 'orderby', 'title' );
-    $query->set( 'order', 'DESC' );
-	}
+  if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
+  		$query->set( 'posts_per_page', -1 );
+  		$query->set( 'orderby', 'title' );
+      $query->set( 'order', 'DESC' );
+  	}
 
-if ( $query->is_main_query() && !is_admin() && is_post_type_archive( 'certs' )) {
+  if ( $query->is_main_query() && !is_admin() && is_post_type_archive( 'certs' )) {
 
-    $query->set( 'posts_per_page', -1 );
-		$query->set( 'orderby', 'title' );
-    $query->set( 'order', 'DESC' );
+      $query->set( 'posts_per_page', -1 );
+  		$query->set( 'orderby', 'title' );
+      $query->set( 'order', 'DESC' );
+  }
+
+
 }
-
-
+function make_add_query_vars( $vars ) {
+  $vars[] = "maker_id";
+  return $vars;
 }
+add_filter( 'query_vars', 'make_add_query_vars' );
+
 
 
 // mind Blank navigation

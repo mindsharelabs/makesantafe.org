@@ -128,6 +128,7 @@ function get_active_members_for_membership($memberships){
         AND p.post_status IN ('wcm-active')
         AND p2.post_type = 'wc_membership_plan'
         AND p2.post_title LIKE '$memberships'
+        LIMIT 999
     ");
 }
 
@@ -149,7 +150,7 @@ function make_remove_free_checkout_fields() {
 		// Remove the "Additional Info" order notes
 		add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
 		// Unset the fields we don't want in a free checkout
-		function unset_unwanted_checkout_fields( $fields ) {
+		function make_unset_unwanted_checkout_fields( $fields ) {
 			// add or remove billing fields you do not want
 			// fields: http://docs.woothemes.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/#section-2
 			$billing_keys = array(
@@ -168,7 +169,7 @@ function make_remove_free_checkout_fields() {
 			}
 			return $fields;
 		}
-		add_filter( 'woocommerce_checkout_fields', 'unset_unwanted_checkout_fields' );
+		add_filter( 'woocommerce_checkout_fields', 'make_unset_unwanted_checkout_fields' );
 	}
 }
 add_action( 'wp', 'make_remove_free_checkout_fields' );
@@ -181,6 +182,21 @@ function make_add_event_date() {
     echo '<span class="event-date text-center d-block w-100">' . $date->format('D, M j') . '</span>';
   endif;
 }
+
+
+/*
+ * Change the entry title of the endpoints that appear in My Account Page - WooCommerce 2.6
+ * Using the_title filter
+ */
+function make_woo_endpoint_title( $items, $endpoints ) {
+  $items['bookings'] = 'Tool Reservations';
+
+  return $items;
+}
+add_filter( 'woocommerce_account_menu_items', 'make_woo_endpoint_title', 10, 2 );
+
+
+
 
 /**
  * Save post metadata when a post is saved.

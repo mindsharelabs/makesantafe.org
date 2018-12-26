@@ -4,7 +4,6 @@
 $author = get_user_by( 'slug', get_query_var( 'author_name' ) );
 $maker_id = $author->ID;
 $public = get_field('display_profile_publicly', 'user_' . $maker_id);
-
  ?>
 <main role="main" aria-label="Content" <?php post_class('container'); ?>>
   <section class="maker-profile">
