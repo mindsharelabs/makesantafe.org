@@ -46,13 +46,6 @@ if (function_exists('add_theme_support')) {
     Functions
 \*------------------------------------*/
 
-function another_var_dump($var) {
-  if (current_user_can('administrator')) :
-      echo '<pre>';
-        var_dump($var);
-      echo '</pre>';
-  endif;
-}
 
 function mapi_var_dump($var)
 {
@@ -497,6 +490,53 @@ add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
 //WooCommerce Shity Notices
 add_filter( 'woocommerce_helper_suppress_admin_notices', '__return_true' );
 add_filter( 'jetpack_just_in_time_msgs', '_return_false' );
+
+
+/*  Add responsive container to embeds
+/* ------------------------------------ */
+function make_embed_html( $html ) {
+    return '<div class="embed-container">' . $html . '</div>';
+}
+
+add_filter( 'embed_oembed_html', 'make_embed_html', 10, 3 );
+add_filter( 'video_embed_html', 'make_embed_html' ); // Jetpack
+
+
+
+
+// Registering custom post status
+function make_custom_post_status(){
+    register_post_status('expired', array(
+        'label'                     => _x( 'Expired', 'post' ),
+        'public'                    => true,
+        'exclude_from_search'       => false,
+        'show_in_admin_all_list'    => true,
+        'show_in_admin_status_list' => true,
+        'label_count'               => _n_noop( 'Expired <span class="count">(%s)</span>', 'Expired <span class="count">(%s)</span>' ),
+    ) );
+}
+add_action( 'init', 'make_custom_post_status' );
+
+// Using jQuery to add it to post status dropdown
+add_action('admin_footer-post.php', 'make_append_post_status_list');
+function make_append_post_status_list(){
+  global $post;
+  $complete = '';
+  $label = '';
+  if($post->post_type == 'product'){
+    if($post->post_status == 'expired'){
+      $complete = ' selected="selected"';
+      $label = '<span id="post-status-display"> Expired</span>';
+    }
+    echo '<script>
+    jQuery(document).ready(function($){
+    $("select#post_status").append("<option value=\"expired\" '.$complete.'>Expired</option>");
+    $(".misc-pub-section label").append("'.$label.'");
+    });
+    </script>
+    ';
+  }
+}
 
 
 

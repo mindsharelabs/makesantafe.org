@@ -11,7 +11,13 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
 
       $current_user_id = get_current_user_id();
       $photo = get_field('photo', 'user_' . $maker_id);
-      $image = aq_resize($photo['url'], 400, 400);
+
+      if(!$photo){
+        $image = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
+      } else {
+        $image = aq_resize($photo['url'], 400, 400);
+      }
+
       $gallery = get_field('image_gallery', 'user_' . $maker_id );
       $bio = get_field('bio','user_' . $maker_id);
       $name = get_field('display_name', 'user_' . $maker_id );

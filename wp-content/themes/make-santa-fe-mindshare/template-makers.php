@@ -28,15 +28,24 @@ $current_user_id = $current_user->ID;
             			include get_template_directory() . '/inc/svgheader.php';
             		echo '</div>';
               echo '</header>';
-
+              echo '<hr class="clear">';
               if ($makers) :
-                echo '<hr class="clear">';
+                echo '<div class="row">';
+                  echo '<div class="col">';
+                    echo '<div class="alert alert-warning" role="alert">Are you a Make Santa Fe member? Want to see your profile here? Go to <a href="/my-account/make-profile/">your account</a> and enable it!</div>';
+                  echo '</div>';
+                echo '</div>';
+
                 echo '<section class="row makers">';
                 foreach ($makers as $maker) :
                   $user_id = $maker->user_id;
                   $public = get_field('display_profile_publicly', 'user_' . $user_id);
                   $name = get_field('display_name', 'user_' . $user_id );
-                  if(($public == 'TRUE') && $name) :
+                  if(!$name) :
+                    $user_info = get_userdata( $user_id );
+                    $name = $user_info->user_nicename;
+                  endif;
+                  if($public == 'TRUE') :
                     if($user_id == $current_user_id){
                       $show_nag = 'dont_show';
                     }
@@ -50,11 +59,10 @@ $current_user_id = $current_user->ID;
                       $image = aq_resize($photo['url'], 300, 300);
                     }
 
-
-
                     // mapi_var_dump($image);
                     $title = get_field('title', 'user_' . $user_id );
-                    $link = get_permalink(get_page_by_path('maker-profile-page')) . '?maker_id=' . $user_id;
+                    // $link = get_permalink(get_page_by_path('maker-profile')) . '?maker_id=' . $user_id;
+                    $link = get_author_posts_url($user_id);
 
                     echo '<div class="col-6 col-md-3">';
                       echo '<div class="maker-photo p-2">';
@@ -63,10 +71,14 @@ $current_user_id = $current_user->ID;
                         echo '</a>';
                       echo '</div>';
                       echo '<div class="content">';
+                      if($name) :
                         echo '<a href="' . $link . '" title="' . $name . '">';
                           echo '<h3 class="text-center">' . $name . '</h3>';
                         echo '</a>';
+                      endif;
+                      if($title) :
                         echo '<h4 class="text-center">' . $title . '</h4>';
+                      endif;
                       echo '</div>';
                     echo '</div>';
 
