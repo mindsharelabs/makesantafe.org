@@ -82,8 +82,16 @@ function make_post_type_archive( $query ) {
       $query->set( 'order', 'DESC' );
   }
 
+  if ( $query->is_main_query() && !is_admin() && $query->is_tax('product_cat')) {
+    mapi_var_dump($query->is_tax('product_cat'));
+      $query->set( 'post_status', 'publish' );
+      $query->set('meta_key', 'make_event_date_timestamp' );
+      $query->set('orderby', 'meta_value date');
+      $query->set('order', 'ASC' );
+  }
 
 }
+
 function make_add_query_vars( $vars ) {
   $vars[] = "maker_id";
   return $vars;
