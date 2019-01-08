@@ -5,9 +5,13 @@ add_theme_support('wc-product-gallery-lightbox');
 add_theme_support('wc-product-gallery-slider');
 
 
+
+
 //Removed Actions
 remove_action(' woocommerce_sidebar', 'woocommerce_get_sidebar');
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+remove_action( 'template_redirect', 'wc_disable_author_archives_for_customers', 10 );
 
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
@@ -18,6 +22,101 @@ function make_display_content() {
 
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 add_action('make_shop_before_container', 'woocommerce_breadcrumb');
+
+
+
+
+//Add filter for expired products to make them not purchasable. This removes the add to cart buttons.
+add_filter('woocommerce_is_purchasable', 'make_is_purchasable', 10, 2);
+function make_is_purchasable($is_purchasable, $product) {
+  $id = get_the_ID();
+  $status = get_post_status( $product->get_ID() );
+  if($status == 'expired') {
+    return false;
+  } else {
+    return $is_purchasable;
+  }
+}
+
+
+
+if( !wp_next_scheduled( 'make_class_daily' ) ) {
+	// Schedule the event
+	wp_schedule_event( time(), 'daily', 'make_class_daily' );
+}
+
+add_action('make_class_daily', 'make_expire_events');
+function make_expire_events() {
+  $args = array(
+    'post_type' => 'product',
+    'post_status' => array( 'publish' ),
+    'posts_per_page' => -1,
+    'meta_query' => array(
+      'relation' => 'AND',
+        array(
+          'key' => 'make_event_date_timestamp',
+          'value' => date('U',time()),
+          'compare' => '<',
+          'type' => 'NUMERIC'
+        ),
+        array(
+    			'key'     => 'WooCommerceEventsEvent',
+    			'value'   => 'Event',
+    			'compare' => '='
+    		)
+    )
+  );
+  $events = new WP_Query($args);
+  if($events->have_posts()) :
+    while($events->have_posts()) : $events->the_post();
+      mapi_write_log(get_the_ID());
+      $now = date('U', time());
+      $event_date = get_post_meta(get_the_ID(), 'make_event_date_timestamp', true);
+      if($now > $event_date){
+          wp_update_post(array(
+            'ID'    =>  get_the_ID(),
+            'post_status'   =>  'expired',
+            )
+          );
+          update_post_meta(get_the_ID(), 'WooCommerceEventsBackgroundColor', '#d8d8d8');
+      }
+    endwhile;
+  endif;
+}
+
+
+
+
+
+add_action('make_shop_before_container', 'make_add_to_page');
+function make_add_to_page() {
+  // mapi_var_dump(get_post_meta(get_the_ID(), 'WooCommerceEventsBackgroundColor', true));
+  // mapi_var_dump(get_post_meta(get_the_ID(), 'make_event_date_timestamp', true));
+  // mapi_var_dump(date('U', time()));
+}
+
+
+
+
+add_action('make_shop_before_container', 'make_add_expired_notice');
+function make_add_expired_notice() {
+  if(is_single()) :
+    $status = get_post_status(get_the_ID());
+    if($status == 'expired') :
+      echo '<div class="container">';
+        echo '<div class="row">';
+          echo '<div class="col">';
+            echo '<div class="alert alert-primary" role="alert">This event is expired.</div>';
+          echo '</div>';
+        echo '</div>';
+      echo '</div>';
+    else :
+      return $is_purchasable;
+    endif;
+  endif;
+}
+
+
 
 
 //remove function attached to woocommerce_before_main_content hook
@@ -214,6 +313,10 @@ function save_event_date_meta( $id, $post, $update ) {
 
 
       $date = get_post_meta($id, 'WooCommerceEventsDate', true);
+
+      $color = make_get_event_color($id);
+
+
       $event_date_unformated = get_post_meta($id, 'WooCommerceEventsDate', true);
       $event_hour = get_post_meta($id, 'WooCommerceEventsHour', true);
       $event_minutes = get_post_meta($id, 'WooCommerceEventsMinutes', true);
@@ -228,10 +331,17 @@ function save_event_date_meta( $id, $post, $update ) {
       $event_date = new DateTime($event_date);
       update_post_meta( $id, 'make_event_date', $event_date);
       update_post_meta( $id, 'make_event_date_timestamp', $event_date->format('U'));
+      update_post_meta( $id, 'WooCommerceEventsBackgroundColor', $color);
 
 }
 add_action( 'save_post', 'save_event_date_meta', 10, 3 );
 
+
+
+
+function make_get_event_color($id) {
+  return '#BE202E';
+}
 
 /**
  * @snippet       WooCommerce Add New Tab @ My Account
@@ -241,8 +351,6 @@ add_action( 'save_post', 'save_event_date_meta', 10, 3 );
  * @author        Rodolfo Melogli
  * @testedwith    WooCommerce 3.4.5
  */
-
-
 // ------------------
 // 1. Register new endpoint to use for My Account page
 // Note: Resave Permalinks or it will give 404 error
