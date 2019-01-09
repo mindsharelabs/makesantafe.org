@@ -91,7 +91,6 @@ function make_post_type_archive( $query ) {
 
 }
 
-
 function make_add_query_vars( $vars ) {
   $vars[] = "maker_id";
   return $vars;

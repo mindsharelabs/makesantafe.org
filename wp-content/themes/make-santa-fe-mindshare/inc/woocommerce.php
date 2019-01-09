@@ -100,18 +100,20 @@ function make_add_to_page() {
 
 add_action('make_shop_before_container', 'make_add_expired_notice');
 function make_add_expired_notice() {
-  $status = get_post_status(get_the_ID());
-  if($status == 'expired') {
-    echo '<div class="container">';
-      echo '<div class="row">';
-        echo '<div class="col">';
-          echo '<div class="alert alert-primary" role="alert">This event is expired.</div>';
+  if(is_single()) :
+    $status = get_post_status(get_the_ID());
+    if($status == 'expired') :
+      echo '<div class="container">';
+        echo '<div class="row">';
+          echo '<div class="col">';
+            echo '<div class="alert alert-primary" role="alert">This event is expired.</div>';
+          echo '</div>';
         echo '</div>';
       echo '</div>';
-    echo '</div>';
-  } else {
-    return $is_purchasable;
-  }
+    else :
+      return $is_purchasable;
+    endif;
+  endif;
 }
 
 
