@@ -24,18 +24,13 @@ include 'layout/notice.php';
               while (have_posts()) : the_post();
                 get_template_part('loop-tools');
               endwhile;
+              echo do_shortcode('[facetwp pager="true"]');
           endif;
         echo '</section>';
         ?>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <?php echo do_shortcode('[facetwp pager="true"]'); ?>
-      </div>
-    </div>
-
-    </main>
+  </main>
 <?php
 include 'layout/top-footer.php';
 get_footer();

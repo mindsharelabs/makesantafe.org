@@ -6327,10 +6327,10 @@ article.tool h5.post-title, article.certs h5.post-title { font-weight: bold; }
 
 .alignnone, img.alignnone { float: none; }
 
-.facetwp-pager { display: flex; flex-wrap: nowrap; }
+.facetwp-pager { display: flex; flex-wrap: nowrap; width: 100%; }
 .facetwp-pager .facetwp-page, .facetwp-pager .facetwp-pager-label { text-align: center; color: #fff; flex-grow: 1; padding: 5px 10px; background-color: #e6e6e6; margin: 1px; }
 .facetwp-pager .facetwp-page a, .facetwp-pager .facetwp-pager-label a { color: #fff !important; }
-.facetwp-pager .facetwp-page.active, .facetwp-pager .facetwp-pager-label.active { background-color: #be202e; }
+.facetwp-pager .facetwp-page.active, .facetwp-pager .facetwp-pager-label.active { background-color: #be202e; color: #fff; }
 
 section.certifications { background: #fafbfc; border-top: 1px solid #e6e6e6; }
 

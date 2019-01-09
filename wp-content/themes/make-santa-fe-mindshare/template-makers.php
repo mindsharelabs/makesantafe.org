@@ -7,7 +7,15 @@ include 'layout/notice.php';
 // Get the results
 $paid_makers = get_active_members_for_membership('Make Member');
 $inkind_makers = get_active_members_for_membership('In Kind Membership');
-$makers = array_merge($paid_makers, $inkind_makers);
+$makers = array();
+foreach ($paid_makers as $key => $paid_maker) :
+  $id = $paid_maker->user_id;
+  $makers[(int)$id] = $paid_maker;
+endforeach;
+foreach ($inkind_makers as $key => $inkind_maker) :
+  $id = $inkind_maker->user_id;
+  $makers[(int)$id] = $inkind_maker;
+endforeach;
 $current_user = wp_get_current_user();
 $current_user_id = $current_user->ID;
 ?>
