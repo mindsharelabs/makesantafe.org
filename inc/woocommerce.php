@@ -376,7 +376,7 @@ function make_get_event_color($id) {
   $status = get_post_status( $ID );
   if($status == 'expired') :
     return '#d8d8d8';
-  else : 
+  else :
     return '#BE202E';
   endif;
 }
@@ -503,3 +503,13 @@ function make_filter_wc_stripe_payment_metadata( $metadata, $order, $source ) {
 
 }
 add_filter( 'wc_stripe_payment_metadata', 'make_filter_wc_stripe_payment_metadata', 10, 3 );
+
+
+
+
+function wc_subscriptions_custom_price_string( $pricestring ) {
+  $pricestring = str_replace( 'sign-up fee', 'introductory price', $pricestring );
+  return $pricestring;
+}
+add_filter( 'woocommerce_subscriptions_product_price_string', 'wc_subscriptions_custom_price_string' );
+add_filter( 'woocommerce_subscription_price_string', 'wc_subscriptions_custom_price_string' );
