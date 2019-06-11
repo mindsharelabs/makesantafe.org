@@ -1,0 +1,636 @@
+//
+// LAYOUTS
+// Place all of your custom styles in here. This stylesheet is loaded last,
+// and takes precedence over all others.
+//
+// --------------------------------------------------
+
+body {
+  opacity: 0;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  color: $dark;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale; // enable font-smoothing for browsers that support it
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  -webkit-transition: opacity 250ms ease-out;
+  -moz-transition: opacity 250ms ease-out;
+  -ms-transition: opacity 250ms ease-out;
+  -o-transition: opacity 250ms ease-out;
+  transition: opacity 250ms ease-out;
+}
+pre {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+    clear: both;
+    background: rgb(240, 240, 240);
+    padding: 10px;
+    width: 100%;
+}
+body.fade-in {
+  opacity: 1;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+hr {
+  width: 100%;
+}
+#header-logo-holder, #intro-logo-holder {
+
+  .bigtext {
+    font-size: 2.5em;
+    letter-spacing: 2px;
+  }
+}
+
+.fancy-header{
+  height: 40px;
+
+  float: left;
+  position: relative;
+  width: 100%;
+  text-transform: uppercase;
+  color: $primary;
+  display: flex;
+  background: #fff;
+  .page-title{
+    font-size: 1.4em;
+    line-height: 40px;
+    margin-right: 20px;
+    white-space: nowrap;
+  }
+  .header-flex-svg {
+    flex-grow: 1;
+    svg{
+      fill:#fff;
+    }
+  }
+}
+//Navigation Styles
+header.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  a.icon, .menu-toggle {
+    color: $dark;
+    font-size: 1.5em;
+    margin-right: 5px;
+  }
+  a:hover {
+    color: $secondary;
+  }
+
+  nav.desktop {
+    ul{
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-transform: uppercase;
+        font-size: .9em;
+        a {
+          padding: 5px 5px;
+          color: $dark;
+          text-decoration: none;
+        }
+        a:hover {
+          color: $secondary;
+        }
+      }
+    }
+  }
+
+}
+header.page-header {
+  background-size: cover;
+  background-position: center;
+  .header-padding {
+    padding: 40px 0 40px 0;
+    width: 100%;
+    svg{
+      width: 100%;
+    }
+  }
+}
+.header-padding {
+  margin-top: 70px;
+}
+
+#certs {
+  i {
+
+  }
+  &.loading {
+    text-align: center;
+    padding: 50px;
+    svg {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}
+#prodCats {
+  display: flex;
+  flex-wrap: wrap;
+  svg {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .product {
+    flex-grow: 1;
+    max-width: 20%;
+    background: $light;
+    border: none;
+    padding: 20px;
+    color: $primary;
+    margin: 2px;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    &.selected {
+      background: $primary;
+      color: $light;
+    }
+  }
+}
+//Signup Section
+.signup {
+  .woocommerce {
+    width: 100%;
+    padding: 10px;
+  }
+  .signup-section {
+    opacity: 0;
+    height: 0;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+
+    &.show {
+      opacity: 1;
+      height: unset;
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -ms-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease;
+    }
+  }
+}
+.woocommerce-breadcrumb{
+    text-align: right;
+    padding: 10px!important;
+    background: $primary;
+    color: #fff!important;
+    a{
+      color: #fff!important;
+    }
+  }
+.block {
+  background: $light;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  .image {
+    flex-grow: 1;
+    width: 40%;
+  }
+  .text{
+    flex-grow: 2;
+    width: 60%;
+    padding: 11px;
+    h3 {
+      color: $primary;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      margin: 0 0 10px 0;
+    }
+  }
+  .block-button {
+    width: 100%;
+    padding: 20px 0 0 0;
+  }
+}
+
+//Shop Page
+.product{
+  h1.product_title{
+    font-size: 1.8em;
+  }
+  .woocommerce div.product form.cart .variations {
+    white-space: nowrap;
+  }
+  .single_variation_wrap {
+    margin-bottom: 20px;
+  }
+}
+
+
+
+section.newsletter {
+  background: $light;
+  .gfield_label {
+    display: none;
+  }
+  .gform_footer {
+    text-align: center;
+    padding: 0 0 40px 0;
+    .gform_button.button {
+      background: #fff;
+      color: $primary;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      text-transform: uppercase;
+    }
+  }
+  .gform_confirmation_message {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+  }
+}
+// Footer
+footer.footer {
+  border-top: 1px solid $light;
+  border-bottom: 1px solid $light;
+
+  nav.footer-menu {
+    width: 100%;
+    font-size: .9em;
+
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        padding: 5px 15px;
+        margin: 0;
+        display: inline-block;
+        a {
+          color: $secondary;
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.svg-sidebar-line {
+  fill: #fff;
+  stroke: $dark;
+}
+footer.bottom-footer{
+  border-top: 5px solid $primary;
+  background-color: $background;
+  p{
+    margin: 0;
+    padding: 0;
+  }
+}
+.footer-credit {
+  img {
+    float: left;
+    margin: 10px;
+  }
+}
+
+
+.bypostauthor > article .fn:before {
+  content: "\f408";
+  margin: 0 2px 0 -2px;
+  position: relative;
+  top: -1px;
+}
+article.tool, article.certs {
+  .terms-list {
+    color: $secondary;
+    text-transform: uppercase;
+  }
+  h5.post-title {
+    font-weight: bold;
+  }
+}
+/* single post */
+.tool-gallery{
+  .tool-image{
+    max-width: 20%;
+  }
+}
+.alignleft, img.alignleft {
+  float: left;
+
+}
+
+.alignright, img.alignright {
+  float: right;
+
+}
+
+.aligncenter, img.aligncenter {
+  float: none;
+
+}
+
+.alignnone, img.alignnone {
+  float: none;
+
+}
+.facetwp-pager {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  .facetwp-page, .facetwp-pager-label {
+    text-align: center;
+    flex-grow: 1;
+    padding: 5px 10px;
+    background-color: $light;
+    margin: 1px;
+    a {
+      color:#fff !important;
+    }
+    &.active {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+}
+
+section.certifications {
+  background: $background;
+  border-top: 1px solid $light;
+  .certification-products {
+
+  }
+}
+section.team, section.makers {
+  .content{
+    h3 {
+      font-size: 1.2em;
+      color: $primary;
+    }
+    h4{
+      font-size: 1.1em;
+      color: lighten($dark, 30%);
+    }
+  }
+}
+section.maker-profile {
+  .sidebar-title {
+    text-transform: uppercase;
+    color: $primary;
+    font-size: 1.1em;
+  }
+  .maker-image {
+    img{
+      width: 100%;
+    }
+  }
+  .certifications {
+    display: flex;
+    flex-wrap: wrap;
+    .cert-holder{
+      text-align: center;
+      &.false{
+        opacity: .2;
+      }
+      .cert-name {
+        font-size: .7em;
+        color: lighten($dark, 40%);
+        white-space: pre-wrap;
+      }
+    }
+  }
+}
+aside.sidebar {
+  background: $background;
+  border-right: 1px solid $light;
+  .sidebar-cont {
+    float: right;
+    width: 100%;
+    ul {
+      float: left;
+      list-style: none;
+      margin-bottom: 40px;
+      li {
+        padding: 0;
+        margin: 0;
+        float: left;
+        width: 100%;
+        a {
+          padding: 10px 0;
+          width: 100%;
+          font-weight: bold;
+        }
+      }
+    }
+    .sidebar-content, .sidebar-widget{
+      width: 100%;
+      float: left;
+      h3.fancy {
+        color: $primary;
+        padding-left: 13%;
+        font-size: 1.4em;
+        text-transform: uppercase;
+        margin-top: 30px;
+        margin-bottom: 6px;
+        font-weight: bold;
+      }
+      svg{
+        margin-top: -20px;
+        fill: none;
+        stroke: #B3AFAC;
+        .svg-sidebar-line{
+
+        }
+        .svg-sidebar-circle {
+          fill: #fff;
+        }
+      }
+      .related_content, .facet-options {
+        margin-left: 56px;
+
+        h4 {
+          font-size: 1.2em;
+          font-weight: bold;
+          margin-bottom: 0;
+        }
+        h5 {
+          font-size: 1em;
+          color: #aaaaaa;
+        }
+        svg{
+          margin-top: -20px;
+        }
+      }
+      .facet-options{
+        .facetwp-checkbox{
+          background: none;
+          background-color: lighten($secondary, 20%);
+          border-left: 20px solid $secondary;
+          padding: 5px 0 5px 9px;
+          margin-bottom: 1px;
+          &.checked {
+            border-left: 20px solid $primary;
+          }
+          &.disabled {
+            color: $secondary;
+          }
+        }
+      }
+      .sub-content {
+        float: left;
+        margin-left: 56px;
+        color: lighten($dark, 10%);
+        font-weight: 100;
+        font-size: .95em;
+      }
+    }
+    .facet-options{
+      padding-left: 13%;
+      .facetwp-type-checkboxes {
+        .facetwp-checkbox{
+          background: darken($background, 20%);
+          border-left: 15px solid $background;
+          margin: 0 0 5px 0;
+          padding: 5px 10px;
+          &.checked{
+            border-left: 15px solid $primary;
+          }
+          &.disabled {
+            opacity: .4;
+          }
+        }
+      }
+    }
+
+
+  }
+
+  .sidebar-social {
+    font-size: 3em;
+    border-bottom: 5px solid $light;
+  }
+  .widget-container {
+    div {
+      margin-left: 56px;
+    }
+  }
+
+}
+//Prioducts
+
+
+.shop-header {
+  background: $primary;
+  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
+    fill: #fff;
+    color: #fff;
+  }
+  #intro-logo-load .dot {
+    stroke: #fff;
+  }
+  #intro-logo-load .fills {
+    fill: lighten($primary, 20%);
+  }
+  #intro-logo-load .lines {
+    stroke: #fff;
+  }
+  #intro-logo-load .circle {
+    fill: transparent;
+    stroke: #fff;
+  }
+  .sidebar-cont a {
+    color: $primary;
+  }
+  .color-back {
+    background-color: $primary;
+    color: #fff;
+  }
+}
+
+.embed-container {
+		position: relative;
+		padding-bottom: 56.25%;
+		overflow: hidden;
+		max-width: 100%;
+		height: auto;
+    iframe, object, embed {
+    		position: absolute;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100%;
+    	}
+	}
+
+
+
+//Pages
+.variable-content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .column_content {
+    padding: 20px;
+    border-right: 1px solid #fff;
+    &:last-of-type{
+      border-right: 0;
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  .page-numbers {
+    background: $primary;
+    padding: 5px 10px;
+    margin: 0 2px;
+    color: #fff;
+    text-align: center;
+    flex: 1;
+    font-size: 1.4em;
+    font-weight: 500;
+    min-width: 30px;
+    white-space: nowrap;
+  }
+  .page-numbers.current {
+    background: $light;
+    color: $dark;
+  }
+  .page-numbers:first-child {
+    margin-left: 0;
+  }
+  .page-numbers:last-child {
+    margin-right: 0;
+  }
+}
+
+// Footer Styles

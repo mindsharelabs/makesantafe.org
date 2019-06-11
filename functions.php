@@ -1,355 +1,555 @@
 <?php
-	/*-----------------------------------------------------------------------------------*/
-	/* This file will be referenced every time a template/page loads on your Wordpress site
-	/* This is the place to define custom fxns and specialty code
-	/*-----------------------------------------------------------------------------------*/
+/**
+ * Author: Mindshare Labs | @mindsharelabs
+ * URL: https://mind.sh/are | @mindblank
+ *
+ */
+date_default_timezone_set('America/Denver');
+define('THEME_VERSION', '2.0.1');
+/*------------------------------------*\
+    External Modules/Files
+\*------------------------------------*/
 
-// Define the version so we can easily replace it throughout the theme
-define( 'anagram_version', 1.0 );
+include_once 'inc/content-functions.php';
+include_once 'inc/cpt.php';
+include_once 'inc/acf-functions.php';
+include_once 'inc/aq_resize.php';
+include_once 'inc/woocommerce.php';
 
-add_action( 'wp_login', 'my_function', 99 );
-function my_function( $login ) {
+/*------------------------------------*\
+    Theme Support
+\*------------------------------------*/
 
-		$user = get_user_by('login',$login);
-		$user_ID = $user->ID;
-		//do something with the User ID
-		return $user_ID;
+if (!isset($content_width)) {
+    $content_width = 900;
 }
 
-if ( ! function_exists( 'anagram_setup' ) ) :
-/**
- * Set up theme defaults and register support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which runs
- * before the init hook. The init hook is too late for some features, such as indicating
- * support post thumbnails.
- */
-function anagram_setup() {
-    global $cap, $content_width;
+if (function_exists('add_theme_support')) {
+
+    // Add Thumbnail Theme Support
+    add_theme_support('post-thumbnails');
+
+    // Enables post and comment RSS feed links to head
+    add_theme_support('automatic-feed-links');
+
+    // Enable mind support
+    add_theme_support('mind', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
+
+    // Localisation Support
+    load_theme_textdomain('mindblank', get_template_directory() . '/languages');
 
 
-		if ( ! isset( $content_width ) ) {
-			$content_width = 906;
-		}
+
+}
+
+/*------------------------------------*\
+    Functions
+\*------------------------------------*/
 
 
-	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+function mapi_var_dump($var)
+{
+    if (current_user_can('administrator')) :
+        echo '<pre>';
+          var_dump($var);
+        echo '</pre>';
+    endif;
+}
+function mapi_write_log($message) {
+    if ( WP_DEBUG === true ) {
+        if ( is_array($message) || is_object($message) ) {
+            error_log( print_r($message, true) );
+        } else {
+            error_log( $message );
+        }
+    }
+}
+
+add_action( 'pre_get_posts', 'make_post_type_archive' );
+
+function make_post_type_archive( $query ) {
+
+  if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
+  		$query->set( 'posts_per_page', -1 );
+  		$query->set( 'orderby', 'title' );
+      $query->set( 'order', 'DESC' );
+  	}
+
+  if ( $query->is_main_query() && !is_admin() && is_post_type_archive( 'certs' )) {
+
+      $query->set( 'posts_per_page', -1 );
+  		$query->set( 'orderby', 'title' );
+      $query->set( 'order', 'DESC' );
+  }
+
+  if ( $query->is_main_query() && !is_admin() && $query->is_tax('product_cat')) {
+      $query->set( 'post_status', 'publish' );
+      $query->set('meta_key', 'make_event_date_timestamp' );
+      $query->set('orderby', 'meta_value date title');
+      $query->set('order', 'ASC' );
+  }
+
+}
+
+function make_add_query_vars( $vars ) {
+  $vars[] = "maker_id";
+  return $vars;
+}
+add_filter( 'query_vars', 'make_add_query_vars' );
 
 
-       add_editor_style('/css/editor-styles.css');
 
-    if ( function_exists( 'add_theme_support' ) ) {
+// mind Blank navigation
+function mindblank_nav($menu)
+{
+    wp_nav_menu(
+        array(
+            'theme_location' => $menu,
+            'menu' => '',
+            'container' => 'div',
+            'container_class' => 'menu-{menu slug}-container',
+            'container_id' => '',
+            'menu_class' => 'menu',
+            'menu_id' => '',
+            'echo' => true,
+            'fallback_cb' => 'wp_page_menu',
+            'before' => '',
+            'after' => '',
+            'link_before' => '',
+            'link_after' => '',
+            'items_wrap' => '<ul>%3$s</ul>',
+            'depth' => 0,
+            'walker' => ''
+        )
+    );
+}
 
-		/**
-		 * Add default posts and comments RSS feed links to head
-		*/
-		add_theme_support( 'automatic-feed-links' );
+// Register mind Blank Navigation
+function register_mind_menu()
+{
+    register_nav_menus(array( // Using array to specify more menus if needed
+        'header-menu' => __('Header Menu', 'mindblank'), // Main Navigation
+        'sidebar-menu' => __('Sidebar Menu', 'mindblank'), // Sidebar Navigation
+        'member-menu' => __('Member Menu', 'mindblank'), // Sidebar Navigation
+        'footer-menu' => __('Footer Menu', 'mindblank'), // Sidebar Navigation
+    ));
+}
 
-		/**
-		 * Enable support for Post Thumbnails on posts and pages
-		 *
-		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-		*/
-		add_theme_support( 'post-thumbnails' );
 
-			//set_post_thumbnail_size( 250, 160, true );
-			//add_image_size( 'tiny', 75, '', false );
-			//add_image_size( 'block-image', 300, 170, true );
 
-		add_filter( 'image_size_names_choose', 'anagram_custom_sizes' );
 
-			function anagram_custom_sizes( $sizes ) {
-			    return array_merge( $sizes, array(
-			        'post-thumbnail' => __('Post Thumbnail'),
-			    ) );
-			}
+function shadeColor ($color, $percent) {
 
-		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+  $color = str_replace("#",Null,$color);
+
+  $r = Hexdec(Substr($color,0,2));
+  $g = Hexdec(Substr($color,2,2));
+  $b = Hexdec(Substr($color,4,2));
+
+  $r = (Int)($r*(100+$percent)/100);
+  $g = (Int)($g*(100+$percent)/100);
+  $b = (Int)($b*(100+$percent)/100);
+
+  $r = Trim(Dechex(($r<255)?$r:255));
+  $g = Trim(Dechex(($g<255)?$g:255));
+  $b = Trim(Dechex(($b<255)?$b:255));
+
+  $r = ((Strlen($r)==1)?"0{$r}":$r);
+  $g = ((Strlen($g)==1)?"0{$g}":$g);
+  $b = ((Strlen($b)==1)?"0{$b}":$b);
+
+  return (String)("#{$r}{$g}{$b}");
+}
+
+// Load mind Blank scripts (header.php)
+function mindblank_header_scripts()
+{
+    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+
+        wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), THEME_VERSION); // Conditionizr
+        wp_enqueue_script('conditionizr'); // Enqueue it!
+
+        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), THEME_VERSION); // Modernizr
+        wp_enqueue_script('modernizr'); // Enqueue it!
+
+
+        wp_register_script('mindblankscripts-min', get_template_directory_uri() . '/js/scripts.js', array('bootstrap', 'slick-slider'), THEME_VERSION, true);
+        wp_enqueue_script('mindblankscripts-min');
+
+        wp_localize_script( 'mindblankscripts-min', 'settings', array(
+          'ajax_url' => admin_url( 'admin-ajax.php' )
+        ));
+
+        wp_register_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array('jquery'), THEME_VERSION);
+        wp_enqueue_script('popper');
+
+        wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array('jquery', 'popper'), THEME_VERSION);
+        wp_enqueue_script('bootstrap');
+
+
+        wp_register_script('fontawesome-5', get_template_directory_uri() . '/js/fontawesome-all.js', array(), THEME_VERSION, true);
+        wp_enqueue_script('fontawesome-5');
+
+        wp_register_script('slideout-js', get_template_directory_uri() . '/js/slideout.min.js', array(), THEME_VERSION);
+        wp_enqueue_script('slideout-js');
+
+        wp_register_script('snapsvg-js', get_template_directory_uri() . '/js/svg.js', array(), THEME_VERSION);
+        wp_enqueue_script('snapsvg-js');
+
+
+        wp_register_script('slick-slider', get_template_directory_uri() . '/js/slick.min.js', array(), THEME_VERSION);
+        wp_enqueue_script('slick-slider');
+    }
+}
+
+
+add_action('wp', 'localize_header_svg_script');
+function localize_header_svg_script() {
+  wp_register_script('svgintro-js', get_template_directory_uri() . '/js/svg-intro.js', array('snapsvg-js'), '', true);
+  wp_enqueue_script('svgintro-js');
+
+  wp_localize_script( 'svgintro-js', 'svgvars', array(
+    'words' => strtoupper(make_get_title()),
+    'color' => make_header_text_color(),
+    'litcolor' => shadeColor('#36383E', 20),
+    'home' => false,
+    'logo' => get_template_directory_uri()."/img/make-santa-fe.svg",
+    'intro' => get_template_directory_uri()."/img/banner.svg",
+    'circuit' => get_template_directory_uri()."/img/circuit.svg" )
+  );
+
+}
+
+function make_get_title() {
+  if(is_home()) :
+    $title = get_bloginfo('description');
+  elseif(is_product_category()) :
+    $title = single_term_title('', false);
+  else :
+    $title = get_the_title();
+  endif;
+  return $title;
+}
+
+function make_header_text_color() {
+  if(is_home()){
+    $color = '#555555';
+  } else {
+    $color = '#ffffff';
+  }
+  return $color;
+}
+
+// Load mind Blank conditional scripts
+function mindblank_conditional_scripts()
+{
+    // if (is_page_template('template-allscores.php')) {
+    //     // Conditional script(s)
+    //
+    // }
+}
+
+// Load mind Blank styles
+function mindblank_styles()
+{
+    wp_register_style('mindblankcssmin', get_template_directory_uri() . '/style.css', array(), THEME_VERSION);
+    wp_enqueue_style('mindblankcssmin');
+
+    wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Ubuntu:300,400,700', array(), THEME_VERSION);
+    wp_enqueue_style('google-fonts');
+
+
+}
+
+
+
+function make_widget_title( $title, $instance, $id_base ) {
+    $new_title = '<h3 class="fancy">' . $title;
+    ob_start();
+    include get_template_directory() . '/inc/header-back.php';
+    $new_title .= '</h3>' . ob_get_clean();
+    return $new_title;
+}
+add_filter( 'widget_title', 'make_widget_title', 10, 3 );
+
+
+// Remove the <div> surrounding the dynamic navigation to cleanup markup
+function my_wp_nav_menu_args($args = '')
+{
+    $args['container'] = false;
+    return $args;
+}
+
+// Remove Injected classes, ID's and Page ID's from Navigation <li> items
+function my_css_attributes_filter($var)
+{
+    return is_array($var) ? array() : '';
+}
+
+// Remove invalid rel attribute values in the categorylist
+function remove_category_rel_from_category_list($thelist)
+{
+    return str_replace('rel="category tag"', 'rel="tag"', $thelist);
+}
+
+// Add page slug to body class, love this - Credit: Starkers Wordpress Theme
+function add_slug_to_body_class($classes)
+{
+    global $post;
+    if (is_home()) {
+        $key = array_search('blog', $classes);
+        if ($key > -1) {
+            unset($classes[$key]);
+        }
+    } elseif (is_page()) {
+        $classes[] = sanitize_html_class($post->post_name);
+    } elseif (is_singular()) {
+        $classes[] = sanitize_html_class($post->post_name);
     }
 
+    return $classes;
+}
 
-	/**
-	 * This theme uses wp_nav_menu() in one location.
-	*/
-    register_nav_menus( array(
-        'header'  => __( 'Header Menu', 'anagram' ),
-        'primary'  => __( 'Main Menu', 'anagram' ),
-        'footer'  => __( 'Footer Menu', 'anagram' ),
+// Remove the width and height attributes from inserted images
+function remove_width_attribute($html)
+{
+    $html = preg_replace('/(width|height)="\d*"\s/', "", $html);
+    return $html;
+}
+
+
+// If Dynamic Sidebar Exists
+if (function_exists('register_sidebar')) {
+    // Define Sidebar Widget Area 1
+
+    register_sidebar(array(
+        'name' => __('Widget Area 1', 'mindblank'),
+        'description' => __('Widgets on all sub-pages', 'mindblank'),
+        'id' => 'page-sidebar',
+        'before_widget' => '<div id="%1$s" class="%2$s widget-container">',
+        'after_widget' => '</div>',
+        'before_title' => '',
+        'after_title' => ''
+    ));
+    register_sidebar(array(
+        'name' => __('Footer Widgets', 'mindblank'),
+        'description' => __('Widgets in the footer', 'mindblank'),
+        'id' => 'footer-widgets',
+        'before_widget' => '<div id="%1$s" class="%2$s col-xs-12 col-md-3">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+    ));
+}
+
+// Remove wp_head() injected Recent Comment styles
+function my_remove_recent_comments_style()
+{
+    global $wp_widget_factory;
+
+    if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
+        remove_action('wp_head', array(
+            $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
+            'recent_comments_style'
+        ));
+    }
+}
+
+// Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
+function mindwp_pagination()
+{
+    global $wp_query;
+    $big = 999999999;
+    echo paginate_links(array(
+        'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+        'format' => '?paged=%#%',
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages,
+        'next_text' => '<i class="fas fa-angle-double-right"></i>',
+        'prev_text' => '<i class="fas fa-angle-double-left"></i>',
+
+    ));
+}
+
+
+// Create the Custom Excerpts callback
+function mindwp_excerpt($length_callback = '', $more_callback = '')
+{
+    global $post;
+    if (function_exists($length_callback)) {
+        add_filter('excerpt_length', 40);
+    }
+    if (function_exists($more_callback)) {
+        add_filter('excerpt_more', $more_callback);
+    }
+    $output = get_the_excerpt();
+    $output = apply_filters('wptexturize', $output);
+    $output = apply_filters('convert_chars', $output);
+    $output = '<p>' . $output . '</p>';
+    echo $output;
+}
+
+function lobob_excerpt_length($length)
+{
+    return 20;
+}
+
+add_filter('excerpt_length', 'lobob_excerpt_length', 999);
+
+
+
+
+
+// Custom View Article link to Post
+function mind_blank_view_article($more)
+{
+    global $post;
+    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mindblank') . '</a>';
+}
+
+
+// Remove 'text/css' from our enqueued stylesheet
+function mind_style_remove($tag)
+{
+    return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
+}
+
+// Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
+function remove_thumbnail_dimensions($html)
+{
+    $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+    return $html;
+}
+
+// Custom Gravatar in Settings > Discussion
+function mindblankgravatar($avatar_defaults)
+{
+    $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
+    $avatar_defaults[$myavatar] = "Custom Gravatar";
+    return $avatar_defaults;
+}
+
+// Threaded Comments
+function enable_threaded_comments()
+{
+    if (!is_admin()) {
+        if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+            wp_enqueue_script('comment-reply');
+        }
+    }
+}
+
+
+
+/*------------------------------------*\
+    Actions + Filters + ShortCodes
+\*------------------------------------*/
+
+// Add Actions
+add_action('init', 'mindblank_header_scripts'); // Add Custom Scripts to wp_head
+add_action('wp_print_scripts', 'mindblank_conditional_scripts'); // Add Conditional Page Scripts
+add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
+add_action('wp_enqueue_scripts', 'mindblank_styles'); // Add Theme Stylesheet
+add_action('init', 'register_mind_menu'); // Add mind Blank Menu
+
+add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
+add_action('init', 'mindwp_pagination'); // Add our mind Pagination
+
+// Remove Actions
+remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
+remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
+remove_action('wp_head', 'rsd_link'); // Display the link to the Really Simple Discovery service endpoint, EditURI link
+remove_action('wp_head', 'wlwmanifest_link'); // Display the link to the Windows Live Writer manifest file.
+remove_action('wp_head', 'wp_generator'); // Display the XHTML generator that is generated on the wp_head hook, WP version
+remove_action('wp_head', 'rel_canonical');
+remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+
+// Add Filters
+add_filter('avatar_defaults', 'mindblankgravatar'); // Custom Gravatar in Settings > Discussion
+add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
+add_filter('widget_text', 'do_shortcode'); // Allow shortcodes in Dynamic Sidebar
+add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Sidebars (better!)
+add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
+// add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected classes (Commented out by default)
+// add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected ID (Commented out by default)
+// add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> Page ID's (Commented out by default)
+add_filter('the_category', 'remove_category_rel_from_category_list'); // Remove invalid rel attribute
+add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
+add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
+add_filter('excerpt_more', 'mind_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
+add_filter('style_loader_tag', 'mind_style_remove'); // Remove 'text/css' from enqueued stylesheet
+add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
+add_filter('post_thumbnail_html', 'remove_width_attribute', 10); // Remove width and height dynamic attributes to post images
+add_filter('image_send_to_editor', 'remove_width_attribute', 10); // Remove width and height dynamic attributes to post images
+
+// Remove Filters
+remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
+
+// Shortcodes
+add_shortcode('mind_shortcode_demo', 'mind_shortcode_demo'); // You can place [mind_shortcode_demo] in Pages, Posts now.
+add_shortcode('mind_shortcode_demo_2', 'mind_shortcode_demo_2'); // Place [mind_shortcode_demo_2] in Pages, Posts now.
+
+// Shortcodes above would be nested like this -
+// [mind_shortcode_demo] [mind_shortcode_demo_2] Here's the page title! [/mind_shortcode_demo_2] [/mind_shortcode_demo]
+
+add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
+//WooCommerce Shity Notices
+add_filter( 'woocommerce_helper_suppress_admin_notices', '__return_true' );
+add_filter( 'jetpack_just_in_time_msgs', '_return_false' );
+
+
+/*  Add responsive container to embeds
+/* ------------------------------------ */
+function make_embed_html( $html ) {
+    return '<div class="embed-container">' . $html . '</div>';
+}
+
+add_filter( 'embed_oembed_html', 'make_embed_html', 10, 3 );
+add_filter( 'video_embed_html', 'make_embed_html' ); // Jetpack
+
+
+
+
+// Registering custom post status
+function make_custom_post_status(){
+    register_post_status('expired', array(
+        'label'                     => _x( 'Expired', 'post' ),
+        'public'                    => true,
+        'exclude_from_search'       => false,
+        'show_in_admin_all_list'    => true,
+        'show_in_admin_status_list' => true,
+        'label_count'               => _n_noop( 'Expired <span class="count">(%s)</span>', 'Expired <span class="count">(%s)</span>' ),
     ) );
-
 }
-endif; // anagram_setup
-add_action( 'after_setup_theme', 'anagram_setup' );
+add_action( 'init', 'make_custom_post_status' );
 
-
-/*Custom Tiny MCS buttons*/
-add_filter( 'mce_buttons', 'anagram_mce_buttons' );
-function anagram_mce_buttons( $buttons ) {
-    array_unshift( $buttons, 'styleselect' );
-    return $buttons;
-}
-function anagram_tinymce_buttons($buttons)
- {
-	//Remove the format dropdown select and text color selector
-	$remove = array('formatselect');
-
-	return array_diff($buttons,$remove);
- }
-add_filter('mce_buttons_2','anagram_tinymce_buttons');
-
-add_filter( 'tiny_mce_before_init', 'anagram_mce_before_init' );
-function anagram_mce_before_init( $settings ) {
-	//$settings['theme_advanced_blockformats'] = 'p,a,div,span,h1,h2,h3,h4,h5,h6,tr,';
-	$settings['theme_advanced_disable'] = 'formatselect';
-
-    $style_formats = array(
-    	array(
-    		'title' => 'Button',
-    		'selector' => 'a',
-    		'classes' => 'btn btn-default'
-    	),
-    	array(
-    		'title' => 'Main Header',
-    		'block' => 'h2'
-    	),
-    	array(
-    		'title' => 'Sub Header',
-    		'block' => 'h3'
-    	),
-    	array(
-    		'title' => 'Small Header',
-    		'block' => 'h4'
-    	),
-    	array(
-    		'title' => 'Block Color',
-    		'block' => 'div',
-    		'classes' => 'bg-color'
-    	)/*,
-        array(
-        	'title' => 'Bold Red Text',
-        	'inline' => 'span',
-        	'styles' => array(
-        		'color' => '#f00',
-        		'fontWeight' => 'bold'
-        	)
-        )*/
-    );
-
-    $settings['style_formats'] = json_encode( $style_formats );
-
-    return $settings;
-
+// Using jQuery to add it to post status dropdown
+add_action('admin_footer-post.php', 'make_append_post_status_list');
+function make_append_post_status_list(){
+  global $post;
+  $complete = '';
+  $label = '';
+  if($post->post_type == 'product'){
+    if($post->post_status == 'expired'){
+      $complete = ' selected="selected"';
+      $label = '<span id="post-status-display"> Expired</span>';
+    }
+    echo '<script>
+    jQuery(document).ready(function($){
+    $("select#post_status").append("<option value=\"expired\" '.$complete.'>Expired</option>");
+    $(".misc-pub-section label").append("'.$label.'");
+    });
+    </script>
+    ';
+  }
 }
 
 
 
-
-
-
-/**
- * Register widgetized area and update sidebar with default widgets
- */
-function anagram_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'anagram' ),
-		'id'            => 'sidebar',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<div class="widget-header"><h3 class="widget-title">',
-		'after_title'   => '</h3>'.anagramLoadFile(get_template_directory_uri()."/img/title-side-bg.svg").'</div>',
-	) );
+add_action('init', 'make_author_base');
+function make_author_base() {
+    global $wp_rewrite;
+    $author_slug = 'maker'; // change slug name
+    $wp_rewrite->author_base = $author_slug;
 }
-add_action( 'widgets_init', 'anagram_widgets_init' );
-
-/*-----------------------------------------------------------------------------------*/
-/* Enqueue Styles and Scripts
-/*-----------------------------------------------------------------------------------*/
-
-function anagram_scripts()  {
-
-	// load bootstrap
-	//wp_enqueue_style( 'anagram-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' );
-
-	// get the theme directory style.css and link to it in the header
-	wp_enqueue_style( 'anagram-style', get_stylesheet_directory_uri().'/style.css', array(), filemtime( get_stylesheet_directory().'/style.css') );
-
-	//Load google fonts
-	$anagram_google_fonts = array(
-	    'family' => 'Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700|Ubuntu:300,300italic,700,700italic'
-	);
-    wp_enqueue_style('anagram-google-fonts', add_query_arg( $anagram_google_fonts, "https://fonts.googleapis.com/css" ), array(), null );
-
-	// load awesome font
-	wp_enqueue_style( 'anagram-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css' );
-
-  wp_enqueue_script('anagram-modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array('jquery') );
-
-	wp_register_script('anagram-moment', (get_template_directory_uri()."/js/moment.min.js"),'jquery',filemtime( get_stylesheet_directory().'/js/moment.min.js'),true);
-
-	wp_register_script('anagram-clndr', (get_template_directory_uri()."/js/clndr.js"),'jquery',filemtime( get_stylesheet_directory().'/js/clndr.js'),true);
-
-		wp_register_script('anagram-event-code', (get_template_directory_uri()."/js/event-code.js"),array('jquery'),filemtime( get_stylesheet_directory().'/js/event-code.js'),true);
-
-
-
-	if( is_page( array('learn'))   ) {
-
-
-				wp_enqueue_script('underscore');
-				wp_enqueue_script('anagram-moment');
-
-				wp_enqueue_script('anagram-clndr');
-				wp_enqueue_script('anagram-event-code');
-
-
-	}
-
-
-	if( is_page( array('checkout')) && edd_get_cart_total()   ) {
-			//wp_enqueue_script('anagram_googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyASc64VwvKRrj2QRV91pD6I1no2Rg9YGPI&libraries=places',false);
-		//wp_enqueue_script('anagram-edd-address', (get_template_directory_uri()."/js/address-edd.js"),'jquery',filemtime( get_stylesheet_directory().'/js/address-edd.js'),true);
-
-		wp_enqueue_script('anagram_cardjs', (get_template_directory_uri()."/js/card.js"),'jquery',filemtime( get_stylesheet_directory().'/js/card.js'),true);
-
-		wp_enqueue_script('anagram-edd-card', (get_template_directory_uri()."/js/card-edd.js"),'jquery',filemtime( get_stylesheet_directory().'/js/card-edd.js'),true);
-
-		}
-
-    // load bootstrap js
-    wp_enqueue_script('anagram-bootstrapjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array('jquery') );
-
-			wp_register_script( 'anagram-masonry', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js',  array('jquery'), '', false );
-
-			wp_register_script( 'anagram-imagesloaded', get_stylesheet_directory_uri() . '/js/imagesloaded.pkgd.min.js', array('jquery'), '', false );
-
-			wp_enqueue_script( 'anagram-masonry' );
-			wp_enqueue_script( 'anagram-imagesloaded' );
-
-	// load plugins
-	wp_enqueue_script('anagram-plugins', (get_template_directory_uri()."/js/theme-plugins.js"),array('jquery'),filemtime( get_stylesheet_directory().'/js/theme-plugins.js'),true);
-
-	// add theme scripts
-	wp_enqueue_script('anagram-scripts', (get_template_directory_uri()."/js/theme-scripts.js"),array('jquery'),filemtime( get_stylesheet_directory().'/js/theme-scripts.js'),true);
-
-
-		// load plugins
-	wp_enqueue_script('anagram-svg', (get_template_directory_uri()."/js/svg.js"),array('jquery'),filemtime( get_stylesheet_directory().'/js/svg.js'),true);
-
-	// add theme scripts
-	if( is_front_page()  ) {
-		wp_enqueue_script('anagram-svg-intro', (get_template_directory_uri()."/js/svg-intro.js"),array('jquery'),filemtime( get_stylesheet_directory().'/js/svg-intro.js'),true);
-		}
-
-
-	if( is_page( array(2,106,118,512))   ) {
-		wp_enqueue_script('anagram-svg-intro', (get_template_directory_uri()."/js/svg-pages.js"),array('jquery'),filemtime( get_stylesheet_directory().'/js/svg-pages.js'),true);
-	}
-	if( is_page( array(2539))   ) {
-		wp_enqueue_script('anagram-list', (get_template_directory_uri()."/js/list.js"),array('jquery'),filemtime( get_stylesheet_directory().'/js/list.js'),true);
-	}
-
-}
-add_action( 'wp_enqueue_scripts', 'anagram_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header
-
-
-
-
-
-/**
- * Custom Theme functions
- */
-
-	include_once('inc/anagram-customs.php');
-
-/**
- * Load custom WordPress nav walker.
- */
-
-include_once('inc/bootstrap-wp-navwalker.php');
-
-
-include_once('gravityview/anagram-voting.php');
-
-
-/**
- * Load custom Gallery
- */
-include_once('inc/edd-custom.php');
-/**
- * Load custom Gallery
- */
-include_once('inc/member-functions.php');
-
-/**
- * Load custom Gallery
- */
-include_once('inc/anagram-gallery.php');
-
-include_once('inc/php_gravity_forms_bootstrap.php');
-
-
-/*Load default settings on theme activation*/
-add_action('after_switch_theme', 'anagram_defaults_settings');
-
-function anagram_defaults_settings() {
-    global $wpdb, $wp_rewrite, $table_prefix;
-
-    /* * ANAGRAM ADDITIONS * Customize Some Options */
-
-    //Disable Avatar Call
-	update_option( 'show_avatars', 0 );
-	update_option( 'avatar_default', 'blank' );
-
-	//Dsiable pings
-	update_option( 'default_ping_status', 'closed' );
-
-
-	//Set default lang
-	update_option( 'WPLANG', '' );
-
-
-	//Add purchase keys to default plugins
-	update_option( 'cpupdate_cac-pro', '99e74138-8a53-4c16-abe0-87cbd181f597' );
-	update_option( 'acf_pro_license', 'YToyOntzOjM6ImtleSI7czo3MjoiYjNKa1pYSmZhV1E5TXpJNU56QjhkSGx3WlQxa1pYWmxiRzl3WlhKOFpHRjBaVDB5TURFMExUQTNMVEEzSURFMk9qQTBPalU1IjtzOjM6InVybCI7czozMjoiaHR0cDovL2Rldi4xOTIuMTY4LjIyMi41MC54aXAuaW8iO30=' );
-	update_option( 'rg_gforms_key', '38fd93100c2666e5ecd12efa6ced7e8d' );
-	update_option( 'rg_gforms_enable_html5', '1' );
-
-    // Set Timezone
-    $timezone = "America/Denver";
-    update_option( 'timezone_string', $timezone );
-
-
-    // Start of the Week
-    // 0 is Sunday, 1 is Monday and so on
-    update_option( 'start_of_week', 0 );
-
-    // Disable Smilies
-    update_option( 'use_smilies', 0 );
-
-	//Set default Default file insert to none instead of attachment page
-	update_option( 'image_default_link_type', 'none' );
-
-    // Don't Organize Uploads by Date
-    update_option('uploads_use_yearmonth_folders',1);
-
-
-    update_option( 'thumbnail_size_w', 125 );
-	update_option( 'thumbnail_size_h', 125 );
-	update_option( 'thumbnail_crop', '1' );
-
-	update_option( 'medium_size_w', 750 );
-	update_option( 'medium_size_h', 9999 );
-
-	update_option( 'large_size_w', 1140 );
-	update_option( 'large_size_h', 9999 );
-
-    // Update Permalinks
-    update_option( 'selection','custom' );
-    update_option( 'permalink_structure','/%postname%/' );
-    $wp_rewrite->init();
-    $wp_rewrite->flush_rules();
-
-}
-
-
