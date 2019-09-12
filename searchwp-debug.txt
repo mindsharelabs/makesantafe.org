@@ -1,0 +1,1131 @@
+2019-06-19 16:36:44 [55386] Updating setting (AJAX)
+2019-06-19 16:37:16 [83734] Resetting notices (AJAX)
+2019-06-19 16:37:19 [54788] Updating setting (AJAX)
+2019-06-19 16:37:20 [84384] Updating setting (AJAX)
+2019-06-19 16:37:25 [75488] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp
+2019-06-19 16:37:27 [56377] purge_post_via_edit() SKIPPING 176530
+2019-06-19 16:37:29 [75488] Updating counts: 4549 0 4549
+2019-06-19 16:37:29 [75488] Setting initial
+2019-06-19 16:37:30 [56377] purge_post_via_edit() SKIPPING 176530
+2019-06-19 16:37:32 [75488] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp
+2019-06-19 16:37:32 [75488] trigger_index() https://sfjs.net/index.php?swpnonce=1560962252.0825119018554687500000
+2019-06-19 16:37:32 [56377] purge_post_via_edit() SKIPPING 176532
+2019-06-19 16:37:32 [56377] purge_post_via_edit() SKIPPING 176532
+2019-06-19 16:37:32 [45682] Performing background index 1560962252.0825119018554687500000
+2019-06-19 16:37:32 [45682] OK to index, proceed
+2019-06-19 16:37:32 [45682] Load threshold (2) has been breached! Current load: 2.42. Automatically injecting a wait time of 8
+2019-06-19 16:37:32 [45682] Memory usage: 23 MB - sleeping for 8s
+2019-06-19 16:37:32 [56377] purge_post_via_edit() SKIPPING 176534
+2019-06-19 16:37:33 [75488] Shutting down after displaying settings screen
+2019-06-19 16:37:33 [56377] purge_post_via_edit() SKIPPING 176534
+2019-06-19 16:37:33 [56377] purge_post_via_edit() SKIPPING 176536
+2019-06-19 16:37:33 [56377] purge_post_via_edit() SKIPPING 176536
+2019-06-19 16:37:34 [56377] purge_post_via_edit() SKIPPING 176538
+2019-06-19 16:37:34 [74336] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962253545
+2019-06-19 16:37:34 [56377] purge_post_via_edit() SKIPPING 176538
+2019-06-19 16:37:36 [56377] purge_post_via_edit() 176498
+2019-06-19 16:37:36 [56377] get_last_indexed_time(): 1554307979
+2019-06-19 16:37:36 [56377] purge_post_via_edit() 176498
+2019-06-19 16:37:39 [56377] purge_post_via_edit() 176498
+2019-06-19 16:37:39 [56377] Prevented duplicate purge purge_post_via_edit() 176498
+2019-06-19 16:37:40 [00614] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962259461
+2019-06-19 16:37:40 [56377] purge_post_via_edit() SKIPPING 176502
+2019-06-19 16:37:40 [56377] purge_post_via_edit() SKIPPING 176502
+2019-06-19 16:37:40 [45682] Indexer NOW RUNNING
+2019-06-19 16:37:40 [56377] purge_post_via_edit() SKIPPING 176504
+2019-06-19 16:37:45 [45682] Updating counts: 4549 0 4549
+2019-06-19 16:37:45 [45682] Setting initial
+2019-06-19 16:37:45 [56377] purge_post_via_edit() SKIPPING 176504
+2019-06-19 16:37:45 [45682] Nothing left to index
+2019-06-19 16:37:46 [28007] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962265401
+2019-06-19 16:37:46 [56377] purge_post_via_edit() SKIPPING 176506
+2019-06-19 16:37:46 [56377] purge_post_via_edit() SKIPPING 176506
+2019-06-19 16:37:46 [56377] purge_post_via_edit() SKIPPING 176508
+2019-06-19 16:37:47 [56377] purge_post_via_edit() SKIPPING 176508
+2019-06-19 16:37:47 [56377] purge_post_via_edit() SKIPPING 176510
+2019-06-19 16:37:47 [56377] purge_post_via_edit() SKIPPING 176510
+2019-06-19 16:37:48 [56377] purge_post_via_edit() SKIPPING 176512
+2019-06-19 16:37:48 [56377] purge_post_via_edit() SKIPPING 176512
+2019-06-19 16:37:50 [56377] purge_post_via_edit() 176540
+2019-06-19 16:37:50 [56377] get_last_indexed_time(): 1554307814
+2019-06-19 16:37:50 [56377] purge_post_via_edit() 176540
+2019-06-19 16:37:52 [25175] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962271315
+2019-06-19 16:37:53 [56377] purge_post_via_edit() 176540
+2019-06-19 16:37:53 [56377] Prevented duplicate purge purge_post_via_edit() 176540
+2019-06-19 16:37:54 [56377] purge_post_via_edit() SKIPPING 176545
+2019-06-19 16:37:54 [56377] purge_post_via_edit() SKIPPING 176545
+2019-06-19 16:37:54 [56377] purge_post_via_edit() SKIPPING 176547
+2019-06-19 16:37:54 [56377] purge_post_via_edit() SKIPPING 176547
+2019-06-19 16:37:55 [56377] purge_post_via_edit() SKIPPING 176549
+2019-06-19 16:37:55 [56377] purge_post_via_edit() SKIPPING 176549
+2019-06-19 16:37:55 [56377] purge_post_via_edit() SKIPPING 176551
+2019-06-19 16:37:56 [56377] purge_post_via_edit() SKIPPING 176551
+2019-06-19 16:37:56 [56377] purge_post_via_edit() SKIPPING 176553
+2019-06-19 16:37:56 [56377] purge_post_via_edit() SKIPPING 176553
+2019-06-19 16:37:58 [64701] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962277279
+2019-06-19 16:37:59 [56377] purge_post_via_edit() 176555
+2019-06-19 16:37:59 [56377] get_last_indexed_time(): 1554307655
+2019-06-19 16:37:59 [56377] purge_post_via_edit() 176555
+2019-06-19 16:38:02 [56377] purge_post_via_edit() 176555
+2019-06-19 16:38:02 [56377] Prevented duplicate purge purge_post_via_edit() 176555
+2019-06-19 16:38:02 [56377] purge_post_via_edit() SKIPPING 176560
+2019-06-19 16:38:02 [56377] purge_post_via_edit() SKIPPING 176560
+2019-06-19 16:38:03 [75857] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962283096
+2019-06-19 16:38:04 [19113] purge_post_via_edit() SKIPPING 176562
+2019-06-19 16:38:04 [19113] purge_post_via_edit() SKIPPING 176562
+2019-06-19 16:38:04 [19113] purge_post_via_edit() SKIPPING 176564
+2019-06-19 16:38:05 [19113] purge_post_via_edit() SKIPPING 176564
+2019-06-19 16:38:05 [19113] purge_post_via_edit() SKIPPING 176566
+2019-06-19 16:38:05 [19113] purge_post_via_edit() SKIPPING 176566
+2019-06-19 16:38:06 [19113] purge_post_via_edit() SKIPPING 176568
+2019-06-19 16:38:06 [19113] purge_post_via_edit() SKIPPING 176568
+2019-06-19 16:38:06 [19113] purge_post_via_edit() SKIPPING 176570
+2019-06-19 16:38:06 [19113] purge_post_via_edit() SKIPPING 176570
+2019-06-19 16:38:07 [19113] purge_post_via_edit() SKIPPING 217005
+2019-06-19 16:38:07 [19113] purge_post_via_edit() SKIPPING 217005
+2019-06-19 16:38:07 [19113] purge_post_via_edit() SKIPPING 217007
+2019-06-19 16:38:08 [19113] purge_post_via_edit() SKIPPING 217007
+2019-06-19 16:38:08 [19113] purge_post_via_edit() SKIPPING 168285
+2019-06-19 16:38:08 [19113] purge_post_via_edit() SKIPPING 168285
+2019-06-19 16:38:09 [19113] purge_post_via_edit() SKIPPING 168286
+2019-06-19 16:38:09 [19113] purge_post_via_edit() SKIPPING 168286
+2019-06-19 16:38:09 [10689] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962288944
+2019-06-19 16:38:11 [19113] purge_post_via_edit() 176577
+2019-06-19 16:38:11 [19113] get_last_indexed_time(): 1554307467
+2019-06-19 16:38:11 [19113] purge_post_via_edit() 176577
+2019-06-19 16:38:14 [19113] purge_post_via_edit() 176577
+2019-06-19 16:38:14 [19113] Prevented duplicate purge purge_post_via_edit() 176577
+2019-06-19 16:38:15 [19113] purge_post_via_edit() SKIPPING 176582
+2019-06-19 16:38:15 [19113] purge_post_via_edit() SKIPPING 176582
+2019-06-19 16:38:15 [14943] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962294844
+2019-06-19 16:38:15 [19113] purge_post_via_edit() SKIPPING 176584
+2019-06-19 16:38:16 [19113] purge_post_via_edit() SKIPPING 176584
+2019-06-19 16:38:16 [19113] purge_post_via_edit() SKIPPING 176586
+2019-06-19 16:38:16 [19113] purge_post_via_edit() SKIPPING 176586
+2019-06-19 16:38:16 [19113] purge_post_via_edit() SKIPPING 176588
+2019-06-19 16:38:17 [19113] purge_post_via_edit() SKIPPING 176588
+2019-06-19 16:38:19 [19113] purge_post_via_edit() 165933
+2019-06-19 16:38:19 [19113] get_last_indexed_time(): 1553611704
+2019-06-19 16:38:19 [19113] purge_post_via_edit() 165933
+2019-06-19 16:38:21 [96048] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962300804
+2019-06-19 16:38:21 [19113] purge_post_via_edit() 165933
+2019-06-19 16:38:21 [19113] Prevented duplicate purge purge_post_via_edit() 165933
+2019-06-19 16:38:23 [80132] purge_post_via_edit() SKIPPING 165935
+2019-06-19 16:38:23 [80132] purge_post_via_edit() SKIPPING 165935
+2019-06-19 16:38:23 [80132] purge_post_via_edit() SKIPPING 165936
+2019-06-19 16:38:24 [80132] purge_post_via_edit() SKIPPING 165936
+2019-06-19 16:38:26 [80132] purge_post_via_edit() 165937
+2019-06-19 16:38:26 [80132] get_last_indexed_time(): 1553611704
+2019-06-19 16:38:26 [80132] purge_post_via_edit() 165937
+2019-06-19 16:38:27 [56058] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962306758
+2019-06-19 16:38:28 [80132] purge_post_via_edit() 165937
+2019-06-19 16:38:28 [80132] Prevented duplicate purge purge_post_via_edit() 165937
+2019-06-19 16:38:29 [80132] purge_post_via_edit() SKIPPING 165939
+2019-06-19 16:38:29 [80132] purge_post_via_edit() SKIPPING 165939
+2019-06-19 16:38:29 [80132] purge_post_via_edit() SKIPPING 165940
+2019-06-19 16:38:30 [80132] purge_post_via_edit() SKIPPING 165940
+2019-06-19 16:38:32 [80132] purge_post_via_edit() 165941
+2019-06-19 16:38:32 [80132] get_last_indexed_time(): 1553611704
+2019-06-19 16:38:32 [80132] purge_post_via_edit() 165941
+2019-06-19 16:38:33 [94203] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962312713
+2019-06-19 16:38:34 [80132] purge_post_via_edit() 165941
+2019-06-19 16:38:34 [80132] Prevented duplicate purge purge_post_via_edit() 165941
+2019-06-19 16:38:34 [80132] purge_post_via_edit() SKIPPING 165944
+2019-06-19 16:38:35 [80132] purge_post_via_edit() SKIPPING 165944
+2019-06-19 16:38:35 [51490] trigger_index() https://sfjs.net/index.php?swpnonce=1560962315.4029650688171386718750
+2019-06-19 16:38:35 [74426] Performing background index 1560962315.4029650688171386718750
+2019-06-19 16:38:35 [74426] OK to index, proceed
+2019-06-19 16:38:35 [74426] Load threshold (2) has been breached! Current load: 2.14. Automatically injecting a wait time of 8
+2019-06-19 16:38:35 [74426] Memory usage: 23 MB - sleeping for 8s
+2019-06-19 16:38:37 [80132] purge_post_via_edit() 165946
+2019-06-19 16:38:37 [80132] get_last_indexed_time(): 1553611697
+2019-06-19 16:38:37 [80132] purge_post_via_edit() 165946
+2019-06-19 16:38:39 [83772] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962318561
+2019-06-19 16:38:39 [80132] purge_post_via_edit() 165946
+2019-06-19 16:38:39 [80132] Prevented duplicate purge purge_post_via_edit() 165946
+2019-06-19 16:38:40 [80132] purge_post_via_edit() SKIPPING 165948
+2019-06-19 16:38:40 [80132] purge_post_via_edit() SKIPPING 165948
+2019-06-19 16:38:40 [80132] purge_post_via_edit() SKIPPING 165949
+2019-06-19 16:38:41 [80132] purge_post_via_edit() SKIPPING 165949
+2019-06-19 16:38:43 [80132] purge_post_via_edit() 165950
+2019-06-19 16:38:43 [80132] get_last_indexed_time(): 1553611696
+2019-06-19 16:38:43 [80132] purge_post_via_edit() 165950
+2019-06-19 16:38:43 [74426] Indexer NOW RUNNING
+2019-06-19 16:38:46 [24827] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962324487
+2019-06-19 16:38:48 [80132] purge_post_via_edit() 165950
+2019-06-19 16:38:48 [80132] Prevented duplicate purge purge_post_via_edit() 165950
+2019-06-19 16:38:50 [80132] purge_post_via_edit() SKIPPING 165953
+2019-06-19 16:38:56 [74426] Updating counts: 12921 35 12886
+2019-06-19 16:38:57 [74426] Attempt 1 at indexing 81779
+2019-06-19 16:38:57 [74426] Attempt 1 at indexing 1156
+2019-06-19 16:38:57 [74426] Attempt 1 at indexing 36
+2019-06-19 16:38:57 [74426] Indexing chunk complete: 0s
+2019-06-19 16:38:57 [74426] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962337.5181350708007812500000
+2019-06-19 16:38:57 [80132] purge_post_via_edit() SKIPPING 165953
+2019-06-19 16:38:57 [89867] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962331449
+2019-06-19 16:38:58 [80132] purge_post_via_edit() SKIPPING 165955
+2019-06-19 16:38:58 [36847] Performing background index 1560962337.5181350708007812500000
+2019-06-19 16:38:58 [36847] OK to index, proceed
+2019-06-19 16:38:58 [36847] Memory usage: 23 MB - sleeping for 1s
+2019-06-19 16:38:58 [80132] purge_post_via_edit() SKIPPING 165955
+2019-06-19 16:38:58 [80132] purge_post_via_edit() SKIPPING 165957
+2019-06-19 16:38:58 [80132] purge_post_via_edit() SKIPPING 165957
+2019-06-19 16:38:58 [36847] Indexer NOW RUNNING
+2019-06-19 16:39:05 [69265] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962342816
+2019-06-19 16:39:06 [80132] purge_post_via_edit() 165959
+2019-06-19 16:39:06 [80132] get_last_indexed_time(): 1553611696
+2019-06-19 16:39:06 [80132] purge_post_via_edit() 165959
+2019-06-19 16:39:12 [36847] Updating counts: 12921 32 12889
+2019-06-19 16:39:12 [18596] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962350777
+2019-06-19 16:39:12 [36847] Attempt 1 at indexing 34
+2019-06-19 16:39:12 [36847] Indexing chunk complete: 0s
+2019-06-19 16:39:12 [36847] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962352.9455881118774414062500
+2019-06-19 16:39:13 [79632] Performing background index 1560962352.9455881118774414062500
+2019-06-19 16:39:13 [79632] OK to index, proceed
+2019-06-19 16:39:13 [79632] Memory usage: 23 MB - sleeping for 1s
+2019-06-19 16:39:14 [79632] Indexer NOW RUNNING
+2019-06-19 16:39:15 [80132] purge_post_via_edit() 165959
+2019-06-19 16:39:15 [80132] Prevented duplicate purge purge_post_via_edit() 165959
+2019-06-19 16:39:17 [80132] purge_post_via_edit() SKIPPING 165961
+2019-06-19 16:39:21 [08295] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962357512
+2019-06-19 16:39:21 [25091] trigger_index() https://sfjs.net/index.php?swpnonce=1560962361.1687219142913818359375
+2019-06-19 16:39:21 [80132] purge_post_via_edit() SKIPPING 165961
+2019-06-19 16:39:27 [79632] Updating counts: 12921 31 12890
+2019-06-19 16:39:28 [28635] Performing background index 1560962361.1687219142913818359375
+2019-06-19 16:39:28 [28635] !!! Indexer BUSY !!!
+2019-06-19 16:39:28 [52566] Shutting down after displaying settings screen
+2019-06-19 16:39:28 [79447] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962366267
+2019-06-19 16:39:28 [79632] Attempt 1 at indexing 231400
+2019-06-19 16:39:28 [79632] External SearchWPIndexer instantiation /index.php?swpnonce=1560962352.9455881118774414062500
+2019-06-19 16:39:28 [79632] PDF parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:39:28 [79632] PDF metadata parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:39:28 [79632] Attempt 1 at indexing 231399
+2019-06-19 16:39:28 [79632] External SearchWPIndexer instantiation /index.php?swpnonce=1560962352.9455881118774414062500
+2019-06-19 16:39:28 [79632] PDF parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:39:28 [79632] PDF metadata parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:39:28 [79632] Attempt 1 at indexing 231398
+2019-06-19 16:39:28 [79632] External SearchWPIndexer instantiation /index.php?swpnonce=1560962352.9455881118774414062500
+2019-06-19 16:39:28 [79632] PDF parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:39:28 [79632] PDF metadata parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:39:28 [80132] purge_post_via_edit() SKIPPING 165962
+2019-06-19 16:39:28 [79632] Indexing chunk complete: 0s
+2019-06-19 16:39:28 [79632] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962368.5070040225982666015625
+2019-06-19 16:39:28 [80132] purge_post_via_edit() SKIPPING 165962
+2019-06-19 16:39:29 [07643] Performing background index 1560962368.5070040225982666015625
+2019-06-19 16:39:29 [07643] OK to index, proceed
+2019-06-19 16:39:29 [07643] Memory usage: 23 MB - sleeping for 1s
+2019-06-19 16:39:29 [80132] purge_post_via_edit() SKIPPING 165963
+2019-06-19 16:39:29 [28738] Getting stopwords suggestions (AJAX)
+2019-06-19 16:39:29 [28738] Getting stopwords suggestions (complete)
+2019-06-19 16:39:29 [80132] purge_post_via_edit() SKIPPING 165963
+2019-06-19 16:39:29 [07643] Indexer NOW RUNNING
+2019-06-19 16:39:36 [80132] purge_post_via_edit() 165964
+2019-06-19 16:39:36 [80132] get_last_indexed_time(): 1553611689
+2019-06-19 16:39:36 [80132] purge_post_via_edit() 165964
+2019-06-19 16:39:42 [07643] Updating counts: 12921 28 12893
+2019-06-19 16:39:42 [19207] Updating setting (AJAX)
+2019-06-19 16:39:42 [19207] is_valid_engine( admin_engine ) = true
+2019-06-19 16:39:43 [07643] Attempt 1 at indexing 231397
+2019-06-19 16:39:43 [07643] External SearchWPIndexer instantiation /index.php?swpnonce=1560962368.5070040225982666015625
+2019-06-19 16:39:43 [07643] PDF parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:39:43 [07643] PDF metadata parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:39:43 [07643] Attempt 1 at indexing 231396
+2019-06-19 16:39:43 [07643] External SearchWPIndexer instantiation /index.php?swpnonce=1560962368.5070040225982666015625
+2019-06-19 16:39:45 [07643] Attempt 1 at indexing 231395
+2019-06-19 16:39:45 [07643] External SearchWPIndexer instantiation /index.php?swpnonce=1560962368.5070040225982666015625
+2019-06-19 16:39:45 [80132] purge_post_via_edit() 165964
+2019-06-19 16:39:45 [80132] Prevented duplicate purge purge_post_via_edit() 165964
+2019-06-19 16:39:45 [80132] purge_post_via_edit() SKIPPING 165967
+2019-06-19 16:39:46 [07643] Indexing chunk complete: 3s
+2019-06-19 16:39:46 [07643] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962386.0878410339355468750000
+2019-06-19 16:39:46 [80132] purge_post_via_edit() SKIPPING 165967
+2019-06-19 16:39:46 [06316] Performing background index 1560962386.0878410339355468750000
+2019-06-19 16:39:46 [06316] OK to index, proceed
+2019-06-19 16:39:46 [06316] Load threshold (2) has been breached! Current load: 2.12. Automatically injecting a wait time of 8
+2019-06-19 16:39:46 [06316] Memory usage: 23 MB - sleeping for 8s
+2019-06-19 16:39:47 [21372] purge_post_via_edit() SKIPPING 165969
+2019-06-19 16:39:47 [21372] purge_post_via_edit() SKIPPING 165969
+2019-06-19 16:39:49 [21372] purge_post_via_edit() 165978
+2019-06-19 16:39:49 [21372] get_last_indexed_time(): 1553611689
+2019-06-19 16:39:49 [21372] purge_post_via_edit() 165978
+2019-06-19 16:39:52 [21372] purge_post_via_edit() 165978
+2019-06-19 16:39:52 [21372] Prevented duplicate purge purge_post_via_edit() 165978
+2019-06-19 16:39:54 [06316] Indexer NOW RUNNING
+2019-06-19 16:39:55 [21372] purge_post_via_edit() 165983
+2019-06-19 16:39:55 [21372] get_last_indexed_time(): 1553611689
+2019-06-19 16:39:55 [21372] purge_post_via_edit() 165983
+2019-06-19 16:40:10 [21372] purge_post_via_edit() 165983
+2019-06-19 16:40:10 [21372] Prevented duplicate purge purge_post_via_edit() 165983
+2019-06-19 16:40:17 [06316] Updating counts: 12921 25 12896
+2019-06-19 16:40:18 [21372] purge_post_via_edit() SKIPPING 165981
+2019-06-19 16:40:21 [21372] purge_post_via_edit() SKIPPING 165981
+2019-06-19 16:40:21 [06316] Attempt 1 at indexing 231394
+2019-06-19 16:40:21 [06316] External SearchWPIndexer instantiation /index.php?swpnonce=1560962386.0878410339355468750000
+2019-06-19 16:40:21 [06316] Attempt 1 at indexing 231393
+2019-06-19 16:40:21 [06316] External SearchWPIndexer instantiation /index.php?swpnonce=1560962386.0878410339355468750000
+2019-06-19 16:40:21 [06316] PDF parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:40:21 [06316] PDF metadata parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:40:22 [06316] Attempt 1 at indexing 231392
+2019-06-19 16:40:22 [06316] External SearchWPIndexer instantiation /index.php?swpnonce=1560962386.0878410339355468750000
+2019-06-19 16:40:22 [21372] purge_post_via_edit() SKIPPING 165986
+2019-06-19 16:40:23 [06316] Indexing chunk complete: 2s
+2019-06-19 16:40:23 [06316] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962423.4036719799041748046875
+2019-06-19 16:40:24 [21372] purge_post_via_edit() SKIPPING 165986
+2019-06-19 16:40:25 [21372] purge_post_via_edit() SKIPPING 165988
+2019-06-19 16:40:26 [21372] purge_post_via_edit() SKIPPING 165988
+2019-06-19 16:40:32 [21372] purge_post_via_edit() 165990
+2019-06-19 16:40:32 [21372] get_last_indexed_time(): 1553611682
+2019-06-19 16:40:32 [21372] purge_post_via_edit() 165990
+2019-06-19 16:40:33 [08382] wp_search()
+2019-06-19 16:40:33 [08382] wp_search()
+2019-06-19 16:40:33 [08382] $wpPaged = 1
+2019-06-19 16:40:33 [08382] $terms = '.8mm'
+2019-06-19 16:40:33 [08382] $terms after searchwp_terms = '.8mm'
+2019-06-19 16:40:33 [08382] $terms after sanitization = array (   0 => '8mm', )
+2019-06-19 16:40:33 [08382] $order = DESC
+2019-06-19 16:40:33 [08382] $maxSearchTerms = 6
+2019-06-19 16:40:33 [08382] SearchWPSearch __construct()
+2019-06-19 16:40:33 [08382] is_valid_engine( default ) = true
+2019-06-19 16:40:33 [08382] $terms = array (   0 => '8mm', )
+2019-06-19 16:40:33 [08382] searchwp_pre_search_terms $terms = array (   0 => '8mm', )
+2019-06-19 16:40:33 [08382] query()
+2019-06-19 16:40:33 [08382] query_for_post_ids()
+2019-06-19 16:40:33 [17431] wp_search()
+2019-06-19 16:40:33 [17431] wp_search()
+2019-06-19 16:40:33 [17431] $wpPaged = 1
+2019-06-19 16:40:33 [17431] $terms = '.8'
+2019-06-19 16:40:33 [17431] $terms after searchwp_terms = '.8'
+2019-06-19 16:40:33 [17431] Search query modification: Minimum word length triggered https://searchwp.com/?p=6598
+2019-06-19 16:40:33 [17431] Search query modification: Minimum word length triggered https://searchwp.com/?p=6598
+2019-06-19 16:40:33 [17431] Search query modification: Minimum word length triggered https://searchwp.com/?p=6598
+2019-06-19 16:40:33 [17431] $terms after sanitization = array ( )
+2019-06-19 16:40:33 [17431] $order = DESC
+2019-06-19 16:40:33 [17431] $maxSearchTerms = 6
+2019-06-19 16:40:33 [08382] $doAnd = false
+2019-06-19 16:40:33 [08382] $andFields = title, content, excerpt, slug, comment
+2019-06-19 16:40:33 [08382] $andFields = tax, title, content, excerpt, slug, meta
+2019-06-19 16:40:33 [34714] Performing background index 1560962423.4036719799041748046875
+2019-06-19 16:40:33 [34714] OK to index, proceed
+2019-06-19 16:40:33 [34714] Load threshold (2) has been breached! Current load: 7.11. Automatically injecting a wait time of 28
+2019-06-19 16:40:33 [34714] Memory usage: 23 MB - sleeping for 28s
+2019-06-19 16:40:33 [94039] wp_search()
+2019-06-19 16:40:33 [94039] wp_search()
+2019-06-19 16:40:33 [94039] $wpPaged = 1
+2019-06-19 16:40:33 [94039] $terms = '.8mm st'
+2019-06-19 16:40:33 [94039] $terms after searchwp_terms = '.8mm st'
+2019-06-19 16:40:33 [94039] Search query modification: Minimum word length triggered https://searchwp.com/?p=6598
+2019-06-19 16:40:33 [94039] $terms after sanitization = array (   0 => '8mm', )
+2019-06-19 16:40:33 [94039] $order = DESC
+2019-06-19 16:40:33 [94039] $maxSearchTerms = 6
+2019-06-19 16:40:33 [94039] SearchWPSearch __construct()
+2019-06-19 16:40:33 [94039] is_valid_engine( default ) = true
+2019-06-19 16:40:33 [94039] $terms = array (   0 => '8mm', )
+2019-06-19 16:40:33 [94039] searchwp_pre_search_terms $terms = array (   0 => '8mm', )
+2019-06-19 16:40:33 [94039] query()
+2019-06-19 16:40:33 [94039] query_for_post_ids()
+2019-06-19 16:40:33 [22487] wp_search()
+2019-06-19 16:40:33 [22487] wp_search()
+2019-06-19 16:40:33 [22487] $wpPaged = 1
+2019-06-19 16:40:33 [22487] $terms = '.8mm ster'
+2019-06-19 16:40:33 [22487] $terms after searchwp_terms = '.8mm ster'
+2019-06-19 16:40:33 [22487] $terms after sanitization = array (   0 => '8mm',   1 => 'ster', )
+2019-06-19 16:40:33 [22487] $order = DESC
+2019-06-19 16:40:33 [22487] $maxSearchTerms = 6
+2019-06-19 16:40:33 [22487] SearchWPSearch __construct()
+2019-06-19 16:40:33 [22487] is_valid_engine( default ) = true
+2019-06-19 16:40:33 [94039] $doAnd = false
+2019-06-19 16:40:33 [22487] $terms = array (   0 => '8mm',   1 => 'ster', )
+2019-06-19 16:40:33 [94039] $andFields = title, content, excerpt, slug, comment
+2019-06-19 16:40:33 [94039] $andFields = tax, title, content, excerpt, slug, meta
+2019-06-19 16:40:33 [22487] searchwp_pre_search_terms $terms = array (   0 => '8mm',   1 => 'ster', )
+2019-06-19 16:40:33 [22487] query()
+2019-06-19 16:40:33 [22487] query_for_post_ids()
+2019-06-19 16:40:33 [22487] $doAnd = true
+2019-06-19 16:40:33 [22487] $andFields = title, content, excerpt, slug, comment
+2019-06-19 16:40:33 [22487] $andFields = tax, title, content, excerpt, slug, meta
+2019-06-19 16:40:33 [08382] Search results (24) IDs: 164935, 162522, 217417, 162594, 163704, 163599, 162792, 162779, 145951, 145944, 165043, 165042, 162756, 217415, 145879, 162822, 163394, 168214, 168205, 163987, 145888, 162521, 162227, 166760
+2019-06-19 16:40:33 [08382] query() complete
+2019-06-19 16:40:33 [94039] Search results (24) IDs: 164935, 162522, 217417, 162594, 163704, 163599, 162792, 162779, 145951, 145944, 165043, 165042, 162756, 217415, 145879, 162822, 163394, 168214, 168205, 163987, 145888, 162521, 162227, 166760
+2019-06-19 16:40:33 [94039] query() complete
+2019-06-19 16:40:33 [48566] wp_search()
+2019-06-19 16:40:33 [48566] wp_search()
+2019-06-19 16:40:33 [48566] $wpPaged = 1
+2019-06-19 16:40:33 [48566] $terms = '.8mm sterling'
+2019-06-19 16:40:33 [48566] $terms after searchwp_terms = '.8mm sterling'
+2019-06-19 16:40:34 [48566] $terms after sanitization = array (   0 => '8mm',   1 => 'sterling', )
+2019-06-19 16:40:34 [48566] $order = DESC
+2019-06-19 16:40:34 [48566] $maxSearchTerms = 6
+2019-06-19 16:40:34 [48566] SearchWPSearch __construct()
+2019-06-19 16:40:34 [48566] is_valid_engine( default ) = true
+2019-06-19 16:40:34 [48566] $terms = array (   0 => '8mm',   1 => 'sterling', )
+2019-06-19 16:40:34 [48566] searchwp_pre_search_terms $terms = array (   0 => '8mm',   1 => 'sterling', )
+2019-06-19 16:40:34 [48566] query()
+2019-06-19 16:40:34 [48566] query_for_post_ids()
+2019-06-19 16:40:34 [48566] $doAnd = true
+2019-06-19 16:40:34 [48566] $andFields = title, content, excerpt, slug, comment
+2019-06-19 16:40:34 [48566] $andFields = tax, title, content, excerpt, slug, meta
+2019-06-19 16:40:34 [08382] query() return
+2019-06-19 16:40:34 [22487] Search results (24) IDs: 167124, 162670, 164935, 186483, 162522, 217417, 164903, 162594, 146133, 163704, 163599, 162792, 162779, 145951, 145944, 145879, 165043, 165042, 162756, 150686, 146144, 217415, 145888, 162822
+2019-06-19 16:40:34 [08382] found_posts = 233
+2019-06-19 16:40:34 [08382] max_num_pages = 10
+2019-06-19 16:40:34 [94039] query() return
+2019-06-19 16:40:34 [22487] query() complete
+2019-06-19 16:40:34 [94039] found_posts = 233
+2019-06-19 16:40:34 [94039] max_num_pages = 10
+2019-06-19 16:40:34 [61607] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp
+2019-06-19 16:40:34 [22487] query() return
+2019-06-19 16:40:34 [22487] found_posts = 396
+2019-06-19 16:40:34 [22487] max_num_pages = 17
+2019-06-19 16:40:34 [48566] Search results (24) IDs: 145951, 145944, 217417, 145879, 163394, 217415, 145888, 163599, 145842, 163266, 163261, 163264, 162227, 166760, 217505, 163273, 162234, 163296, 166481, 217448, 166698, 166721, 163257, 217419
+2019-06-19 16:40:34 [48566] query() complete
+2019-06-19 16:40:34 [48566] query() return
+2019-06-19 16:40:34 [48566] found_posts = 49
+2019-06-19 16:40:34 [48566] max_num_pages = 3
+2019-06-19 16:40:48 [61607] Updating counts: 12921 22 12899
+2019-06-19 16:40:48 [21372] purge_post_via_edit() 165990
+2019-06-19 16:40:48 [21372] Prevented duplicate purge purge_post_via_edit() 165990
+2019-06-19 16:40:50 [61607] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp
+2019-06-19 16:40:50 [61607] trigger_index() https://sfjs.net/index.php?swpnonce=1560962450.8347470760345458984375
+2019-06-19 16:40:51 [21372] purge_post_via_edit() SKIPPING 165992
+2019-06-19 16:40:51 [21372] purge_post_via_edit() SKIPPING 165992
+2019-06-19 16:40:51 [21372] purge_post_via_edit() SKIPPING 165993
+2019-06-19 16:40:51 [29821] Performing background index 1560962450.8347470760345458984375
+2019-06-19 16:40:51 [29821] !!! Indexer BUSY !!!
+2019-06-19 16:40:51 [61607] Shutting down after displaying settings screen
+2019-06-19 16:40:51 [21372] purge_post_via_edit() SKIPPING 165993
+2019-06-19 16:40:51 [21372] purge_post_via_edit() SKIPPING 165997
+2019-06-19 16:40:52 [21372] purge_post_via_edit() SKIPPING 165997
+2019-06-19 16:40:52 [47709] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962451920
+2019-06-19 16:40:53 [21372] purge_post_via_edit() 165994
+2019-06-19 16:40:53 [21372] purge_post_via_edit() 165994
+2019-06-19 16:40:54 [21372] purge_post_via_edit() 165994
+2019-06-19 16:40:54 [21372] Prevented duplicate purge purge_post_via_edit() 165994
+2019-06-19 16:40:56 [21372] purge_post_via_edit() 165998
+2019-06-19 16:40:56 [21372] get_last_indexed_time(): 1553611682
+2019-06-19 16:40:56 [21372] purge_post_via_edit() 165998
+2019-06-19 16:40:58 [96568] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962457699
+2019-06-19 16:40:59 [21372] purge_post_via_edit() 165998
+2019-06-19 16:40:59 [21372] Prevented duplicate purge purge_post_via_edit() 165998
+2019-06-19 16:41:00 [21372] purge_post_via_edit() SKIPPING 166001
+2019-06-19 16:41:00 [21372] purge_post_via_edit() SKIPPING 166001
+2019-06-19 16:41:00 [21372] purge_post_via_edit() SKIPPING 166003
+2019-06-19 16:41:00 [21372] purge_post_via_edit() SKIPPING 166003
+2019-06-19 16:41:00 [21372] purge_post_via_edit() SKIPPING 166005
+2019-06-19 16:41:01 [21372] purge_post_via_edit() SKIPPING 166005
+2019-06-19 16:41:01 [21372] purge_post_via_edit() SKIPPING 166007
+2019-06-19 16:41:01 [21372] purge_post_via_edit() SKIPPING 166007
+2019-06-19 16:41:01 [34714] Indexer NOW RUNNING
+2019-06-19 16:41:04 [33483] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962463539
+2019-06-19 16:41:14 [34714] Updating counts: 12921 22 12899
+2019-06-19 16:41:15 [34714] Attempt 1 at indexing 231391
+2019-06-19 16:41:15 [34714] External SearchWPIndexer instantiation /index.php?swpnonce=1560962423.4036719799041748046875
+2019-06-19 16:41:15 [13558] wp_search()
+2019-06-19 16:41:15 [13558] wp_search()
+2019-06-19 16:41:15 [13558] $wpPaged = 1
+2019-06-19 16:41:15 [13558] $terms = '.8mm'
+2019-06-19 16:41:15 [13558] $terms after searchwp_terms = '.8mm'
+2019-06-19 16:41:15 [13558] $terms after sanitization = array (   0 => '8mm', )
+2019-06-19 16:41:15 [13558] $order = DESC
+2019-06-19 16:41:15 [13558] $maxSearchTerms = 6
+2019-06-19 16:41:15 [13558] SearchWPSearch __construct()
+2019-06-19 16:41:15 [13558] is_valid_engine( default ) = true
+2019-06-19 16:41:15 [13558] $terms = array (   0 => '8mm', )
+2019-06-19 16:41:15 [13558] searchwp_pre_search_terms $terms = array (   0 => '8mm', )
+2019-06-19 16:41:15 [13558] query()
+2019-06-19 16:41:15 [13558] query_for_post_ids()
+2019-06-19 16:41:15 [13558] $doAnd = false
+2019-06-19 16:41:15 [13558] $andFields = title, content, excerpt, slug, comment
+2019-06-19 16:41:15 [13558] $andFields = tax, title, content, excerpt, slug, meta
+2019-06-19 16:41:15 [34714] Attempt 1 at indexing 231390
+2019-06-19 16:41:15 [34714] External SearchWPIndexer instantiation /index.php?swpnonce=1560962423.4036719799041748046875
+2019-06-19 16:41:15 [91388] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962470095
+2019-06-19 16:41:16 [13558] Search results (24) IDs: 164935, 162522, 217417, 162594, 163704, 163599, 162792, 162779, 145951, 145944, 165043, 165042, 162756, 217415, 145879, 162822, 163394, 168214, 168205, 163987, 145888, 162521, 162227, 166760
+2019-06-19 16:41:16 [13558] query() complete
+2019-06-19 16:41:16 [58642] Current page is post.php
+2019-06-19 16:41:16 [58642] $post->ID = 231362
+2019-06-19 16:41:16 [58642] Not indexed (status is: wc-on-hold)
+2019-06-19 16:41:16 [13558] query() return
+2019-06-19 16:41:16 [13558] found_posts = 233
+2019-06-19 16:41:16 [13558] max_num_pages = 10
+2019-06-19 16:41:16 [57690] purge_post_via_edit() 166024
+2019-06-19 16:41:16 [57690] get_last_indexed_time(): 1553611682
+2019-06-19 16:41:16 [57690] purge_post_via_edit() 166024
+2019-06-19 16:41:19 [34714] Attempt 1 at indexing 231389
+2019-06-19 16:41:19 [34714] External SearchWPIndexer instantiation /index.php?swpnonce=1560962423.4036719799041748046875
+2019-06-19 16:41:19 [34714] PDF parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:41:19 [34714] PDF metadata parsing failed: Object list not found. Possible secured file.
+2019-06-19 16:41:19 [34714] Indexing chunk complete: 4s
+2019-06-19 16:41:19 [34714] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962479.1003530025482177734375
+2019-06-19 16:41:20 [60868] Performing background index 1560962479.1003530025482177734375
+2019-06-19 16:41:20 [60868] OK to index, proceed
+2019-06-19 16:41:20 [60868] Load threshold (2) has been breached! Current load: 4.34. Automatically injecting a wait time of 16
+2019-06-19 16:41:20 [60868] Memory usage: 23 MB - sleeping for 16s
+2019-06-19 16:41:21 [57690] purge_post_via_edit() 166024
+2019-06-19 16:41:21 [57690] Prevented duplicate purge purge_post_via_edit() 166024
+2019-06-19 16:41:21 [57690] purge_post_via_edit() SKIPPING 166027
+2019-06-19 16:41:21 [57690] purge_post_via_edit() SKIPPING 166027
+2019-06-19 16:41:22 [00159] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962482181
+2019-06-19 16:41:23 [57690] purge_post_via_edit() 166029
+2019-06-19 16:41:23 [57690] get_last_indexed_time(): 1553611675
+2019-06-19 16:41:23 [57690] purge_post_via_edit() 166029
+2019-06-19 16:41:26 [57690] purge_post_via_edit() 166029
+2019-06-19 16:41:26 [57690] Prevented duplicate purge purge_post_via_edit() 166029
+2019-06-19 16:41:26 [57690] purge_post_via_edit() SKIPPING 166032
+2019-06-19 16:41:26 [57690] purge_post_via_edit() SKIPPING 166032
+2019-06-19 16:41:30 [68968] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962489243
+2019-06-19 16:41:30 [59640] purge_post_via_edit() 166087
+2019-06-19 16:41:30 [59640] get_last_indexed_time(): 1553611654
+2019-06-19 16:41:30 [59640] purge_post_via_edit() 166087
+2019-06-19 16:41:30 [70730] wp_search()
+2019-06-19 16:41:30 [70730] wp_search()
+2019-06-19 16:41:30 [70730] $wpPaged = 1
+2019-06-19 16:41:30 [70730] $terms = '.'
+2019-06-19 16:41:30 [70730] $terms after searchwp_terms = '.'
+2019-06-19 16:41:30 [70730] $terms after sanitization = array ( )
+2019-06-19 16:41:30 [70730] $order = DESC
+2019-06-19 16:41:30 [70730] $maxSearchTerms = 6
+2019-06-19 16:41:30 [83330] wp_search()
+2019-06-19 16:41:30 [83330] wp_search()
+2019-06-19 16:41:30 [83330] $wpPaged = 1
+2019-06-19 16:41:30 [83330] $terms = '.8'
+2019-06-19 16:41:30 [83330] $terms after searchwp_terms = '.8'
+2019-06-19 16:41:30 [83330] Search query modification: Minimum word length triggered https://searchwp.com/?p=6598
+2019-06-19 16:41:30 [83330] Search query modification: Minimum word length triggered https://searchwp.com/?p=6598
+2019-06-19 16:41:30 [83330] Search query modification: Minimum word length triggered https://searchwp.com/?p=6598
+2019-06-19 16:41:30 [83330] $terms after sanitization = array ( )
+2019-06-19 16:41:30 [83330] $order = DESC
+2019-06-19 16:41:30 [83330] $maxSearchTerms = 6
+2019-06-19 16:41:31 [50308] wp_search()
+2019-06-19 16:41:31 [50308] wp_search()
+2019-06-19 16:41:31 [50308] $wpPaged = 1
+2019-06-19 16:41:31 [50308] $terms = '.8mm'
+2019-06-19 16:41:31 [50308] $terms after searchwp_terms = '.8mm'
+2019-06-19 16:41:31 [50308] $terms after sanitization = array (   0 => '8mm', )
+2019-06-19 16:41:31 [50308] $order = DESC
+2019-06-19 16:41:31 [50308] $maxSearchTerms = 6
+2019-06-19 16:41:31 [50308] SearchWPSearch __construct()
+2019-06-19 16:41:31 [50308] is_valid_engine( default ) = true
+2019-06-19 16:41:31 [50308] $terms = array (   0 => '8mm', )
+2019-06-19 16:41:31 [50308] searchwp_pre_search_terms $terms = array (   0 => '8mm', )
+2019-06-19 16:41:31 [50308] query()
+2019-06-19 16:41:31 [50308] query_for_post_ids()
+2019-06-19 16:41:31 [50308] $doAnd = false
+2019-06-19 16:41:31 [50308] $andFields = title, content, excerpt, slug, comment
+2019-06-19 16:41:31 [50308] $andFields = tax, title, content, excerpt, slug, meta
+2019-06-19 16:41:31 [50308] Search results (24) IDs: 164935, 162522, 217417, 162594, 163704, 163599, 162792, 162779, 145951, 145944, 165043, 165042, 162756, 217415, 145879, 162822, 163394, 168214, 168205, 163987, 145888, 162521, 162227, 166760
+2019-06-19 16:41:31 [50308] query() complete
+2019-06-19 16:41:31 [50308] query() return
+2019-06-19 16:41:31 [50308] found_posts = 233
+2019-06-19 16:41:31 [50308] max_num_pages = 10
+2019-06-19 16:41:32 [59640] purge_post_via_edit() 166087
+2019-06-19 16:41:32 [59640] Prevented duplicate purge purge_post_via_edit() 166087
+2019-06-19 16:41:33 [59640] purge_post_via_edit() SKIPPING 166089
+2019-06-19 16:41:33 [59640] purge_post_via_edit() SKIPPING 166089
+2019-06-19 16:41:33 [59640] purge_post_via_edit() SKIPPING 166091
+2019-06-19 16:41:33 [59640] purge_post_via_edit() SKIPPING 166091
+2019-06-19 16:41:36 [59640] purge_post_via_edit() 166097
+2019-06-19 16:41:36 [59640] get_last_indexed_time(): 1553611647
+2019-06-19 16:41:36 [59640] purge_post_via_edit() 166097
+2019-06-19 16:41:36 [60868] Indexer NOW RUNNING
+2019-06-19 16:41:36 [95870] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962496119
+2019-06-19 16:41:43 [59640] purge_post_via_edit() 166097
+2019-06-19 16:41:43 [59640] Prevented duplicate purge purge_post_via_edit() 166097
+2019-06-19 16:41:49 [60868] Updating counts: 12921 19 12902
+2019-06-19 16:41:49 [59640] purge_post_via_edit() SKIPPING 166100
+2019-06-19 16:41:50 [87992] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962503142
+2019-06-19 16:41:50 [59640] purge_post_via_edit() SKIPPING 166100
+2019-06-19 16:41:50 [60868] Attempt 1 at indexing 231388
+2019-06-19 16:41:50 [60868] External SearchWPIndexer instantiation /index.php?swpnonce=1560962479.1003530025482177734375
+2019-06-19 16:41:50 [75108] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp&amp;swpjumpstart&amp;1560962503141
+2019-06-19 16:41:50 [59640] purge_post_via_edit() SKIPPING 166102
+2019-06-19 16:42:03 [60868] Attempt 1 at indexing 231387
+2019-06-19 16:42:03 [60868] External SearchWPIndexer instantiation /index.php?swpnonce=1560962479.1003530025482177734375
+2019-06-19 16:42:03 [75108] Updating counts: 12921 19 12902
+2019-06-19 16:42:03 [59640] purge_post_via_edit() SKIPPING 166102
+2019-06-19 16:42:06 [75108] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp&amp;swpjumpstart&amp;1560962503141
+2019-06-19 16:42:06 [54386] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962516142
+2019-06-19 16:42:06 [60868] Attempt 1 at indexing 231386
+2019-06-19 16:42:06 [60868] External SearchWPIndexer instantiation /index.php?swpnonce=1560962479.1003530025482177734375
+2019-06-19 16:42:06 [75108] trigger_index() https://sfjs.net/index.php?swpnonce=1560962526.3249769210815429687500
+2019-06-19 16:42:06 [60868] Indexing chunk complete: 16s
+2019-06-19 16:42:06 [60868] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962526.6610009670257568359375
+2019-06-19 16:42:06 [59640] purge_post_via_edit() SKIPPING 166104
+2019-06-19 16:42:07 [59640] purge_post_via_edit() SKIPPING 166104
+2019-06-19 16:42:07 [21096] Performing background index 1560962526.6610009670257568359375
+2019-06-19 16:42:07 [21096] OK to index, proceed
+2019-06-19 16:42:07 [21096] Load threshold (2) has been breached! Current load: 3.17. Automatically injecting a wait time of 12
+2019-06-19 16:42:07 [21096] Memory usage: 23 MB - sleeping for 12s
+2019-06-19 16:42:07 [75108] Shutting down after displaying settings screen
+2019-06-19 16:42:07 [59640] purge_post_via_edit() SKIPPING 166106
+2019-06-19 16:42:07 [59640] purge_post_via_edit() SKIPPING 166106
+2019-06-19 16:42:09 [82411] ---------- Indexer has stalled [alt], jumpstarting
+2019-06-19 16:42:10 [59640] purge_post_via_edit() 166127
+2019-06-19 16:42:10 [59640] get_last_indexed_time(): 1553611640
+2019-06-19 16:42:10 [59640] purge_post_via_edit() 166127
+2019-06-19 16:42:12 [59640] purge_post_via_edit() 166127
+2019-06-19 16:42:12 [59640] Prevented duplicate purge purge_post_via_edit() 166127
+2019-06-19 16:42:12 [51390] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962532079
+2019-06-19 16:42:12 [59640] purge_post_via_edit() SKIPPING 166129
+2019-06-19 16:42:13 [59640] purge_post_via_edit() SKIPPING 166129
+2019-06-19 16:42:15 [59640] purge_post_via_edit() 166118
+2019-06-19 16:42:15 [59640] get_last_indexed_time(): 1553611640
+2019-06-19 16:42:15 [59640] purge_post_via_edit() 166118
+2019-06-19 16:42:18 [59640] purge_post_via_edit() 166118
+2019-06-19 16:42:18 [59640] Prevented duplicate purge purge_post_via_edit() 166118
+2019-06-19 16:42:19 [21096] ---------- Indexer has stalled [alt], jumpstarting
+2019-06-19 16:42:19 [21096] Indexer NOW RUNNING
+2019-06-19 16:42:19 [05864] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962538832
+2019-06-19 16:42:20 [59640] purge_post_via_edit() 166115
+2019-06-19 16:42:20 [59640] get_last_indexed_time(): 1553611647
+2019-06-19 16:42:20 [59640] purge_post_via_edit() 166115
+2019-06-19 16:42:25 [98763] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962545158
+2019-06-19 16:42:27 [59640] purge_post_via_edit() 166115
+2019-06-19 16:42:27 [59640] Prevented duplicate purge purge_post_via_edit() 166115
+2019-06-19 16:42:32 [21096] Updating counts: 12921 16 12905
+2019-06-19 16:42:32 [59640] purge_post_via_edit() SKIPPING 166117
+2019-06-19 16:42:33 [21096] Attempt 1 at indexing 231385
+2019-06-19 16:42:33 [21096] External SearchWPIndexer instantiation /index.php?swpnonce=1560962526.3249769210815429687500
+2019-06-19 16:42:33 [92561] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962552127
+2019-06-19 16:42:33 [59640] purge_post_via_edit() SKIPPING 166117
+2019-06-19 16:42:33 [21096] Attempt 1 at indexing 231384
+2019-06-19 16:42:33 [21096] External SearchWPIndexer instantiation /index.php?swpnonce=1560962526.3249769210815429687500
+2019-06-19 16:42:33 [21096] Attempt 1 at indexing 231383
+2019-06-19 16:42:33 [21096] External SearchWPIndexer instantiation /index.php?swpnonce=1560962526.3249769210815429687500
+2019-06-19 16:42:34 [21096] Indexing chunk complete: 1s
+2019-06-19 16:42:34 [21096] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962554.1279869079589843750000
+2019-06-19 16:42:34 [04172] Performing background index 1560962554.1279869079589843750000
+2019-06-19 16:42:34 [04172] OK to index, proceed
+2019-06-19 16:42:34 [04172] Load threshold (2) has been breached! Current load: 2.74. Automatically injecting a wait time of 8
+2019-06-19 16:42:34 [04172] Memory usage: 23 MB - sleeping for 8s
+2019-06-19 16:42:36 [87337] purge_post_via_edit() 166093
+2019-06-19 16:42:36 [87337] get_last_indexed_time(): 1553611647
+2019-06-19 16:42:36 [87337] purge_post_via_edit() 166093
+2019-06-19 16:42:39 [87337] purge_post_via_edit() 166093
+2019-06-19 16:42:39 [87337] Prevented duplicate purge purge_post_via_edit() 166093
+2019-06-19 16:42:39 [87337] purge_post_via_edit() SKIPPING 166096
+2019-06-19 16:42:39 [87337] purge_post_via_edit() SKIPPING 166096
+2019-06-19 16:42:39 [28237] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962559066
+2019-06-19 16:42:41 [87337] purge_post_via_edit() 166134
+2019-06-19 16:42:41 [87337] get_last_indexed_time(): 1553611640
+2019-06-19 16:42:41 [87337] purge_post_via_edit() 166134
+2019-06-19 16:42:42 [04172] Indexer NOW RUNNING
+2019-06-19 16:42:43 [87337] purge_post_via_edit() 166134
+2019-06-19 16:42:43 [87337] Prevented duplicate purge purge_post_via_edit() 166134
+2019-06-19 16:42:45 [87337] purge_post_via_edit() SKIPPING 166137
+2019-06-19 16:42:49 [33713] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962566148
+2019-06-19 16:42:49 [87337] purge_post_via_edit() SKIPPING 166137
+2019-06-19 16:42:55 [04172] Updating counts: 12921 13 12908
+2019-06-19 16:42:56 [04172] Attempt 1 at indexing 231382
+2019-06-19 16:42:56 [04172] External SearchWPIndexer instantiation /index.php?swpnonce=1560962554.1279869079589843750000
+2019-06-19 16:42:56 [74048] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962575175
+2019-06-19 16:42:56 [87337] purge_post_via_edit() SKIPPING 166120
+2019-06-19 16:42:56 [04172] Attempt 1 at indexing 231381
+2019-06-19 16:42:56 [04172] External SearchWPIndexer instantiation /index.php?swpnonce=1560962554.1279869079589843750000
+2019-06-19 16:42:56 [87337] purge_post_via_edit() SKIPPING 166120
+2019-06-19 16:42:57 [04172] Attempt 1 at indexing 231380
+2019-06-19 16:42:57 [04172] External SearchWPIndexer instantiation /index.php?swpnonce=1560962554.1279869079589843750000
+2019-06-19 16:42:57 [87337] purge_post_via_edit() SKIPPING 166122
+2019-06-19 16:42:57 [87337] purge_post_via_edit() SKIPPING 166122
+2019-06-19 16:42:57 [04172] Indexing chunk complete: 1s
+2019-06-19 16:42:57 [04172] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962577.6543390750885009765625
+2019-06-19 16:42:58 [42746] Performing background index 1560962577.6543390750885009765625
+2019-06-19 16:42:58 [42746] OK to index, proceed
+2019-06-19 16:42:58 [42746] Load threshold (2) has been breached! Current load: 2.22. Automatically injecting a wait time of 8
+2019-06-19 16:42:58 [42746] Memory usage: 23 MB - sleeping for 8s
+2019-06-19 16:43:01 [89002] purge_post_via_edit() 166067
+2019-06-19 16:43:01 [89002] get_last_indexed_time(): 1553611661
+2019-06-19 16:43:01 [89002] purge_post_via_edit() 166067
+2019-06-19 16:43:02 [59780] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962582158
+2019-06-19 16:43:03 [89002] purge_post_via_edit() 166067
+2019-06-19 16:43:03 [89002] Prevented duplicate purge purge_post_via_edit() 166067
+2019-06-19 16:43:03 [89002] purge_post_via_edit() SKIPPING 166070
+2019-06-19 16:43:04 [89002] purge_post_via_edit() SKIPPING 166070
+2019-06-19 16:43:06 [89002] purge_post_via_edit() 166078
+2019-06-19 16:43:06 [89002] get_last_indexed_time(): 1553611661
+2019-06-19 16:43:06 [89002] purge_post_via_edit() 166078
+2019-06-19 16:43:06 [42746] Indexer NOW RUNNING
+2019-06-19 16:43:09 [33336] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962589158
+2019-06-19 16:43:10 [89002] purge_post_via_edit() 166078
+2019-06-19 16:43:10 [89002] Prevented duplicate purge purge_post_via_edit() 166078
+2019-06-19 16:43:14 [89002] purge_post_via_edit() 166076
+2019-06-19 16:43:14 [89002] get_last_indexed_time(): 1553611654
+2019-06-19 16:43:14 [89002] purge_post_via_edit() 166076
+2019-06-19 16:43:19 [42746] Updating counts: 12921 10 12911
+2019-06-19 16:43:19 [31104] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962596148
+2019-06-19 16:43:20 [42746] Attempt 1 at indexing 231379
+2019-06-19 16:43:20 [42746] External SearchWPIndexer instantiation /index.php?swpnonce=1560962577.6543390750885009765625
+2019-06-19 16:43:20 [42746] Attempt 1 at indexing 231376
+2019-06-19 16:43:20 [42746] External SearchWPIndexer instantiation /index.php?swpnonce=1560962577.6543390750885009765625
+2019-06-19 16:43:20 [42746] Attempt 1 at indexing 231375
+2019-06-19 16:43:20 [42746] External SearchWPIndexer instantiation /index.php?swpnonce=1560962577.6543390750885009765625
+2019-06-19 16:43:21 [42746] Indexing chunk complete: 1s
+2019-06-19 16:43:21 [42746] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962601.4334180355072021484375
+2019-06-19 16:43:21 [89002] purge_post_via_edit() 166076
+2019-06-19 16:43:21 [89002] Prevented duplicate purge purge_post_via_edit() 166076
+2019-06-19 16:43:22 [08586] Performing background index 1560962601.4334180355072021484375
+2019-06-19 16:43:22 [08586] OK to index, proceed
+2019-06-19 16:43:22 [08586] Load threshold (2) has been breached! Current load: 2.13. Automatically injecting a wait time of 8
+2019-06-19 16:43:22 [08586] Memory usage: 23 MB - sleeping for 8s
+2019-06-19 16:43:23 [89002] purge_post_via_edit() 166080
+2019-06-19 16:43:23 [89002] get_last_indexed_time(): 1553611654
+2019-06-19 16:43:23 [89002] purge_post_via_edit() 166080
+2019-06-19 16:43:26 [87040] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962605307
+2019-06-19 16:43:27 [89002] purge_post_via_edit() 166080
+2019-06-19 16:43:27 [89002] Prevented duplicate purge purge_post_via_edit() 166080
+2019-06-19 16:43:27 [89002] purge_post_via_edit() SKIPPING 166082
+2019-06-19 16:43:27 [89002] purge_post_via_edit() SKIPPING 166082
+2019-06-19 16:43:27 [89002] purge_post_via_edit() SKIPPING 166083
+2019-06-19 16:43:27 [89002] purge_post_via_edit() SKIPPING 166083
+2019-06-19 16:43:28 [89002] purge_post_via_edit() SKIPPING 166084
+2019-06-19 16:43:28 [89002] purge_post_via_edit() SKIPPING 166084
+2019-06-19 16:43:28 [89002] purge_post_via_edit() SKIPPING 166085
+2019-06-19 16:43:28 [89002] purge_post_via_edit() SKIPPING 166085
+2019-06-19 16:43:29 [89002] purge_post_via_edit() SKIPPING 166086
+2019-06-19 16:43:29 [89002] purge_post_via_edit() SKIPPING 166086
+2019-06-19 16:43:30 [08586] Indexer NOW RUNNING
+2019-06-19 16:43:32 [89002] purge_post_via_edit() 166048
+2019-06-19 16:43:32 [89002] get_last_indexed_time(): 1553611668
+2019-06-19 16:43:32 [89002] purge_post_via_edit() 166048
+2019-06-19 16:43:43 [08586] Updating counts: 12921 7 12914
+2019-06-19 16:43:43 [69594] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962611835
+2019-06-19 16:43:43 [08586] Attempt 1 at indexing 231374
+2019-06-19 16:43:43 [08586] External SearchWPIndexer instantiation /index.php?swpnonce=1560962601.4334180355072021484375
+2019-06-19 16:43:44 [08586] Attempt 1 at indexing 231373
+2019-06-19 16:43:44 [08586] External SearchWPIndexer instantiation /index.php?swpnonce=1560962601.4334180355072021484375
+2019-06-19 16:43:44 [89002] purge_post_via_edit() 166048
+2019-06-19 16:43:44 [89002] Prevented duplicate purge purge_post_via_edit() 166048
+2019-06-19 16:43:44 [08586] Attempt 1 at indexing 231372
+2019-06-19 16:43:44 [08586] External SearchWPIndexer instantiation /index.php?swpnonce=1560962601.4334180355072021484375
+2019-06-19 16:43:44 [08586] Indexing chunk complete: 1s
+2019-06-19 16:43:44 [08586] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962624.8874080181121826171875
+2019-06-19 16:43:45 [87663] Performing background index 1560962624.8874080181121826171875
+2019-06-19 16:43:45 [87663] OK to index, proceed
+2019-06-19 16:43:45 [87663] Load threshold (2) has been breached! Current load: 2.2. Automatically injecting a wait time of 8
+2019-06-19 16:43:45 [87663] Memory usage: 23 MB - sleeping for 8s
+2019-06-19 16:43:46 [89002] purge_post_via_edit() 166052
+2019-06-19 16:43:46 [89002] get_last_indexed_time(): 1553611668
+2019-06-19 16:43:46 [89002] purge_post_via_edit() 166052
+2019-06-19 16:43:49 [89002] purge_post_via_edit() 166052
+2019-06-19 16:43:49 [89002] Prevented duplicate purge purge_post_via_edit() 166052
+2019-06-19 16:43:49 [89002] purge_post_via_edit() SKIPPING 166055
+2019-06-19 16:43:50 [89002] purge_post_via_edit() SKIPPING 166055
+2019-06-19 16:43:50 [60567] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962630146
+2019-06-19 16:43:51 [89002] purge_post_via_edit() 166058
+2019-06-19 16:43:51 [89002] get_last_indexed_time(): 1557393377
+2019-06-19 16:43:51 [89002] purge_post_via_edit() 166058
+2019-06-19 16:43:53 [87663] Indexer NOW RUNNING
+2019-06-19 16:43:56 [89002] purge_post_via_edit() 166058
+2019-06-19 16:43:56 [89002] Prevented duplicate purge purge_post_via_edit() 166058
+2019-06-19 16:44:00 [89002] purge_post_via_edit() SKIPPING 166061
+2019-06-19 16:44:06 [62678] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962637145
+2019-06-19 16:44:06 [87663] Updating counts: 12921 4 12917
+2019-06-19 16:44:06 [89002] purge_post_via_edit() SKIPPING 166061
+2019-06-19 16:44:07 [87663] Attempt 1 at indexing 231371
+2019-06-19 16:44:07 [87663] External SearchWPIndexer instantiation /index.php?swpnonce=1560962624.8874080181121826171875
+2019-06-19 16:44:07 [89002] purge_post_via_edit() SKIPPING 166065
+2019-06-19 16:44:07 [89002] purge_post_via_edit() SKIPPING 166065
+2019-06-19 16:44:09 [89002] purge_post_via_edit() 166072
+2019-06-19 16:44:09 [89002] get_last_indexed_time(): 1553611661
+2019-06-19 16:44:09 [89002] purge_post_via_edit() 166072
+2019-06-19 16:44:12 [89002] purge_post_via_edit() 166072
+2019-06-19 16:44:12 [89002] Prevented duplicate purge purge_post_via_edit() 166072
+2019-06-19 16:44:12 [18468] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962652190
+2019-06-19 16:44:13 [75456] purge_post_via_edit() SKIPPING 166074
+2019-06-19 16:44:13 [75456] purge_post_via_edit() SKIPPING 166074
+2019-06-19 16:44:14 [75456] purge_post_via_edit() SKIPPING 166075
+2019-06-19 16:44:14 [75456] purge_post_via_edit() SKIPPING 166075
+2019-06-19 16:44:16 [75456] purge_post_via_edit() 166041
+2019-06-19 16:44:16 [75456] get_last_indexed_time(): 1553611675
+2019-06-19 16:44:16 [75456] purge_post_via_edit() 166041
+2019-06-19 16:44:19 [75456] purge_post_via_edit() 166041
+2019-06-19 16:44:19 [75456] Prevented duplicate purge purge_post_via_edit() 166041
+2019-06-19 16:44:19 [08079] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962659147
+2019-06-19 16:44:20 [75456] purge_post_via_edit() SKIPPING 166043
+2019-06-19 16:44:20 [75456] purge_post_via_edit() SKIPPING 166043
+2019-06-19 16:44:24 [64557] purge_post_via_edit() 166034
+2019-06-19 16:44:24 [64557] get_last_indexed_time(): 1555950539
+2019-06-19 16:44:24 [64557] purge_post_via_edit() 166034
+2019-06-19 16:44:26 [64557] purge_post_via_edit() 166034
+2019-06-19 16:44:26 [64557] Prevented duplicate purge purge_post_via_edit() 166034
+2019-06-19 16:44:26 [64043] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962666157
+2019-06-19 16:44:27 [64557] purge_post_via_edit() SKIPPING 166036
+2019-06-19 16:44:27 [64557] purge_post_via_edit() SKIPPING 166036
+2019-06-19 16:44:30 [64557] purge_post_via_edit() 217051
+2019-06-19 16:44:30 [64557] get_last_indexed_time(): 1553601481
+2019-06-19 16:44:30 [64557] purge_post_via_edit() 217051
+2019-06-19 16:44:33 [81997] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962673148
+2019-06-19 16:44:34 [64557] purge_post_via_edit() 217051
+2019-06-19 16:44:34 [64557] Prevented duplicate purge purge_post_via_edit() 217051
+2019-06-19 16:44:34 [64557] purge_post_via_edit() SKIPPING 217055
+2019-06-19 16:44:34 [64557] purge_post_via_edit() SKIPPING 217055
+2019-06-19 16:44:34 [64557] purge_post_via_edit() SKIPPING 217058
+2019-06-19 16:44:35 [64557] purge_post_via_edit() SKIPPING 217058
+2019-06-19 16:44:35 [64557] purge_post_via_edit() SKIPPING 217061
+2019-06-19 16:44:35 [64557] purge_post_via_edit() SKIPPING 217061
+2019-06-19 16:44:35 [64557] purge_post_via_edit() SKIPPING 217064
+2019-06-19 16:44:35 [64557] purge_post_via_edit() SKIPPING 217064
+2019-06-19 16:44:37 [66045] purge_post_via_edit() SKIPPING 217067
+2019-06-19 16:44:37 [66045] purge_post_via_edit() SKIPPING 217067
+2019-06-19 16:44:37 [66045] purge_post_via_edit() SKIPPING 217070
+2019-06-19 16:44:37 [66045] purge_post_via_edit() SKIPPING 217070
+2019-06-19 16:44:37 [66045] purge_post_via_edit() SKIPPING 217073
+2019-06-19 16:44:38 [66045] purge_post_via_edit() SKIPPING 217073
+2019-06-19 16:44:40 [66045] purge_post_via_edit() 217076
+2019-06-19 16:44:40 [66045] get_last_indexed_time(): 1553601481
+2019-06-19 16:44:40 [66045] purge_post_via_edit() 217076
+2019-06-19 16:44:40 [16816] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962680122
+2019-06-19 16:44:42 [66045] purge_post_via_edit() 217076
+2019-06-19 16:44:42 [66045] Prevented duplicate purge purge_post_via_edit() 217076
+2019-06-19 16:44:42 [66045] purge_post_via_edit() SKIPPING 217081
+2019-06-19 16:44:42 [66045] purge_post_via_edit() SKIPPING 217081
+2019-06-19 16:44:43 [66045] purge_post_via_edit() SKIPPING 217083
+2019-06-19 16:44:43 [66045] purge_post_via_edit() SKIPPING 217083
+2019-06-19 16:44:43 [66045] purge_post_via_edit() SKIPPING 217086
+2019-06-19 16:44:43 [66045] purge_post_via_edit() SKIPPING 217086
+2019-06-19 16:44:46 [66045] purge_post_via_edit() 217089
+2019-06-19 16:44:46 [66045] get_last_indexed_time(): 1553601474
+2019-06-19 16:44:46 [66045] purge_post_via_edit() 217089
+2019-06-19 16:44:47 [16078] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962687093
+2019-06-19 16:44:50 [66045] purge_post_via_edit() 217089
+2019-06-19 16:44:50 [66045] Prevented duplicate purge purge_post_via_edit() 217089
+2019-06-19 16:44:50 [66045] purge_post_via_edit() SKIPPING 217093
+2019-06-19 16:44:50 [66045] purge_post_via_edit() SKIPPING 217093
+2019-06-19 16:44:50 [66045] purge_post_via_edit() SKIPPING 217096
+2019-06-19 16:44:50 [66045] purge_post_via_edit() SKIPPING 217096
+2019-06-19 16:44:51 [66045] purge_post_via_edit() SKIPPING 217099
+2019-06-19 16:44:51 [66045] purge_post_via_edit() SKIPPING 217099
+2019-06-19 16:44:51 [66045] purge_post_via_edit() SKIPPING 217102
+2019-06-19 16:44:51 [66045] purge_post_via_edit() SKIPPING 217102
+2019-06-19 16:44:52 [66045] purge_post_via_edit() SKIPPING 217105
+2019-06-19 16:44:52 [66045] purge_post_via_edit() SKIPPING 217105
+2019-06-19 16:44:52 [66045] purge_post_via_edit() SKIPPING 217108
+2019-06-19 16:44:52 [66045] purge_post_via_edit() SKIPPING 217108
+2019-06-19 16:44:53 [63701] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962693158
+2019-06-19 16:44:57 [62457] purge_post_via_edit() 168271
+2019-06-19 16:44:57 [62457] get_last_indexed_time(): 1553611619
+2019-06-19 16:44:57 [62457] purge_post_via_edit() 168271
+2019-06-19 16:44:59 [62457] purge_post_via_edit() 168271
+2019-06-19 16:44:59 [62457] Prevented duplicate purge purge_post_via_edit() 168271
+2019-06-19 16:44:59 [62457] purge_post_via_edit() SKIPPING 168273
+2019-06-19 16:44:59 [62457] purge_post_via_edit() SKIPPING 168273
+2019-06-19 16:45:00 [02622] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962700139
+2019-06-19 16:45:02 [36486] purge_post_via_edit() 168274
+2019-06-19 16:45:02 [36486] get_last_indexed_time(): 1553611619
+2019-06-19 16:45:02 [36486] purge_post_via_edit() 168274
+2019-06-19 16:45:05 [36486] purge_post_via_edit() 168274
+2019-06-19 16:45:05 [36486] Prevented duplicate purge purge_post_via_edit() 168274
+2019-06-19 16:45:05 [36486] purge_post_via_edit() SKIPPING 168276
+2019-06-19 16:45:05 [36486] purge_post_via_edit() SKIPPING 168276
+2019-06-19 16:45:06 [36486] purge_post_via_edit() SKIPPING 168277
+2019-06-19 16:45:06 [36486] purge_post_via_edit() SKIPPING 168277
+2019-06-19 16:45:06 [36486] purge_post_via_edit() SKIPPING 168278
+2019-06-19 16:45:06 [36486] purge_post_via_edit() SKIPPING 168278
+2019-06-19 16:45:07 [52876] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962707151
+2019-06-19 16:45:08 [37363] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp&amp;swpjumpstart&amp;1560962707150
+2019-06-19 16:45:10 [36486] purge_post_via_edit() 168342
+2019-06-19 16:45:10 [36486] get_last_indexed_time(): 1553611563
+2019-06-19 16:45:10 [36486] purge_post_via_edit() 168342
+2019-06-19 16:45:14 [75727] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962714150
+2019-06-19 16:45:21 [37363] Updating counts: 12920 3 12917
+2019-06-19 16:45:21 [50193] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962721090
+2019-06-19 16:45:22 [36486] purge_post_via_edit() 168342
+2019-06-19 16:45:22 [36486] Prevented duplicate purge purge_post_via_edit() 168342
+2019-06-19 16:45:23 [37363] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp&amp;swpjumpstart&amp;1560962707150
+2019-06-19 16:45:23 [37363] trigger_index() https://sfjs.net/index.php?swpnonce=1560962723.6008939743041992187500
+2019-06-19 16:45:23 [36486] purge_post_via_edit() SKIPPING 168337
+2019-06-19 16:45:24 [60819] Performing background index 1560962723.6008939743041992187500
+2019-06-19 16:45:24 [60819] OK to index, proceed
+2019-06-19 16:45:24 [60819] Memory usage: 23 MB - sleeping for 1s
+2019-06-19 16:45:24 [36486] purge_post_via_edit() SKIPPING 168337
+2019-06-19 16:45:24 [37363] Shutting down after displaying settings screen
+2019-06-19 16:45:24 [36486] purge_post_via_edit() SKIPPING 168344
+2019-06-19 16:45:24 [27319] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp&amp;swpjumpstart&amp;1560962721089
+2019-06-19 16:45:24 [36486] purge_post_via_edit() SKIPPING 168344
+2019-06-19 16:45:24 [60819] ---------- Indexer has stalled [alt], jumpstarting
+2019-06-19 16:45:24 [60819] Indexer NOW RUNNING
+2019-06-19 16:45:31 [63439] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962728098
+2019-06-19 16:45:38 [27319] Updating counts: 12920 3 12917
+2019-06-19 16:45:44 [36486] purge_post_via_edit() 168345
+2019-06-19 16:45:44 [36486] get_last_indexed_time(): 1553611563
+2019-06-19 16:45:44 [36486] purge_post_via_edit() 168345
+2019-06-19 16:45:44 [40667] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962737183
+2019-06-19 16:45:44 [60819] Updating counts: 12920 3 12917
+2019-06-19 16:45:46 [27319] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp&amp;swpjumpstart&amp;1560962721089
+2019-06-19 16:45:47 [27319] trigger_index() https://sfjs.net/index.php?swpnonce=1560962747.0679690837860107421875
+2019-06-19 16:45:47 [60819] Attempt 1 at indexing 231370
+2019-06-19 16:45:47 [60819] External SearchWPIndexer instantiation /index.php?swpnonce=1560962723.6008939743041992187500
+2019-06-19 16:45:47 [60819] Attempt 1 at indexing 231369
+2019-06-19 16:45:47 [60819] External SearchWPIndexer instantiation /index.php?swpnonce=1560962723.6008939743041992187500
+2019-06-19 16:45:48 [27319] Shutting down after displaying settings screen
+2019-06-19 16:45:48 [60819] Attempt 1 at indexing 231368
+2019-06-19 16:45:48 [60819] External SearchWPIndexer instantiation /index.php?swpnonce=1560962723.6008939743041992187500
+2019-06-19 16:45:48 [60819] Indexing chunk complete: 1s
+2019-06-19 16:45:48 [60819] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962748.1366689205169677734375
+2019-06-19 16:45:48 [66837] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp&amp;swpjumpstart&amp;1560962714150
+2019-06-19 16:45:49 [09020] Performing background index 1560962748.1366689205169677734375
+2019-06-19 16:45:49 [09020] OK to index, proceed
+2019-06-19 16:45:49 [09020] Memory usage: 23 MB - sleeping for 1s
+2019-06-19 16:45:49 [09020] Indexer NOW RUNNING
+2019-06-19 16:45:49 [36486] purge_post_via_edit() 168345
+2019-06-19 16:45:49 [36486] Prevented duplicate purge purge_post_via_edit() 168345
+2019-06-19 16:45:52 [31580] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962750938
+2019-06-19 16:45:57 [36486] purge_post_via_edit() 168293
+2019-06-19 16:45:57 [36486] get_last_indexed_time(): 1553611598
+2019-06-19 16:45:57 [36486] purge_post_via_edit() 168293
+2019-06-19 16:46:03 [09020] Updating counts: 12920 0 12920
+2019-06-19 16:46:03 [09020] Setting initial
+2019-06-19 16:46:03 [66837] Updating counts: 12920 0 12920
+2019-06-19 16:46:03 [66837] Setting initial
+2019-06-19 16:46:04 [18880] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962758184
+2019-06-19 16:46:04 [09020] Attempt 1 at indexing 231367
+2019-06-19 16:46:04 [09020] External SearchWPIndexer instantiation /index.php?swpnonce=1560962748.1366689205169677734375
+2019-06-19 16:46:06 [66837] External SearchWPIndexer instantiation /wp-admin/options-general.php?page=searchwp&amp;swpjumpstart&amp;1560962714150
+2019-06-19 16:46:06 [09020] Attempt 1 at indexing 231366
+2019-06-19 16:46:06 [09020] External SearchWPIndexer instantiation /index.php?swpnonce=1560962748.1366689205169677734375
+2019-06-19 16:46:06 [66837] trigger_index() https://sfjs.net/index.php?swpnonce=1560962766.7537949085235595703125
+2019-06-19 16:46:07 [09020] Attempt 1 at indexing 231365
+2019-06-19 16:46:07 [09020] External SearchWPIndexer instantiation /index.php?swpnonce=1560962748.1366689205169677734375
+2019-06-19 16:46:07 [09020] Indexing chunk complete: 3s
+2019-06-19 16:46:07 [09020] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962767.6278018951416015625000
+2019-06-19 16:46:07 [66837] Shutting down after displaying settings screen
+2019-06-19 16:46:08 [49777] Performing background index 1560962767.6278018951416015625000
+2019-06-19 16:46:08 [49777] OK to index, proceed
+2019-06-19 16:46:08 [49777] Memory usage: 23 MB - sleeping for 1s
+2019-06-19 16:46:08 [36486] purge_post_via_edit() 168293
+2019-06-19 16:46:08 [36486] Prevented duplicate purge purge_post_via_edit() 168293
+2019-06-19 16:46:08 [36486] purge_post_via_edit() SKIPPING 168295
+2019-06-19 16:46:09 [49777] Indexer NOW RUNNING
+2019-06-19 16:46:09 [36486] purge_post_via_edit() SKIPPING 168295
+2019-06-19 16:46:15 [75618] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962770306
+2019-06-19 16:46:15 [36486] purge_post_via_edit() SKIPPING 168296
+2019-06-19 16:46:22 [49777] Updating counts: 12920 0 12920
+2019-06-19 16:46:22 [49777] Setting initial
+2019-06-19 16:46:22 [36486] purge_post_via_edit() SKIPPING 168296
+2019-06-19 16:46:23 [49777] Attempt 1 at indexing 231321
+2019-06-19 16:46:23 [49777] External SearchWPIndexer instantiation /index.php?swpnonce=1560962767.6278018951416015625000
+2019-06-19 16:46:23 [94898] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962782155
+2019-06-19 16:46:23 [36486] purge_post_via_edit() SKIPPING 168340
+2019-06-19 16:46:23 [49777] Attempt 1 at indexing 231265
+2019-06-19 16:46:23 [36486] purge_post_via_edit() SKIPPING 168340
+2019-06-19 16:46:23 [49777] External SearchWPIndexer instantiation /index.php?swpnonce=1560962767.6278018951416015625000
+2019-06-19 16:46:23 [49777] Document parsing ERROR: mime type not found 231265
+2019-06-19 16:46:23 [49777] Attempt 1 at indexing 231152
+2019-06-19 16:46:23 [49777] External SearchWPIndexer instantiation /index.php?swpnonce=1560962767.6278018951416015625000
+2019-06-19 16:46:23 [49777] Document parsing ERROR: mime type not found 231152
+2019-06-19 16:46:23 [49777] Indexing chunk complete: 0s
+2019-06-19 16:46:23 [49777] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962783.8688900470733642578125
+2019-06-19 16:46:24 [51938] Performing background index 1560962783.8688900470733642578125
+2019-06-19 16:46:24 [51938] OK to index, proceed
+2019-06-19 16:46:24 [51938] Memory usage: 23 MB - sleeping for 1s
+2019-06-19 16:46:25 [51938] Indexer NOW RUNNING
+2019-06-19 16:46:25 [36486] purge_post_via_edit() 168279
+2019-06-19 16:46:25 [36486] get_last_indexed_time(): 1553611619
+2019-06-19 16:46:25 [36486] purge_post_via_edit() 168279
+2019-06-19 16:46:31 [86319] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962789156
+2019-06-19 16:46:38 [51938] Updating counts: 12920 0 12920
+2019-06-19 16:46:38 [51938] Setting initial
+2019-06-19 16:46:38 [99006] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962798155
+2019-06-19 16:46:39 [51938] Attempt 1 at indexing 231143
+2019-06-19 16:46:39 [51938] External SearchWPIndexer instantiation /index.php?swpnonce=1560962783.8688900470733642578125
+2019-06-19 16:46:39 [51938] Document parsing ERROR: mime type not found 231143
+2019-06-19 16:46:39 [51938] Attempt 1 at indexing 231135
+2019-06-19 16:46:39 [51938] External SearchWPIndexer instantiation /index.php?swpnonce=1560962783.8688900470733642578125
+2019-06-19 16:46:39 [51938] Document parsing ERROR: mime type not found 231135
+2019-06-19 16:46:39 [51938] Attempt 1 at indexing 231129
+2019-06-19 16:46:39 [51938] External SearchWPIndexer instantiation /index.php?swpnonce=1560962783.8688900470733642578125
+2019-06-19 16:46:39 [51938] Document parsing ERROR: mime type not found 231129
+2019-06-19 16:46:39 [51938] Indexing chunk complete: 0s
+2019-06-19 16:46:39 [51938] Request index (internal loopback) https://sfjs.net/index.php?swpnonce=1560962799.3717648983001708984375
+2019-06-19 16:46:39 [36486] purge_post_via_edit() 168279
+2019-06-19 16:46:39 [36486] Prevented duplicate purge purge_post_via_edit() 168279
+2019-06-19 16:46:39 [36486] purge_post_via_edit() SKIPPING 168281
+2019-06-19 16:46:39 [36486] purge_post_via_edit() SKIPPING 168281
+2019-06-19 16:46:39 [64862] Performing background index 1560962799.3717648983001708984375
+2019-06-19 16:46:39 [64862] OK to index, proceed
+2019-06-19 16:46:39 [64862] Memory usage: 23 MB - sleeping for 1s
+2019-06-19 16:46:40 [64862] Indexer NOW RUNNING
+2019-06-19 16:46:43 [36486] purge_post_via_edit() 168338
+2019-06-19 16:46:43 [36486] get_last_indexed_time(): 1553611570
+2019-06-19 16:46:43 [36486] purge_post_via_edit() 168338
+2019-06-19 16:46:53 [64862] Updating counts: 12920 0 12920
+2019-06-19 16:46:53 [64862] Setting initial
+2019-06-19 16:46:54 [60087] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962805149
+2019-06-19 16:46:54 [64862] Nothing left to index
+2019-06-19 16:46:56 [36486] purge_post_via_edit() 168338
+2019-06-19 16:46:56 [36486] Prevented duplicate purge purge_post_via_edit() 168338
+2019-06-19 16:46:57 [36486] purge_post_via_edit() SKIPPING 168341
+2019-06-19 16:46:57 [36486] purge_post_via_edit() SKIPPING 168341
+2019-06-19 16:46:59 [36486] purge_post_via_edit() 168268
+2019-06-19 16:46:59 [36486] get_last_indexed_time(): 1553611626
+2019-06-19 16:46:59 [36486] purge_post_via_edit() 168268
+2019-06-19 16:47:00 [78754] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962820155
+2019-06-19 16:47:01 [36486] purge_post_via_edit() 168268
+2019-06-19 16:47:01 [36486] Prevented duplicate purge purge_post_via_edit() 168268
+2019-06-19 16:47:02 [36486] purge_post_via_edit() SKIPPING 168270
+2019-06-19 16:47:02 [36486] purge_post_via_edit() SKIPPING 168270
+2019-06-19 16:47:04 [36486] purge_post_via_edit() 168348
+2019-06-19 16:47:04 [36486] get_last_indexed_time(): 1553611563
+2019-06-19 16:47:04 [36486] purge_post_via_edit() 168348
+2019-06-19 16:47:07 [56612] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962827139
+2019-06-19 16:47:08 [36486] purge_post_via_edit() 168348
+2019-06-19 16:47:08 [36486] Prevented duplicate purge purge_post_via_edit() 168348
+2019-06-19 16:47:08 [36486] purge_post_via_edit() SKIPPING 168350
+2019-06-19 16:47:08 [36486] purge_post_via_edit() SKIPPING 168350
+2019-06-19 16:47:09 [27481] purge_post_via_edit() SKIPPING 168351
+2019-06-19 16:47:09 [27481] purge_post_via_edit() SKIPPING 168351
+2019-06-19 16:47:09 [27481] purge_post_via_edit() SKIPPING 168352
+2019-06-19 16:47:10 [27481] purge_post_via_edit() SKIPPING 168352
+2019-06-19 16:47:12 [27481] purge_post_via_edit() 168301
+2019-06-19 16:47:12 [27481] get_last_indexed_time(): 1553611591
+2019-06-19 16:47:12 [27481] purge_post_via_edit() 168301
+2019-06-19 16:47:14 [27481] purge_post_via_edit() 168301
+2019-06-19 16:47:14 [27481] Prevented duplicate purge purge_post_via_edit() 168301
+2019-06-19 16:47:14 [63664] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962834137
+2019-06-19 16:47:16 [27481] purge_post_via_edit() 168328
+2019-06-19 16:47:16 [27481] get_last_indexed_time(): 1553611570
+2019-06-19 16:47:16 [27481] purge_post_via_edit() 168328
+2019-06-19 16:47:19 [27481] purge_post_via_edit() 168328
+2019-06-19 16:47:19 [27481] Prevented duplicate purge purge_post_via_edit() 168328
+2019-06-19 16:47:19 [27481] purge_post_via_edit() SKIPPING 168330
+2019-06-19 16:47:19 [27481] purge_post_via_edit() SKIPPING 168330
+2019-06-19 16:47:19 [27481] purge_post_via_edit() SKIPPING 168331
+2019-06-19 16:47:20 [27481] purge_post_via_edit() SKIPPING 168331
+2019-06-19 16:47:20 [27481] purge_post_via_edit() SKIPPING 168332
+2019-06-19 16:47:20 [27481] purge_post_via_edit() SKIPPING 168332
+2019-06-19 16:47:20 [27481] purge_post_via_edit() SKIPPING 168333
+2019-06-19 16:47:20 [27481] purge_post_via_edit() SKIPPING 168333
+2019-06-19 16:47:21 [51271] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962841137
+2019-06-19 16:47:22 [27481] purge_post_via_edit() 168308
+2019-06-19 16:47:22 [27481] get_last_indexed_time(): 1553611591
+2019-06-19 16:47:22 [27481] purge_post_via_edit() 168308
+2019-06-19 16:47:25 [27481] purge_post_via_edit() 168308
+2019-06-19 16:47:25 [27481] Prevented duplicate purge purge_post_via_edit() 168308
+2019-06-19 16:47:25 [27481] purge_post_via_edit() SKIPPING 168310
+2019-06-19 16:47:25 [27481] purge_post_via_edit() SKIPPING 168310
+2019-06-19 16:47:27 [27481] purge_post_via_edit() 168179
+2019-06-19 16:47:27 [27481] get_last_indexed_time(): 1553612027
+2019-06-19 16:47:27 [27481] purge_post_via_edit() 168179
+2019-06-19 16:47:28 [83988] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962848154
+2019-06-19 16:47:29 [27481] purge_post_via_edit() 168179
+2019-06-19 16:47:29 [27481] Prevented duplicate purge purge_post_via_edit() 168179
+2019-06-19 16:47:31 [27481] purge_post_via_edit() 168314
+2019-06-19 16:47:31 [27481] get_last_indexed_time(): 1553611584
+2019-06-19 16:47:31 [27481] purge_post_via_edit() 168314
+2019-06-19 16:47:33 [27481] purge_post_via_edit() 168314
+2019-06-19 16:47:33 [27481] Prevented duplicate purge purge_post_via_edit() 168314
+2019-06-19 16:47:34 [27481] purge_post_via_edit() SKIPPING 168316
+2019-06-19 16:47:34 [27481] purge_post_via_edit() SKIPPING 168316
+2019-06-19 16:47:35 [40811] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962855138
+2019-06-19 16:47:36 [27481] purge_post_via_edit() 168180
+2019-06-19 16:47:36 [27481] get_last_indexed_time(): 1553612027
+2019-06-19 16:47:36 [27481] purge_post_via_edit() 168180
+2019-06-19 16:47:38 [27481] purge_post_via_edit() 168180
+2019-06-19 16:47:38 [27481] Prevented duplicate purge purge_post_via_edit() 168180
+2019-06-19 16:47:40 [27481] purge_post_via_edit() 168317
+2019-06-19 16:47:40 [27481] get_last_indexed_time(): 1553611577
+2019-06-19 16:47:40 [27481] purge_post_via_edit() 168317
+2019-06-19 16:47:42 [14777] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962862154
+2019-06-19 16:47:43 [27481] purge_post_via_edit() 168317
+2019-06-19 16:47:43 [27481] Prevented duplicate purge purge_post_via_edit() 168317
+2019-06-19 16:47:43 [27481] purge_post_via_edit() SKIPPING 168319
+2019-06-19 16:47:43 [27481] purge_post_via_edit() SKIPPING 168319
+2019-06-19 16:47:45 [27481] purge_post_via_edit() 168178
+2019-06-19 16:47:45 [27481] get_last_indexed_time(): 1553612034
+2019-06-19 16:47:45 [27481] purge_post_via_edit() 168178
+2019-06-19 16:47:47 [27481] purge_post_via_edit() 168178
+2019-06-19 16:47:47 [27481] Prevented duplicate purge purge_post_via_edit() 168178
+2019-06-19 16:47:49 [27481] purge_post_via_edit() 168311
+2019-06-19 16:47:49 [27481] get_last_indexed_time(): 1553611584
+2019-06-19 16:47:49 [27481] purge_post_via_edit() 168311
+2019-06-19 16:47:49 [05659] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962869158
+2019-06-19 16:47:52 [27481] purge_post_via_edit() 168311
+2019-06-19 16:47:52 [27481] Prevented duplicate purge purge_post_via_edit() 168311
+2019-06-19 16:47:54 [27481] purge_post_via_edit() 168305
+2019-06-19 16:47:54 [27481] get_last_indexed_time(): 1553611591
+2019-06-19 16:47:54 [27481] purge_post_via_edit() 168305
+2019-06-19 16:47:56 [27481] purge_post_via_edit() 168305
+2019-06-19 16:47:56 [27481] Prevented duplicate purge purge_post_via_edit() 168305
+2019-06-19 16:47:56 [62495] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962876088
+2019-06-19 16:47:56 [27481] purge_post_via_edit() SKIPPING 168307
+2019-06-19 16:47:57 [27481] purge_post_via_edit() SKIPPING 168307
+2019-06-19 16:47:58 [02196] purge_post_via_edit() SKIPPING 168313
+2019-06-19 16:47:58 [02196] purge_post_via_edit() SKIPPING 168313
+2019-06-19 16:47:58 [02196] purge_post_via_edit() SKIPPING 168320
+2019-06-19 16:47:58 [02196] purge_post_via_edit() SKIPPING 168320
+2019-06-19 16:48:00 [02196] purge_post_via_edit() 168334
+2019-06-19 16:48:00 [02196] get_last_indexed_time(): 1553611570
+2019-06-19 16:48:00 [02196] purge_post_via_edit() 168334
+2019-06-19 16:48:02 [02196] purge_post_via_edit() 168334
+2019-06-19 16:48:02 [02196] Prevented duplicate purge purge_post_via_edit() 168334
+2019-06-19 16:48:03 [28716] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962883138
+2019-06-19 16:48:04 [02196] purge_post_via_edit() 168261
+2019-06-19 16:48:04 [02196] get_last_indexed_time(): 1553611626
+2019-06-19 16:48:04 [02196] purge_post_via_edit() 168261
+2019-06-19 16:48:07 [02196] purge_post_via_edit() 168261
+2019-06-19 16:48:07 [02196] Prevented duplicate purge purge_post_via_edit() 168261
+2019-06-19 16:48:07 [02196] purge_post_via_edit() SKIPPING 168267
+2019-06-19 16:48:07 [02196] purge_post_via_edit() SKIPPING 168267
+2019-06-19 16:48:08 [02196] purge_post_via_edit() SKIPPING 168263
+2019-06-19 16:48:08 [02196] purge_post_via_edit() SKIPPING 168263
+2019-06-19 16:48:10 [02196] purge_post_via_edit() 168264
+2019-06-19 16:48:10 [02196] get_last_indexed_time(): 1553611626
+2019-06-19 16:48:10 [02196] purge_post_via_edit() 168264
+2019-06-19 16:48:10 [70719] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962889842
+2019-06-19 16:48:12 [02196] purge_post_via_edit() 168264
+2019-06-19 16:48:12 [02196] Prevented duplicate purge purge_post_via_edit() 168264
+2019-06-19 16:48:12 [02196] purge_post_via_edit() SKIPPING 168304
+2019-06-19 16:48:12 [02196] purge_post_via_edit() SKIPPING 168304
+2019-06-19 16:48:15 [02196] purge_post_via_edit() 168321
+2019-06-19 16:48:15 [02196] get_last_indexed_time(): 1553611577
+2019-06-19 16:48:15 [02196] purge_post_via_edit() 168321
+2019-06-19 16:48:16 [89173] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962895843
+2019-06-19 16:48:18 [02196] purge_post_via_edit() 168321
+2019-06-19 16:48:18 [02196] Prevented duplicate purge purge_post_via_edit() 168321
+2019-06-19 16:48:18 [02196] purge_post_via_edit() SKIPPING 168323
+2019-06-19 16:48:18 [02196] purge_post_via_edit() SKIPPING 168323
+2019-06-19 16:48:18 [02196] purge_post_via_edit() SKIPPING 168324
+2019-06-19 16:48:18 [02196] purge_post_via_edit() SKIPPING 168324
+2019-06-19 16:48:19 [02196] purge_post_via_edit() SKIPPING 168325
+2019-06-19 16:48:19 [02196] purge_post_via_edit() SKIPPING 168325
+2019-06-19 16:48:19 [02196] purge_post_via_edit() SKIPPING 168326
+2019-06-19 16:48:19 [02196] purge_post_via_edit() SKIPPING 168326
+2019-06-19 16:48:19 [02196] purge_post_via_edit() SKIPPING 168327
+2019-06-19 16:48:20 [02196] purge_post_via_edit() SKIPPING 168327
+2019-06-19 16:48:20 [02196] purge_post_via_edit() SKIPPING 168252
+2019-06-19 16:48:20 [02196] purge_post_via_edit() SKIPPING 168252
+2019-06-19 16:48:22 [88691] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962901888
+2019-06-19 16:48:22 [02196] purge_post_via_edit() 168254
+2019-06-19 16:48:22 [02196] get_last_indexed_time(): 1553611633
+2019-06-19 16:48:22 [02196] purge_post_via_edit() 168254
+2019-06-19 16:48:25 [02196] purge_post_via_edit() 168254
+2019-06-19 16:48:25 [02196] Prevented duplicate purge purge_post_via_edit() 168254
+2019-06-19 16:48:25 [02196] purge_post_via_edit() SKIPPING 168257
+2019-06-19 16:48:25 [02196] purge_post_via_edit() SKIPPING 168257
+2019-06-19 16:48:25 [02196] purge_post_via_edit() SKIPPING 168259
+2019-06-19 16:48:25 [02196] purge_post_via_edit() SKIPPING 168259
+2019-06-19 16:48:28 [68849] purge_post_via_edit() 168249
+2019-06-19 16:48:28 [68849] get_last_indexed_time(): 1553611633
+2019-06-19 16:48:28 [68849] purge_post_via_edit() 168249
+2019-06-19 16:48:28 [42977] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962907980
+2019-06-19 16:48:30 [68849] purge_post_via_edit() 168249
+2019-06-19 16:48:30 [68849] Prevented duplicate purge purge_post_via_edit() 168249
+2019-06-19 16:48:32 [68849] purge_post_via_edit() 168290
+2019-06-19 16:48:32 [68849] get_last_indexed_time(): 1553611598
+2019-06-19 16:48:32 [68849] purge_post_via_edit() 168290
+2019-06-19 16:48:34 [70934] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962914071
+2019-06-19 16:48:35 [68849] purge_post_via_edit() 168290
+2019-06-19 16:48:35 [68849] Prevented duplicate purge purge_post_via_edit() 168290
+2019-06-19 16:48:35 [68849] purge_post_via_edit() SKIPPING 168292
+2019-06-19 16:48:35 [68849] purge_post_via_edit() SKIPPING 168292
+2019-06-19 16:48:37 [68849] purge_post_via_edit() 168363
+2019-06-19 16:48:37 [68849] get_last_indexed_time(): 1553611556
+2019-06-19 16:48:37 [68849] purge_post_via_edit() 168363
+2019-06-19 16:48:40 [68849] purge_post_via_edit() 168363
+2019-06-19 16:48:40 [68849] Prevented duplicate purge purge_post_via_edit() 168363
+2019-06-19 16:48:40 [68849] purge_post_via_edit() SKIPPING 168366
+2019-06-19 16:48:40 [68849] purge_post_via_edit() SKIPPING 168366
+2019-06-19 16:48:41 [77488] External SearchWPIndexer instantiation /wp-admin/admin-ajax.php?1560962920320
+2019-06-19 16:48:41 [68849] purge_post_via_edit() SKIPPING 168368
+2019-06-19 16:48:41 [68849] purge_post_via_edit() SKIPPING 168368
+2019-06-19 16:48:41 [68849] purge_post_via_edit() SKIPPING 168370
+2019-06-19 16:48:41 [68849] purge_post_via_edit() SKIPPING 168370
