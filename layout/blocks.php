@@ -1,13 +1,14 @@
 <?php if($blocks = get_field('home_page_blocks', 'options')) : ?>
 <section class="blocks background mb-5">
   <div class="container">
-    <div class="row">
+	  <div class="row">
       <div class="col">
         <h2 class="fancy"><?php the_field('home_block_header', 'options'); ?></h2>
       </div>
 
     </div>
-    <div class="row">
+    
+	  <div class="row">
     <?php
     foreach ($blocks as $key => $block) :
         echo '<div class="col-12 col-md-4 mb-4">';
@@ -27,6 +28,7 @@
     endforeach;
     ?>
     </div>
+	
   </div>
 </section>
 <?php endif;

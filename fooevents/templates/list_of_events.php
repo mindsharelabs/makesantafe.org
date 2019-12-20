@@ -1,6 +1,6 @@
 <div class="fooevents-calendar-list">
 <?php foreach($events as $event) :
-
+   mapi_var_dump(get_post_meta($event->ID, 'WooCommerceEventsDate', true));
   mapi_var_dump($event);
    ?>
     <?php if (is_array($event)) :?>
