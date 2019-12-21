@@ -2,10 +2,19 @@
 <section class="blocks background mb-5">
   <div class="container">
 	  <div class="row">
+<<<<<<< HEAD
       <div class="col-12 text-center">
         <h2 class="h1 text-center pt-2 pb-2 text-primary"><?php the_field('home_block_header', 'options'); ?></h2>
+=======
+      <div class="col">
+        <h2 class="fancy"><?php the_field('home_block_header', 'options'); ?></h2>
+>>>>>>> b2679ed8f95763e15a322ee8f13b66e052e1ae7c
       </div>
     </div>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> b2679ed8f95763e15a322ee8f13b66e052e1ae7c
 	  <div class="row">
     <?php
     foreach ($blocks as $key => $block) :
@@ -29,7 +38,11 @@
     endforeach;
     ?>
     </div>
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> b2679ed8f95763e15a322ee8f13b66e052e1ae7c
   </div>
 </section>
 <?php endif;

@@ -70,6 +70,27 @@ $colors: map-merge(
   $colors
 );
 
+<<<<<<< HEAD
+$primary:       rgb(190, 32, 46);
+$secondary:     rgb(179, 175, 172);
+$success:       rgba(75,175,7, 1);
+$background:    rgba(250, 251, 252, 1);
+$info:          rgb(225, 233, 214);
+$warning:       rgba(201,169,56, 1);
+$danger:        rgba(201,73,73, 1);
+$light:         rgb(230, 230, 230);
+$dark:          rgba(1, 1, 1, 1);
+=======
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+>>>>>>> b2679ed8f95763e15a322ee8f13b66e052e1ae7c
+
 $primary:       rgb(190, 32, 46);
 $secondary:     rgb(179, 175, 172);
 $success:       rgba(75,175,7, 1);
