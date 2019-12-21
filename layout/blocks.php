@@ -21,10 +21,10 @@
               echo '</a>';
             echo '</div>';
           endif;
-          echo '<div class="card-body text">';
+          echo '<div class="card-body text card-body text d-flex flex-column">';
             echo '<h3 class="text-center">' . $block['title'] . '</h3>';
             echo '<div class="content text-center">' . $block['content'] . '</div>';
-            echo '<a href="' . $block['link'] . '" class="btn btn-primary btn-block mt-1 mb-1" title="' . $block['title'] . '">Learn More</a>';
+            echo '<a href="' . $block['link'] . '" class="btn btn-primary btn-block mt-1 mb-1 mt-auto" title="' . $block['title'] . '">Learn More</a>';
           echo '</div>';
         echo '</div>';
       echo '</div>';
