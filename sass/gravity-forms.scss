@@ -1,6 +1,25 @@
 /** Gravity Forms */
 .gform_wrapper{
   margin-bottom: 20px;
+  label.gfield_label {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .gform_validation_container {
+    display: none;
+  }
+  .gfield_consent_description {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    border-left: 1px solid $danger;
+    padding: 0 10px;
+    ol {
+
+    }
+  }
+  .ginput_container_consent {
+
+  }
 }
 .ginput_container.ginput_container_textarea {
   textarea.small{
@@ -97,9 +116,6 @@
   display: none;
 }
 
-.ginput_container_address label {
-  visibility: hidden;
-}
 
 #ui-datepicker-div {
   background: #FFF;
@@ -187,8 +203,13 @@
 .gf_progressbar {
   @extend .progress;
   height: 30px;
+  margin-bottom: 15px;
   .gf_progressbar_percentage {
     @extend .progress-bar;
     font-size: 18px;
+    span {
+      display: block;
+      padding: 10px;
+    }
   }
 }

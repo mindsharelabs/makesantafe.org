@@ -2,10 +2,8 @@
 <section class="blocks background mb-5">
   <div class="container">
 	  <div class="row">
-
       <div class="col-12 text-center">
         <h2 class="h1 text-center pt-2 pb-2 text-primary"><?php the_field('home_block_header', 'options'); ?></h2>
-
       </div>
     </div>
 	  <div class="row">
@@ -23,8 +21,8 @@
           endif;
           echo '<div class="card-body text card-body text d-flex flex-column">';
             echo '<h3 class="text-center">' . $block['title'] . '</h3>';
-            echo '<div class="content text-center">' . $block['content'] . '</div>';
-            echo '<a href="' . $block['link'] . '" class="btn btn-primary btn-block mt-1 mb-1 mt-auto" title="' . $block['title'] . '">Learn More</a>';
+            echo '<h5 class="content text-center">' . $block['content'] . '</h5>';
+            echo '<a href="' . $block['link'] . '" class="btn btn-primary btn-block mt-5 mb-1 mt-auto" title="' . $block['title'] . '">Learn More</a>';
           echo '</div>';
         echo '</div>';
       echo '</div>';

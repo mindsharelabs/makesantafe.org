@@ -17,6 +17,14 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
       $name = get_field('display_name', 'user_' . $maker_id );
       $title = get_field('title', 'user_' . $maker_id );
       $certifications = get_field('certifications', 'user_' . $maker_id );
+
+      $liability = get_user_meta( $maker_id, 'liability_entry_id', true );
+
+      $form = new GFAPI();
+      $search_criteria = array();
+      $search_criteria['field_filters'][] = array( 'key' => 'created_by', 'value' => $maker_id );
+      $entries = $form->get_entries( 27, $search_criteria);
+
       $all_certs_obj = get_posts(array(
         'post_type' => 'certs',
         'posts_per_page' => -1,
@@ -53,10 +61,13 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
             echo '<img src="' . $image . '" title="' . $name . '" alt="' . $name . '">';
           echo '</div>';
         endif;
+        if(!$entries) :
+          echo '<h5 class="text-center mb-0 mt-4">Fill out your Waiver and Release of Liability</h5>';
+          echo '<a href="/waiver-and-release-of-liability/" class="btn btn-default btn-block mt-1 mb-2">Waiver and Release of Liability</a>';
+        endif;
         if($current_user_id == $maker_id) :
-          echo '<hr>';
           echo '<a href="/my-account/make-profile/" class="btn btn-default btn-block mt-4">Edit My Profile</a>';
-        endif; 
+        endif;
 
         if($all_certs):
           echo '<h4 class="sidebar-title mt-4">Certifications</h4>';
@@ -72,7 +83,7 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
                 } else {
                   $class = 'false';
                 }
-                echo '<div class="cert-holder m-1 ' . $class . '">';
+                echo '<div class="cert-holder ' . $class . '" data-trigger="hover" data-toggle="popover" title="' . get_the_title($cert) . '" data-content="' .  get_field('short_description', $cert) . '">';
                   echo '<a href="' . get_permalink($cert) . '" class="fa-stack fa-2x">';
                     echo '<i class="' . $icon_back . ' fa-stack-2x" style="color:' . $color . '"></i>';
                     echo '<i class="' . $icon . ' fa-stack-1x fa-inverse"></i>';

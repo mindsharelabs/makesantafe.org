@@ -8,13 +8,14 @@
 define('THEME_VERSION', '2.1.1');
 /*------------------------------------*\
     External Modules/Files
-\*------------------------------------*/ 
+\*------------------------------------*/
 
 include_once 'inc/content-functions.php';
 include_once 'inc/cpt.php';
 include_once 'inc/acf-functions.php';
 include_once 'inc/aq_resize.php';
 include_once 'inc/woocommerce.php';
+include_once 'inc/gravity-forms.php';
 
 /*------------------------------------*\
     Theme Support

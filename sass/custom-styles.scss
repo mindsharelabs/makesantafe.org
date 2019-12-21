@@ -56,7 +56,9 @@ hr {
     letter-spacing: 2px;
   }
 }
-
+.button {
+  @extend .btn;
+}
 .fancy-header{
   height: 40px;
 
@@ -215,7 +217,7 @@ header.page-header {
   display: flex;
   flex-wrap: wrap;
   .image {
-    flex-grow: 1; 
+    flex-grow: 1;
     width: 40%;
   }
   .text{

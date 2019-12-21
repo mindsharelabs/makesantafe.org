@@ -37,11 +37,11 @@ $associated_products = new WP_Query(array(
 
                if (have_posts()): while (have_posts()) : the_post();
 
-               $color = get_field('cert_color');
-               $icon = get_field('cert_icon');
-               $icon_back = get_field('cert_icon_back');
+                 $color = get_field('cert_color');
+                 $icon = get_field('cert_icon');
+                 $icon_back = get_field('cert_icon_back');
 
-                 echo '<div class="cert-holder m-1 ' . $class . '">';
+                 echo '<div class="cert-holder m-1">';
                    echo '<a href="' . get_permalink() . '" class="fa-stack fa-3x">';
                      echo '<i class="' . $icon_back . ' fa-stack-2x" style="color:' . $color . '"></i>';
                      echo '<i class="' . $icon . ' fa-stack-1x fa-inverse"></i>';
