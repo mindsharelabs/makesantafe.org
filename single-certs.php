@@ -37,13 +37,18 @@ $associated_products = new WP_Query(array(
 
                if (have_posts()): while (have_posts()) : the_post();
 
-                 if(has_post_thumbnail()){
-                   $thumb = get_the_post_thumbnail_url( get_the_id(), 'full');
-                   $image = aq_resize($thumb, 400, 400);
-                   echo '<div class="col">';
-                    echo '<img class="rounded-circle" src="' . $image . '/>';
-                   echo '</div>';
-                 }
+               $color = get_field('cert_color');
+               $icon = get_field('cert_icon');
+               $icon_back = get_field('cert_icon_back');
+
+                 echo '<div class="cert-holder m-1 ' . $class . '">';
+                   echo '<a href="' . get_permalink() . '" class="fa-stack fa-3x">';
+                     echo '<i class="' . $icon_back . ' fa-stack-2x" style="color:' . $color . '"></i>';
+                     echo '<i class="' . $icon . ' fa-stack-1x fa-inverse"></i>';
+                   echo '</a>';
+                   //echo '<span class="cert-name text-center d-block">' . get_the_title($cert) . '</span>';
+                 echo '</div>';
+
 
                   echo '<div class="col-12 col-md-8">';
                     the_content();

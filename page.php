@@ -23,10 +23,9 @@ include 'layout/notice.php';
               if (have_posts()):
                 while (have_posts()) : the_post();
 
-                  echo '<article id="post-' . get_the_ID() . '" ' . implode(', ', get_post_class()) . '">';
+                  echo '<article id="post-' . get_the_ID() . '" ' . implode(' ', get_post_class('clear pt-2')) . '">';
                     the_content();
                     edit_post_link();
-
                   echo '</article>';
                 endwhile;
               endif; ?>

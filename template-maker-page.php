@@ -126,7 +126,7 @@ $author = get_user_by( 'id', get_query_var( 'maker_id', false ) );
     <?php else : ?>
       <div class="row">
         <div class="col-12 mt-5 pt-5 mb-5 pb-5">
-          <h3 class="text-center">This makers profile is private.</h3>
+          <h3 class="text-center">This Maker's profile is private.</h3>
         </div>
       </div>
 

@@ -4,11 +4,11 @@
  * URL: https://mind.sh/are | @mindblank
  *
  */
-date_default_timezone_set('America/Denver');
-define('THEME_VERSION', '2.0.1');
+// date_default_timezone_set('America/Denver');
+define('THEME_VERSION', '2.1.1');
 /*------------------------------------*\
     External Modules/Files
-\*------------------------------------*/
+\*------------------------------------*/ 
 
 include_once 'inc/content-functions.php';
 include_once 'inc/cpt.php';
@@ -74,6 +74,8 @@ function make_post_type_archive( $query ) {
   		$query->set( 'orderby', 'title' );
       $query->set( 'order', 'DESC' );
   	}
+
+
 
   if ( $query->is_main_query() && !is_admin() && is_post_type_archive( 'certs' )) {
 
@@ -180,10 +182,10 @@ function mindblank_header_scripts()
           'ajax_url' => admin_url( 'admin-ajax.php' )
         ));
 
-        wp_register_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array('jquery'), THEME_VERSION);
+        wp_register_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'), THEME_VERSION);
         wp_enqueue_script('popper');
 
-        wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array('jquery', 'popper'), THEME_VERSION);
+        wp_register_script('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery', 'popper'), THEME_VERSION);
         wp_enqueue_script('bootstrap');
 
 

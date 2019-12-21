@@ -110,9 +110,28 @@ function make_expire_events() {
 
 add_action('make_shop_before_container', 'make_add_to_page');
 function make_add_to_page() {
-  // mapi_var_dump(get_post_meta(get_the_ID(), 'WooCommerceEventsBackgroundColor', true));
-  // mapi_var_dump(get_post_meta(get_the_ID(), 'make_event_date_timestamp', true));
-  // mapi_var_dump(date('U', time()));
+  // $event_date_unformated = get_post_meta(get_the_ID(), 'WooCommerceEventsDate', true);
+  // $event_hour = get_post_meta(get_the_ID(), 'WooCommerceEventsHour', true);
+  // $event_minutes = get_post_meta(get_the_ID(), 'WooCommerceEventsMinutes', true);
+  // $event_period = get_post_meta($event->ID, 'WooCommerceEventsPeriod', true);
+  // mapi_var_dump($event_date_unformated);
+  // mapi_var_dump($event_hour);
+  // mapi_var_dump($event_minutes);
+  // mapi_var_dump($event_period);
+  // $event_date = $event_date_unformated.' '.$event_hour.':'.$event_minutes.$event_period;
+  // mapi_var_dump($event_date);
+  //
+  //
+  //
+  // $event_date = $event_date_unformated.' '.$event_hour.':'.$event_minutes.$event_period;
+  // // $event_date = $this->convert_month_to_english($event_date);
+  // $format = get_option( 'date_format' );
+  //
+  // $event_date = str_replace(",", "", $event_date);
+  //
+  // $event_date = date('Y-m-d H:i:s', strtotime($event_date));
+  // $event_date = str_replace(' ', 'T', $event_date);
+  // mapi_var_dump($event_date);
 }
 
 

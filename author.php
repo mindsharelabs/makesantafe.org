@@ -47,12 +47,16 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
     <div class="row">
       <div class="col-12 col-md-4">
         <?php
+
         if($image):
           echo '<div class="maker-image">';
             echo '<img src="' . $image . '" title="' . $name . '" alt="' . $name . '">';
           echo '</div>';
         endif;
-
+        if($current_user_id == $maker_id) :
+          echo '<hr>';
+          echo '<a href="/my-account/make-profile/" class="btn btn-default btn-block mt-4">Edit My Profile</a>';
+        endif; 
 
         if($all_certs):
           echo '<h4 class="sidebar-title mt-4">Certifications</h4>';
@@ -79,10 +83,7 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
             endforeach;
           echo '</div>';
         endif;
-        if($current_user_id == $maker_id) :
-          echo '<hr>';
-          echo '<a href="/my-account/make-profile/" class="btn btn-default btn-block mt-4">Edit My Profile</a>';
-        endif;
+
 
 
         ?>
@@ -99,9 +100,11 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
           echo '<div class="card-columns">';
           foreach ($gallery as $key => $image) :
             $image_src = aq_resize($image['image']['url'], 300);
-            echo '<div class="card">';
-              echo '<img class="card-img-top" src="' . $image_src . '">';
-            echo '</div>';
+            if($image_src):
+              echo '<div class="card">';
+                echo '<img class="card-img-top" src="' . $image_src . '">';
+              echo '</div>';
+            endif;
           endforeach;
           echo '</div>';
         endif;
