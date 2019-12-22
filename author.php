@@ -1,9 +1,9 @@
  <?php get_header();
  include 'layout/page-header.php';
  include 'layout/notice.php';
-$author = get_user_by( 'slug', get_query_var( 'author_name' ) );
-$maker_id = $author->ID;
-$public = get_field('display_profile_publicly', 'user_' . $maker_id);
+  $author = get_user_by( 'slug', get_query_var( 'author_name' ) );
+  $maker_id = $author->ID;
+  $public = get_field('display_profile_publicly', 'user_' . $maker_id);
  ?>
 <main role="main" aria-label="Content" <?php post_class('container'); ?>>
   <section class="maker-profile">
@@ -16,6 +16,7 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
       $bio = get_field('bio','user_' . $maker_id);
       $name = get_field('display_name', 'user_' . $maker_id );
       $title = get_field('title', 'user_' . $maker_id );
+
       $certifications = get_field('certifications', 'user_' . $maker_id );
 
       $liability = get_user_meta( $maker_id, 'liability_entry_id', true );
@@ -61,12 +62,13 @@ $public = get_field('display_profile_publicly', 'user_' . $maker_id);
             echo '<img src="' . $image . '" title="' . $name . '" alt="' . $name . '">';
           echo '</div>';
         endif;
-        if(!$entries) :
-          echo '<h5 class="text-center mb-0 mt-4">Fill out your Waiver and Release of Liability</h5>';
-          echo '<a href="/waiver-and-release-of-liability/" class="btn btn-default btn-block mt-1 mb-2">Waiver and Release of Liability</a>';
-        endif;
+
         if($current_user_id == $maker_id) :
           echo '<a href="/my-account/make-profile/" class="btn btn-default btn-block mt-4">Edit My Profile</a>';
+          if(!$entries) :
+            echo '<h5 class="text-center mb-0 mt-4">Fill out your Waiver and Release of Liability</h5>';
+            echo '<a href="/waiver-and-release-of-liability/" class="btn btn-default btn-block mt-1 mb-2">Waiver and Release of Liability</a>';
+          endif;
         endif;
 
         if($all_certs):

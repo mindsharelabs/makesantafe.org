@@ -6,11 +6,8 @@
     border: 3px dashed $primary;
   }
 }
-.rounded-circle {
-  padding: 4px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-}
-.card-body {
-  margin-bottom: 15px;
+
+
+.progress, .gf_progressbar {
+  height: 30px !important;
 }

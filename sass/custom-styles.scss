@@ -322,6 +322,20 @@ footer.bottom-footer{
 }
 
 
+
+
+
+//ACF Styling
+.acf-field {
+  @extend .form-group;
+  .acf-input {
+    input, textarea {
+      @extend .form-control;
+    }
+  }
+}
+
+
 .bypostauthor > article .fn:before {
   content: "\f408";
   margin: 0 2px 0 -2px;
@@ -416,6 +430,7 @@ section.maker-profile {
     display: flex;
     flex-wrap: wrap;
     .cert-holder{
+      flex-grow: 1;
       text-align: center;
       &.false{
         opacity: .2;

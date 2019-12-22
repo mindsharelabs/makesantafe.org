@@ -28,3 +28,29 @@ function make_get_image_html($acf_image_array, $width = 500, $height = '', $srcs
   }
   return $img_html;
 }
+
+
+function make_get_badged_members($certID) {
+  $args = array (
+      // 'role' => 'customer',
+      'order' => 'ASC',
+      'orderby' => 'display_name',
+      'meta_query' => array(
+        'relation' => 'AND',
+          array(
+            'key'     => 'certifications',
+            'value'   => '"' . $certID . '"',
+            'compare' => 'LIKE'
+          ),
+          array(
+              'key'     => 'display_profile_publicly',
+              'value'   => '1',
+              'compare' => '='
+          ),
+      )
+  );
+  // Create the WP_User_Query object
+  $wp_user_query = new WP_User_Query($args);
+  return $wp_user_query->get_results();
+
+}

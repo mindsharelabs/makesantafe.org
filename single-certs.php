@@ -18,7 +18,7 @@ $associated_products = new WP_Query(array(
 ?>
 <main role="main" aria-label="Content" class="container-fluid">
     <div class="row">
-      <?php get_sidebar('tool'); ?>
+      <?php get_sidebar('cert'); ?>
         <div class="col-xs-12 col-md-8 has-sidebar">
             <!-- section -->
             <section class="mt-4">
@@ -63,16 +63,15 @@ $associated_products = new WP_Query(array(
                         foreach($tools as $tool) :
                           $thumb = get_the_post_thumbnail_url( $tool->ID, 'full');
                           $image = aq_resize($thumb, 400, 200);
-                          echo '<div class="col-12 col-md-4">';
-                            echo '<div class="card  mb-3">';
+                          echo '<div class="col-12 col-md-4 mb-3">';
+                            echo '<div class="card mb-3 h-100">';
                               echo '<img class="card-img-top" src="' . $image . '">';
-                              echo '<div class="card-body">';
+                              echo '<div class="card-body d-flex flex-column">';
                                 echo '<h5>' . $tool->post_title . '</h5>';
-                                the_field('short_description', $tool->ID);
+                                echo '<p>' . get_field('short_description', $tool->ID) . '</p>';
+                                echo '<a href="' . get_permalink($tool->ID) . '" class="btn btn-primary btn-block btn-sm mt-auto">Read More</a>';
                               echo '</div>';
-                              echo '<div class="card-body">';
-                                echo '<a href="' . get_permalink($tool->ID) . '" class="btn btn-primary btn-block btn-sm">Read More</a>';
-                              echo '</div>';
+
                               // mapi_var_dump($tool);
 
                             echo '</div>';

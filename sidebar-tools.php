@@ -28,7 +28,7 @@ $social_media = get_field('social_media', get_the_ID());
     echo '</div>';
 
 		?>
-		<div class="sidebar-widget">
+		<div class="sidebar-widget mb-4">
 			<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
 		</div>
 

@@ -37,7 +37,7 @@ $p_makers = get_field('proficient_makers', get_the_id());
 			echo '</div>';
 		endif;
 		?>
-		<div class="sidebar-widget">
+		<div class="sidebar-widget mb-4">
 			<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
 		</div>
 

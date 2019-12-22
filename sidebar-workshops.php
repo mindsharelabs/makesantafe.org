@@ -12,7 +12,7 @@
       echo '</div>';
   		?>
     </div>
-		<div class="sidebar-widget">
+		<div class="sidebar-widget mb-4">
 			<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
 		</div>
 

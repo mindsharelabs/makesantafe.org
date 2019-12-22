@@ -66,10 +66,16 @@ function mapi_write_log($message) {
     }
 }
 
+
+function mapi_post_edit() {
+  $post_type = get_post_type();
+  $post_type_obj = get_post_type_object($post_type);
+  edit_post_link( 'Edit this ' . $post_type_obj->labels->singular_name, '', '', get_the_id(), 'btn btn-sm btn-info mt-3 mb-3 float-right post-edit-link' );
+}
+
 add_action( 'pre_get_posts', 'make_post_type_archive' );
 
 function make_post_type_archive( $query ) {
-
   if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
   		$query->set( 'posts_per_page', -1 );
   		$query->set( 'orderby', 'title' );

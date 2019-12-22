@@ -25,7 +25,7 @@ include 'layout/notice.php';
 
                   echo '<article id="post-' . get_the_ID() . '" class="' . implode(' ', get_post_class('clear pt-2')) . '">';
                     the_content();
-                    edit_post_link();
+                    mapi_post_edit();
                   echo '</article>';
                 endwhile;
               endif; ?>

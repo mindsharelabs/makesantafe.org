@@ -53,10 +53,10 @@ function make_display_fees() {
   $id = get_the_ID();
   $fees = get_field('additional_fees', $id);
   if($fees) :
-    echo '<div class="fee-container">';
+    echo '<div class="fee-container border-bottom pb-2 mb-2">';
       foreach ($fees as $key => $fee) :
-        echo '<span class="fee-name">' . $fee['fee_name'] . '</span>';
-        echo '<span class="fee-amount">$' . $fee['fee_amount'] . '</span>';
+        echo '<span class="fee-name"><strong>' . $fee['fee_name'] . ' </stong></span>';
+        echo '<span class="fee-amount"><strong>$' . $fee['fee_amount'] . '</stong></span>';
       endforeach;
     echo '</div>';
   endif;
@@ -107,32 +107,6 @@ function make_expire_events() {
 
 
 
-
-add_action('make_shop_before_container', 'make_add_to_page');
-function make_add_to_page() {
-  // $event_date_unformated = get_post_meta(get_the_ID(), 'WooCommerceEventsDate', true);
-  // $event_hour = get_post_meta(get_the_ID(), 'WooCommerceEventsHour', true);
-  // $event_minutes = get_post_meta(get_the_ID(), 'WooCommerceEventsMinutes', true);
-  // $event_period = get_post_meta($event->ID, 'WooCommerceEventsPeriod', true);
-  // mapi_var_dump($event_date_unformated);
-  // mapi_var_dump($event_hour);
-  // mapi_var_dump($event_minutes);
-  // mapi_var_dump($event_period);
-  // $event_date = $event_date_unformated.' '.$event_hour.':'.$event_minutes.$event_period;
-  // mapi_var_dump($event_date);
-  //
-  //
-  //
-  // $event_date = $event_date_unformated.' '.$event_hour.':'.$event_minutes.$event_period;
-  // // $event_date = $this->convert_month_to_english($event_date);
-  // $format = get_option( 'date_format' );
-  //
-  // $event_date = str_replace(",", "", $event_date);
-  //
-  // $event_date = date('Y-m-d H:i:s', strtotime($event_date));
-  // $event_date = str_replace(' ', 'T', $event_date);
-  // mapi_var_dump($event_date);
-}
 
 
 
@@ -400,6 +374,7 @@ function make_get_event_color($id) {
   endif;
 }
 
+
 /**
  * @snippet       WooCommerce Add New Tab @ My Account
  * @how-to        Watch tutorial @ https://businessbloomer.com/?p=19055
@@ -412,40 +387,40 @@ function make_get_event_color($id) {
 // 1. Register new endpoint to use for My Account page
 // Note: Resave Permalinks or it will give 404 error
 
-function make_add_premium_support_endpoint() {
+function make_add_make_profile_endpoint() {
     add_rewrite_endpoint( 'make-profile', EP_ROOT | EP_PAGES );
 }
 
-add_action( 'init', 'make_add_premium_support_endpoint' );
+add_action( 'init', 'make_add_make_profile_endpoint' );
 
 
 // ------------------
 // 2. Add new query var
 
-function make_premium_support_query_vars( $vars ) {
+function make_profile_query_vars( $vars ) {
     $vars[] = 'make-profile';
     return $vars;
 }
 
-add_filter( 'query_vars', 'make_premium_support_query_vars', 0 );
+add_filter( 'query_vars', 'make_profile_query_vars', 0 );
 
 
 // ------------------
 // 3. Insert the new endpoint into the My Account menu
 
-function make_add_premium_support_link_my_account( $items ) {
+function make_add_make_profile_link_my_account( $items ) {
     $items['make-profile'] = 'Edit My Public Profile';
     return $items;
 }
 
-add_filter( 'woocommerce_account_menu_items', 'make_add_premium_support_link_my_account' );
+add_filter( 'woocommerce_account_menu_items', 'make_add_make_profile_link_my_account' );
 
 
 // ------------------
 // 4. Add content to the new endpoint
 
 function make_premium_support_content() {
-echo '<h3></h3>';
+// echo '<h3></h3>';
 include get_template_directory() . '/inc/user-edit-form.php';
 }
 

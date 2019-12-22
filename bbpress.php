@@ -1,15 +1,12 @@
 <?php
 //Template Name: Full Width Page
-if(is_account_page()) :
-  acf_form_head();
-endif;
 get_header();
 include 'layout/page-header.php';
 include 'layout/notice.php';
 ?>
     <main role="main" aria-label="Content" class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12"> 
                 <!-- section -->
                 <section>
                     <?php
