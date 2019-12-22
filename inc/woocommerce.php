@@ -66,8 +66,8 @@ function make_display_fees() {
   if($fees) :
     echo '<div class="fee-container border-bottom pb-2 mb-2">';
       foreach ($fees as $key => $fee) :
-        echo '<span class="fee-name"><strong>' . $fee['fee_name'] . ' </stong></span>';
-        echo '<span class="fee-amount"><strong>$' . $fee['fee_amount'] . '</stong></span>';
+        echo '<span class="fee-name"><strong>' . $fee['fee_name'] . ' </strong></span>';
+        echo '<span class="fee-amount"><strong>$' . $fee['fee_amount'] . '</strong></span>';
       endforeach;
     echo '</div>';
   endif;
