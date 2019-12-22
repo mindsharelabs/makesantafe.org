@@ -42,6 +42,17 @@ function make_is_purchasable($is_purchasable, $product) {
 
 
 
+add_filter( 'woocommerce_account_menu_items', 'make_remove_address_my_account', 999 );
+
+function make_remove_address_my_account( $items ) {
+  // mapi_var_dump($items);
+  $items['subscriptions'] = 'Membership';
+  unset($items['edit-address']);
+  unset($items['edit-account']);
+  return $items;
+}
+
+
 if( !wp_next_scheduled( 'make_class_daily' ) ) {
 	// Schedule the event
 	wp_schedule_event( time(), 'daily', 'make_class_daily' );
