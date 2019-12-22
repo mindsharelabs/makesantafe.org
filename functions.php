@@ -5,7 +5,7 @@
  *
  */
 // date_default_timezone_set('America/Denver');
-define('THEME_VERSION', '2.1.1');
+define('THEME_VERSION', '2.2.1');
 /*------------------------------------*\
     External Modules/Files
 \*------------------------------------*/
