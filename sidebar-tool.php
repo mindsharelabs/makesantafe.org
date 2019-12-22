@@ -2,7 +2,7 @@
 $p_makers = get_field('proficient_makers', get_the_id());
 ?>
 <!-- sidebar -->
-<aside class="sidebar col-md-4 col-12" role="complementary">
+<aside class="sidebar col-md-4 col-12 order-last order-md-first" role="complementary">
 	<div class="sidebar-cont">
 		<?php
 		if($p_makers) :

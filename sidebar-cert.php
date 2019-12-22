@@ -13,7 +13,7 @@ $associated_products = new WP_Query(array(
 
 ?>
 <!-- sidebar -->
-<aside class="sidebar col-md-4 col-12" role="complementary">
+<aside class="sidebar col-md-4 col-12 order-last order-md-first" role="complementary">
 	<div class="sidebar-cont">
 		<?php
 		if($associated_products->have_posts()) :

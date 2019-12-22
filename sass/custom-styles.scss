@@ -451,6 +451,26 @@ section.badged-makers {
   background: $background;
   border-top: 1px solid $light;
 }
+section.member-menu {
+  background-color: lighten($dark, 30%);
+  nav.member-menu {
+    width: 100%;
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      justify-content: flex-end;
+      list-style: none;
+      li {
+
+        a {
+          padding: 5px 10px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
 section.maker-profile {
   .sidebar-title {
     text-transform: uppercase;
