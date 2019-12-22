@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row my-auto">
         <nav class="footer-menu">
-          <?php mindblank_nav('footer-menu'); ?>
+          <?php mindblank_nav('member-menu'); ?>
         </nav>
       </div>
       <div class="row">

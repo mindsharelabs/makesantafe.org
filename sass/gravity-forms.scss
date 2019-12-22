@@ -21,6 +21,36 @@
 
   }
 }
+.gform_card_icon_container {
+  display: none;
+}
+.ginput_cardinfo_left {
+  display: block;
+  float: left;
+  width: 79%;
+  margin-right: 1%;
+}
+.ginput_cardinfo_right {
+  display: block;
+  float: left;
+  width: 20%;
+}
+.ginput_card_expiration_container {
+  .ginput_card_expiration {
+    float: left;
+  }
+  .ginput_card_expiration_month {
+    width: 74%;
+    margin-right: 1%;
+  }
+  .ginput_card_expiration_year {
+    width: 25%;
+  }
+  label {
+    clear: both;
+    width: 100%;
+  }
+}
 .ginput_container.ginput_container_textarea {
   textarea.small{
     height: 125px;
@@ -63,6 +93,29 @@
     }
   }
 
+}
+
+.ginput_full.ginput_cardextras {
+  display: block;
+  margin-top: 4px;
+}
+ul.gfield_checkbox, ul.gfield_radio {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    @extend .form-check;
+    margin-bottom: 0;
+    input{
+      margin-right: 10px;
+    }
+  }
+}
+
+.gfield.gsection {
+  border-left: 10px solid $warning;
+  border-top: 1px solid $warning;
+  padding: 10px;
+  margin-top: 43px;
 }
 
 .gform_wrapper .gfield_required {

@@ -23,8 +23,8 @@ $current_user_id = $current_user->ID;
 ?>
 <main role="main" aria-label="Content" class="container-fluid">
     <div class="row">
-      <?php get_sidebar(); ?>
-        <div class="col-12 col-md-8 has-sidebar">
+
+        <div class="col-12 col-md-10 offset-0 offset-md-1">
             <!-- section -->
             <section class="mt-4">
               <?php
@@ -74,10 +74,10 @@ $current_user_id = $current_user->ID;
 
 
 
-                    echo '<div class="col-6 col-md-3">';
+                    echo '<div class="col-6 col-md-3 mb-3">';
                       echo '<div class="maker-photo p-2">';
                         echo '<a href="' . $link . '" title="' . $name . '">';
-                          echo '<img src="' . $image . '" class="rounded-circle"/>';
+                          echo '<img src="' . $image . '" class="rounded-circle border"/>';
                         echo '</a>';
                       echo '</div>';
                       echo '<div class="content">';
