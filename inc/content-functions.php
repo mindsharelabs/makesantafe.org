@@ -57,12 +57,12 @@ function make_get_badged_members($certID) {
 
 
 function make_add_unique_id_for_modal( $postID  ) {
-
-  $screen = get_current_screen();
-  mapi_write_log($screen->id);
-	if ($screen->id == 'theme-settings_page_acf-options-member-notice') {
-    update_option( 'make-member-modal-slug', sanitize_title(get_field('member_modal_title', 'options')));
-	}
+  if($postID == 'options' && is_admin()) :
+    $screen = get_current_screen();
+  	if ($screen->id == 'theme-settings_page_acf-options-member-notice') {
+      update_option( 'make-member-modal-slug', sanitize_title(get_field('member_modal_title', 'options')));
+  	}
+  endif;
   return $postID;
 }
 
