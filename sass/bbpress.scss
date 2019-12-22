@@ -5,9 +5,6 @@
     @extend .btn;
     @extend .btn-primary;
   }
-  input, textarea {
-    @extend .form-control;
-  }
   label {
     margin-bottom: 6px;
     margin-top: 9px;
