@@ -112,10 +112,13 @@
         if($gallery) :
           echo '<div class="card-columns">';
           foreach ($gallery as $key => $image) :
-            $image_src = aq_resize($image['image']['url'], 300);
+            $image_src = aq_resize($image['image']['url'], 400);
             if($image_src):
               echo '<div class="card">';
                 echo '<img class="card-img-top" src="' . $image_src . '">';
+                if($image['caption']) :
+                  echo '<div class="card-body p-1">' . $image['caption'] . '</div>';
+                endif;
               echo '</div>';
             endif;
           endforeach;
