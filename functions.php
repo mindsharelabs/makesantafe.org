@@ -79,7 +79,7 @@ function make_post_type_archive( $query ) {
   if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
   		$query->set( 'posts_per_page', -1 );
   		$query->set( 'orderby', 'title' );
-      $query->set( 'order', 'DESC' );
+      $query->set( 'order', 'ASC' );
   	}
 
 
@@ -88,7 +88,7 @@ function make_post_type_archive( $query ) {
 
       $query->set( 'posts_per_page', -1 );
   		$query->set( 'orderby', 'title' );
-      $query->set( 'order', 'DESC' );
+      $query->set( 'order', 'ASC' );
   }
 
   if ( $query->is_main_query() && !is_admin() && $query->is_tax('product_cat')) {

@@ -1,6 +1,9 @@
 <?php
-$sidebar_content = get_field('sidebar_blocks', get_the_id());
-$social_media = get_field('social_media', get_the_ID());
+if(is_singular()) :
+	$sidebar_content = get_field('sidebar_blocks', get_the_id());
+else :
+	$sidebar_content = get_field('sidebar_blocks', 'options');
+endif;
 ?>
 <!-- sidebar -->
 <aside class="sidebar col-md-4 col-12 order-last order-md-first" role="complementary">
@@ -14,7 +17,6 @@ $social_media = get_field('social_media', get_the_ID());
 						include get_template_directory() . '/inc/header-back.php';
 					echo ob_get_clean();
 					if($s_content['acf_fc_layout'] == 'related_content'):
-
 						foreach($s_content['related_content'] as $c_post) :
 							$thumb = get_the_post_thumbnail_url( $c_post->ID, 'full');
 							$image = aq_resize($thumb, 200, 200);
@@ -40,29 +42,6 @@ $social_media = get_field('social_media', get_the_ID());
 				endforeach;
 			echo '</div>';
 		endif;
-
-		if($social_media) :
-			echo '<div class="sidebar-content">';
-				echo '<h3 class="fancy">Links</h3>';
-				ob_start();
-					include get_template_directory() . '/inc/header-back.php';
-				echo ob_get_clean();
-
-
-				echo '<div class="row related-contant pl-5 mb-4">';
-				foreach($social_media as $icon) :
-					echo '<div class="col">';
-						echo '<a href="' . $icon['link'] . '" target="_blank">';
-							echo '<i class="' . $icon['icon'] . ' fa-2x"></i>';
-						echo '</a>';
-					echo '</div>';
-				endforeach;
-				echo '</div>';
-			echo '</div>';
-
-
-		endif;
-
 		?>
 		<div class="sidebar-widget mb-4">
 			<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
