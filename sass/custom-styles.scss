@@ -425,13 +425,15 @@ article.tool, article.certs {
   }
 }
 
-section.certifications {
-  background: $background;
-  border-top: 1px solid $light;
-  .certification-products {
-
+aside.sidebar {
+  .certifications {
+    .certification-products {
+      max-width: 300px;
+      margin-left: 56px;
+    }
   }
 }
+
 section.team, section.makers {
   .content{
     h3 {
@@ -443,6 +445,11 @@ section.team, section.makers {
       color: lighten($dark, 30%);
     }
   }
+}
+section.badged-makers {
+  background-color: $light;
+  background: $background;
+  border-top: 1px solid $light;
 }
 section.maker-profile {
   .sidebar-title {
@@ -476,6 +483,7 @@ section.maker-profile {
 aside.sidebar {
   background: $background;
   border-right: 1px solid $light;
+  max-width: 500px;
   .sidebar-cont {
     float: right;
     width: 100%;

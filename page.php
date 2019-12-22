@@ -6,7 +6,7 @@ include 'layout/notice.php';
 <main role="main" aria-label="Content" class="container-fluid">
     <div class="row">
       <?php get_sidebar(); ?>
-        <div class="col-xs-12 col-md-8 has-sidebar">
+        <div class="col-12 col-md has-sidebar">
             <!-- section -->
             <section class="mt-4">
               <?php

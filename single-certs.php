@@ -2,24 +2,14 @@
 include 'layout/page-header.php';
 include 'layout/notice.php';
 
-
 $tools = get_field('allowed_tools');
-$associated_products = new WP_Query(array(
-  'post_type' => 'product',
-  'meta_query' => array(
-		array(
-			'key' => 'certification_provided', // name of custom field
-			'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
-			'compare' => 'LIKE'
-		)
-	)
-));
+$p_makers = make_get_badged_members(get_the_id());
 
 ?>
 <main role="main" aria-label="Content" class="container-fluid">
     <div class="row">
       <?php get_sidebar('cert'); ?>
-        <div class="col-xs-12 col-md-8 has-sidebar">
+        <div class="col-12 col-md has-sidebar">
             <!-- section -->
             <section class="mt-4">
               <article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?>>
@@ -49,7 +39,6 @@ $associated_products = new WP_Query(array(
                    //echo '<span class="cert-name text-center d-block">' . get_the_title($cert) . '</span>';
                  echo '</div>';
 
-
                   echo '<div class="col-12 col-md-8">';
                     the_content();
                   echo '</div>';
@@ -63,29 +52,23 @@ $associated_products = new WP_Query(array(
                         foreach($tools as $tool) :
                           $thumb = get_the_post_thumbnail_url( $tool->ID, 'full');
                           $image = aq_resize($thumb, 400, 200);
-                          echo '<div class="col-12 col-md-4 mb-3">';
+                          echo '<div class="col-12 col-md-3 mb-3">';
                             echo '<div class="card mb-3 h-100">';
                               echo '<img class="card-img-top" src="' . $image . '">';
-                              echo '<div class="card-body d-flex flex-column">';
-                                echo '<h5>' . $tool->post_title . '</h5>';
-                                echo '<p>' . get_field('short_description', $tool->ID) . '</p>';
+                              echo '<div class="card-body p-1 d-flex flex-column">';
+                                echo '<h5 class="text-center">' . $tool->post_title . '</h5>';
+                                //echo '<p>' . get_field('short_description', $tool->ID) . '</p>';
                                 echo '<a href="' . get_permalink($tool->ID) . '" class="btn btn-primary btn-block btn-sm mt-auto">Read More</a>';
                               echo '</div>';
-
-                              // mapi_var_dump($tool);
-
                             echo '</div>';
                           echo '</div>';
                         endforeach;
                       echo '</div>';
                     echo '</div>';
                   endif;
-
-
-
-                endwhile; endif;
-
-                ?>
+                endwhile;
+              endif;
+              ?>
               </article>
             </section>
         </div>
@@ -93,20 +76,51 @@ $associated_products = new WP_Query(array(
     </div>
 
       <?php
-      if($associated_products->have_posts()) :
-        $products = array();
-        while ($associated_products->have_posts()) :
-          $associated_products->the_post();
-          $products[] = get_the_ID();
-        endwhile;
-        echo '<section class="row certifications">';
-          echo '<div class="container certification-products p-0 pt-5 pb-5">';
-            echo '<h3 class="text-center">Get this Badge</h3>';
-            echo do_shortcode('[products ids=' . implode($products, ',') . ']');
-          echo '</div>';
-        echo '</section>';
-        wp_reset_query();
-      endif;
+
+      if($p_makers) :
+        echo '<section class="badged-makers">';
+          echo '<div class="container">';
+            echo '<div class="row pt-4 pb-2">';
+              echo '<div class="col-12">';
+                echo '<h3 class="text-center">Makers with this badge</h3>';
+              echo '</div>';
+            echo '</div>';
+            echo '<div class="row">';
+              foreach($p_makers as $key => $maker) :
+                $member = wc_memberships_is_user_active_member($maker->ID);
+                $public = get_field('display_profile_publicly',  'user_' . $maker->ID);
+                if($public && $member):
+                  $thumb = get_field('photo', 'user_' . $maker->ID);
+
+                  $name = get_field('display_name', 'user_' . $maker->ID);
+                  $title = get_field('title', 'user_' . $maker->ID);
+                  $link = get_author_posts_url($maker->ID);
+                  if(!$thumb){
+                    $image = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
+                  } else {
+                    $image = aq_resize($thumb['url'], 200, 200);
+                  }
+                  echo '<div class="col-4 col-md-2">';
+                    if($image) :
+                      echo '<div class="image p-3">';
+                        echo '<a href="' . $link . '">';
+                          echo '<img src="' . $image . '" class="rounded-circle" alt="' . $name . '">';
+                        echo '</a>';
+                      echo '</div>';
+                    endif;
+                    echo '<div class="content">';
+                      echo '<a href="' . $link . '">';
+                        echo '<h5 class="text-center">' . $name . '</h5>';
+                      echo '</a>';
+                      echo '<p class="text-center">' . $title . '</p>';
+                    echo '</div>';
+                  echo '</div>';
+                endif;
+              endforeach;
+              echo '</div>';
+            echo '</div>';
+          echo '</section>';
+        endif;
       ?>
 
 </main>

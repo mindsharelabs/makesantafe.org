@@ -11,7 +11,7 @@ $downloads = get_field('downloads');
 <main role="main" aria-label="Content" class="container">
   <div class="row">
     <?php get_sidebar('tool'); ?>
-    <div class="col-xs-12 col-md-8 has-sidebar">
+    <div class="col-12 col-md has-sidebar">
       <!-- section -->
       <section class="mt-4">
         <article id="post-<?php the_ID(); ?>" <?php post_class('row mb-5'); ?>>

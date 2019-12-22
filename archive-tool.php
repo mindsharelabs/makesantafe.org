@@ -5,7 +5,7 @@ include 'layout/notice.php';
 <main role="main" aria-label="Content" <?php post_class('container-fluid'); ?>>
   <div class="row">
     <?php get_sidebar('tools'); ?>
-      <div class="col-12 col-md-8 has-sidebar">
+      <div class="col-12 col-md has-sidebar">
         <?php
         echo '<div class="row">';
           echo '<header class="fancy-header d-flex">';
