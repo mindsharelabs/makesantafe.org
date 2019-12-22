@@ -51,6 +51,25 @@
 
 		});
 
+
+
+		//make Member Modal
+
+		$('#memberModal').modal({
+			show : false
+		});
+		var modalCookie = Cookies.get('member-modal');
+		var modalid = $('#memberModal').data('modalid');
+
+		if(modalCookie != modalid) {
+			$('#memberModal').modal('show')
+		}
+		$('#memberModal').on('shown.bs.modal', function (e) {
+		  Cookies.set('member-modal', modalid);
+		})
+
+
+
 		jQuery('body').addClass('fade-in');
 
 
@@ -60,13 +79,6 @@
 
 			});
 		}
-
-
-		$('.footerDrawer .open').on('click', function() {
-			$('.footerDrawer .content').slideToggle();
-
-		});
-
 
 
 	});

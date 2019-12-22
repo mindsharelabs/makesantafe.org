@@ -1,5 +1,5 @@
 <!-- footer -->
-<footer class="bottom-footer pb-5" role="contentinfo">
+<footer class="bottom-footer" role="contentinfo">
   <div class="container">
     <div class="row">
       <div class="my-auto col-6 col-md-10">
@@ -18,29 +18,33 @@
 		</div>
   </div>
 </footer>
-
-
-<?php
-  // if(wc_memberships_is_user_active_member()) :
-  //   echo '<div class="footerDrawer">';
-  // 		echo '<div class="open">';
-  //     echo '<h5 class="text-center">Member Menu <i class="fal fa-angle-double-up"></i></h5>';
-  //   		echo '<div class="content">';
-  //         mindblank_nav('member-menu');
-  //   		echo '</div>';
-  //     echo '</div>';
-  // 	echo '</div>';
-  //
-  // endif;
-
-
-
-?>
-
-
-
 <!-- /footer -->
 </div>
+
+
+<!-- Modal -->
+<?php if(get_field('enable_member_modal', 'options') && is_user_logged_in()) : ?>
+  <div class="modal fade" id="memberModal" data-modalid="<?php echo get_option( 'make-member-modal-slug'); ?>" tabindex="-1" role="dialog" aria-labelledby="memberInformationModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="memberInformationModal"><?php the_field('member_modal_title', 'options'); ?></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="fas fa-times"></i></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <?php the_field('member_modal_content', 'options'); ?>
+        </div>
+        <?php if($button = get_field('member_modal_button', 'options')) : ?>
+          <div class="modal-footer">
+            <a class="btn btn-primary btn-block" href="<?php echo $button['button_link']; ?>"><?php echo $button['button_text']; ?></a>
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
+<?php endif; ?>
 <?php wp_footer(); ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74379401-1"></script>

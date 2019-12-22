@@ -208,6 +208,11 @@ function mindblank_header_scripts()
 
         wp_register_script('slick-slider', get_template_directory_uri() . '/js/slick.min.js', array(), THEME_VERSION);
         wp_enqueue_script('slick-slider');
+
+        wp_register_script('cookie-js', 'https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js', array(), THEME_VERSION);
+        wp_enqueue_script('cookie-js');
+
+
     }
 }
 

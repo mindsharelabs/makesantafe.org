@@ -71,6 +71,50 @@
   header.page-header .header-padding{
     height: 250px;
   }
+
+  body.woocommerce-account.woocommerce-page {
+    .woocommerce-MyAccount-navigation {
+      width: 100%;
+      float: none;
+      ul {
+        display: flex;
+        flex-direction: column;
+        li {
+          flex-grow: 1;
+          margin: 2px 2px 0 2px;
+          border: 1px solid $light;
+          display: flex;
+          align-items: center;
+          line-height: 1.1em;
+          text-align: center;
+          &:hover {
+            border-top: 4px solid $primary;
+          }
+          &:last-child {
+            border-bottom: 1px solid $light;
+            margin-right: 0;
+          }
+          &:first-child {
+            margin-left: 0;
+          }
+          &.is-active {
+            border-bottom: none;
+            border-top: 4px solid $primary;
+          }
+        }
+      }
+    }
+    .woocommerce-MyAccount-content {
+      width: 100%;
+      float: none;
+      border: 1px solid $light;
+      border-top: none;
+      padding: 10px;
+      padding-top: 20px;
+      margin-bottom: 150px;
+    }
+  }
+
 }
 
 // Small styles - default: 480px <= x <= 991px

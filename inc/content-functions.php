@@ -54,3 +54,17 @@ function make_get_badged_members($certID) {
   return $wp_user_query->get_results();
 
 }
+
+
+function make_add_unique_id_for_modal( $postID  ) {
+
+  $screen = get_current_screen();
+  mapi_write_log($screen->id);
+	if ($screen->id == 'theme-settings_page_acf-options-member-notice') {
+    update_option( 'make-member-modal-slug', sanitize_title(get_field('member_modal_title', 'options')));
+	}
+  return $postID;
+}
+
+// acf/update_value - filter for every field
+add_filter('acf/save_post', 'make_add_unique_id_for_modal', 20);
