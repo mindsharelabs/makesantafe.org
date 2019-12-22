@@ -5,8 +5,13 @@ if(get_field('show_header')) :
 		$thumb = get_the_post_thumbnail_url( get_the_id(), 'full');
 		$image = aq_resize($thumb, 1500, 300);
 		$background_str = 'background-image: url(' . $image . ')';
+		$color = '#fff';
+		$fill = 'transparent';
+		$stroke = '#fff';
 	} else {
 		$background_str = 'background-color:' . $color;
+		$fill = shadeColor ($color, 20);
+		$stroke = '#000';
 	}
 
 	?>
@@ -17,12 +22,14 @@ if(get_field('show_header')) :
 	  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
 	    fill: #fff;
 	    color: #fff;
+			font-family: 'Courier Prime', monospace;
+    	font-size: 3em;
 	  }
 		#intro-logo-load .dot {
-	    stroke: #fff; 
+	    stroke: #fff;
 	  }
 	  #intro-logo-load .fills {
-	    fill: <?php echo shadeColor ($color, 20); ?>;
+	    fill: <?php echo $fill; ?>;
 	  }
 	  #intro-logo-load .lines {
 	    stroke: #fff;
@@ -38,7 +45,9 @@ if(get_field('show_header')) :
 	    background-color: <?php echo $color; ?>;
 	    color: #fff;
 	  }
-
+		#intro-logo-load #banner .lines, #intro-logo-load .fills {
+			stroke: <?php echo $stroke; ?>
+		}
 	</style>
 	<header class="page-header container-fluid" style="<?php echo $background_str; ?>">
 	  <div class="header-padding">

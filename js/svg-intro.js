@@ -11,8 +11,8 @@ Snap.load( svgvars.logo, function(f) {
 		var bottom = introHeader.select('#bottom');
 
 		introLogo.attr({
-	         viewBox: "0 0 320 480"
-	   });
+	    viewBox: "0 0 320 480"
+	  });
 
 		top.transform("t138,70");
 		bottom.transform("t-140,-65");
@@ -31,7 +31,7 @@ Snap.load( svgvars.logo, function(f) {
         },1000);
       switchHeader();
 			});
-		 }, 1000);
+    }, 100);
 
 });
 
@@ -39,7 +39,6 @@ Snap.load( svgvars.logo, function(f) {
 
 function switchHeader(){
 	Snap.load( svgvars.intro, function(f) {
-
 		var dd = introHeader.text("50%", 30, svgvars.words ).attr({
       class: 'bigtext',
       'fill':svgvars.color,

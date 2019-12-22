@@ -16,15 +16,7 @@
       $bio = get_field('bio','user_' . $maker_id);
       $name = get_field('display_name', 'user_' . $maker_id );
       $title = get_field('title', 'user_' . $maker_id );
-
       $certifications = get_field('certifications', 'user_' . $maker_id );
-
-      $liability = get_user_meta( $maker_id, 'liability_entry_id', true );
-
-      $form = new GFAPI();
-      $search_criteria = array();
-      $search_criteria['field_filters'][] = array( 'key' => 'created_by', 'value' => $maker_id );
-      $entries = $form->get_entries( 27, $search_criteria);
 
       $all_certs_obj = get_posts(array(
         'post_type' => 'certs',
@@ -65,10 +57,7 @@
 
         if($current_user_id == $maker_id) :
           echo '<a href="/my-account/make-profile/" class="btn btn-default btn-block mt-4">Edit My Profile</a>';
-          if(!$entries) :
-            echo '<h5 class="text-center mb-0 mt-4">Fill out your Waiver and Release of Liability</h5>';
-            echo '<a href="/waiver-and-release-of-liability/" class="btn btn-default btn-block mt-1 mb-2">Waiver and Release of Liability</a>';
-          endif;
+
         endif;
 
         if($all_certs):

@@ -46,8 +46,6 @@ if (function_exists('add_theme_support')) {
 /*------------------------------------*\
     Functions
 \*------------------------------------*/
-
-
 function mapi_var_dump($var)
 {
     if (current_user_can('administrator')) :
@@ -269,7 +267,7 @@ function mindblank_styles()
     wp_register_style('mindblankcssmin', get_template_directory_uri() . '/style.css', array(), THEME_VERSION);
     wp_enqueue_style('mindblankcssmin');
 
-    wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Ubuntu:300,400,700', array(), THEME_VERSION);
+    wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Courier+Prime:400,700|Montserrat:300i,400,500i,600,800&display=swap', array(), THEME_VERSION);
     wp_enqueue_style('google-fonts');
 
 

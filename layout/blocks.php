@@ -21,7 +21,7 @@
           endif;
           echo '<div class="card-body text card-body text d-flex flex-column">';
             echo '<h3 class="text-center">' . $block['title'] . '</h3>';
-            echo '<h5 class="content text-center">' . $block['content'] . '</h5>';
+            echo '<p class="content text-center">' . $block['content'] . '</p>';
             echo '<a href="' . $block['link'] . '" class="btn btn-primary btn-block mt-5 mb-1 mt-auto" title="' . $block['title'] . '">Learn More</a>';
           echo '</div>';
         echo '</div>';
