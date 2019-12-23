@@ -1,0 +1,24 @@
+//Theme My login
+.tml {
+  .tml-message {
+    @extend .alert;
+    @extend .alert-primary;
+  }
+  .tml-label {
+    color: $dark;
+  }
+  .tml-field {
+    @extend .form-control;
+  }
+  .tml-field-wrap {
+    margin: 0;
+    @extend .form-row;
+  }
+  .tml-checkbox {
+    margin: 15px;
+  }
+  .tml-button {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+}
