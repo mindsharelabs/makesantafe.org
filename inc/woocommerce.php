@@ -123,8 +123,21 @@ function make_expire_events() {
 
 add_action('woocommerce_after_single_product_summary', 'make_add_customer_list', 5);
 function make_add_customer_list() {
-  if(current_user_can('administrator')):
-    echo do_shortcode('[customer_list order_status="wc-processing,wc-completed" order_qty=true customer_message=true billing_email=true order_variations=false order_number=true order_status_column=true]');
+  if(current_user_can('instructor') || current_user_can('administrator')):
+    echo do_shortcode('[customer_list
+      export_csv="true"
+      limit="30"
+      show_titles="true"
+      print="true"
+      paging="true"
+      order_status="wc-processing,wc-completed"
+      order_qty="true"
+      customer_message="true"
+      billing_email="true"
+      order_variations="false"
+      order_number="true"
+      order_status_column="true"
+    ]');
     echo '<hr>';
   endif;
 }

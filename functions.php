@@ -70,8 +70,20 @@ function mapi_post_edit() {
   edit_post_link( 'Edit this ' . $post_type_obj->labels->singular_name, '', '', get_the_id(), 'btn btn-sm btn-info mt-3 mb-3 float-right post-edit-link' );
 }
 
-add_action( 'pre_get_posts', 'make_post_type_archive' );
+add_action('init', 'make_add_instructor_role');
 
+function make_add_instructor_role()
+{
+    global $wp_roles;
+    if ( ! isset( $wp_roles ) )
+      $wp_roles = new WP_Roles();
+
+      $cust = $wp_roles->get_role('customer');
+      //Adding a 'new_role' with all admin caps
+      $wp_roles->add_role('instructor', 'Instructor', $cust->capabilities);
+}
+
+add_action( 'pre_get_posts', 'make_post_type_archive' );
 function make_post_type_archive( $query ) {
   if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
   		$query->set( 'posts_per_page', -1 );
