@@ -4,7 +4,6 @@
  * URL: https://mind.sh/are | @mindblank
  *
  */
-// date_default_timezone_set('America/Denver');
 define('THEME_VERSION', '2.2.3');
 /*------------------------------------*\
     External Modules/Files

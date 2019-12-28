@@ -69,10 +69,8 @@ $current_user_id = $current_user->ID;
                     }
                     // mapi_var_dump($image);
                     $title = get_field('title', 'user_' . $user_id );
-                    // $link = get_permalink(get_page_by_path('maker-profile')) . '?maker_id=' . $user_id;
+
                     $link = get_author_posts_url($user_id);
-
-
 
                     echo '<div class="col-6 col-md-3 mb-3">';
                       echo '<div class="maker-photo p-2">';

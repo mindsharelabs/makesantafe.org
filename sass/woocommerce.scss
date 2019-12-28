@@ -65,7 +65,7 @@ body.woocommerce-account.woocommerce-page {
       }
     }
   }
-  button.button {
+  button.button, .checkout-button.button { 
     background-color: $primary !important;
     @extend .btn;
     @extend .btn-primary;
