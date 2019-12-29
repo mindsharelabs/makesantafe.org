@@ -57,15 +57,20 @@ body.woocommerce-account.woocommerce-page {
 
 .woocommerce {
   ul.products {
+    @extend .row;
     li.product {
+      @extend .col-6;
+      @extend .col-md-3;
       @extend .d-flex;
       @extend .flex-column;
+      margin: 0;
+      margin-bottom: 15px;
       a.button {
         @extend .mt-auto;
       }
     }
   }
-  button.button, .checkout-button.button { 
+  button.button, .checkout-button.button {
     background-color: $primary !important;
     @extend .btn;
     @extend .btn-primary;

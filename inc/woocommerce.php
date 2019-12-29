@@ -330,6 +330,18 @@ function make_add_event_date() {
 }
 
 
+
+add_filter( 'woocommerce_product_add_to_cart_text', 'make_change_button_text', 100, 2);
+function make_change_button_text( $text, $obj ) {
+  $tool_reservation = has_term('tool-reservation','product_cat', $obj->get_ID());
+  $workshop = has_term('certification', 'product_cat', $obj->get_ID());
+  if ( $tool_reservation) {
+      $text = __( 'Reserve This Tool', 'woocommerce' );
+  } elseif($workshop) {
+    $text = __( 'Attend this Workshop', 'woocommerce' );
+  }
+  return $text;
+}
 /*
  * Change the entry title of the endpoints that appear in My Account Page - WooCommerce 2.6
  * Using the_title filter
