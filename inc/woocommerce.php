@@ -320,9 +320,12 @@ add_action( 'wp', 'make_remove_free_checkout_fields' );
 add_action('woocommerce_after_shop_loop_item_title', 'make_add_event_date', 1);
 
 function make_add_event_date() {
-  $date = get_post_meta(get_the_ID(), 'make_event_date', true);
-  if($date):
-    echo '<span class="event-date text-center d-block w-100">' . $date->format('D, M j') . '</span>';
+  $is_event = get_post_meta(get_the_id(), 'WooCommerceEventsEvent', true);
+  if($is_event === 'Event') :
+    $date = get_post_meta(get_the_ID(), 'make_event_date', true);
+    if($date):
+      echo '<span class="event-date text-center d-block w-100">' . $date->format('D, M j') . '</span>';
+    endif;
   endif;
 }
 
