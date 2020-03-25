@@ -1,0 +1,6 @@
+.tml-field-wrap{
+  @extend .form-group;
+  .tml-field {
+    @extend .form-control;
+  }
+}

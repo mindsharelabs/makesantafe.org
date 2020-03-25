@@ -1,0 +1,56 @@
+.wc-block-grid, {
+  .wp-block-button {
+    a{
+      @extend .btn;
+      @extend .btn-block;
+      @extend .btn-dark;
+    }
+
+  }
+}
+.wc-block-featured-category {
+  .wp-block-button {
+    a{
+      @extend .btn;
+      @extend .btn-light;
+    }
+
+  }
+}
+.wc-block-product-search {
+  form {
+    margin-bottom: 10px;
+    label {
+      text-align: center;
+      font-size: 1.2em;
+    }
+  }
+  .wc-block-product-search__fields {
+    @extend .input-group;
+    input {
+      @extend .form-control;
+    }
+  }
+}
+.wc-block-grid__product-image {
+  img {
+    height: auto;
+  }
+}
+.wp-block-button {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  a {
+    @extend .btn;
+    @extend .btn-lg;
+  }
+}
+.has-drop-cap:not(:focus):first-letter {
+  float: left;
+  font-size: 6.4em;
+  line-height: .8em;
+  font-weight: bold;
+  margin: .05em .1em 0 0;
+  text-transform: uppercase;
+  font-style: normal;
+}
