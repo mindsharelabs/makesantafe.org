@@ -1,12 +1,11 @@
 <?php
-//Template Name: Full Width Page
 get_header();
 include 'layout/page-header.php';
 include 'layout/notice.php';
 ?>
     <main role="main" aria-label="Content" class="container">
         <div class="row">
-            <div class="col-12"> 
+            <div class="col-12">
                 <!-- section -->
                 <section>
                     <?php
@@ -25,7 +24,7 @@ include 'layout/notice.php';
                         </article>
                         <!-- /article -->
                     <?php endwhile; ?>
-                    <?php endif; ?>
+                    <?php endif; ?> 
 
                 </section>
             </div>

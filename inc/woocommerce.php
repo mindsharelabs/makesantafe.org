@@ -546,3 +546,16 @@ function wc_subscriptions_custom_price_string( $pricestring ) {
 }
 add_filter( 'woocommerce_subscriptions_product_price_string', 'wc_subscriptions_custom_price_string' );
 add_filter( 'woocommerce_subscription_price_string', 'wc_subscriptions_custom_price_string' );
+
+
+
+
+add_filter( 'woocommerce_email_recipient_backorder', 'change_stock_email_recipient', 10, 2 ); // For Backorders notification
+add_filter( 'woocommerce_email_recipient_low_stock', 'change_stock_email_recipient', 10, 2 ); // For Low stock notification
+add_filter( 'woocommerce_email_recipient_no_stock', 'change_stock_email_recipient', 10, 2 ); // For No stock notification
+function change_stock_email_recipient( $recipient, $product ) {
+    // HERE set your replacement email
+    $recipient = 'build@makesantafe.org';
+
+    return $recipient;
+}
