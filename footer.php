@@ -1,3 +1,7 @@
+
+</div>
+
+
 <!-- footer -->
 <footer class="bottom-footer" role="contentinfo">
   <div class="container">
@@ -19,8 +23,8 @@
   </div>
 </footer>
 <!-- /footer -->
-</div>
 
+</div>
 
 <!-- Modal -->
 <?php if(get_field('enable_member_modal', 'options') && is_user_logged_in()) : ?>
@@ -46,15 +50,7 @@
   </div>
 <?php endif; ?>
 <?php wp_footer(); ?>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74379401-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-74379401-1');
-</script>
 
 </body>
 </html>
