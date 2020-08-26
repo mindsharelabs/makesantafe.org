@@ -204,10 +204,7 @@ function mindblank_header_scripts()
         wp_register_script('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery', 'popper'), THEME_VERSION);
         wp_enqueue_script('bootstrap');
 
-
-        wp_register_script('fontawesome-5', get_template_directory_uri() . '/js/fontawesome-all.js', array(), THEME_VERSION, true);
-        wp_enqueue_script('fontawesome-5');
-
+ 
         wp_register_script('slideout-js', get_template_directory_uri() . '/js/slideout.min.js', array(), THEME_VERSION);
         wp_enqueue_script('slideout-js');
 

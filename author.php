@@ -74,7 +74,7 @@
                 } else {
                   $class = 'false';
                 }
-                echo '<div class="cert-holder ' . $class . '" data-trigger="hover" data-toggle="popover" title="' . get_the_title($cert) . '" data-content="' .  get_field('short_description', $cert) . '">';
+                echo '<div class="cert-holder py-2 ' . $class . '" data-trigger="hover" data-toggle="popover" title="' . get_the_title($cert) . '" data-content="' .  get_field('short_description', $cert) . '">';
                   echo '<a href="' . get_permalink($cert) . '" class="fa-stack fa-2x">';
                     echo '<i class="' . $icon_back . ' fa-stack-2x" style="color:' . $color . '"></i>';
                     echo '<i class="' . $icon . ' fa-stack-1x fa-inverse"></i>';

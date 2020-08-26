@@ -25,6 +25,8 @@
     <meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/img/browserconfig.xml">
     <meta name="theme-color" content="#cd1323">
 
+    <script src="https://kit.fontawesome.com/936fcf5834.js" crossorigin="anonymous"></script>  
+
     <?php wp_head(); ?>
 
 </head>

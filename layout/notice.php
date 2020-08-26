@@ -5,7 +5,7 @@ if($notice):
   echo '<div class="container mt-3 mb-3">';
     echo '<div class="row">';
       echo '<div class="col-12">';
-        echo '<div class="alert mb-0 alert-primary" role="alert">';
+        echo '<div class="alert mb-0 alert-primary mb-3" role="alert">';
           echo $notice;
         echo '</div>';
       echo '</div>';
