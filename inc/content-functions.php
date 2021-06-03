@@ -56,6 +56,7 @@ function make_get_badged_members($certID) {
 }
 
 
+
 function make_add_unique_id_for_modal( $postID  ) {
   if($postID == 'options' && is_admin()) :
     $screen = get_current_screen();

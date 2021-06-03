@@ -122,7 +122,6 @@ body.woocommerce-account.woocommerce-page {
     width: 100%;
     label {
       line-height: 2;
-      width: 100%;
       margin-bottom: 0;
       text-transform: uppercase;
       font-size: .9em;
@@ -130,7 +129,13 @@ body.woocommerce-account.woocommerce-page {
     span.woocommerce-input-wrapper{
       width: 100%;
     }
+    &.mailchimp-newsletter {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
   }
+
 }
 
 .btn-default {

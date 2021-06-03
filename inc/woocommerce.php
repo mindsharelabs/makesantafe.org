@@ -5,6 +5,32 @@ add_theme_support('wc-product-gallery-lightbox');
 add_theme_support('wc-product-gallery-slider');
 
 
+//Force email to be used as customer username
+add_filter( 'woocommerce_new_customer_data', function( $data ) {
+	$data['user_login'] = $data['user_email'];
+
+	return $data;
+} );
+
+add_action( 'woocommerce_before_checkout_registration_form', function($checkout) {
+	echo '<div class="alert alert-info"><h4>Create your account or login above</h4><p>An account will be created with this email address. This will also be your username. You will be required to use an email address to login.</p>';
+}, 10, 1 );
+
+add_action ('woocommerce_after_checkout_registration_form', function ($checkout) {
+	echo '</div>';
+}, 10,1);
+
+
+
+
+add_filter('woocommerce_checkout_fields', function ($fields){
+	$fields['account']['account_username']['label'] = 'Email Address';
+	$fields['account']['account_username']['placeholder'] = 'Email Address';
+	$fields['account']['account_username']['type'] = 'email';
+ return $fields;
+});
+
+
 
 
 //Removed Actions
