@@ -1,8 +1,5 @@
 <div class="fooevents-calendar-list">
-<?php foreach($events as $event) :
-   mapi_var_dump(get_post_meta($event->ID, 'WooCommerceEventsDate', true));
-  mapi_var_dump($event);
-   ?>
+<?php foreach($events as $event) :  ?>
     <?php if (is_array($event)) :?>
     <?php $thumbnail = get_the_post_thumbnail_url($event['post_id']); ?>
     <div class="fooevents-calendar-list-item">

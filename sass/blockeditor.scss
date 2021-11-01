@@ -1,3 +1,9 @@
+.wp-block-media-text__media img, .wp-block-media-text__media video {
+  max-width: unset;
+    width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
 .wc-block-grid, {
   .wp-block-button {
     a{

@@ -137,7 +137,13 @@ body.woocommerce-account.woocommerce-page {
   }
 
 }
-
+.woocommerce-info {
+  @extend .alert;
+  @extend .alert-warning;
+  &:before {
+    display: none;
+  }
+}
 .btn-default {
   background: #fff;
   color: $primary;

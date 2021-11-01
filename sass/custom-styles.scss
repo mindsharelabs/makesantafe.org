@@ -35,6 +35,7 @@ body.fade-in {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 h1 {
@@ -489,7 +490,7 @@ section.maker-profile {
       flex-grow: 1;
       text-align: center;
       &.false{
-        display: none; 
+        display: none;
       }
       .cert-name {
         font-size: .7em;
