@@ -339,6 +339,10 @@ footer.footer {
 footer.bottom-footer{
   border-top: 5px solid $primary;
   background-color: $background;
+  .text-center {
+    text-align: center;
+
+  }
   p{
     margin: 0;
     padding: 0;

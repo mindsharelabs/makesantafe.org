@@ -6,15 +6,12 @@
 <footer class="bottom-footer" role="contentinfo">
   <div class="container">
     <div class="row">
-      <div class="my-auto col-6 col-md-10">
+      <div class="my-auto col-12 text-center">
         <p class="align-middle"> &copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>.</p>
       </div>
-      <div class="my-auto col-6 col-md-2">
-				<div class="footer-credit">
-					<a href="http://anagr.am" target="_blank">
-						<img src="<?php echo get_template_directory_uri() . '/img/anagram-logo.png'; ?>" alt="Hand Crafted by Anagram"  alt="Anagram" />
-					</a>
-					<a href="http://mind.sh/are" target="_blank">
+      <div class="my-auto col-12 text-center offset-md-5 col-md-2 my-3">
+				<div class="footer-credit text-center">
+					<a class="text-center" href="http://mind.sh/are" target="_blank">
 						<img src="<?php echo get_template_directory_uri() . '/img/mindshare.svg'; ?>" title="Hand Crafted by Mindshare Labs, Inc" alt="Mindshare Labs, Inc"></a>
 					</a>
 				</div>

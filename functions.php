@@ -184,11 +184,11 @@ function mindblank_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-        wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), THEME_VERSION); // Conditionizr
-        wp_enqueue_script('conditionizr'); // Enqueue it!
-
-        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), THEME_VERSION); // Modernizr
-        wp_enqueue_script('modernizr'); // Enqueue it!
+        // wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), THEME_VERSION); // Conditionizr
+        // wp_enqueue_script('conditionizr'); // Enqueue it!
+        //
+        // wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), THEME_VERSION); // Modernizr
+        // wp_enqueue_script('modernizr'); // Enqueue it!
 
 
         wp_register_script('mindblankscripts-min', get_template_directory_uri() . '/js/scripts.js', array('bootstrap', 'slick-slider'), THEME_VERSION, true);
@@ -204,7 +204,7 @@ function mindblank_header_scripts()
         wp_register_script('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery', 'popper'), THEME_VERSION);
         wp_enqueue_script('bootstrap');
 
- 
+
         wp_register_script('slideout-js', get_template_directory_uri() . '/js/slideout.min.js', array(), THEME_VERSION);
         wp_enqueue_script('slideout-js');
 
@@ -272,7 +272,7 @@ function mindblank_conditional_scripts()
 // Load mind Blank styles
 function mindblank_styles()
 {
-    wp_register_style('mindblankcssmin', get_template_directory_uri() . '/style.css', array(), THEME_VERSION);
+    wp_register_style('mindblankcssmin', get_template_directory_uri() . '/css/style.css', array(), THEME_VERSION);
     wp_enqueue_style('mindblankcssmin');
 
     wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Courier+Prime:400,700|Montserrat:300i,400,500i,600,800&display=swap', array(), THEME_VERSION);
