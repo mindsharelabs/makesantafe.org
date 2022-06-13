@@ -63,7 +63,7 @@ body.woocommerce-account.woocommerce-page {
       @extend .col-md-3;
       @extend .d-flex;
       @extend .flex-column;
-      margin: 0;
+      // margin: 0; 
       margin-bottom: 15px;
       a.button {
         @extend .mt-auto;
