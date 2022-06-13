@@ -590,6 +590,14 @@ footer.footer {
     }
 
   }
+  .widget_nav_menu {
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
   nav.footer-menu {
     width: 100%;
     font-size: .9em;
