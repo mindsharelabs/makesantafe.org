@@ -1,26 +1,26 @@
 <?php
 
 
-add_action( 'pre_get_posts', function ($query) {
-  if ( ! is_admin() && !$query->is_main_query() ) {
-
-    $terms = array( 'exclude-from-search', 'exclude-from-catalog' );
-
-    if($query->query['post_type'] == 'product') :
-      // mapi_write_log($query);
-      $query->set('tax_query', array(
-        array(
-          'taxonomy'  => 'product_visibility',
-          'field'     => 'slug',
-          'terms'     => $terms,
-          'operator'  => 'NOT IN'
-        )
-      ));
-    endif;
-
-  }
-});
-
+// add_action( 'pre_get_posts', function ($query) {
+//   if ( ! is_admin() && !$query->is_main_query() ) {
+//
+//     $terms = array( 'exclude-from-search', 'exclude-from-catalog' );
+//
+//     if($query->query['post_type'] == 'product') :
+//       // mapi_write_log($query);
+//       $query->set('tax_query', array(
+//         array(
+//           'taxonomy'  => 'product_visibility',
+//           'field'     => 'slug',
+//           'terms'     => $terms,
+//           'operator'  => 'NOT IN'
+//         )
+//       ));
+//     endif;
+//
+//   }
+// });
+//
 
 
 function make_build_img_srcset($src_sizes) {

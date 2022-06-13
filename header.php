@@ -25,16 +25,12 @@
     <meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/img/browserconfig.xml">
     <meta name="theme-color" content="#cd1323">
 
-    <script src="https://kit.fontawesome.com/936fcf5834.js" crossorigin="anonymous"></script>  
+    <script src="https://kit.fontawesome.com/936fcf5834.js" crossorigin="anonymous"></script>
 
     <?php wp_head(); ?>
 
 </head>
 
 <body <?php body_class(); ?>>
-
-<nav id="main-nav" class="nav d-block d-md-none" role="navigation">
-    <?php mindblank_nav('header-menu'); ?>
-</nav>
 <?php include 'layout/top-header.php'; ?>
 <div id="main-panel">

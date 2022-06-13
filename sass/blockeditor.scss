@@ -8,7 +8,6 @@
   .wp-block-button {
     a{
       @extend .btn;
-      @extend .btn-block;
       @extend .btn-dark;
     }
 

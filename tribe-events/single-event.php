@@ -61,17 +61,26 @@ $after = apply_filters( 'tribe_events_single_event_title_html_after', '</h1>', $
  */
 $title = apply_filters( 'tribe_events_single_event_title_html', the_title( $before, $after, false ), $event_id );
 
+
 ?>
 
 <div id="tribe-events-content" class="tribe-events-single">
 
-	<p class="tribe-events-back">
+	<p class="tribe-events-back mt-5">
 		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'the-events-calendar' ), $events_label_plural ); ?></a>
 	</p>
 
 	<!-- Notices -->
 	<?php tribe_the_notices() ?>
 
+	<?php echo $title; ?>
+
+  <div class="tribe-events-schedule tribe-clearfix">
+		<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
+		<?php if ( tribe_get_cost() ) : ?>
+			<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
+		<?php endif; ?>
+	</div>
 
 	<!-- Event header -->
 	<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
@@ -95,14 +104,7 @@ $title = apply_filters( 'tribe_events_single_event_title_html', the_title( $befo
         </div>
 
         <div class="col-12 col-md-8">
-        	<?php echo $title; ?>
 
-        	<div class="tribe-events-schedule tribe-clearfix">
-        		<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
-        		<?php if ( tribe_get_cost() ) : ?>
-        			<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
-        		<?php endif; ?>
-        	</div>
     			<!-- Event content -->
     			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
     			<div class="tribe-events-single-event-description tribe-events-content">
@@ -118,7 +120,7 @@ $title = apply_filters( 'tribe_events_single_event_title_html', the_title( $befo
           <!-- Event meta -->
           <?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
           <?php tribe_get_template_part( 'modules/meta' ); ?>
-          <?php //do_action( 'tribe_events_single_event_after_the_meta' ) ?>
+          <?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
         </div>
       </div>
 

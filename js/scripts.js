@@ -14,59 +14,47 @@
 			}
 		);
 
-		$(function () {
-			$('[data-toggle="popover"]').popover()
-		})
+
 
 		var windowWidth = $(window).width();
-		var menuWidth = windowWidth;
-		var slideout = new Slideout({
-			'panel': document.getElementById('main-panel'),
-			'menu': document.getElementById('main-nav'),
-			'padding': menuWidth,
-			'tolerance': 0,
-			'side': 'right'
-		});
 
-		document.querySelector('.slideout-menu').style.width = menuWidth + 'px';
-
-		//Toggle button
-		document.querySelector('.menu-toggle').addEventListener('click', function () {
-			slideout.toggle();
-		});
-
-
-		slideout.on('beforeclose', function () {
-			$('.slideout-menu').fadeOut();
-		});
-		slideout.on('beforeopen', function () {
-			$('.slideout-menu').fadeIn();
-		});
-		slideout.on('open', function () {
-			$('.menu-toggle svg').addClass("fa-window-close").removeClass("fa-bars");
-
-		});
-		slideout.on('close', function () {
-			$('.menu-toggle svg').addClass("fa-bars ").removeClass("fa-window-close");
-
-		});
+		if(windowWidth < 576) {
+			var menuWidth = windowWidth - 50;
 
 
 
-		//make Member Modal
 
-		$('#memberModal').modal({
-			show : false
-		});
-		var modalCookie = Cookies.get('member-modal');
-		var modalid = $('#memberModal').data('modalid');
-
-		if(modalCookie != modalid) {
-			$('#memberModal').modal('show')
+		} else if(windowWidth < 992) {
+			var menuWidth = windowWidth/2;
+		} else if(windowWidth < 1200) {
+			var menuWidth = 400;
+		} else {
+			var menuWidth = 400;
 		}
-		$('#memberModal').on('shown.bs.modal', function (e) {
-		  Cookies.set('member-modal', modalid);
+
+		$(window).scroll(function() {
+			if ($(document).scrollTop() > 10) {
+				$('header.header').addClass('scrolled');
+			}
+			else {
+				$('header.header').removeClass('scrolled');
+			}
+		});
+
+		$(document).on('click', '#mobileMenuToggle', function() {
+
+			setTimeout( function() {
+				$('#mobileMenu').toggleClass('show');
+			}, 100);
+			$(this).toggleClass('active');
+		});
+
+		$(document).on('click', '#mobileMenu li.page_item_has_children', function(e) {
+			e.preventDefault();
+			var curIcon = $(this).find('svg').attr('data-icon');
+			$(this).toggleClass('expanded');
 		})
+
 
 
 

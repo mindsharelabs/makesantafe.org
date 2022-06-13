@@ -145,46 +145,46 @@ function make_expire_events() {
 
 
 
+//
+//
+// add_action('woocommerce_after_single_product_summary', 'make_add_customer_list', 5);
+// function make_add_customer_list() {
+//   if(current_user_can('instructor') || current_user_can('administrator')):
+//     echo do_shortcode('[customer_list
+//       export_csv="true"
+//       limit="30"
+//       show_titles="true"
+//       print="true"
+//       paging="true"
+//       order_status="wc-processing,wc-completed"
+//       order_qty="true"
+//       customer_message="true"
+//       billing_email="true"
+//       order_variations="false"
+//       order_number="true"
+//       order_status_column="true"
+//     ]');
+//     echo '<hr>';
+//   endif;
+// }
+//
 
-
-add_action('woocommerce_after_single_product_summary', 'make_add_customer_list', 5);
-function make_add_customer_list() {
-  if(current_user_can('instructor') || current_user_can('administrator')):
-    echo do_shortcode('[customer_list
-      export_csv="true"
-      limit="30"
-      show_titles="true"
-      print="true"
-      paging="true"
-      order_status="wc-processing,wc-completed"
-      order_qty="true"
-      customer_message="true"
-      billing_email="true"
-      order_variations="false"
-      order_number="true"
-      order_status_column="true"
-    ]');
-    echo '<hr>';
-  endif;
-}
-
-
-
-add_action('make_shop_before_container', 'make_add_expired_notice');
-function make_add_expired_notice() {
-  if(is_single()) :
-    $status = get_post_status(get_the_ID());
-    if($status == 'expired') :
-      echo '<div class="container">';
-        echo '<div class="row">';
-          echo '<div class="col">';
-            echo '<div class="alert alert-primary" role="alert">This event is expired.</div>';
-          echo '</div>';
-        echo '</div>';
-      echo '</div>';
-    endif;
-  endif;
-}
+//
+// add_action('make_shop_before_container', 'make_add_expired_notice');
+// function make_add_expired_notice() {
+//   if(is_single()) :
+//     $status = get_post_status(get_the_ID());
+//     if($status == 'expired') :
+//       echo '<div class="container">';
+//         echo '<div class="row">';
+//           echo '<div class="col">';
+//             echo '<div class="alert alert-primary" role="alert">This event is expired.</div>';
+//           echo '</div>';
+//         echo '</div>';
+//       echo '</div>';
+//     endif;
+//   endif;
+// }
 
 
 
@@ -247,33 +247,34 @@ function make_loop_product_thumbnail() {
 
 }
 
-add_action( 'woocommerce_after_cart_item_quantity_update', 'make_add_custom_fees' );
-add_action( 'woocommerce_cart_calculate_fees','make_add_custom_fees' );
-function make_add_custom_fees($cart) {
-    if ( is_admin() && ! defined( 'DOING_AJAX' ) )
-        return;
-
-    // going through each cart items
-    foreach( WC()->cart->get_cart() as $values ) :
-        $item = $values['data'];
-        if ( empty( $item ) )
-            break;
-
-        $quantity = $values[ 'quantity' ];
-        $fees = get_field('additional_fees', $item->get_ID());
-
-        if($fees) :
-          foreach ($fees as $key => $fee) {
-            $fee_amount = $fee['fee_amount'] * $quantity;
-            $fee_name = get_the_title($item->get_ID()) . ' ' . $fee['fee_name'];
-
-            // add_fee method (TAX will NOT be applied here)
-            WC()->cart->add_fee( $fee_name . ': ', $fee_amount, false );
-          }
-        endif;
-    endforeach;
-
-}
+//
+// add_action( 'woocommerce_after_cart_item_quantity_update', 'make_add_custom_fees' );
+// add_action( 'woocommerce_cart_calculate_fees','make_add_custom_fees' );
+// function make_add_custom_fees($cart) {
+//     if ( is_admin() && ! defined( 'DOING_AJAX' ) )
+//         return;
+//
+//     // going through each cart items
+//     foreach( WC()->cart->get_cart() as $values ) :
+//         $item = $values['data'];
+//         if ( empty( $item ) )
+//             break;
+//
+//         $quantity = $values[ 'quantity' ];
+//         $fees = get_field('additional_fees', $item->get_ID());
+//
+//         if($fees) :
+//           foreach ($fees as $key => $fee) {
+//             $fee_amount = $fee['fee_amount'] * $quantity;
+//             $fee_name = get_the_title($item->get_ID()) . ' ' . $fee['fee_name'];
+//
+//             // add_fee method (TAX will NOT be applied here)
+//             WC()->cart->add_fee( $fee_name . ': ', $fee_amount, false );
+//           }
+//         endif;
+//     endforeach;
+//
+// }
 
 add_filter('woocommerce_form_field_args',  'wc_form_field_args',10,3);
   function wc_form_field_args($args, $key, $value) {
@@ -380,52 +381,52 @@ function make_woo_endpoint_title( $items, $endpoints ) {
 add_filter( 'woocommerce_account_menu_items', 'make_woo_endpoint_title', 10, 2 );
 
 
-
-
-/**
- * Save post metadata when a post is saved.
- *
- * @param int $post_id The post ID.
- * @param post $post The post object.
- * @param bool $update Whether this is an existing post being updated or not.
- */
-function save_event_date_meta( $id, $post, $update ) {
-    $post_type = get_post_type($id);
-
-    // If this isn't a 'product' post, don't update it.
-    if ( "product" != $post_type )
-      return;
-
-
-      $date = get_post_meta($id, 'WooCommerceEventsDate', true);
-
-      $color = make_get_event_color($id);
-
-
-      $event_date_unformated = get_post_meta($id, 'WooCommerceEventsDate', true);
-      if($event_date_unformated) :
-
-        $event_hour = get_post_meta($id, 'WooCommerceEventsHour', true);
-        $event_minutes = get_post_meta($id, 'WooCommerceEventsMinutes', true);
-        $event_period = get_post_meta($id, 'WooCommerceEventsPeriod', true);
-
-        $event_date = $event_date_unformated.' '.$event_hour.':'.$event_minutes.$event_period;
-
-        $event_date = str_replace('/', '-', $event_date);
-        $event_date = str_replace(',', '', $event_date);
-        $event_date = date('Y-m-d H:i:s', strtotime($event_date));
-        $event_date = str_replace(' ', 'T', $event_date);
-        $event_date = new DateTime($event_date);
-        update_post_meta( $id, 'make_event_date', $event_date);
-        update_post_meta( $id, 'make_event_date_timestamp', $event_date->format('U'));
-        update_post_meta( $id, 'WooCommerceEventsBackgroundColor', $color);
-      else :
-        $event_date = new DateTime();
-        update_post_meta( $id, 'make_event_date_timestamp', $event_date->format('U'));
-      endif;
-
-}
-add_action( 'save_post', 'save_event_date_meta', 10, 3 );
+//
+//
+// /**
+//  * Save post metadata when a post is saved.
+//  *
+//  * @param int $post_id The post ID.
+//  * @param post $post The post object.
+//  * @param bool $update Whether this is an existing post being updated or not.
+//  */
+// function save_event_date_meta( $id, $post, $update ) {
+//     $post_type = get_post_type($id);
+//
+//     // If this isn't a 'product' post, don't update it.
+//     if ( "product" != $post_type )
+//       return;
+//
+//
+//       $date = get_post_meta($id, 'WooCommerceEventsDate', true);
+//
+//       $color = make_get_event_color($id);
+//
+//
+//       $event_date_unformated = get_post_meta($id, 'WooCommerceEventsDate', true);
+//       if($event_date_unformated) :
+//
+//         $event_hour = get_post_meta($id, 'WooCommerceEventsHour', true);
+//         $event_minutes = get_post_meta($id, 'WooCommerceEventsMinutes', true);
+//         $event_period = get_post_meta($id, 'WooCommerceEventsPeriod', true);
+//
+//         $event_date = $event_date_unformated.' '.$event_hour.':'.$event_minutes.$event_period;
+//
+//         $event_date = str_replace('/', '-', $event_date);
+//         $event_date = str_replace(',', '', $event_date);
+//         $event_date = date('Y-m-d H:i:s', strtotime($event_date));
+//         $event_date = str_replace(' ', 'T', $event_date);
+//         $event_date = new DateTime($event_date);
+//         update_post_meta( $id, 'make_event_date', $event_date);
+//         update_post_meta( $id, 'make_event_date_timestamp', $event_date->format('U'));
+//         update_post_meta( $id, 'WooCommerceEventsBackgroundColor', $color);
+//       else :
+//         $event_date = new DateTime();
+//         update_post_meta( $id, 'make_event_date_timestamp', $event_date->format('U'));
+//       endif;
+//
+// }
+// add_action( 'save_post', 'save_event_date_meta', 10, 3 );
 
 
 

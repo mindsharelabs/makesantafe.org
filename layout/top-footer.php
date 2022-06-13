@@ -20,7 +20,7 @@
                   'after' => '',
                   'link_before' => '',
                   'link_after' => '',
-                  'items_wrap' => '<ul class="d-flex flex-column flex-md-row text-right">%3$s</ul>',
+                  'items_wrap' => '<ul class="d-flex flex-column flex-md-row text-end">%3$s</ul>',
                   'depth' => 1,
                   'walker' => ''
                 )
