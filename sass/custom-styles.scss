@@ -680,25 +680,7 @@ article.tool, article.certs {
   float: none;
 
 }
-.facetwp-pager {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-  .facetwp-page, .facetwp-pager-label {
-    text-align: center;
-    flex-grow: 1;
-    padding: 5px 10px;
-    background-color: $light;
-    margin: 1px;
-    a {
-      color:#fff !important;
-    }
-    &.active {
-      background-color: $primary;
-      color: #fff;
-    }
-  }
-}
+
 
 aside.sidebar {
   .certifications {

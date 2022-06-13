@@ -99,15 +99,17 @@
         <hr>
         <?php
         if($gallery) :
-          echo '<div class="card-columns">';
+          echo '<div class="row gy-3 mb-4">';
           foreach ($gallery as $key => $image) :
             $image_src = aq_resize($image['image']['url'], 400);
             if($image_src):
-              echo '<div class="card">';
-                echo '<img class="card-img-top" src="' . $image_src . '">';
-                if($image['caption']) :
-                  echo '<div class="card-body p-1">' . $image['caption'] . '</div>';
-                endif;
+              echo '<div class="col-12 col-md-4">';
+                echo '<div class="card">';
+                  echo '<img class="card-img-top" src="' . $image_src . '">';
+                  if($image['caption']) :
+                    echo '<div class="card-body small text-center p-1">' . $image['caption'] . '</div>';
+                  endif;
+                echo '</div>';
               echo '</div>';
             endif;
           endforeach;

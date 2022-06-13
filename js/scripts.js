@@ -14,7 +14,7 @@
 			}
 		);
 
-
+		$(".cert-holder").popover({ trigger: "hover" });
 
 		var windowWidth = $(window).width();
 
