@@ -45,24 +45,6 @@ if (function_exists('add_theme_support')) {
 /*------------------------------------*\
     Functions
 \*------------------------------------*/
-function mapi_var_dump($var)
-{
-    if (current_user_can('administrator')) :
-        echo '<pre>';
-          var_dump($var);
-        echo '</pre>';
-    endif;
-}
-function mapi_write_log($message) {
-    if ( WP_DEBUG === true ) {
-        if ( is_array($message) || is_object($message) ) {
-            error_log( print_r($message, true) );
-        } else {
-            error_log( $message );
-        }
-    }
-}
-
 
 function mapi_post_edit() {
   $post_type = get_post_type();
