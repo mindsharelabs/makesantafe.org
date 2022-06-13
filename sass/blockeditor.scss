@@ -59,3 +59,36 @@
   text-transform: uppercase;
   font-style: normal;
 }
+
+
+
+.card-repeater-block {
+  .card {
+    a {
+      text-decoration: none;
+    }
+    .card-header {
+      text-align: center;
+      h4 {
+        font-weight: bold;
+        
+      }
+    }
+    .card-body {
+
+    }
+    .card-footer {
+      display: grid;
+      a {
+        display: block;
+        text-align: center;
+        background: $primary;
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+  }
+
+}
