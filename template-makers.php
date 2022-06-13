@@ -59,13 +59,12 @@ $current_user_id = $current_user->ID;
                     if($user_id == $current_user_id){
                       $show_nag = 'dont_show';
                     }
-
                     $photo = get_field('photo', 'user_' . $user_id);
 
                     if(!$photo){
                       $image = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
                     } else {
-                      $image = aq_resize($photo['url'], 300, 300);
+                      $image = aq_resize($photo['url'], 400, 400);
                     }
                     // mapi_var_dump($image);
                     $title = get_field('title', 'user_' . $user_id );

@@ -100,7 +100,7 @@ $p_makers = make_get_badged_members(get_the_id());
                   } else {
                     $image = aq_resize($thumb['url'], 200, 200);
                   }
-                  echo '<div class="col-4 col-md-2">';
+                  echo '<div class="col-6 col-md-4">';
                     if($image) :
                       echo '<div class="image p-3">';
                         echo '<a href="' . $link . '">';
@@ -112,7 +112,7 @@ $p_makers = make_get_badged_members(get_the_id());
                       echo '<a href="' . $link . '">';
                         echo '<h5 class="text-center">' . $name . '</h5>';
                       echo '</a>';
-                      echo '<p class="text-center">' . $title . '</p>';
+                      echo '<p class="text-center small">' . $title . '</p>';
                     echo '</div>';
                   echo '</div>';
                 endif;
