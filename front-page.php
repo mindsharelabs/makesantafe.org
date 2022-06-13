@@ -1,7 +1,7 @@
 <?php get_header();
 include 'layout/banner.php';
 include 'layout/notice.php';
-include 'layout/signup.php';
+// include 'layout/signup.php';
 
 if(have_posts()) : while(have_posts()) :
   the_post();
@@ -14,7 +14,7 @@ if(have_posts()) : while(have_posts()) :
   echo '</div>';
 endwhile; endif;
 
-include 'layout/blocks.php';
-include 'layout/newsletter.php';
+// include 'layout/blocks.php';
+// include 'layout/newsletter.php';
 include 'layout/top-footer.php';
 get_footer();
