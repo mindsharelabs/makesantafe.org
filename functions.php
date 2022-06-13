@@ -129,6 +129,7 @@ function register_mind_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'mindblank'), // Main Navigation
+        'mobile-menu' => __('Header Menu', 'mindblank'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'mindblank'), // Sidebar Navigation
         'member-menu' => __('Member Menu', 'mindblank'), // Sidebar Navigation
         'footer-menu' => __('Footer Menu', 'mindblank'), // Sidebar Navigation
