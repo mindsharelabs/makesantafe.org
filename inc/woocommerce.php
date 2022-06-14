@@ -215,7 +215,6 @@ function make_woo_after_content_wrapper() {
     echo '</div>';
   echo '</div>';
   do_action('make_shop_after_container');
-  include get_template_directory() . '/layout/top-footer.php';
 }
 
 
