@@ -194,6 +194,22 @@ function mindblank_header_scripts()
     }
 }
 
+/*
+ * Add async attributes to enqueued scripts where needed.
+ * The ability to filter script tags was added in WordPress 4.1 for this purpose.
+ */
+
+add_filter( 'script_loader_tag', function ( $tag, $handle, $src ) {
+    // the handles of the enqueued scripts we want to async
+    $scripts = array( 'fontawesome');
+
+    if ( in_array( $handle, $scripts ) ) {
+        return '<script type="text/javascript" src="' . $src . '" data-search-pseudo-elements></script>';
+    }
+
+    return $tag;
+}, 10, 3 );
+
 
 add_action('wp', 'localize_header_svg_script');
 function localize_header_svg_script() {
