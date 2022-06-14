@@ -6,7 +6,7 @@ include 'layout/notice.php';
 <main role="main" aria-label="Content" class="container">
   <div class="row">
 
-    <section class="col-12 col-md-8 mx-auto"> 
+    <section class="col-12 col-md-8 mx-auto">
       <?php if (have_posts()): while (have_posts()) : the_post(); ?>
         <div class="col-12">
           <h1 class="single-title"><?php the_title(); ?></h1>
@@ -31,5 +31,5 @@ include 'layout/notice.php';
   <!-- /section -->
 </main>
 <?php
-include 'layout/top-footer.php';
+
 get_footer();

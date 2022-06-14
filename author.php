@@ -130,5 +130,4 @@
   <?php endif; ?>
 </main>
  <?php
- include 'layout/top-footer.php';
  get_footer();

@@ -37,5 +37,6 @@ include 'layout/notice.php';
         <!-- /section -->
     </main>
 
-<?php include 'layout/top-footer.php';
+<?php
+
 get_footer();

@@ -37,5 +37,5 @@ include 'layout/notice.php';
   </main>
 
 
-<?php include 'layout/top-footer.php';
+<?php
 get_footer();

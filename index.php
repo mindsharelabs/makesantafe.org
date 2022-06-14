@@ -18,5 +18,4 @@ echo '<section class="blog">';
 echo '</section>';
 
 
-include 'layout/top-footer.php';
 get_footer();

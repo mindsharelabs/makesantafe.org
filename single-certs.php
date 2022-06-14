@@ -125,5 +125,5 @@ $p_makers = make_get_badged_members(get_the_id());
 
 </main>
 <?php
-include 'layout/top-footer.php';
+
 get_footer();

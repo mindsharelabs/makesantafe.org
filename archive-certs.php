@@ -34,5 +34,4 @@ include 'layout/notice.php';
     <?php get_template_part('pagination'); ?>
 </main>
 <?php
-include 'layout/top-footer.php';
 get_footer();

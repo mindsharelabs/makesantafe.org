@@ -83,5 +83,4 @@ $downloads = get_field('downloads');
 
 </main>
 <?php
-include 'layout/top-footer.php';
 get_footer();

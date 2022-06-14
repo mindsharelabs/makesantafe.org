@@ -81,5 +81,4 @@ endif;
   </section>
 </main>
 <?php
-include 'layout/top-footer.php';
 get_footer();

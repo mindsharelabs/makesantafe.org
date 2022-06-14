@@ -35,5 +35,4 @@ include 'layout/notice.php';
   </div>
 </main>
 <?php
-include 'layout/top-footer.php';
 get_footer();

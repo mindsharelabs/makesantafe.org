@@ -24,7 +24,7 @@ include 'layout/notice.php';
                         </article>
                         <!-- /article -->
                     <?php endwhile; ?>
-                    <?php endif; ?> 
+                    <?php endif; ?>
 
                 </section>
             </div>
@@ -33,5 +33,6 @@ include 'layout/notice.php';
         <!-- /section -->
     </main>
 
-<?php include 'layout/top-footer.php';
+<?php
+
 get_footer();

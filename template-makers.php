@@ -104,5 +104,6 @@ $current_user_id = $current_user->ID;
             <!-- /section -->
 </main>
 
-<?php include 'layout/top-footer.php';
+<?php
+
 get_footer();
