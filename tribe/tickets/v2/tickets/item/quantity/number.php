@@ -70,7 +70,7 @@ $classes = [
 		step="1"
 		min="1"
 		max="<?php echo esc_attr( $max_at_a_time ); ?>"
-		value="0"
+		value="1"
 		autocomplete="off"
 		<?php disabled( $must_login ); ?>
 	/>
