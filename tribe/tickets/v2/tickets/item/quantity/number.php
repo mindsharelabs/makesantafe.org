@@ -70,7 +70,7 @@ $classes = [
 		step="1"
 		min="0"
 		max="<?php echo esc_attr( $max_at_a_time ); ?>"
-		value="1"
+		value="<?php echo ($has_shared_cap ? '0' : '1'); ?>"
 		autocomplete="off"
 		<?php disabled( $must_login ); ?>
 	/>
