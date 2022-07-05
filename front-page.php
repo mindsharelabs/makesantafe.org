@@ -5,13 +5,13 @@ include 'layout/notice.php';
 
 if(have_posts()) : while(have_posts()) :
   the_post();
-  echo '<div class="container pt-0">';
+  echo '<main class="container pt-0">';
       echo '<div class="row">';
-        echo '<div class="col-12">';
+        echo '<article id="post-' . get_the_ID() . '" class="' . implode(' ', get_post_class('col-12')) . '">';
           the_content();
-        echo '</div>';
+        echo '</article>';
       echo '</div>';
-  echo '</div>';
+  echo '</main>';
 endwhile; endif;
 
 

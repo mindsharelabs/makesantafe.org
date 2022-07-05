@@ -23,6 +23,37 @@
 //
 
 
+
+
+add_filter( 'render_block', 'mapi_block_wrapper', 10, 2 );
+function mapi_block_wrapper( $block_content, $block ) {
+  // mapi_write_log($block_content);
+  $noWrapper = array(
+    'core/cover',
+    // 'core/button',
+    'acf/container',
+  );
+
+  if(in_array($block['blockName'], $noWrapper)) :
+    // mapi_write_log($block['blockName']);
+    $content = '</main>';
+    $content .= '</div>';
+    $content .= '</article>';
+      $content .= $block_content;
+    $content .= '<main role="main" aria-label="Content" class="container-fluid">';
+    $content .= '<div class="row">';
+    $content .= '<article class="' . implode(' ', get_post_class('col-12 col-md mt-2 has-sidebar')) . '">';
+    return $content;
+  endif;
+
+
+
+  return $block_content;
+}
+
+
+
+
 function make_build_img_srcset($src_sizes) {
   $available_sizes = get_intermediate_image_sizes();
   if($available_sizes) :

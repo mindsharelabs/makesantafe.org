@@ -1,0 +1,94 @@
+.gform_wrapper {
+  padding: 10px;
+  p {
+    margin-bottom: 0 !important;
+  }
+  .gform_heading {
+
+  }
+  .gfield_label {
+    margin-bottom: 0 !important;
+    p {
+      margin-bottom: 0  !important;
+    }
+  }
+  form {
+    .gform_body, .gform-body {
+      input[type=text], input[type=email], input[type=tel], textarea {
+        @extend .form-control;
+      }
+      .gfield {
+        br {
+          display: none;
+        }
+        .ginput_complex {
+          justify-content: space-between;
+          & > .span {
+            p {
+              flex-grow: 1;
+            }
+            &.ginput_left {
+              flex-grow: 1;
+
+            }
+            &.ginput_right {
+              flex-grow: 1;
+            }
+          }
+          p {
+            display: block;
+            padding-right: 20px;
+            margin-bottom: 0;
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+          label {
+            display: block;
+            font-size: 14px;
+            line-height: 14px;
+            margin-bottom: 10px;
+            font-weight: 400;
+          }
+
+        }
+        .gchoice {
+          display: flex;
+          align-items: center;
+          label {
+            padding-top: 6px;
+          }
+        }
+      }
+
+
+
+
+
+
+
+
+
+      .gchoice {
+        @extend .form-check;
+        input {
+          @extend .form-check-input;
+          margin-right: 10px;
+          margin-top: 8px;
+        }
+        label {
+          @extend .form-check-label;
+        }
+      }
+    }
+    select {
+      @extend .form-select;
+    }
+    .gform_footer {
+      .gform_button, .button {
+        @extend .btn;
+        @extend .btn-primary;
+      }
+    }
+  }
+}
