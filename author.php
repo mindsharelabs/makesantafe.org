@@ -11,7 +11,8 @@
 
       $current_user_id = get_current_user_id();
       $photo = get_field('photo', 'user_' . $maker_id);
-      $image = aq_resize($photo['url'], 400, 400);
+      $image = wp_get_attachment_image( $photo['ID'], 'small-square');
+
       $gallery = get_field('image_gallery', 'user_' . $maker_id );
       $bio = get_field('bio','user_' . $maker_id);
       $name = get_field('display_name', 'user_' . $maker_id );
@@ -51,7 +52,7 @@
 
         if($image):
           echo '<div class="maker-image">';
-            echo '<img src="' . $image . '" title="' . $name . '" alt="' . $name . '">';
+            echo $image;
           echo '</div>';
         endif;
 
@@ -101,11 +102,12 @@
         if($gallery) :
           echo '<div class="row gy-3 mb-4">';
           foreach ($gallery as $key => $image) :
-            $image_src = aq_resize($image['image']['url'], 400);
-            if($image_src):
+
+            $image_elem = wp_get_attachment_image( $image['image']['ID'], 'small-square', false, array('class' => 'card-img-top'));
+            if($image_elem):
               echo '<div class="col-12 col-md-4">';
                 echo '<div class="card">';
-                  echo '<img class="card-img-top" src="' . $image_src . '">';
+                  echo $image_elem;
                   if($image['caption']) :
                     echo '<div class="card-body small text-center p-1">' . $image['caption'] . '</div>';
                   endif;

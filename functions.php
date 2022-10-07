@@ -12,7 +12,6 @@ define('THEME_VERSION', '3.2.4');
 include_once 'inc/content-functions.php';
 include_once 'inc/cpt.php';
 include_once 'inc/acf-functions.php';
-include_once 'inc/aq_resize.php';
 include_once 'inc/woocommerce.php';
 include_once 'inc/gravity-forms.php';
 
@@ -25,6 +24,13 @@ if (!isset($content_width)) {
 }
 
 if (function_exists('add_theme_support')) {
+
+    add_image_size('small-square', 300, 300, array('center', 'center'));
+    add_image_size('page-header', 1500, 300, array('center', 'center'));
+    add_image_size('horz-thumbnail', 300, 150, array('center', 'center'));
+
+
+
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
@@ -82,12 +88,6 @@ function make_post_type_archive( $query ) {
       $query->set( 'order', 'ASC' );
   }
 
-  if ( $query->is_main_query() && !is_admin() && $query->is_tax('product_cat')) {
-      $query->set( 'post_status', 'publish' );
-      $query->set('meta_key', 'make_event_date_timestamp' );
-      $query->set('orderby', 'meta_value date title');
-      $query->set('order', 'ASC' );
-  }
 
 }
 

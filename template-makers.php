@@ -64,7 +64,7 @@ $current_user_id = $current_user->ID;
                     if(!$photo){
                       $image = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
                     } else {
-                      $image = aq_resize($photo['url'], 400, 400);
+                      $image = wp_get_attachment_image( $photo['ID'], 'small-square', false, array('class' => 'rounded-circle'));
                     }
                     // mapi_var_dump($image);
                     $title = get_field('title', 'user_' . $user_id );
@@ -74,7 +74,7 @@ $current_user_id = $current_user->ID;
                     echo '<div class="col-6 col-md-3 mb-3">';
                       echo '<div class="maker-photo p-2">';
                         echo '<a href="' . $link . '" title="' . $name . '">';
-                          echo '<img src="' . $image . '" class="rounded-circle border"/>';
+                          echo $image;
                         echo '</a>';
                       echo '</div>';
                       echo '<div class="content">';

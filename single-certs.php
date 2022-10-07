@@ -50,11 +50,11 @@ $p_makers = make_get_badged_members(get_the_id());
                           echo '<h4>With this badge you gain access to: </h3>';
                         echo '</div>';
                         foreach($tools as $tool) :
-                          $thumb = get_the_post_thumbnail_url( $tool->ID, 'full');
-                          $image = aq_resize($thumb, 400, 200);
+                          $image = get_the_post_thumbnail( $tool->ID, 'small-square', array('class'=> 'card-img-top') );
+
                           echo '<div class="col-12 col-md-3 mb-3">';
                             echo '<div class="card mb-3 h-100">';
-                              echo '<img class="card-img-top" src="' . $image . '">';
+                              echo $image;
                               echo '<div class="card-body p-1 d-flex flex-column">';
                                 echo '<h5 class="text-center">' . $tool->post_title . '</h5>';
                                 //echo '<p>' . get_field('short_description', $tool->ID) . '</p>';
@@ -98,13 +98,13 @@ $p_makers = make_get_badged_members(get_the_id());
                   if(!$thumb){
                     $image = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
                   } else {
-                    $image = aq_resize($thumb['url'], 200, 200);
+                    $image = wp_get_attachment_image( $thumb['ID'], 'small-square', false, array('alt' => $name, 'class' => 'rounded-circle'));
                   }
                   echo '<div class="col-6 col-md-4">';
                     if($image) :
                       echo '<div class="image p-3">';
                         echo '<a href="' . $link . '">';
-                          echo '<img src="' . $image . '" class="rounded-circle" alt="' . $name . '">';
+                          echo $image;
                         echo '</a>';
                       echo '</div>';
                     endif;

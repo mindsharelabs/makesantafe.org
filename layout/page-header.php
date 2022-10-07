@@ -2,8 +2,7 @@
 if(get_field('show_header')) :
 	$color = get_field('color');
 	if(has_post_thumbnail()){
-		$thumb = get_the_post_thumbnail_url( get_the_id(), 'full');
-		$image = aq_resize($thumb, 1500, 300);
+		$image = get_the_post_thumbnail_url( get_the_id(), 'page-header');
 		$background_str = 'background-image: url(' . $image . ')';
 		$color = '#fff';
 		$fill = 'transparent';

@@ -5,7 +5,6 @@ include 'layout/notice.php';
 
   <main role="main" aria-label="Content" <?php post_class('container'); ?>>
     <section class="container blog">
-      <?php rewind_posts(); ?>
       <div class="row">
         <div class="col-12">
           <h1 class="mt-3 mb-2 section-title"><?php _e('Posted in ', 'mindblank'); single_cat_title(); ?></h1>
@@ -14,11 +13,11 @@ include 'layout/notice.php';
           <div class="row">
             <?php
             while (have_posts()) : the_post();
-              $image_url = aq_resize(get_the_post_thumbnail_url(), 300, 150, true, true);
+
               echo '<div class="col-12 col-md-4 mb-3">';
                 echo '<div class="card h-100">';
                   if(has_post_thumbnail()) :
-                    echo '<img src="' . $image_url . '" class="card-img-top loop-card" alt="' . the_title_attribute(array('echo' => false)) . '">';
+                    the_post_thumbnail( $size = 'medium', array('class' => 'card-img-top loop-card') )
                   endif;
                   echo '<div class="card-body">';
                     echo '<h5 class="card-title">' . get_the_title() . '</h5>';
@@ -31,7 +30,7 @@ include 'layout/notice.php';
           </div>
         </div>
       </div>
-      <?php get_template_part('pagination'); ?>
+      <?php //get_template_part('pagination'); ?>
     </section>
       <!-- /section -->
   </main>

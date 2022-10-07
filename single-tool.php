@@ -3,14 +3,13 @@ include 'layout/page-header.php';
 include 'layout/notice.php';
 
 if(has_post_thumbnail()){
-  $thumb = get_the_post_thumbnail_url( get_the_id(), 'full');
-  $image = aq_resize($thumb, 400, 400);
+  $image = get_the_post_thumbnail_url( get_the_id(), 'small-square');
 }
 $downloads = get_field('downloads');
 ?>
 <main role="main" aria-label="Content" class="container">
   <div class="row">
-    <?php get_sidebar('tool'); ?>
+    <?php get_sidebar(); ?>
     <div class="col-12 col-md has-sidebar">
       <!-- section -->
       <section class="mt-4">
@@ -55,9 +54,9 @@ $downloads = get_field('downloads');
               <div class="d-flex">
                 <?php
                 foreach($gallery as $image) :
-                  $image_url = aq_resize($image['url'], 300, 300);
+                  $image_url = wp_get_attachment_image( $image['id'], 'small-square');
                   echo '<div class="tool-image p-1">';
-                    echo '<img src="' . $image_url . '">';
+                    echo $image_url;
                   echo '</div>';
                 endforeach;
                 ?>

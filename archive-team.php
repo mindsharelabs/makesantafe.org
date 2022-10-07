@@ -17,8 +17,7 @@ if(have_posts()):
     $post_terms = wp_get_post_terms( get_the_id(), 'role');
     foreach($post_terms as $post_term) :
       if(has_post_thumbnail()){
-        $thumb = get_the_post_thumbnail_url( get_the_id(), 'full');
-        $image = aq_resize($thumb, 300, 300);
+        $image = get_the_post_thumbnail_url( get_the_id(), 'small-square');
       } else {
         $image = get_template_directory_uri() . '/img/nophoto.svg';
       }

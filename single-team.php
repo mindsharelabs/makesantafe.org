@@ -2,10 +2,6 @@
 include 'layout/page-header.php';
 include 'layout/notice.php';
 
-if(has_post_thumbnail()){
-  $thumb = get_the_post_thumbnail_url( get_the_id(), 'full');
-  $image = aq_resize($thumb, 400, 400);
-}
 ?>
 <main role="main" aria-label="Content" class="container">
     <div class="row">
@@ -31,11 +27,11 @@ if(has_post_thumbnail()){
                 <hr class="clear">
                 <?php if (have_posts()): while (have_posts()) : the_post();
 
-                if($image) : ?>
-                  <div class="col-12 col-md-4">
-                    <img class="rounded-circle" src="<?php echo $image; ?>" title="<?php the_title_attribute(); ?>"/>
-                  </div>
-                <?php endif; ?>
+                if(has_post_thumbnail()) :
+                  echo '<div class="col-12 col-md-4">';
+                    the_post_thumbnail( 'small-square', array('class' => 'rounded-circle') )
+                  echo '</div>';
+                endif; ?>
                 <div class="col-12 col-md-8">
                   <?php the_content();?>
                 </div>

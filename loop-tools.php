@@ -1,8 +1,5 @@
 <?php
-if (has_post_thumbnail()) :
-  $image = get_the_post_thumbnail_url();
-  $image_url = aq_resize($image, 300, 300, true);
-endif;
+
 $terms = get_the_terms(get_the_ID(), 'tool_type');
 ?>
 <!-- article -->
@@ -10,9 +7,9 @@ $terms = get_the_terms(get_the_ID(), 'tool_type');
     <div class="row">
         <div class="col-4 col-md-2 pl-0">
           <!-- post image -->
-          <?php if(isset($image_url)) : ?>
+          <?php if(has_post_thumbnail()) : ?>
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-              <img class="rounded-circle" src="<?php echo $image_url; ?>" alt="<?php the_title_attribute(); ?>">
+              <?php the_post_thumbnail( 'small-square', array('class' => 'rounded-circle') ); ?>
             </a>
           <?php endif; ?>
           <!-- /post image -->
