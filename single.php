@@ -13,16 +13,7 @@ include 'layout/notice.php';
         </div>
         <!-- article -->
         <article id="post-<?php the_ID(); ?>" <?php post_class('col-12'); ?>>
-          <?php
-            if (has_post_thumbnail()) : // Check if thumbnail exists
-              $image_id = get_post_thumbnail_id();
-              $image = wp_get_attachment_image($image_id, 'medium_large');
-            echo '<a itemprop="thumbnailUrl" class="mb-2 d-block" href="' . get_the_permalink() . '" title="' . the_title_attribute(array('echo' => false)) . '">';
-              echo $image;
-            echo '</a>';
-          endif;
-          the_content();
-          ?>
+          <?php the_content(); ?>
         </article>
         <!-- /article -->
 
