@@ -62,8 +62,10 @@ $current_user_id = $current_user->ID;
                     $photo = get_field('photo', 'user_' . $user_id);
 
                     if(!$photo){
-                      $image = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
+                      $image_url = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
+                      $image = '<img src="' . $image_url . '" class="rounded-circle"/>';
                     } else {
+
                       $image = wp_get_attachment_image( $photo['ID'], 'small-square', false, array('class' => 'rounded-circle'));
                     }
                     // mapi_var_dump($image);

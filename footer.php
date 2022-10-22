@@ -64,8 +64,6 @@
 		include get_template_directory() . '/img/menuToggle.svg';
 	echo '</nav>';
 
-
-
 wp_footer(); ?>
 
 

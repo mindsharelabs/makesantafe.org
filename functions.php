@@ -25,7 +25,7 @@ if (!isset($content_width)) {
 
 if (function_exists('add_theme_support')) {
 
-    add_image_size('small-square', 300, 300, array('center', 'center'));
+    add_image_size('small-square', 400, 400, array('center', 'center'));
     add_image_size('page-header', 1500, 300, array('center', 'center'));
     add_image_size('horz-thumbnail', 300, 150, array('center', 'center'));
 
