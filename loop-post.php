@@ -22,7 +22,7 @@ $cats = wp_get_post_categories(get_the_id(), array('fields' => 'id=>name'));
       if(count($cats) > 0) :
         echo '<div class="categories mb-2 w-100">';
         foreach ($cats as $key => $cat) :
-          echo '<a href="' . get_term_link($key, 'category') . '" class="text-muted pr-2" title="' . $cat . '">' . $cat . '</a>';
+          echo '<a href="' . get_term_link($key, 'category') . '" class="small text-muted pr-2" title="' . $cat . '">' . $cat . '</a>';
           if(next($cats)) :
             echo ' | ';
           endif;
@@ -36,6 +36,6 @@ $cats = wp_get_post_categories(get_the_id(), array('fields' => 'id=>name'));
 
 
     </div>
-    <a href="<?php the_permalink(); ?>" class="btn btn-block btn-default">Read More <i class="far fa-long-arrow-right"></i></a>
+    <a href="<?php the_permalink(); ?>" class="btn btn-block btn-default m-2">Read More <i class="far fa-long-arrow-right"></i></a>
   </div>
 </article>

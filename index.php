@@ -5,6 +5,7 @@ echo '<section class="blog">';
   echo '<div class="container">';
     echo '<div class="row pt-5">';
       if(have_posts()) :
+        echo '<h1 class="text-center">Our Blog</h1>';
         while(have_posts()) : the_post();
           get_template_part( 'loop-' . $post->post_type );
         endwhile;

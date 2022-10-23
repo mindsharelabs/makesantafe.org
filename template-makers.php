@@ -56,14 +56,14 @@ $current_user_id = $current_user->ID;
                     $name = $user_info->user_nicename;
                   endif;
                   mapi_write_log($public);
-                  if($public == 'TRUE') :
+                  if($public == TRUE) :
                     if($user_id == $current_user_id){
                       $show_nag = 'dont_show';
                     }
                     $photo = get_field('photo', 'user_' . $user_id);
 
                     if(!$photo){
-                      $image_url = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
+                      $image_url = get_template_directory_uri() . '/img/nophoto.svg';
                       $image = '<img src="' . $image_url . '" class="rounded-circle"/>';
                     } else {
 
