@@ -55,6 +55,7 @@ $current_user_id = $current_user->ID;
                     $user_info = get_userdata( $user_id );
                     $name = $user_info->user_nicename;
                   endif;
+                  mapi_write_log($public);
                   if($public == 'TRUE') :
                     if($user_id == $current_user_id){
                       $show_nag = 'dont_show';
