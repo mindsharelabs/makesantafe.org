@@ -178,7 +178,7 @@ function mindblank_header_scripts()
           'ajax_url' => admin_url( 'admin-ajax.php' )
         ));
 
-
+      
         wp_register_script('fontawesome', 'https://kit.fontawesome.com/5bcc5329ee.js', array(), THEME_VERSION, true);
         wp_enqueue_script('fontawesome');
         add_action('wp_head', function() {
