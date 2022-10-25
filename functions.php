@@ -58,17 +58,13 @@ function mapi_post_edit() {
   edit_post_link( 'Edit this ' . $post_type_obj->labels->singular_name, '', '', get_the_id(), 'btn btn-sm btn-info mt-3 mb-3 float-right post-edit-link' );
 }
 
+
 add_action('init', 'make_add_instructor_role');
 function make_add_instructor_role(){
     global $wp_roles;
     if ( ! isset( $wp_roles ) )
       $wp_roles = new WP_Roles();
-      $wp_roles->remove_role("bbp_keymaster");
-      $wp_roles->remove_role("bbp_moderator");
-      $wp_roles->remove_role("bbp_participant");
-      $wp_roles->remove_role("bbp_spectator");
-      $wp_roles->remove_role("member-other");
-      $wp_roles->remove_role("bbp_blocked");
+
       $cust = $wp_roles->get_role('customer');
       //Adding a 'new_role' with all admin caps
       $wp_roles->add_role('instructor', 'Instructor', $cust->capabilities);
