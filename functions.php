@@ -59,13 +59,16 @@ function mapi_post_edit() {
 }
 
 add_action('init', 'make_add_instructor_role');
-
-function make_add_instructor_role()
-{
+function make_add_instructor_role(){
     global $wp_roles;
     if ( ! isset( $wp_roles ) )
       $wp_roles = new WP_Roles();
-
+      $wp_roles->remove_role("bbp_keymaster");
+      $wp_roles->remove_role("bbp_moderator");
+      $wp_roles->remove_role("bbp_participant");
+      $wp_roles->remove_role("bbp_spectator");
+      $wp_roles->remove_role("member-other");
+      $wp_roles->remove_role("bbp_blocked");
       $cust = $wp_roles->get_role('customer');
       //Adding a 'new_role' with all admin caps
       $wp_roles->add_role('instructor', 'Instructor', $cust->capabilities);
@@ -178,7 +181,7 @@ function mindblank_header_scripts()
           'ajax_url' => admin_url( 'admin-ajax.php' )
         ));
 
-      
+
         wp_register_script('fontawesome', 'https://kit.fontawesome.com/5bcc5329ee.js', array(), THEME_VERSION, true);
         wp_enqueue_script('fontawesome');
         add_action('wp_head', function() {
