@@ -19,5 +19,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "sass": "^1.55.0"
+  },
+  "type": "module"
 }

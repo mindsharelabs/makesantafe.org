@@ -10,3 +10,15 @@ header.tribe-events-header {
     }
   }
 }
+
+
+ul.tribe-related-events {
+  li {
+    background-color: none !important;
+    border: 0px !important;
+    .tribe-related-event-info {
+      padding: 15px;
+      font-size: 1.2em;
+    }
+  }
+}
