@@ -9,31 +9,32 @@ Snap.load( svgvars.logo, function(f) {
 		var introLogo = introHeader.select('#intro-logo');
 		var top = introHeader.select('#top');
 		var bottom = introHeader.select('#bottom');
+		var circut = introHeader.select('#circut');
+    var word = introHeader.select('#make');
+    var santafe = introHeader.select('#santafe');
+    word.animate({opacity: "0"}, 0);
+    santafe.animate({opacity: "0"}, 0);
 
-		introLogo.attr({
-	    viewBox: "0 0 320 480"
-	  });
+
+
 
 		top.transform("t138,70");
 		bottom.transform("t-140,-65");
 
-
-		var t1 = introLogo.text(50,120,'MAKE').attr({ fontSize: '90px','fill':'black' ,fontWeight: 700, "text-anchor": "right",'opacity': '0' });
-		var t2 = introLogo.text(100,183,'santa fe').attr({ fontSize: '56px','fill':'black' , fontWeight: 400, "text-anchor": "right" ,'opacity': '0'});
-
-
-		 setTimeout(function() {
+		setTimeout(function() {
 		  top.animate({ transform: 't0,0'}, 800);
 			bottom.animate({ transform: 't0,0'}, 800, function(){
-				t1.animate({
-          opacity:"1"
-        },1000);
-				t2.animate({
-          opacity:"1"
-        },1000);
-        addCircuit();
+        word.animate({opacity: "1"}, 1000);
+        santafe.animate({opacity: "1"}, 1000);
 			});
     }, 200);
+
+
+    setTimeout(function() {
+      circut.animate({
+        opacity:"1"
+      },1300);
+    }, 1000);
 
 
 
@@ -69,12 +70,3 @@ Snap.load( svgvars.logo, function(f) {
 // 	});
 //
 // }
-
-function addCircuit(){
-
-	Snap.load( svgvars.circuit, function(f) {
-			var circuits = introHeader.append(f).attr({opacity: 0});
-			circuits.animate({opacity:"1" },1000);
-	});
-
-}
