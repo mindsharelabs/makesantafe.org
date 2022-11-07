@@ -23,48 +23,52 @@ Snap.load( svgvars.logo, function(f) {
 
 
 		 setTimeout(function() {
-		  top.animate({ transform: 't0,0'}, 1000);
-			bottom.animate({ transform: 't0,0'}, 1000, function(){
-				t1.animate({opacity:"1"},1000);
+		  top.animate({ transform: 't0,0'}, 800);
+			bottom.animate({ transform: 't0,0'}, 800, function(){
+				t1.animate({
+          opacity:"1"
+        },1000);
 				t2.animate({
           opacity:"1"
         },1000);
-      switchHeader();
+        addCircuit();
 			});
-    }, 100);
+    }, 200);
+
+
 
 });
 
 
-
-function switchHeader(){
-	Snap.load( svgvars.intro, function(f) {
-		var dd = introHeader.text("50%", 30, svgvars.words ).attr({
-      class: 'bigtext',
-      'fill':svgvars.color,
-      fontWeight: 400,
-      "text-anchor":"middle",
-      'opacity': '0'
-    }).transform("t-0,100");
-
-		//logo.animate({opacity:"1"},2000);
-
-		introHeader.select('#intro-logo').animate({opacity:"0"},2000, function(){
-		  var banner = introHeader.append(f).attr({opacity: 0});
-  		banner.animate({opacity:"1" },1000);
-      dd.animate({
-        opacity:"1",
-        transform: 't0,0'
-      },1000);
-		introHeader.selectAll("#banner .fills").attr({fill: '#A8A9AC'});
-		addCircuit();
-
-
-	});
-
-	});
-
-}
+//
+// function switchHeader(){
+// 	Snap.load( svgvars.intro, function(f) {
+// 		var dd = introHeader.text("50%", 30, svgvars.words ).attr({
+//       class: 'bigtext',
+//       'fill':svgvars.color,
+//       fontWeight: 400,
+//       "text-anchor":"middle",
+//       'opacity': '0'
+//     }).transform("t-0,100");
+//
+// 		//logo.animate({opacity:"1"},2000);
+//
+// 		introHeader.select('#intro-logo').animate({opacity:"1"},2000, function(){
+// 		  var banner = introHeader.append(f).attr({opacity: 0});
+//   		banner.animate({opacity:"1" },1000);
+//       dd.animate({
+//         opacity:"1",
+//         transform: 't0,0'
+//       },1000);
+// 		introHeader.selectAll("#banner .fills").attr({fill: '#A8A9AC'});
+//
+//
+//
+// 	});
+//
+// 	});
+//
+// }
 
 function addCircuit(){
 
