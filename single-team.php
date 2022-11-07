@@ -29,7 +29,7 @@ include 'layout/notice.php';
 
                 if(has_post_thumbnail()) :
                   echo '<div class="col-12 col-md-4">';
-                    the_post_thumbnail( 'small-square', array('class' => 'rounded-circle') )
+                    the_post_thumbnail( 'small-square', array('class' => 'rounded-circle') );
                   echo '</div>';
                 endif; ?>
                 <div class="col-12 col-md-8">
