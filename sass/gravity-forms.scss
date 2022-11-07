@@ -92,3 +92,78 @@
     }
   }
 }
+
+
+/* Buttonize Radio & Checkbox Fields */
+
+.gform_wrapper .gfield.buttonized {
+  background-color: #f7f7f7;
+  padding: 10px;
+
+  input {
+    &[type="radio"], &[type="checkbox"] {
+      position: absolute;
+      left: -9999px;
+    }
+  }
+  .gfield_label {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .gfield_radio, .gfield_checkbox  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+
+    .gchoice {
+      flex-grow: 1;
+      padding: 10px;
+      position: relative;
+      text-align: center;
+      label {
+        @extend .btn;
+        @extend .btn-success;
+        width: 100%;
+        display: block !important;
+
+        max-width: 100%;
+
+        cursor: pointer;
+      }
+    }
+
+  }
+
+
+  input {
+    &[type="radio"]:focus + label, &[type="checkbox"]:focus + label {
+      border-color: #040404;
+    }
+
+    &[type="radio"]:checked + label, &[type="checkbox"]:checked + label {
+      overflow: hidden;
+      background-color: darken($success, 5%);
+    }
+
+    &[type="radio"]:checked + label::before, &[type="checkbox"]:checked + label::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 7px;
+      right: auto;
+      width: 40px;
+      height: 40px;
+      background-image: url(../img/checkmark.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      border-radius: 0;
+      border: 0;
+    }
+  }
+
+  .gfield_radio label::before, .gfield_checkbox label::before {
+    display: none;
+  }
+}
