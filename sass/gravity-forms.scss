@@ -124,6 +124,10 @@
       label {
         @extend .btn;
         @extend .btn-success;
+        background-color: rgb(227 253 209);
+        padding: 15px 10px;
+        font-size: 1.1em;
+        color: green;
         width: 100%;
         display: block !important;
 
@@ -138,12 +142,13 @@
 
   input {
     &[type="radio"]:focus + label, &[type="checkbox"]:focus + label {
-      border-color: #040404;
+      border-color: $dark;
     }
 
     &[type="radio"]:checked + label, &[type="checkbox"]:checked + label {
       overflow: hidden;
-      background-color: darken($success, 5%);
+      background-color: #5db720;
+      color: $dark;
     }
 
     &[type="radio"]:checked + label::before, &[type="checkbox"]:checked + label::before {
