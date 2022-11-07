@@ -48,6 +48,14 @@ if (function_exists('add_theme_support')) {
 
 }
 
+function make_param_shortcode( $atts ) {
+    extract( shortcode_atts( array(
+        'param' => 'param',
+    ), $atts ) );
+    return $_GET[$param];
+}
+add_shortcode('urlparam', 'make_param_shortcode'); 
+
 /*------------------------------------*\
     Functions
 \*------------------------------------*/
