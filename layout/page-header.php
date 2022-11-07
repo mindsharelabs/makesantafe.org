@@ -47,6 +47,13 @@ if(get_field('show_header')) :
 		#intro-logo-load #banner .lines, #intro-logo-load .fills {
 			stroke: <?php echo $stroke; ?>
 		}
+		#circuits .lines{
+			stroke: #fff !important;
+		}
+		#circuits .circles {
+			fill: #fff !important;
+			stroke: #fff !important;
+		}
 	</style>
 	<header class="page-header container-fluid" style="<?php echo $background_str; ?>">
 	  <div class="header-padding">
@@ -57,7 +64,7 @@ if(get_field('show_header')) :
 	</header>
 	<?php
 elseif(is_product()) :
-		echo '<header class="header-padding shop-header">';
+		echo '<header class="shop-header">';
 			echo '<div class="header-padding">';
 				echo '<div id="intro-logo-holder">';
 					echo '<svg id="intro-logo-load" width="100%" height="100%" ></svg>';
@@ -65,7 +72,7 @@ elseif(is_product()) :
 			echo '</div>';
 		echo '</header>';
 elseif(is_product_category()) :
-		echo '<header class="header-padding shop-header">';
+		echo '<header class="shop-header">';
 			echo '<div class="header-padding">';
 				echo '<div id="intro-logo-holder">';
 					echo '<svg id="intro-logo-load" width="100%" height="100%" ></svg>';
@@ -73,7 +80,7 @@ elseif(is_product_category()) :
 			echo '</div>';
 		echo '</header>';
 else :
-	echo '<header class="header-padding mb-5 mt-4">';
+	echo '<header class="mb-5 mt-4">';
 		echo '<div class="row">';
 			echo '<div class="col-12">';
 
