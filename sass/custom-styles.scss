@@ -130,31 +130,40 @@ header.top-header {
   }
 
   nav.header-menu {
+    border-top: 1px solid $light;
+    border-bottom: 1px solid $light;
     ul {
       margin: 0;
       padding: 0;
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
+      justify-content: center;
+      flex-wrap: nowrap;
       width: 100%;
       list-style: none;
       line-height: 1em;
-      font-size: .9em;
+      font-weight: bold;
+
       white-space: nowrap;
       li {
         padding: 0;
+        flex-grow:1;
+        display: block;
         position: relative;
+        text-transform: uppercase;
+        font-size: .9em;
+        letter-spacing: 2px;
         a {
           color: $primary;
-          padding: 5px 10px;
+          padding: 10px 10px;
           display: block;
           text-decoration: none;
-          border-bottom: 3px solid transparent;
+          border-top: 3px solid transparent;
           @include transition(500ms);
         }
         &.current_page_item, &:hover {
           & > a {
-            border-bottom: 3px solid $primary;
+            border-top: 3px solid $primary;
             @include transition(100ms);
           }
           ul.children {
@@ -165,9 +174,9 @@ header.top-header {
 
         }
         &.menu-item-has-children, &.page_item_has_children {
-          & > a {
-            padding-right: 25px;
-          }
+          // & > a {
+          //   padding-right: 25px;
+          // }
           ul.children,ul.sub-menu {
             height: 0;
             overflow: hidden;
@@ -183,6 +192,11 @@ header.top-header {
             li {
               a {
                 padding: 10px 15px;
+                text-align: center;
+                &:hover {
+                  background: #fafafa;
+                  border-top: 3px solid transparent;
+                }
               }
             }
           }
@@ -203,30 +217,42 @@ header.top-header {
               }
             }
           }
-          &:after {
-            display: inline-block;
-            font-style: normal;
-            font-variant: normal;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            font-family: "Font Awesome 6 Pro";
-            font-weight: 900;
-            content: "\f078";
-            position: absolute;
-            top: 5px;
-            right: 8px;
-            color: $primary;
-            font-size: .85em;
-            display: none;
+
+          & > a {
+            &:after {
+              display: inline-block;
+              font-style: normal;
+              font-variant: normal;
+              text-rendering: auto;
+              -webkit-font-smoothing: antialiased;
+              font-family: "Font Awesome 6 Pro";
+              font-weight: 900;
+              content: "\f078";
+              position: absolute;
+              display: none;
+            }
+            svg {
+              color: $primary;
+              font-size: .75em;
+              position: initial;
+              margin-left: 10px;
+              margin-bottom: 2px;
+            }
           }
-          svg {
-            font-size: .75em;
-            position: absolute;
-            top: 7px;
-            right: 8px;
-            color: $primary;
+
+        }
+
+        &.standout {
+          a {
+            background: $primary;
+            color: $light;
+            font-weight: bold;
+            &:hover {
+              background: darken($primary, 10%);
+            }
           }
         }
+
       }
 
     }
@@ -433,7 +459,7 @@ header.top-header {
 
 
 .header-padding {
-  margin-top: 70px;
+  margin-top: 117px;
 }
 
 #certs {

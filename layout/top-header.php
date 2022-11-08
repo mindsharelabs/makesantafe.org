@@ -1,4 +1,4 @@
-<header class="header top-header container-fluid" role="banner">
+<header class="header top-header" role="banner">
   <div class="container pt-2">
     <div class="row justify-content-between">
         <div class="col-2 my-1 make-logo">
@@ -7,12 +7,8 @@
           </a>
         </div>
 
-        <div class="col-8 my-auto d-none d-md-block">
-          <nav class="header-menu desktop text-end">
-            <?php mindblank_nav('header-menu'); ?>
-          </nav>
-        </div>
-        <div class="col-10 col-md-2 text-end my-auto">
+
+        <div class="col-10 offset-0 offset-md-8 col-md-2 text-end my-auto">
             <?php
             if($icons = get_field('header_icons', 'options')) :
               foreach ($icons as $icon) :
@@ -25,5 +21,19 @@
           </div>
 
     </div>
+    <div class="row">
+
+    </div>
   </div>
+
+    <nav class="header-menu desktop text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 my-auto d-none d-md-block">
+              <?php mindblank_nav('header-menu'); ?>
+          </div>
+        </div>
+      </div>
+    </nav>
+
 </header>
