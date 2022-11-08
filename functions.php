@@ -4,7 +4,7 @@
  * URL: https://mind.sh/are | @mindblank
  *
  */
-define('THEME_VERSION', '3.2.5');
+define('THEME_VERSION', '3.3.5');
 /*------------------------------------*\
     External Modules/Files
 \*------------------------------------*/
@@ -54,7 +54,7 @@ function make_param_shortcode( $atts ) {
     ), $atts ) );
     return $_GET[$param];
 }
-add_shortcode('urlparam', 'make_param_shortcode'); 
+add_shortcode('urlparam', 'make_param_shortcode');
 
 /*------------------------------------*\
     Functions
