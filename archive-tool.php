@@ -15,7 +15,7 @@ include 'layout/notice.php';
               echo '</h1>';
             echo '</div>';
             echo '<div class="header-flex-svg">';
-              include get_template_directory() . '/inc/svgheader.php';
+              include get_template_directory() . '/inc/svgheader.svg';
             echo '</div>';
           echo '</header>';
         echo '</div>';

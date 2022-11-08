@@ -35,7 +35,7 @@ $current_user_id = $current_user->ID;
                   echo '</h1>';
             		echo '</div>';
             		echo '<div class="header-flex-svg">';
-            			include get_template_directory() . '/inc/svgheader.php';
+            			include get_template_directory() . '/inc/svgheader.svg';
             		echo '</div>';
               echo '</header>';
               echo '<hr class="clear">';
@@ -55,7 +55,7 @@ $current_user_id = $current_user->ID;
                     $user_info = get_userdata( $user_id );
                     $name = $user_info->user_nicename;
                   endif;
-                
+
                   if($public == TRUE) :
                     if($user_id == $current_user_id){
                       $show_nag = 'dont_show';

@@ -80,7 +80,7 @@ elseif(is_product_category()) :
 			echo '</div>';
 		echo '</header>';
 else :
-	echo '<header class="mb-5 mt-4">';
+	echo '<header class="header-padding>';
 		echo '<div class="row">';
 			echo '<div class="col-12">';
 
