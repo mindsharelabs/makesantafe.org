@@ -34,7 +34,7 @@ Snap.load( svgvars.logo, function(f) {
     setTimeout(function() {
       circut.animate({
         opacity:"1"
-      },400);
+      },3000);
 
       objects.animate({
         opacity: "1"
