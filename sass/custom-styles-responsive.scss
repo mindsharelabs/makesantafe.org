@@ -21,6 +21,9 @@
 // the defined @grid-float-breakpoint-max (usually 767px).
 
 @media (max-width: map-get($grid-breakpoints, md)) {
+  #main-panel {
+    margin-top: 10px;
+  }
   #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
     font-size: 20px;
   }
@@ -51,6 +54,9 @@
 //lg: 992px,
 //xl: 1200px
 @media (max-width: 576px) {
+  #main-panel {
+    margin-top: 10px;
+  }
   .admin-bar {
     header.top-header, .slideout-menu {
       margin-top: 46px;
@@ -119,7 +125,9 @@
 
 // Small styles - default: 480px <= x <= 991px
 @media (min-width: 576px) and (max-width: 992px) {
-
+  #main-panel {
+    margin-top: 100px;
+  }
   .admin-bar {
     header.top-header, .slideout-menu {
       margin-top: 32px;
@@ -144,6 +152,9 @@
 
 // Medium styles - default: 992px <= x <= 1199px
 @media (min-width: 992px) and (max-width: 1200px) {
+  #main-panel {
+    margin-top: 120px;
+  }
   .admin-bar {
     header.top-header, .slideout-menu {
       margin-top: 32px;
@@ -168,6 +179,9 @@
 
 // Large styles - default: 1200px <= x
 @media (min-width: 1200px) {
+  #main-panel {
+    margin-top: 160px;
+  }
   .admin-bar {
     header.top-header, .slideout-menu {
       margin-top: 32px;
