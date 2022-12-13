@@ -9,19 +9,15 @@ $social_media = get_field('social_media', get_the_ID());
 		echo '<div class="sidebar-content">';
 
 
-    echo '<h3 class="fancy">Filter Tools</h3>';
-    ob_start();
-      include get_template_directory() . '/inc/header-back.php';
-    echo ob_get_clean();
+      echo '<h3 class="fancy">Filter Tools</h3>';
+      ob_start();
+        include get_template_directory() . '/inc/header-back.php';
+      echo ob_get_clean();
 
-    echo '<div class="clear related_content">';
-      echo '<h5>Filter by Type</h5>';
-      echo facetwp_display( 'facet', 'tool_type' );
-    echo '</div>';
-    echo '<div class="clear related_content">';
-      echo '<h5>Filter by Tag</h5>';
-      echo facetwp_display( 'facet', 'tool_tag' );
-    echo '</div>';
+      echo '<div class="clear related_content">';
+        echo '<h5>Filter by Type</h5>';
+        echo facetwp_display( 'facet', 'tool_type' );
+      echo '</div>';
 
 
 

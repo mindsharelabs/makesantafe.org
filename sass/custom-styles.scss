@@ -674,6 +674,22 @@ footer.bottom-footer{
   position: relative;
   top: -1px;
 }
+.tool-access-calendar {
+  background: #fafbfc;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 15px;
+  .tribe-common-l-container {
+    padding-top: 0 !important;
+  }
+  .tribe-events-header, 
+  .tribe-events-c-subscribe-dropdown__container,
+  .tribe-events-pro-summary-nav {
+    display: none !important;
+  }
+  .tribe-common--breakpoint-medium.tribe-events .tribe-events-l-container {
+    min-height: unset;
+  }
+}
 article.tool, article.certs {
   .terms-list {
     color: $secondary;
@@ -682,6 +698,7 @@ article.tool, article.certs {
   h5.post-title {
     font-weight: bold;
   }
+
 }
 /* single post */
 .tool-gallery{
