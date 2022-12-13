@@ -21,7 +21,7 @@ $p_makers = make_get_badged_members(get_the_id());
                   echo '</h1>';
             		echo '</div>';
             		echo '<div class="header-flex-svg">';
-            			include get_template_directory() . '/inc/svgheader.php';
+            			include get_template_directory() . '/inc/svgheader.svg';
             		echo '</div>';
               echo '</header>';
 
