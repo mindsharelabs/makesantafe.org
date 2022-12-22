@@ -50,17 +50,21 @@ tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-med
 }
 
 .tribe-events {
+
   .tribe-events-calendar-list__event-date-tag-datetime {
     
     // border: 1px solid $light;
     span {
       &.tribe-events-calendar-list__event-date-tag-weekday {
-        padding: 2px 5px;
-        background-color: #efefef;
+        padding: 3px 5px 7px 5px;
+        background-color: #e6e6e6;
+        font-weight: bold;
+        font-size: 13px;
         border-bottom: 1px solid $light;
         border-left: 1px solid $light;
         border-right: 1px solid $light;
         border-top: 1px solid $light;
+        
       }
       &.tribe-common-h4--min-medium {
         padding: 20px 10px;
@@ -73,6 +77,7 @@ tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-med
     }
   }
 }
+
 .tribe-common--breakpoint-medium.tribe-common .tribe-common-h4--min-medium {
   padding-left: 0px;
 }
