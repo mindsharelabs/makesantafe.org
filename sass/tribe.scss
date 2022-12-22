@@ -26,3 +26,17 @@ ul.tribe-related-events {
 tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium {
   padding-left: 0!important;
 }
+.tribe-events-calendar-month {
+  .tribe-events-calendar-month__body {
+    .tribe-events-calendar-month__day--past {
+      opacity: .4;
+      background-color: #efefef;
+    }
+    .tribe-events-calendar-month__day--current {
+      .tribe-events-calendar-month__day-cell {
+        border: 2px solid $primary;
+      }
+    }
+  }
+}
+
