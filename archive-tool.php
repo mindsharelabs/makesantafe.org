@@ -54,7 +54,11 @@ include 'layout/notice.php';
                   while($posts->have_posts()) :
                     $posts->the_post();
                     if(has_post_thumbnail()) :
-                      $images[] = get_post_thumbnail_id(get_the_id());
+                      $images[] = array(
+                        'post_id' => get_the_id(),
+                        'image' => get_post_thumbnail_id(get_the_id())
+                      );
+                      
                     endif;
                   endwhile;
                 endif;
@@ -65,8 +69,8 @@ include 'layout/notice.php';
                     if(isset($images)) :
                       echo '<div class="image-header">';
                       foreach($images as $image) :
-                        echo '<a href="' . get_term_link($term) . '" title="' . $term->name . '">';
-                          echo wp_get_attachment_image( $image, 'thumbnail', true, array('class' => 'tool-image') );
+                        echo '<a href="' . get_the_permalink($image['post_id']) . '" title="' . get_the_title($image['post_id']) . '">';
+                          echo wp_get_attachment_image( $image['image'], 'thumbnail', true, array('class' => 'tool-image') );
                         echo '</a>';
                       endforeach;
                       echo '</div>';
