@@ -694,7 +694,15 @@ footer.bottom-footer{
     min-height: unset;
   }
 }
+
 article.tool, article.certs {
+  .image-header {
+    display: flex;
+    flex-wrap: wrap;
+    img {
+      max-width: 20%;
+    }
+  }
   .terms-list {
     color: $secondary;
     text-transform: uppercase;

@@ -30,14 +30,64 @@ include 'layout/notice.php';
             echo '</div>';
           echo '</header>';
         echo '</div>';
-        echo '<section class="row mt-4 tools">';
-          if(have_posts()):
-              while (have_posts()) : the_post();
-                get_template_part('loop-tools');
-              endwhile;
-              echo do_shortcode('[facetwp pager="true"]');
-          endif;
-        echo '</section>';
+        
+
+            $terms = get_terms( array(
+              'taxonomy' => 'tool_type',
+              'hide_empty' => true,
+            ) );
+            if($terms) :
+              echo '<section class="row mt-4 tools">';
+              foreach($terms as $term) :
+                $posts = new WP_Query(array(
+                  'post_type' => 'tool',
+                  'tax_query' => array(
+                    array(
+                      'taxonomy' => 'tool_type',
+                      'field'    => 'slug',
+                      'terms'    => $term->slug,
+                    ),
+                  ),
+                ));
+                if($posts->have_posts()) :
+                  $images = array();
+                  while($posts->have_posts()) :
+                    $posts->the_post();
+                    $images[] = get_post_thumbnail_id(get_the_id());
+                  endwhile;
+                endif;
+                ?>
+                <article id="post-<?php the_ID(); ?>" <?php post_class('col-12 col-md-4 mb-3'); ?>>
+                  <div class="card h-100 d-flex flex-column">
+                    <?php 
+                    if(isset($images)) :
+                      echo '<div class="image-header">';
+                      foreach($images as $image) :
+                        echo wp_get_attachment_image( $image, 'thumbnail', true, array() );
+                      endforeach;
+                      echo '</div>';
+                    endif;
+                  
+                    echo '<div class ="card-body">';
+            
+                      echo '<h3 class="post-title text-center">';
+                        echo '<a href="' . get_term_link($term) . '" title="' . $term->name . '">';
+                          echo $term->name;
+                        echo '</a>';
+                      echo '</h3>';
+                      echo term_description($term);
+        
+                    echo '</div>';
+                    ?>
+                  </div>
+
+              </article>
+              <?php
+              endforeach;
+              echo '</section>';
+            endif;
+
+        
         ?>
       </div>
     </div>
