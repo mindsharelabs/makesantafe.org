@@ -2,11 +2,22 @@
 include 'layout/page-header.php';
 include 'layout/notice.php';
 ?>
-<main role="main" aria-label="Content" <?php post_class('container-fluid'); ?>>
+<main role="main" aria-label="Content" <?php post_class('container'); ?>>
   <div class="row">
-    <?php get_sidebar('tools'); ?>
-      <div class="col-12 col-md has-sidebar">
+      <div class="col-12">
         <?php
+
+        echo '<div class="row">';
+          echo '<div class="clear related_content">';
+            echo '<div class="col-12 col-md-4">';
+              echo '<h5>Filter by Shop</h5>';
+              echo facetwp_display( 'facet', 'tool_type' );
+            echo '</div>';
+          echo '</div>';
+        echo '</div>';
+
+
+
         echo '<div class="row">';
           echo '<header class="fancy-header d-flex">';
             echo '<div class="header-flex-item">';

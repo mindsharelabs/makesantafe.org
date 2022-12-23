@@ -18,7 +18,15 @@ ul.tribe-related-events {
     border: 0px !important;
     .tribe-related-event-info {
       padding: 15px;
-      font-size: 1.2em;
+      font-size: 20px;
+      text-align: center;
+      .tribe-related-events-title {
+        font-size: 21px;
+        margin: 10px;
+      }
+      span {
+        font-size: 20px;
+      }
     }
   }
 }
