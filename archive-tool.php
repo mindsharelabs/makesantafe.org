@@ -53,7 +53,9 @@ include 'layout/notice.php';
                   $images = array();
                   while($posts->have_posts()) :
                     $posts->the_post();
-                    $images[] = get_post_thumbnail_id(get_the_id());
+                    if(has_post_thumbnail()) :
+                      $images[] = get_post_thumbnail_id(get_the_id());
+                    endif;
                   endwhile;
                 endif;
                 ?>
