@@ -138,17 +138,17 @@ function create_staff_taxonomies() {
 	);
 
   $tool_labels = array(
-		'name'              => _x( 'Tool Types', 'taxonomy general name', 'textdomain' ),
-		'singular_name'     => _x( 'Tool Type', 'taxonomy singular name', 'textdomain' ),
-		'search_items'      => __( 'Search Tool Types', 'textdomain' ),
-		'all_items'         => __( 'All Tool Types', 'textdomain' ),
-		'parent_item'       => __( 'Parent Tool Type', 'textdomain' ),
-		'parent_item_colon' => __( 'Parent Tool Type:', 'textdomain' ),
-		'edit_item'         => __( 'Edit Tool Type', 'textdomain' ),
-		'update_item'       => __( 'Update Tool Type', 'textdomain' ),
-		'add_new_item'      => __( 'Add New Tool Type', 'textdomain' ),
-		'new_item_name'     => __( 'New Tool Type Name', 'textdomain' ),
-		'menu_name'         => __( 'Tool Type', 'textdomain' ),
+		'name'              => _x( 'Our Shop Spaces', 'taxonomy general name', 'textdomain' ),
+		'singular_name'     => _x( 'Shop Space', 'taxonomy singular name', 'textdomain' ),
+		'search_items'      => __( 'Search Shop Spaces', 'textdomain' ),
+		'all_items'         => __( 'All Shop Spaces', 'textdomain' ),
+		'parent_item'       => __( 'Parent Shop Space', 'textdomain' ),
+		'parent_item_colon' => __( 'Parent Shop Space:', 'textdomain' ),
+		'edit_item'         => __( 'Edit Shop Space', 'textdomain' ),
+		'update_item'       => __( 'Update Shop Space', 'textdomain' ),
+		'add_new_item'      => __( 'Add New Shop Space', 'textdomain' ),
+		'new_item_name'     => __( 'New Shop Space Name', 'textdomain' ),
+		'menu_name'         => __( 'Shop Space', 'textdomain' ),
 	);
 
 	$tool_args = array(
