@@ -699,8 +699,13 @@ article.tool, article.certs {
   .image-header {
     display: flex;
     flex-wrap: wrap;
-    img {
+    .tool-image {
       max-width: 20%;
+      @include transition(400ms);
+      &:hover {
+        transform: scale(1.1);
+        @include transition(100ms);
+      }
     }
   }
   .terms-list {

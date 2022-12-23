@@ -65,7 +65,9 @@ include 'layout/notice.php';
                     if(isset($images)) :
                       echo '<div class="image-header">';
                       foreach($images as $image) :
-                        echo wp_get_attachment_image( $image, 'thumbnail', true, array() );
+                        echo '<a href="' . get_term_link($term) . '" title="' . $term->name . '">';
+                          echo wp_get_attachment_image( $image, 'thumbnail', true, array('class' => 'tool-image') );
+                        echo '</a>';
                       endforeach;
                       echo '</div>';
                     endif;
