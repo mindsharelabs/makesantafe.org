@@ -9,7 +9,7 @@ $terms = get_the_terms(get_the_ID(), 'tool_type');
     <div class="card h-100 d-flex flex-column">
       <?php if(has_post_thumbnail()) : ?>
       <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-        <?php the_post_thumbnail( 'horz-thumbnail', array('class' => 'card-img-top') ); ?>
+        <?php the_post_thumbnail( 'horz-thumbnail-lg', array('class' => 'card-img-top') ); ?>
       </a>
     <?php endif; ?>
       <div class ="card-body">
