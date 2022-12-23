@@ -700,10 +700,11 @@ article.tool, article.certs {
     display: flex;
     flex-wrap: wrap;
     a {
+      max-width: 20%;
       display: block;
-      width: 100%;
+      // width: 100%;
       img.tool-image {
-        max-width: 20%;
+        
         @include transition(400ms);
         &:hover {
           transform: scale(1.1);
