@@ -8,17 +8,6 @@ include 'layout/notice.php';
         <?php
 
         echo '<div class="row">';
-          echo '<div class="clear related_content">';
-            echo '<div class="col-12 col-md-4">';
-              echo '<h5>Filter by Shop</h5>';
-              echo facetwp_display( 'facet', 'tool_type' );
-            echo '</div>';
-          echo '</div>';
-        echo '</div>';
-
-
-
-        echo '<div class="row">';
           echo '<header class="fancy-header d-flex">';
             echo '<div class="header-flex-item">';
               echo '<h1 class="page-title ">';
