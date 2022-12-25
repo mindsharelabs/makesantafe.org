@@ -100,7 +100,8 @@ function make_output_member_card($maker, $echo = false) {
     $title = get_field('title', 'user_' . $maker->ID);
     $link = get_author_posts_url($maker->ID);
     if(!$thumb){
-      $image = get_template_directory_uri() . '/img/no-photo_' . rand(1,5) . '.png';
+      $image_url = get_template_directory_uri() . '/img/nophoto.svg';
+      $image = '<img src="' . $image_url . '" class="rounded-circle">';
     } else {
       $image = wp_get_attachment_image( $thumb['ID'], 'small-square', false, array('alt' => $name, 'class' => 'rounded-circle'));
     }
