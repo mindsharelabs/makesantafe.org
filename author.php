@@ -65,7 +65,7 @@
 
         if($badges):  
           echo '<h2 class="sidebar-title mt-4">Badges</h4>';
-          echo '<div class="d-flex maker-badges">';
+          echo '<div class="d-flex maker-badges flex-wrap">';
             foreach ($badges as $key => $badge) :
               if(is_array($maker_badges)) :
 

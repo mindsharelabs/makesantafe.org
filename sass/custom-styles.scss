@@ -821,7 +821,10 @@ section.maker-profile, section.badged-makers {
   }
   .maker-badges {
     .badge-image-holder {
-      width: 25%;
+      background: #fafafa;
+      padding: 5px;
+      border: #e6e6e6;
+      width: 33.3333%;
       &.false {
         opacity: .5;
       }
