@@ -796,11 +796,19 @@ section.member-menu {
     }
   }
 }
-section.maker-profile {
+
+.make-member-card {
+  margin-top: 50%;
+
+  .profile-image {
+    margin-top: -40%;
+  }
+}
+section.maker-profile, section.badged-makers {
   .sidebar-title {
     text-transform: uppercase;
     color: $primary;
-    font-size: 1.1em;
+    font-size: 1.4em;
   }
   .maker-image {
     img{
@@ -810,19 +818,20 @@ section.maker-profile {
   .certifications {
     display: flex;
     flex-wrap: wrap;
-    .cert-holder{
-      flex-grow: 1;
-      text-align: center;
-      &.false{
-        display: none;
+  }
+  .maker-badges {
+    .badge-image-holder {
+      width: 25%;
+      &.false {
+        opacity: .5;
       }
-      .cert-name {
-        font-size: .7em;
-        color: lighten($dark, 40%);
-        white-space: pre-wrap;
+      h3.badge-title {
+        font-size: 12px;
+        text-align: center;
       }
     }
   }
+  
 }
 
 aside.sidebar {

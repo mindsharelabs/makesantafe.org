@@ -3,7 +3,7 @@ include 'layout/page-header.php';
 include 'layout/notice.php';
 ?>
 <main role="main" aria-label="Content" <?php post_class(); ?>>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <?php get_sidebar(); ?>
       <div class="col-12 col-md has-sidebar">
@@ -11,7 +11,7 @@ include 'layout/notice.php';
         echo '<div class="row">';
           echo '<header class="fancy-header d-flex">';
             echo '<div class="header-flex-item">';
-              echo '<h1 class="page-title ">Badges</h1>';
+              echo '<h1 class="page-title">Badges</h1>';
             echo '</div>';
             echo '<div class="header-flex-svg">';
               include get_template_directory() . '/inc/svgheader.svg';

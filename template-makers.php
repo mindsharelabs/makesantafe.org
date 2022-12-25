@@ -48,53 +48,8 @@ $current_user_id = $current_user->ID;
 
                 echo '<section class="row makers">';
                 foreach ($makers as $maker) :
-                  $user_id = $maker->user_id;
-                  $public = get_field('display_profile_publicly', 'user_' . $user_id);
-                  $name = get_field('display_name', 'user_' . $user_id );
-                  if(!$name) :
-                    $user_info = get_userdata( $user_id );
-                    $name = $user_info->user_nicename;
-                  endif;
-
-                  if($public == TRUE) :
-                    if($user_id == $current_user_id){
-                      $show_nag = 'dont_show';
-                    }
-                    $photo = get_field('photo', 'user_' . $user_id);
-
-                    if(!$photo){
-                      $image_url = get_template_directory_uri() . '/img/nophoto.svg';
-                      $image = '<img src="' . $image_url . '" class="rounded-circle"/>';
-                    } else {
-
-                      $image = wp_get_attachment_image( $photo['ID'], 'small-square', false, array('class' => 'rounded-circle'));
-                    }
-                    // mapi_var_dump($image);
-                    $title = get_field('title', 'user_' . $user_id );
-
-                    $link = get_author_posts_url($user_id);
-
-                    echo '<div class="col-6 col-md-3 mb-3">';
-                      echo '<div class="maker-photo p-2">';
-                        echo '<a href="' . $link . '" title="' . $name . '">';
-                          echo $image;
-                        echo '</a>';
-                      echo '</div>';
-                      echo '<div class="content">';
-                      if($name) :
-                        echo '<a href="' . $link . '" title="' . $name . '">';
-                          echo '<h3 class="text-center">' . $name . '</h3>';
-                        echo '</a>';
-                      endif;
-                      if($title) :
-                        echo '<h4 class="text-center">' . $title . '</h4>';
-                      endif;
-                      echo '</div>';
-                    echo '</div>';
-
-                  endif;
-
-
+                  $maker = get_user_by( 'id', $maker->user_id);
+                  echo make_output_member_card($maker, $echo = false);
                 endforeach;
                 echo '</section>';
               endif;

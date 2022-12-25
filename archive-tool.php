@@ -28,58 +28,7 @@ include 'layout/notice.php';
             if($terms) :
               echo '<section class="row mt-4 tools">';
               foreach($terms as $term) :
-                $posts = new WP_Query(array(
-                  'post_type' => 'tool',
-                  'tax_query' => array(
-                    array(
-                      'taxonomy' => 'tool_type',
-                      'field'    => 'slug',
-                      'terms'    => $term->slug,
-                    ),
-                  ),
-                ));
-                if($posts->have_posts()) :
-                  $images = array();
-                  while($posts->have_posts()) :
-                    $posts->the_post();
-                    if(has_post_thumbnail()) :
-                      $images[] = array(
-                        'post_id' => get_the_id(),
-                        'image' => get_post_thumbnail_id(get_the_id())
-                      );
-                      
-                    endif;
-                  endwhile;
-                endif;
-                ?>
-                <article id="post-<?php the_ID(); ?>" <?php post_class('col-12 col-md-4 mb-3'); ?>>
-                  <div class="card h-100 d-flex flex-column">
-                    <?php 
-                    if(isset($images)) :
-                      echo '<div class="image-header">';
-                      foreach($images as $image) :
-                        echo '<a href="' . get_the_permalink($image['post_id']) . '" title="' . get_the_title($image['post_id']) . '">';
-                          echo wp_get_attachment_image( $image['image'], 'thumbnail', true, array('class' => 'tool-image') );
-                        echo '</a>';
-                      endforeach;
-                      echo '</div>';
-                    endif;
-                  
-                    echo '<div class ="card-body">';
-            
-                      echo '<h3 class="post-title text-center">';
-                        echo '<a href="' . get_term_link($term) . '" title="' . $term->name . '">';
-                          echo $term->name;
-                        echo '</a>';
-                      echo '</h3>';
-                      echo term_description($term);
-        
-                    echo '</div>';
-                    ?>
-                  </div>
-
-              </article>
-              <?php
+                echo make_output_shop_space($term);
               endforeach;
               echo '</section>';
             endif;

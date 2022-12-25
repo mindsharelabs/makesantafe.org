@@ -84,7 +84,7 @@
     select {
       @extend .form-select;
     }
-    .gform_footer {
+    .gform_footer, .gform_page_footer {
       .gform_button, .button {
         @extend .btn;
         @extend .btn-primary;
