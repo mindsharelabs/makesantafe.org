@@ -12,9 +12,13 @@ if(exists) {
     var word = introHeader.select('#make');
     var santafe = introHeader.select('#santafe');
     var objects = introHeader.select('#objects');
+    var lbt = introHeader.select('#lbt');
+
     word.animate({opacity: "0"}, 0);
+    lbt.animate({opacity: "0"}, 0);
     santafe.animate({opacity: "0"}, 0);
     objects.animate({opacity: "0"}, 0);
+    circut.animate({opacity: "0"}, 0);
 
 
     top.transform("t138,70");
@@ -24,9 +28,11 @@ if(exists) {
 
     setTimeout(function() {
       top.animate({ transform: 't0,0'}, 500);
+  
       bottom.animate({ transform: 't0,0'}, 500, function(){
         word.animate({opacity: "1"}, 800);
         santafe.animate({opacity: "1"}, 800);
+        lbt.animate({opacity: "1"}, 800);
       });
     },400);
 
