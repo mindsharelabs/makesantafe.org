@@ -95,8 +95,10 @@ function make_output_member_card($maker, $echo = false) {
   $public = get_field('display_profile_publicly',  'user_' . $maker->ID);
   $html = '';
   if($public && $member):
+    $user_obj = get_userdata( $maker->ID );
     $thumb = get_field('photo', 'user_' . $maker->ID);
-    $name = get_field('display_name', 'user_' . $maker->ID);
+    $name = (get_field('display_name', 'user_' . $maker->ID ) ? get_field('display_name', 'user_' . $maker->ID ) : $user_obj->display_name);
+
     $title = get_field('title', 'user_' . $maker->ID);
     $link = get_author_posts_url($maker->ID);
     if(!$thumb){

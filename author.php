@@ -8,14 +8,18 @@
 <main role="main" aria-label="Content" <?php post_class('container'); ?>>
   <section class="maker-profile">
     <?php if($public) :
-
+      $user_obj = get_userdata( $maker_id );
       $current_user_id = get_current_user_id();
       $photo = get_field('photo', 'user_' . $maker_id);
-      $image = wp_get_attachment_image( $photo['ID'], 'small-square');
+      if($photo) :
+        $image = wp_get_attachment_image( $photo['ID'], 'small-square');
+      endif;
 
       $gallery = get_field('image_gallery', 'user_' . $maker_id );
       $bio = get_field('bio','user_' . $maker_id);
-      $name = get_field('display_name', 'user_' . $maker_id );
+      $name = (get_field('display_name', 'user_' . $maker_id ) ? get_field('display_name', 'user_' . $maker_id ) : $user_obj->display_name);
+
+      
       $title = get_field('title', 'user_' . $maker_id );
       
       ?>
@@ -40,7 +44,7 @@
       <div class="col-12 col-md-4">
         <?php
 
-        if($image):
+        if(isset($image) & $photo):
           echo '<div class="maker-image">';
             echo $image;
           echo '</div>';
