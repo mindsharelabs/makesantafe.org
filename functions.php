@@ -439,7 +439,9 @@ add_filter('excerpt_length', 'lobob_excerpt_length', 999);
 function mind_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mindblank') . '</a>';
+    if($post) :
+        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mindblank') . '</a>';
+    endif;
 }
 
 
