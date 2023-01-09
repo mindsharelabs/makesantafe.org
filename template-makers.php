@@ -23,7 +23,11 @@ $current_user_id = $current_user->ID;
 ?>
 <main role="main" aria-label="Content" class="container-fluid">
     <div class="row">
-
+        <div class="col-12 col-md-10 offset-0 offset-md-1">
+          
+          <?php echo do_shortcode('[facetwp facet="maker_badges"]'); ?>
+  
+        </div>
         <div class="col-12 col-md-10 offset-0 offset-md-1">
             <!-- section -->
             <section class="mt-4">
@@ -41,6 +45,7 @@ $current_user_id = $current_user->ID;
               echo '<hr class="clear">';
               if ($makers) :
                 echo '<div class="row">';
+                  
                   echo '<div class="col">';
                     echo '<div class="alert alert-warning" role="alert">Are you a Make Santa Fe member? Want to see your profile here? Go to <a href="/my-account/make-profile/">your account</a> and enable it!</div>';
                   echo '</div>';

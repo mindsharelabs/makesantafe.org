@@ -125,6 +125,7 @@ function make_output_member_card($maker, $echo = false) {
 
         $badges = get_field('certifications', 'user_' . $maker->ID );
         $html .= '<div class="maker-badges d-flex justify-content-center flex-wrap">';
+        if($badges) :
           foreach($badges as $badge) :
             if($image = get_field('badge_image', $badge)) :
               $html .= '<div class="badge-image-holder m-1">';
@@ -132,6 +133,7 @@ function make_output_member_card($maker, $echo = false) {
               $html .= '</div>';
             endif;
           endforeach;
+        endif;
         $html .= '</div>';
 
 
