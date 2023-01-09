@@ -44,7 +44,7 @@
       <div class="col-12 col-md-4">
         <?php
 
-        if(isset($image) & $photo):
+        if(isset($image)):
           echo '<div class="maker-image">';
             echo $image;
           echo '</div>';
