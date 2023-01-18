@@ -338,24 +338,45 @@ add_action( 'wp', 'make_free_checkout_fields' );
 
 
 
+
+
+
 /*
-* Add "Billing Company" value to Stripe metadata
+* Add "Product Names" value to Stripe metadata
 */
 function make_filter_wc_stripe_payment_metadata( $metadata, $order, $source ) {
+	
+	foreach( $order->get_items() as $item_id => $line_item ) :
 
-  $count = 1;
-  foreach( $order->get_items() as $item_id => $line_item ){
+		$terms_line = '';
     $item_data = $line_item->get_data();
+
     $product = $line_item->get_product();
-    $product_name = $product->get_name();
-    $item_quantity = $line_item->get_quantity();
-    $item_total = $line_item->get_total();
-    $metadata['Line Item '.$count] = 'Product name: '.$product_name.' | Quantity: '.$item_quantity.' | Item total: '. number_format( $item_total, 2 );
-    $count += 1;
-  }
 
-  return $metadata;
-
-
+    $terms = $product->get_categories();;
+		foreach ($terms as $term) :
+			$terms_line = $term->name;
+			if(next($terms)) :
+				$terms_line .= ' | ';
+			endif;
+		endforeach; //end loop through item categories
+		$metadata['Product Categories'] = $terms_line;
+    
+	endforeach;//end loop through items
+	mapi_write_log($metadata);	return $metadata;
 }
 add_filter( 'wc_stripe_payment_metadata', 'make_filter_wc_stripe_payment_metadata', 10, 3 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
