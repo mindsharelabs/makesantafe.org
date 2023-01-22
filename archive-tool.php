@@ -2,11 +2,11 @@
 include 'layout/page-header.php';
 include 'layout/notice.php';
 ?>
-<main role="main" aria-label="Content" <?php post_class('container-fluid'); ?>>
+<main role="main" aria-label="Content" <?php post_class('container'); ?>>
   <div class="row">
-    <?php get_sidebar('tools'); ?>
-      <div class="col-12 col-md has-sidebar">
+      <div class="col-12">
         <?php
+
         echo '<div class="row">';
           echo '<header class="fancy-header d-flex">';
             echo '<div class="header-flex-item">';
@@ -19,14 +19,21 @@ include 'layout/notice.php';
             echo '</div>';
           echo '</header>';
         echo '</div>';
-        echo '<section class="row mt-4 tools">';
-          if(have_posts()):
-              while (have_posts()) : the_post();
-                get_template_part('loop-tools');
-              endwhile;
-              echo do_shortcode('[facetwp pager="true"]');
-          endif;
-        echo '</section>';
+        
+
+            $terms = get_terms( array(
+              'taxonomy' => 'tool_type',
+              'hide_empty' => true,
+            ) );
+            if($terms) :
+              echo '<section class="row mt-4 tools">';
+              foreach($terms as $term) :
+                echo make_output_shop_space($term);
+              endforeach;
+              echo '</section>';
+            endif;
+
+        
         ?>
       </div>
     </div>

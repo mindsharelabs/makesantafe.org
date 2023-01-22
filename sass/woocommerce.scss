@@ -54,6 +54,40 @@ body.woocommerce-account.woocommerce-page {
 }
 
 
+.wc-pao-addon-tip-the-tool { //specific to a unique addon otherwise just use .wc-pao-addon class
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 10px;
+  background: #f5f5f5;
+  border: 1px solid $light;
+  
+  p.wc-pao-addon-wrap {
+    display: flex;
+    &:before {
+      content: "$" !important;
+      display: block !important;
+      padding: 7px;
+      font-size: 21px;
+    }
+    input {
+      max-width: 100px;
+    }
+    
+  }
+  
+}
+.wc-pao-addon { 
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 10px;
+  background: #f5f5f5;
+  border: 1px solid $light;
+  
+  p.wc-pao-addon-wrap {
+    display: flex;    
+  }
+  
+}
 
 .woocommerce {
 

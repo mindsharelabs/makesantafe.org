@@ -8,26 +8,20 @@
 <main role="main" aria-label="Content" <?php post_class('container'); ?>>
   <section class="maker-profile">
     <?php if($public) :
-
+      $user_obj = get_userdata( $maker_id );
       $current_user_id = get_current_user_id();
       $photo = get_field('photo', 'user_' . $maker_id);
-      $image = wp_get_attachment_image( $photo['ID'], 'small-square');
+      if($photo) :
+        $image = wp_get_attachment_image( $photo['ID'], 'small-square');
+      endif;
 
       $gallery = get_field('image_gallery', 'user_' . $maker_id );
       $bio = get_field('bio','user_' . $maker_id);
-      $name = get_field('display_name', 'user_' . $maker_id );
-      $title = get_field('title', 'user_' . $maker_id );
-      $certifications = get_field('certifications', 'user_' . $maker_id );
+      $name = (get_field('display_name', 'user_' . $maker_id ) ? get_field('display_name', 'user_' . $maker_id ) : $user_obj->display_name);
 
-      $all_certs_obj = get_posts(array(
-        'post_type' => 'certs',
-        'posts_per_page' => -1,
-        'fields' => 'ID'
-      ));
-      $all_certs = array();
-      foreach ($all_certs_obj as $key => $cert) {
-        $all_certs[] = $cert->ID;
-      }
+      
+      $title = get_field('title', 'user_' . $maker_id );
+      
       ?>
     <div class="row">
       <div class="col-12">
@@ -39,7 +33,7 @@
             echo '</h1>';
           echo '</div>';
           echo '<div class="header-flex-svg">';
-            include get_template_directory() . '/inc/svgheader.php';
+            include get_template_directory() . '/inc/svgheader.svg';
           echo '</div>';
         echo '</header>';
         echo '<hr class="clear">';
@@ -50,7 +44,7 @@
       <div class="col-12 col-md-4">
         <?php
 
-        if($image):
+        if(isset($image)):
           echo '<div class="maker-image">';
             echo $image;
           echo '</div>';
@@ -61,27 +55,42 @@
 
         endif;
 
-        if($all_certs):
-          echo '<h4 class="sidebar-title mt-4">Certifications</h4>';
-          echo '<div class="certifications">';
-            foreach ($all_certs as $key => $cert) :
-              if(is_array($certifications)) :
-                $color = get_field('cert_color', $cert);
-                $icon = get_field('cert_icon', $cert);
-                $icon_back = get_field('cert_icon_back', $cert);
-                $user_has = in_array($cert, $certifications);
+
+        $maker_badges = get_field('certifications', 'user_' . $maker_id );
+        $all_badges = get_posts(array(
+          'post_type' => 'certs',
+          'posts_per_page' => -1,
+          'fields' => 'ID'
+        ));
+        $badges = array();
+        foreach ($all_badges as $key => $badge) :
+          $badges[] = $badge->ID;
+        endforeach;
+
+        if($badges):  
+          echo '<h2 class="sidebar-title mt-4">Badges</h4>';
+          echo '<div class="d-flex maker-badges flex-wrap">';
+            foreach ($badges as $key => $badge) :
+              if(is_array($maker_badges)) :
+
+                $user_has = in_array($badge, $maker_badges);
                 if($user_has){
                   $class = 'true';
                 } else {
                   $class = 'false';
                 }
-                echo '<div class="cert-holder py-2 ' . $class . '" data-trigger="hover" data-toggle="popover" title="' . get_the_title($cert) . '" data-content="' .  get_field('short_description', $cert) . '">';
-                  echo '<a href="' . get_permalink($cert) . '" class="fa-stack fa-2x">';
-                    echo '<i class="' . $icon_back . ' fa-stack-2x" style="color:' . $color . '"></i>';
-                    echo '<i class="' . $icon . ' fa-stack-1x fa-inverse"></i>';
+
+                
+              if($image = get_field('badge_image', $badge)) :
+                echo '<div class="badge-image-holder ' . $class . ' m-1">';
+                  echo '<a href="' . get_permalink($badge) . '" title="' . get_the_title($badge) . '">';
+                    echo wp_get_attachment_image($image);
+                    echo '<h3 class="text-center badge-title">' . get_the_title($badge) . '</h3>';
                   echo '</a>';
-                  //echo '<span class="cert-name text-center d-block">' . get_the_title($cert) . '</span>';
                 echo '</div>';
+              endif;
+           
+                
               endif;
             endforeach;
           echo '</div>';

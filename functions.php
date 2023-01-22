@@ -4,7 +4,7 @@
  * URL: https://mind.sh/are | @mindblank
  *
  */
-define('THEME_VERSION', '3.3.5');
+define('THEME_VERSION', '3.4.7');
 /*------------------------------------*\
     External Modules/Files
 \*------------------------------------*/
@@ -42,9 +42,11 @@ if (!isset($content_width)) {
 
 if (function_exists('add_theme_support')) {
 
+    // add_image_size('very-small-square', 100, 100, array('center', 'center'));
     add_image_size('small-square', 400, 400, array('center', 'center'));
     add_image_size('page-header', 1500, 300, array('center', 'center'));
     add_image_size('horz-thumbnail', 300, 150, array('center', 'center'));
+    add_image_size('horz-thumbnail-lg', 500, 300, array('center', 'center'));
 
 
 
@@ -437,7 +439,9 @@ add_filter('excerpt_length', 'lobob_excerpt_length', 999);
 function mind_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mindblank') . '</a>';
+    if($post) :
+        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mindblank') . '</a>';
+    endif;
 }
 
 

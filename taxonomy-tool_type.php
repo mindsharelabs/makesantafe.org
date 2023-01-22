@@ -1,5 +1,5 @@
 <?php get_header();
-include 'layout/page-header.php';
+// include 'layout/page-header.php';
 include 'layout/notice.php';
 ?>
 <main role="main" aria-label="Content" <?php post_class('container'); ?>>
@@ -8,9 +8,9 @@ include 'layout/notice.php';
       <section class="mt-4">
         <div class="row">
         <?php
-          echo '<header class="fancy-header d-flex">';
+          echo '<header class="fancy-header d-flex my-4">';
             echo '<div class="header-flex-item">';
-              echo '<h1 class="page-title ">';
+              echo '<h1 class="page-title">';
                 the_archive_title();
               echo '</h1>';
             echo '</div>';
@@ -23,7 +23,7 @@ include 'layout/notice.php';
             <div class="row">
               <?php
               while (have_posts()) : the_post();
-                get_template_part('loop');
+                get_template_part('loop-tools');
               endwhile; ?>
 
             </div>

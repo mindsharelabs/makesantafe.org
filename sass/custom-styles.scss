@@ -65,6 +65,10 @@ hr {
 }
 
 
+main {
+  max-width: 1500px;
+  margin: 0px auto;
+}
 
 #header-logo-holder, #intro-logo-holder {
   .bigtext {
@@ -94,6 +98,7 @@ hr {
     letter-spacing: 3px;
   }
   .header-flex-svg {
+    margin-top: -8px;
     flex-grow: 1;
     svg{
       fill:#fff;
@@ -674,7 +679,42 @@ footer.bottom-footer{
   position: relative;
   top: -1px;
 }
+.tool-access-calendar {
+  background: #fafbfc;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 15px;
+  .tribe-common-l-container {
+    padding-top: 0 !important;
+  }
+  .tribe-events-header, 
+  .tribe-events-c-subscribe-dropdown__container,
+  .tribe-events-pro-summary-nav {
+    display: none !important;
+  }
+  .tribe-common--breakpoint-medium.tribe-events .tribe-events-l-container {
+    min-height: unset;
+  }
+}
+
 article.tool, article.certs {
+  .image-header {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      max-width: 20%;
+      display: block;
+      // width: 100%;
+      img.tool-image {
+        
+        @include transition(400ms);
+        &:hover {
+          transform: scale(1.1);
+          @include transition(100ms);
+        }
+      }
+    }
+    
+  }
   .terms-list {
     color: $secondary;
     text-transform: uppercase;
@@ -682,6 +722,7 @@ article.tool, article.certs {
   h5.post-title {
     font-weight: bold;
   }
+
 }
 /* single post */
 .tool-gallery{
@@ -756,11 +797,19 @@ section.member-menu {
     }
   }
 }
-section.maker-profile {
+
+.make-member-card {
+  margin-top: 50%;
+
+  .profile-image {
+    margin-top: -40%;
+  }
+}
+section.maker-profile, section.badged-makers, section.makers {
   .sidebar-title {
     text-transform: uppercase;
     color: $primary;
-    font-size: 1.1em;
+    font-size: 1.4em;
   }
   .maker-image {
     img{
@@ -770,19 +819,24 @@ section.maker-profile {
   .certifications {
     display: flex;
     flex-wrap: wrap;
-    .cert-holder{
-      flex-grow: 1;
-      text-align: center;
-      &.false{
-        display: none;
+  }
+  .maker-badges {
+    justify-content: center;
+    .badge-image-holder {
+      background: #fafafa;
+      padding: 5px;
+      border: #e6e6e6;
+      width: 25%;
+      &.false {
+        opacity: .5;
       }
-      .cert-name {
-        font-size: .7em;
-        color: lighten($dark, 40%);
-        white-space: pre-wrap;
+      h3.badge-title {
+        font-size: 12px;
+        text-align: center;
       }
     }
   }
+  
 }
 
 aside.sidebar {

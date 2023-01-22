@@ -17,7 +17,7 @@ include 'layout/notice.php';
               echo '<div class="col-12 col-md-4 mb-3">';
                 echo '<div class="card h-100">';
                   if(has_post_thumbnail()) :
-                    the_post_thumbnail( $size = 'medium', array('class' => 'card-img-top loop-card') )
+                    the_post_thumbnail( $size = 'medium', array('class' => 'card-img-top loop-card') );
                   endif;
                   echo '<div class="card-body">';
                     echo '<h5 class="card-title">' . get_the_title() . '</h5>';
