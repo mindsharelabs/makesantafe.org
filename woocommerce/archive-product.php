@@ -36,7 +36,7 @@ do_action( 'woocommerce_before_main_content' );
 			<h1 class="woocommerce-products-header__title page-title "><?php woocommerce_page_title(); ?></h1>
 		</div>
 		<div class="header-flex-svg">
-			<?php include get_template_directory() . '/inc/svgheader.php'; ?>
+			<?php include get_template_directory() . '/inc/svgheader.svg'; ?>
 		</div>
 	<?php endif; ?>
 </header>
