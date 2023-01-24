@@ -33,6 +33,11 @@ if (function_exists('add_theme_support')) {
     add_image_size('horz-thumbnail', 300, 150, array('center', 'center'));
     add_image_size('horz-thumbnail-lg', 500, 300, array('center', 'center'));
 
+    //WooCommerce
+    add_theme_support('woocommerce');
+    add_theme_support('wc-product-gallery-zoom');
+    add_theme_support('wc-product-gallery-lightbox');
+    add_theme_support('wc-product-gallery-slider');
 
 
 
@@ -48,9 +53,20 @@ if (function_exists('add_theme_support')) {
     // Localisation Support
     load_theme_textdomain('mindblank', get_template_directory() . '/languages');
 
-
-
 }
+
+add_filter('mind_staff_cards_image_size', function() {
+    return 'small-square';
+});
+add_filter('mind_staff_card_classes', function() {
+    return 'col-12 col-md-6 col-lg-4 d-flex flex-column h-100 justify-content-between px-4';
+});
+add_filter('mind_staff_cards_image_classes', function() {
+    return 'rounded-circle card-img-top p-4';
+});
+add_filter('mind_staff_card_title_classes', function() {
+    return 'staff-name text-center mb-1 mt-2 h4';
+});
 
 function make_param_shortcode( $atts ) {
     extract( shortcode_atts( array(

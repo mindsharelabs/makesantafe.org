@@ -1,9 +1,4 @@
 <?php
-add_theme_support('woocommerce');
-add_theme_support('wc-product-gallery-zoom');
-add_theme_support('wc-product-gallery-lightbox');
-add_theme_support('wc-product-gallery-slider');
-
 
 
 
@@ -56,8 +51,7 @@ add_filter('woocommerce_checkout_fields', function ($fields){
 remove_action(' woocommerce_sidebar', 'woocommerce_get_sidebar');
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
-remove_action( 'template_redirect', 'wc_disable_author_archives_for_customers', 10 );
-
+// remove_action( 'template_redirect', 'wc_disable_author_archives_for_customers', 10 );
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
