@@ -212,6 +212,7 @@ header.top-header {
           &:hover {
             ul.children, ul.sub-menu {
               height: auto;
+              // background: ;
               li {
                 margin: 0;
                 a {
@@ -253,11 +254,25 @@ header.top-header {
 
         &.standout {
           a {
-            background: $primary;
+            background: $primary; 
             color: $light;
             font-weight: bold;
             &:hover {
               background: darken($primary, 10%);
+            }
+          }
+          & > a {
+            svg {
+              color: $light;
+            }
+          }
+          ul.sub-menu {
+            background: $light;
+            li {
+              a {
+                background: $light;
+                color: $dark;
+              }
             }
           }
         }
