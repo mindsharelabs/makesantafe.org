@@ -5,7 +5,7 @@ get_header('blank');
 ?>
     <main role="main" aria-label="Content" class="container">
         <div class="row">
-            <div class="col-12 col-md-8 offset-md-2">
+            <div class="col-12">
                 <!-- section -->
                 <section>
                     <?php
