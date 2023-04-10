@@ -24,6 +24,16 @@
   }
 }
 
+figure.wp-block-image {
+  padding: 10px;
+  background: #eee;
+  figcaption {
+    text-align: center;
+    font-size: .8em;
+    font-weight: bold;
+  }
+}
+
 blockquote.wp-block-quote {
   padding: 20px;
   border: 5px dotted;
