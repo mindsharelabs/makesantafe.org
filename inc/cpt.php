@@ -29,6 +29,7 @@ function create_post_type_mind(){
             'public' => true,
             'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
             'has_archive' => 'tools-and-equipment',
+            'show_in_rest' => true,
             'supports' => array(
                 'title',
                 'editor',
