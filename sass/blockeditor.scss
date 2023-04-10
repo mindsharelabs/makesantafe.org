@@ -13,6 +13,17 @@
 
   }
 }
+
+.mind-button {
+  .buttons {
+    a {
+      &.btn-primary {
+        color: $light !important;
+      }
+    }
+  }
+}
+
 blockquote.wp-block-quote {
   padding: 20px;
   border: 5px dotted;
