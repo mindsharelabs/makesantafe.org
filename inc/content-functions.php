@@ -188,3 +188,16 @@ function make_add_unique_id_for_modal( $postID  ) {
 
 // acf/update_value - filter for every field
 add_filter('acf/save_post', 'make_add_unique_id_for_modal', 20);
+
+add_filter( 'wp_nav_menu_objects', function ( $items ) {
+  foreach ( $items as $item ) {
+  	
+
+    if(in_array('menu-item-has-children', $item->classes)) :
+      $item->title = $item->title . '<i class="ms-2 fal fa-angle-down"></i>';
+ 
+    endif;
+    // mapi_write_log($item);
+  }
+  return $items;
+});

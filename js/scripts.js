@@ -49,15 +49,14 @@
 			$(this).toggleClass('active');
 		});
 
-		$(document).on('click', '#mobileMenu li.page_item_has_children', function(e) {
+		$(document).on('click', '#mobileMenu li.page_item_has_children, #mobileMenu li.menu-item-has-children', function(e) {
 			e.preventDefault();
 			var curIcon = $(this).find('svg').attr('data-icon');
 			$(this).toggleClass('expanded');
+			console.log(curIcon);
 		})
 
-
-
-
+	
 		jQuery('body').addClass('fade-in');
 
 
