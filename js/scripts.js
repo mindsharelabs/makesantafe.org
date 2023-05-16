@@ -49,11 +49,19 @@
 			$(this).toggleClass('active');
 		});
 
-		$(document).on('click', '#mobileMenu li.page_item_has_children, #mobileMenu li.menu-item-has-children', function(e) {
-			e.preventDefault();
-			var curIcon = $(this).find('svg').attr('data-icon');
-			$(this).toggleClass('expanded');
-			console.log(curIcon);
+		$(document).on('click', '#mobileMenu li.page_item_has_children a, #mobileMenu li.menu-item-has-children a', function(e) {
+			
+			if($(this).parent().hasClass('menu-item-has-children') || $(this).parent().hasClass('page_item_has_children')) {
+				e.preventDefault();
+			}
+			// var curIcon = $(this).find('svg').attr('data-icon');
+			// if(curIcon == 'angle-down') {
+			// 	$(this).find('svg').setAttribute('data-icon', 'angle-down');
+			// } else {
+			// 	$(this).find('svg').setAttribute('data-icon', 'plus');
+			// }
+			$(this).parent().toggleClass('expanded');
+
 		})
 
 	

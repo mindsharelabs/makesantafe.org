@@ -11,6 +11,7 @@ body {
   font-weight: 400;
   color: $dark;
   overflow-x: hidden;
+  max-width: 100vw;
   -moz-osx-font-smoothing: grayscale; // enable font-smoothing for browsers that support it
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
@@ -401,10 +402,10 @@ header.top-header {
           max-height: 900px;
           @include transition(200ms);
         }
-        svg {
-          transform: rotate(90deg);
-          @include transition(50ms);
-        }
+        // svg {
+        //   transform: rotate(90deg); 
+        //   @include transition(50ms);
+        // }
       }
     }
   }

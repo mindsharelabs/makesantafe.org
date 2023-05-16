@@ -91,60 +91,63 @@ function make_output_shop_space($term, $echo = false) {
 
 
 function make_output_member_card($maker, $echo = false) {
-  $member = wc_memberships_is_user_active_member($maker->ID);
-  $public = get_field('display_profile_publicly',  'user_' . $maker->ID);
-  $html = '';
-  if($public && $member):
-    $user_obj = get_userdata( $maker->ID );
-    $thumb = get_field('photo', 'user_' . $maker->ID);
-    $name = (get_field('display_name', 'user_' . $maker->ID ) ? get_field('display_name', 'user_' . $maker->ID ) : $user_obj->display_name);
+  if(is_object($maker)) :
+    $member = wc_memberships_is_user_active_member($maker->ID);
+    $public = get_field('display_profile_publicly',  'user_' . $maker->ID);
+    $html = '';
+    if($public && $member):
+      $user_obj = get_userdata( $maker->ID );
+      $thumb = get_field('photo', 'user_' . $maker->ID);
+      $name = (get_field('display_name', 'user_' . $maker->ID ) ? get_field('display_name', 'user_' . $maker->ID ) : $user_obj->display_name);
 
-    $title = get_field('title', 'user_' . $maker->ID);
-    $link = get_author_posts_url($maker->ID);
-    if(!$thumb){
-      $image_url = get_template_directory_uri() . '/img/nophoto.svg';
-      $image = '<img src="' . $image_url . '" class="rounded-circle">';
-    } else {
-      $image = wp_get_attachment_image( $thumb['ID'], 'small-square', false, array('alt' => $name, 'class' => 'rounded-circle'));
-    }
-    $html .='<div class="col-6 col-md-3 text-center">';
-      $html .='<div class="mb-4 text-center card make-member-card">';
-        if($image) :
-          $html .='<div class="image profile-image p-3 w-75 mx-auto">';
+      $title = get_field('title', 'user_' . $maker->ID);
+      $link = get_author_posts_url($maker->ID);
+      if(!$thumb){
+        $image_url = get_template_directory_uri() . '/img/nophoto.svg';
+        $image = '<img src="' . $image_url . '" class="rounded-circle">';
+      } else {
+        $image = wp_get_attachment_image( $thumb['ID'], 'small-square', false, array('alt' => $name, 'class' => 'rounded-circle'));
+      }
+      $html .='<div class="col-6 col-md-3 text-center">';
+        $html .='<div class="mb-4 text-center card make-member-card">';
+          if($image) :
+            $html .='<div class="image profile-image p-3 w-75 mx-auto">';
+              $html .='<a href="' . $link . '">';
+                $html .= $image;
+              $html .='</a>';
+            $html .='</div>';
+          endif;
+          $html .='<div class="content">';
             $html .='<a href="' . $link . '">';
-              $html .= $image;
+              $html .='<h5 class="text-center">' . $name . '</h5>';
             $html .='</a>';
+            $html .='<p class="text-center small mb-0">' . $title . '</p>';
           $html .='</div>';
-        endif;
-        $html .='<div class="content">';
-          $html .='<a href="' . $link . '">';
-            $html .='<h5 class="text-center">' . $name . '</h5>';
-          $html .='</a>';
-          $html .='<p class="text-center small mb-0">' . $title . '</p>';
+
+          $badges = get_field('certifications', 'user_' . $maker->ID );
+          $html .= '<div class="maker-badges d-flex justify-content-center flex-wrap">';
+          if($badges) :
+            foreach($badges as $badge) :
+              if($image = get_field('badge_image', $badge)) :
+                $html .= '<div class="badge-image-holder m-1">';
+                  $html .= wp_get_attachment_image($image);
+                $html .= '</div>';
+              endif;
+            endforeach;
+          endif;
+          $html .= '</div>';
+
+
         $html .='</div>';
-
-        $badges = get_field('certifications', 'user_' . $maker->ID );
-        $html .= '<div class="maker-badges d-flex justify-content-center flex-wrap">';
-        if($badges) :
-          foreach($badges as $badge) :
-            if($image = get_field('badge_image', $badge)) :
-              $html .= '<div class="badge-image-holder m-1">';
-                $html .= wp_get_attachment_image($image);
-              $html .= '</div>';
-            endif;
-          endforeach;
-        endif;
-        $html .= '</div>';
-
-
       $html .='</div>';
-    $html .='</div>';
-  endif;
+    endif; 
+ 
 
   if($echo) :
     echo $html;
   else :
     return $html; 
+  endif;
   endif;
 }
 
@@ -194,7 +197,7 @@ add_filter( 'wp_nav_menu_objects', function ( $items ) {
   	
 
     if(in_array('menu-item-has-children', $item->classes)) :
-      $item->title = $item->title . '<i class="ms-2 fal fa-angle-down"></i>';
+      $item->title = $item->title . '<i class="ms-2 fal fa-plus"></i>';
  
     endif;
     // mapi_write_log($item);
