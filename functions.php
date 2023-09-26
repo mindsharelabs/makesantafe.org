@@ -31,6 +31,16 @@ if(!function_exists('mapi_write_log')) {
     }
 }
 
+
+/**
+ * Check if WooCommerce is activated
+ */
+if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+    function is_woocommerce_activated() {
+        if ( class_exists( 'woocommerce' ) ) { return true; } else { return false; }
+    }
+}
+
 if (!isset($content_width)) {
     $content_width = 900;
 }
@@ -269,7 +279,7 @@ function localize_header_svg_script() {
 function make_get_title() {
   if(is_home()) :
     $title = get_bloginfo('description');
-  elseif(is_product_category()) :
+  elseif(is_tax()) :
     $title = single_term_title('', false);
   else :
     $title = get_the_title();
