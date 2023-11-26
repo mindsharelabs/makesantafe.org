@@ -1,6 +1,11 @@
 <?php
 
-
+add_filter('tribe_related_posts_args', function($args) {
+  $args['meta_key'] = '_EventStartDate';
+  $args['orderby']  = 'meta_value';
+  $args['order']    = 'ASC';
+  return $args;
+});
 
 
 add_filter( 'render_block', 'mapi_block_wrapper', 10, 2 );

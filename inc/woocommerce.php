@@ -1,6 +1,13 @@
 <?php
 
-
+/**
+ * Check if WooCommerce is activated
+ */
+if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+    function is_woocommerce_activated() {
+        if ( class_exists( 'woocommerce' ) ) { return true; } else { return false; }
+    }
+}
 
 /*
 * Description: By default, WooCommerce reduces stock for any order containing a product. This means stock will be reduced for both the initial purchase of a subscription product and all renewal orders. This extension stops stock being reduced for renewal order payments so that stock is only reduced on the initial purchase. Requires WooCommerce 2.4 or newer and Subscriptiosn 2.0 or newer.
@@ -203,9 +210,10 @@ function make_remove_free_checkout_fields() {
 		}
 	endif;
 }
-add_action( 'wp', 'make_remove_free_checkout_fields' );
 
-
+if(is_woocommerce_activated()) :
+	add_action( 'wp', 'make_remove_free_checkout_fields' );
+endif;
 
 
 add_filter( 'woocommerce_product_add_to_cart_text', 'make_change_button_text', 100, 2);
@@ -332,8 +340,10 @@ function make_free_checkout_fields() {
 		}
 	endif;
 }
-add_action( 'wp', 'make_free_checkout_fields' );
 
+if(is_woocommerce_activated()) :
+	add_action( 'wp', 'make_free_checkout_fields' );
+endif;
 
 
 
@@ -375,6 +385,7 @@ function make_filter_wc_stripe_payment_metadata( $metadata, $order, $source ) {
 
 	return $metadata;
 }
-add_filter( 'wc_stripe_payment_metadata', 'make_filter_wc_stripe_payment_metadata', 10, 3 );
-
+if(is_woocommerce_activated()) :
+	add_filter( 'wc_stripe_payment_metadata', 'make_filter_wc_stripe_payment_metadata', 10, 3 );
+endif;
 

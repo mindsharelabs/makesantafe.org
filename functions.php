@@ -31,6 +31,16 @@ if(!function_exists('mapi_write_log')) {
     }
 }
 
+
+/**
+ * Check if WooCommerce is activated
+ */
+if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+    function is_woocommerce_activated() {
+        if ( class_exists( 'woocommerce' ) ) { return true; } else { return false; }
+    }
+}
+
 if (!isset($content_width)) {
     $content_width = 900;
 }
