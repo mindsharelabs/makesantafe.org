@@ -269,8 +269,10 @@ function localize_header_svg_script() {
 function make_get_title() {
   if(is_home()) :
     $title = get_bloginfo('description');
-  elseif(is_product_category()) :
-    $title = single_term_title('', false);
+  elseif(class_exists('WC')) :
+    if(is_product_category()) :
+        $title = single_term_title('', false);
+    endif;
   else :
     $title = get_the_title();
   endif;

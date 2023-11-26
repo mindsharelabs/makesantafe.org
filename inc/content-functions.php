@@ -179,18 +179,6 @@ function make_get_badged_members($certID) {
 
 
 
-function make_add_unique_id_for_modal( $postID  ) {
-  if($postID == 'options' && is_admin()) :
-    $screen = get_current_screen();
-  	if ($screen->id == 'theme-settings_page_acf-options-member-notice') {
-      update_option( 'make-member-modal-slug', sanitize_title(get_field('member_modal_title', 'options')));
-  	}
-  endif;
-  return $postID;
-}
-
-// acf/update_value - filter for every field
-add_filter('acf/save_post', 'make_add_unique_id_for_modal', 20);
 
 add_filter( 'wp_nav_menu_objects', function ( $items ) {
   foreach ( $items as $item ) {

@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../plugins/make-member-plugin"
+		}
+	],
+	"settings": {}
+}

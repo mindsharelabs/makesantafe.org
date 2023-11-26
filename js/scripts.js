@@ -42,7 +42,7 @@
 		});
 
 		$(document).on('click', '#mobileMenuToggle', function() {
-
+ 
 			setTimeout( function() {
 				$('#mobileMenu').toggleClass('show');
 			}, 100);
