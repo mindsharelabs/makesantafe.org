@@ -173,7 +173,8 @@ function get_active_members_for_membership($memberships){
  *
  */
 function make_remove_free_checkout_fields() {
-	if(class_exists('WC')) :
+
+	if(class_exists('woocommerce')) :
 		// first, bail if the cart needs payment, we don't want to do anything
 		if ( WC()->cart && WC()->cart->needs_payment() ) {
 			return;
@@ -187,7 +188,8 @@ function make_remove_free_checkout_fields() {
 			// Remove the "Additional Info" order notes
 			add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
 			// Unset the fields we don't want in a free checkout
-			function make_unset_unwanted_checkout_fields( $fields ) {
+			
+			add_filter( 'woocommerce_checkout_fields', function ( $fields ) {
 				// add or remove billing fields you do not want
 				// fields: http://docs.woothemes.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/#section-2
 				$billing_keys = array(
@@ -199,14 +201,14 @@ function make_remove_free_checkout_fields() {
 					'billing_postcode',
 					'billing_country',
 					'billing_state',
+					'gift_card',
 				);
 				// unset each of those unwanted fields
 				foreach( $billing_keys as $key ) {
 					unset( $fields['billing'][ $key ] );
 				}
 				return $fields;
-			}
-			add_filter( 'woocommerce_checkout_fields', 'make_unset_unwanted_checkout_fields' );
+			} );
 		}
 	endif;
 }
@@ -214,6 +216,14 @@ function make_remove_free_checkout_fields() {
 if(is_woocommerce_activated()) :
 	add_action( 'wp', 'make_remove_free_checkout_fields' );
 endif;
+
+
+
+
+
+
+
+
 
 
 add_filter( 'woocommerce_product_add_to_cart_text', 'make_change_button_text', 100, 2);
@@ -389,3 +399,12 @@ if(is_woocommerce_activated()) :
 	add_filter( 'wc_stripe_payment_metadata', 'make_filter_wc_stripe_payment_metadata', 10, 3 );
 endif;
 
+add_action('wp_ajax_cart_count_retriever', 'make_cart_count_retriever');
+add_action('wp_ajax_nopriv_cart_count_retriever', 'make_cart_count_retriever');
+function make_cart_count_retriever() {
+	if(class_exists('woocommerce')) :
+    global $wpdb;
+    echo WC()->cart->get_cart_contents_count();
+    wp_die();
+	endif;
+}

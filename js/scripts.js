@@ -16,6 +16,34 @@
 
 		$(".cert-holder").popover({ trigger: "hover" });
 
+
+		$( document.body ).on( 'updated_cart_totals', function(){
+			console.log("this happedn");
+			var cart_count_container = $(".cart-contents-count");
+			$.ajax({
+                url : settings.ajax_url,
+                type : 'post',
+                data : {
+                    action : 'cart_count_retriever'
+                },
+				beforeSend: function() {
+					cart_count_container.html('<i class="text-success fa-xs fa fa-inverse fa-spin fa-spinner"></i>');
+				},
+                success: function(response) {
+                  
+					cart_count_container.html('<i class="text-success fa-xs fa fa-inverse fa-circle-' + response + '"></i>');
+
+                },
+                error: function (response) {
+                    console.log('An error occurred.');
+                    console.log(response);
+                },
+            });
+			
+			
+		});
+
+
 		var windowWidth = $(window).width();
 
 		if(windowWidth < 576) {

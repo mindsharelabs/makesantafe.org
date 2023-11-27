@@ -4,7 +4,7 @@
  * URL: https://mind.sh/are | @mindblank
  *
  */
-define('THEME_VERSION', '3.4.9');
+define('THEME_VERSION', '3.5.0');
 /*------------------------------------*\
     External Modules/Files
 \*------------------------------------*/
@@ -217,13 +217,14 @@ function mindblank_header_scripts()
 
         wp_register_script('mindblankscripts-min', get_template_directory_uri() . '/js/scripts.js', array('jquery'), THEME_VERSION, true);
         wp_enqueue_script('mindblankscripts-min');
+        wp_localize_script( 'mindblankscripts-min', 'settings', array(
+            'ajax_url' => admin_url( 'admin-ajax.php' )
+          ));
 
         wp_register_script('bootstrap-min', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', array(), THEME_VERSION, true);
         wp_enqueue_script('bootstrap-min');
 
-        wp_localize_script( 'mindblankscripts-min', 'settings', array(
-          'ajax_url' => admin_url( 'admin-ajax.php' )
-        ));
+        
 
 
         wp_register_script('fontawesome', 'https://kit.fontawesome.com/5bcc5329ee.js', array(), THEME_VERSION, true);

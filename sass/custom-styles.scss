@@ -45,7 +45,7 @@ h1 {
 h1, h2, h3, h4, h5, h6, .btn {
   font-family: 'Courier Prime', monospace;
 }
-.h1, .h2, .h3, .h4, .h5, .h6, {
+.h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Courier Prime', monospace;
 }
 h2 {
@@ -134,6 +134,19 @@ header.top-header {
     color: $dark;
     font-size: 1.5em;
     margin-right: 5px;
+    &.cart-icon {
+      position: relative;
+      span {
+        position: absolute;
+        top: -12px;
+        right: -8px;
+        background: #fff;
+        border-radius: 50%;
+        padding: 0;
+        margin: 0; 
+        display: flex;
+      }
+    }
   }
   a:hover {
     color: $secondary;
