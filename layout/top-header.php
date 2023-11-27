@@ -21,7 +21,7 @@
                 $cart_count = WC()->cart->cart_contents_count; // Set variable for cart item count
                 $cart_url = wc_get_cart_url(); 
                 echo '<a href="' . $cart_url . '" class="icon cart-icon" style="vertical-align: top;" title="Shopping Cart">';
-                  echo '<i class="fas fa-shopping-cart"></i>';
+                  echo '<i class="fas fa-shopping-cart fa-sm"></i>';
                   if($cart_count > 0) :
                     echo '<span class="cart-contents-count"><i class="text-success fa-xs fa fa-inverse fa-circle-' . $cart_count . '"></i></span>';
                   endif;
