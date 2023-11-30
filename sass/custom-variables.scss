@@ -12,7 +12,7 @@ $primary:       rgb(190, 32, 46);
 $secondary:     rgb(179, 175, 172);
 $success:       rgba(75,175,7, 1);
 $background:    rgba(250, 251, 252, 1);
-$info:          rgb(225, 233, 214);
+$info:          rgb(94, 118, 145);
 $warning:       rgba(201,169,56, 1);
 $danger:        rgba(201,73,73, 1);
 $light:         rgb(230, 230, 230);
@@ -24,7 +24,7 @@ $font-family-sans-serif:      'Raleway', sans-serif;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:            $font-family-sans-serif;
 // stylelint-enable value-keyword-case
-
+ 
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
 $font-size-lg:                ($font-size-base * 1.25);
 $font-size-sm:                ($font-size-base * .875);
