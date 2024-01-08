@@ -8,7 +8,7 @@ include 'layout/notice.php';
     <?php
     if ( function_exists('yoast_breadcrumb') ) {
       echo '<div class="row">';
-        echo '<div class="col-12">';
+        echo '<div class="col-12 col-md-8 mx-auto">';
           yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
         echo '</div>';
       echo '</div>';
