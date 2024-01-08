@@ -9,8 +9,8 @@ if(get_field('show_header')) :
 		$stroke = '#fff';
 	} else {
 		$background_str = 'background-color:' . $color;
-		$fill = shadeColor ($color, 20);
-		$stroke = '#000';
+		$fill = 'rgba(1,1,1,.1)';
+		$stroke = 'rgba(255,255,255,.3)';
 	}
 
 	?>
@@ -47,12 +47,33 @@ if(get_field('show_header')) :
 		#intro-logo-load #banner .lines, #intro-logo-load .fills {
 			stroke: <?php echo $stroke; ?>
 		}
-		#circuits .lines{
+		#circuit .lines{
 			stroke: #fff !important;
 		}
-		#circuits .circles {
+		#circuit .circles {
 			fill: #fff !important;
 			stroke: #fff !important;
+		}
+		#circuit .circles {
+			fill: #fff !important;
+			stroke: #fff !important;
+		}
+		#objects .st0 {
+			opacity: unset !important;
+			fill: <?php echo $fill; ?> !important;
+			stroke: <?php echo $stroke; ?> !important;
+		}
+		#objects .st1 {
+			/* fill: #fff !important; */
+			stroke: <?php echo $stroke; ?> !important;
+		}
+		#circut .st2 {
+			/* fill: #fff !important; */
+			stroke: <?php echo $stroke; ?> !important;
+		}
+		#circut .st3 {
+			fill: <?php echo $fill; ?> !important;
+			stroke: <?php echo $stroke; ?> !important;
 		}
 	</style>
 	<header class="page-header container-fluid" style="<?php echo $background_str; ?>">
