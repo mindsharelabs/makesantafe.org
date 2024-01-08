@@ -14,7 +14,6 @@ include 'layout/notice.php';
       echo '</div>';
     }
     ?>
-  </div>
   <div class="row">
 
     <section class="col-12 col-md-8 mx-auto">
