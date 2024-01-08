@@ -4,6 +4,17 @@ include 'layout/notice.php';
 
 ?>
 <main role="main" aria-label="Content" class="container">
+  
+    <?php
+    if ( function_exists('yoast_breadcrumb') ) {
+      echo '<div class="row">';
+        echo '<div class="col-12">';
+          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        echo '</div>';
+      echo '</div>';
+    }
+    ?>
+  </div>
   <div class="row">
 
     <section class="col-12 col-md-8 mx-auto">
