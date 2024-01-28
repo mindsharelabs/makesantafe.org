@@ -364,13 +364,13 @@ header.top-header {
           @include transition(100ms);
         }
       }
-      &.page_item_has_children {
+      &.page-item-has-children, &.menu-item-has-children {
         position: relative;
         & > a {
           padding-right: 25px;
         }
         &:before {
-          display: inline-block;
+          display: inline-block; 
           font-style: normal;
           font-variant: normal;
           text-rendering: auto;
