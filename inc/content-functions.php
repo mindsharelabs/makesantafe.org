@@ -51,15 +51,13 @@ add_filter( 'facetwp_index_row', function ( $params, $class ) {
 }, 10, 2 );
 
 
-
-
-// //Force a user sync every 8 hours
-// if(function_exists('UPT')) :
-//   add_action( 'make_sync_users', [ UPT()->sync, 'run_sync' ] );
-//   if ( ! wp_next_scheduled( 'make_sync_users' ) ) {
-//       wp_schedule_single_event( time() + 28800, 'make_sync_users' ); //  28800 seconds = every 8 hours
-//   }
-// endif;
+//Force a user sync every 8 hours
+if(function_exists('UPT')) :
+  add_action( 'make_sync_users', [ UPT()->sync, 'run_sync' ] );
+  if ( ! wp_next_scheduled( 'make_sync_users' ) ) {
+      wp_schedule_single_event( time() + 28800, 'make_sync_users' ); //  28800 seconds = every 8 hours
+  }
+endif;
 
 
 add_filter( 'render_block', 'mapi_block_wrapper', 10, 2 );
