@@ -119,8 +119,6 @@
         ?>
       </div>
 
-
-
       
       <?php
       echo '<div class="col-12 col-md-8 mb-3">';
@@ -147,6 +145,36 @@
       echo '</div>';
       ?>
     
+
+    <?php 
+    if($maker_posts) :
+      echo '<div class="col-12">';
+        echo '<h2 class="text-center my-4 h3">Articles by ' . $name . '</h2>';
+        echo '<div class="row gy-2">';
+          foreach ($maker_posts as $key => $post) :
+            echo '<div class="col-12 col-md-6 col-lg-4">';
+              echo '<div class="card mb-2">';
+                echo '<div class="card-body">';
+                  echo '<h3 class="card-title">' . $post->post_title . '</h3>';
+                  echo '<p class="card-text">' . $post->post_excerpt . '</p>';
+                  echo '<a href="' . get_permalink($post->ID) . '" class="btn btn-primary">Read More</a>';
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          endforeach;
+        echo '</div>';
+
+      echo '</div>';
+
+
+    endif;
+
+
+    ?>
+
+
+
+
   </section>
 
 
