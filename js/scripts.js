@@ -44,6 +44,7 @@
 		});
 
 
+
 		var windowWidth = $(window).width();
 
 		if(windowWidth < 576) {

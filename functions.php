@@ -258,6 +258,8 @@ function mindblank_header_scripts()
         wp_enqueue_script('snapsvg-js');
 
 
+
+
     }
 }
 
@@ -321,10 +323,18 @@ function make_header_text_color() {
 // Load mind Blank conditional scripts
 function mindblank_conditional_scripts()
 {
-    // if (is_page_template('template-allscores.php')) {
-    //     // Conditional script(s)
-    //
-    // }
+    
+    if ( is_page_template( 'template-makers.php' ) ) {
+        // wp_register_script('listjs-min', get_template_directory_uri() . '/js/list.min.js', array('jquery'), THEME_VERSION, true);
+        // wp_enqueue_script('listjs-min');
+        // // wp_localize_script( 'listjs-min', 'settings', array(
+        // //     'ajax_url' => admin_url( 'admin-ajax.php' )
+        // // ));
+
+        // wp_register_script('list-js-init', get_template_directory_uri() . '/js/list-js-init.js', array('jquery', 'listjs-min'), THEME_VERSION, true);
+        // wp_enqueue_script('list-js-init');
+    }
+      
 }
 
 // Load mind Blank styles

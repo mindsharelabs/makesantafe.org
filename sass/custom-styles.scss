@@ -827,13 +827,32 @@ section.member-menu {
   }
 }
 
-.make-member-card {
-  margin-top: 50%;
-
-  .profile-image {
-    margin-top: -40%;
+.page-template-template-makers {
+  .filter-row {
+    span.label {
+      color: $primary;
+      font-weight: bold;
+      font-size: .9em;
+      text-transform: uppercase;
+    }
   }
 }
+.makers {
+  .make-member-card {
+    .maker-badges {
+      margin: 0;
+      .badge-image-holder {
+        .badge-name {
+          font-size: 12px;
+          text-align: center;
+          line-height: 13px;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
 section.maker-profile, section.badged-makers, section.makers {
   .sidebar-title {
     text-transform: uppercase;

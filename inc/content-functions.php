@@ -8,6 +8,60 @@ add_filter('tribe_related_posts_args', function($args) {
 });
 
 
+//This adds meta information about the user when FacetWP syncs users to CPT
+add_action( 'upt_sync_post', function( $post_id, $user_id ) {
+  $active_member = wc_memberships_is_user_active_member( $user_id);
+  if($active_member) :
+    add_post_meta( $post_id, 'make_active_member', true);
+    add_user_meta( $user_id, 'make_active_member', true);
+  else :
+    add_post_meta( $post_id, 'make_active_member', false);
+    add_user_meta( $user_id, 'make_active_member', false);
+  endif;
+
+
+}, 10, 2 );
+
+
+//Prevent single upt_user posts from being visible
+add_filter( 'upt_post_type_args', function( $args ) {
+  $args['publicly_queryable'] = false;
+  $args['exclude_from_search'] = false;
+  $args['show_in_rest'] = false;
+  return $args;
+});
+
+
+
+//Index serialized data for UPT_users 
+add_filter( 'facetwp_index_row', function ( $params, $class ) {
+  
+  if ( 'user_badges' == $params['facet_name'] ) :
+    $values = (array) $params['facet_value'];
+    foreach ( $values as $val ) :
+      $params['facet_value'] = $val;
+      $params['facet_display_value'] = get_the_title($val);
+      if( $params['facet_value'] && $params['facet_display_value'] ) :
+        $class->insert( $params );
+      endif;
+    endforeach;
+    return false; // skip default indexing
+  endif;// end if user_badges
+  return $params;
+}, 10, 2 );
+
+
+
+
+// //Force a user sync every 8 hours
+// if(function_exists('UPT')) :
+//   add_action( 'make_sync_users', [ UPT()->sync, 'run_sync' ] );
+//   if ( ! wp_next_scheduled( 'make_sync_users' ) ) {
+//       wp_schedule_single_event( time() + 28800, 'make_sync_users' ); //  28800 seconds = every 8 hours
+//   }
+// endif;
+
+
 add_filter( 'render_block', 'mapi_block_wrapper', 10, 2 );
 function mapi_block_wrapper( $block_content, $block ) {
   // mapi_write_log($block_content);
@@ -96,6 +150,7 @@ function make_output_shop_space($term, $echo = false) {
 
 
 function make_output_member_card($maker, $echo = false) {
+  $maker = get_user_by('ID', $maker);
   if(is_object($maker)) :
     $member = wc_memberships_is_user_active_member($maker->ID);
     $public = get_field('display_profile_publicly',  'user_' . $maker->ID);
@@ -104,17 +159,19 @@ function make_output_member_card($maker, $echo = false) {
       $user_obj = get_userdata( $maker->ID );
       $thumb = get_field('photo', 'user_' . $maker->ID);
       $name = (get_field('display_name', 'user_' . $maker->ID ) ? get_field('display_name', 'user_' . $maker->ID ) : $user_obj->display_name);
-
       $title = get_field('title', 'user_' . $maker->ID);
       $link = get_author_posts_url($maker->ID);
+
+      $badges = get_field('certifications', 'user_' . $maker->ID );
+
       if(!$thumb){
         $image_url = get_template_directory_uri() . '/img/nophoto.svg';
         $image = '<img src="' . $image_url . '" class="rounded-circle">';
       } else {
         $image = wp_get_attachment_image( $thumb['ID'], 'small-square', false, array('alt' => $name, 'class' => 'rounded-circle'));
       }
-      $html .='<div class="col-6 col-md-3 text-center">';
-        $html .='<div class="mb-4 text-center card make-member-card">';
+      $html .='<div class="col-6 col-md-3 text-center mb-2">';
+        $html .='<div class="mb-4 text-center card make-member-card d-flex flex-column justify-content-start h-100">';
           if($image) :
             $html .='<div class="image profile-image p-3 w-75 mx-auto">';
               $html .='<a href="' . $link . '">';
@@ -129,13 +186,13 @@ function make_output_member_card($maker, $echo = false) {
             $html .='<p class="text-center small mb-0">' . $title . '</p>';
           $html .='</div>';
 
-          $badges = get_field('certifications', 'user_' . $maker->ID );
           $html .= '<div class="maker-badges d-flex justify-content-center flex-wrap">';
           if($badges) :
             foreach($badges as $badge) :
               if($image = get_field('badge_image', $badge)) :
                 $html .= '<div class="badge-image-holder m-1">';
                   $html .= wp_get_attachment_image($image);
+                  $html .= '<span class="badge-name">' . get_the_title($badge) . '</span>';
                 $html .= '</div>';
               endif;
             endforeach;
