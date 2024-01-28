@@ -9,8 +9,8 @@
   $args = array(
     'author'        =>  $author->ID,
     'orderby'       =>  'post_date',
-    'order'         =>  'ASC',
-    'posts_per_page' => -11
+    'order'         =>  'DESC',
+    'posts_per_page' => 8
   );
   $maker_posts = get_posts( $args );
 
@@ -123,7 +123,7 @@
       <?php
       echo '<div class="col-12 col-md-8 mb-3">';
         if($bio) : 
-          echo $bio;
+          echo '<div class="lead">' . $bio . '</div>';
         endif; 
         if($gallery) :
           echo '<div class="row gy-3 mb-4">';
@@ -152,11 +152,25 @@
         echo '<h2 class="text-center my-4 h3">Articles by ' . $name . '</h2>';
         echo '<div class="row gy-2">';
           foreach ($maker_posts as $key => $post) :
+            $cats = wp_get_post_categories(get_the_id(), array('fields' => 'id=>name'));
             echo '<div class="col-12 col-md-6 col-lg-4">';
               echo '<div class="card mb-2">';
                 echo '<div class="card-body">';
-                  echo '<h3 class="card-title">' . $post->post_title . '</h3>';
+                  echo '<h3 class="card-title h4">' . $post->post_title . '</h3>';
                   echo '<p class="card-text">' . $post->post_excerpt . '</p>';
+
+                  if(count($cats) > 0) :
+                    echo '<div class="categories mb-2 w-100">';
+                    foreach ($cats as $key => $cat) :
+                      echo '<a href="' . get_term_link($key, 'category') . '" class="small text-muted pr-2" title="' . $cat . '">' . $cat . '</a>';
+                      if(next($cats)) :
+                        echo ' | ';
+                      endif;
+                    endforeach;
+                    echo '</div>';
+                  endif;
+
+
                   echo '<a href="' . get_permalink($post->ID) . '" class="btn btn-primary">Read More</a>';
                 echo '</div>';
               echo '</div>';

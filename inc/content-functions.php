@@ -8,6 +8,7 @@ add_filter('tribe_related_posts_args', function($args) {
 });
 
 
+
 //This adds meta information about the user when FacetWP syncs users to CPT
 add_action( 'upt_sync_post', function( $post_id, $user_id ) {
   $active_member = wc_memberships_is_user_active_member( $user_id);
@@ -31,6 +32,13 @@ add_filter( 'upt_post_type_args', function( $args ) {
   return $args;
 });
 
+
+add_filter( 'facetwp_facet_dropdown_show_counts', function( $return, $params ) {
+  if ( 'user_badges' == $params['facet']['name'] ) {
+    $return = false;
+  }
+  return $return;
+}, 10, 2 );
 
 
 //Index serialized data for UPT_users 
