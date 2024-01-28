@@ -55,7 +55,7 @@ add_filter( 'facetwp_index_row', function ( $params, $class ) {
 if(function_exists('UPT')) :
   add_action( 'make_sync_users', [ UPT()->sync, 'run_sync' ] );
   if ( ! wp_next_scheduled( 'make_sync_users' ) ) {
-      wp_schedule_single_event( time() + 28800, 'make_sync_users' ); //  28800 seconds = every 8 hours
+      wp_schedule_single_event( time() + 86400, 'make_sync_users' ); //  28800 seconds = every 8 hours
   }
 endif;
 
