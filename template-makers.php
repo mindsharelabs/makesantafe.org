@@ -10,7 +10,7 @@ include 'layout/notice.php';
 $makers = new WP_Query(array(
   "facetwp"        => true,
   'post_type' => 'upt_user',
-  'posts_per_page' => 12,
+  'posts_per_page' => -1,
   'orderby'        => [
     'title' => 'ASC'
   ],
@@ -57,11 +57,11 @@ if($makers->have_posts()) :
 
 
 
-    echo '<div class="row">';
-      echo '<div class="col-12 col-md-6 offset-0 offset-md-3">';
-        echo facetwp_display('facet','member_pager');
-      echo '</div>';
-    echo '</div>';
+    // echo '<div class="row">';
+    //   echo '<div class="col-12 col-md-6 offset-0 offset-md-3">';
+    //     echo facetwp_display('facet','member_pager');
+    //   echo '</div>';
+    // echo '</div>';
 
   echo '</div>';
 endif;
