@@ -39,9 +39,22 @@ if($makers->have_posts()) :
 
 
     echo '<div class="row filter-row">';
-      echo '<div class="col-12">';
-        echo '<span class="label">Filter by Badge:</span>';
-        echo facetwp_display('facet', 'user_badges');
+      echo '<div class="col-12 d-flex flex-row">';
+        echo '<div class="facet-cont me-3">';
+          echo '<span class="label">Search Members:</span>';
+          echo facetwp_display('facet', 'user_search');
+        echo '</div>';
+
+        echo '<div class="facet-cont me-3">';
+          echo '<span class="label">Filter by Badge:</span>';
+          echo facetwp_display('facet', 'user_badges');
+        echo '</div>';
+
+        echo '<div class="facet-cont me-3">';
+          echo '<span class="label">&#8205;</span>';
+          echo facetwp_display('facet', 'search_reset');
+        echo '</div>';
+        
       echo '</div>';
     echo '</div>';
 

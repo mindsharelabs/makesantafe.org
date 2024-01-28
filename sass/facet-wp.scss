@@ -20,9 +20,32 @@
   }
 }
 
-
+.facet-cont {
+  z-index: 1000;
+}
 
 .facetwp-facet {
+  &.facetwp-type-autocomplete {
+    button, .facetwp-autocomplete-update {
+      background-color: $primary;
+      border: 0;
+      color: $light;
+      line-height: 28px;
+      margin-left: 5px;
+      border-radius: 5px;
+    }
+  }
+
+  &.facetwp-type-reset {
+    button, .facetwp-reset {
+      background-color: $primary;
+      border: 0;
+      color: $light;
+      line-height: 28px;
+      margin-left: 5px;
+      border-radius: 5px;
+    }
+  }
   &.facetwp-facet-user_badges {
     .facetwp-checkbox {
       display: inline-block;
