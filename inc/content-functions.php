@@ -181,19 +181,3 @@ function make_get_badged_members($certID) {
   return $wp_user_query->get_results();
 
 }
-
-
-
-
-add_filter( 'wp_nav_menu_objects', function ( $items ) {
-  foreach ( $items as $item ) {
-  	
-
-    if(in_array('menu-item-has-children', $item->classes)) :
-      $item->title = $item->title . '<i class="ms-2 fal fa-plus"></i>';
- 
-    endif;
-    // mapi_write_log($item);
-  }
-  return $items;
-});
