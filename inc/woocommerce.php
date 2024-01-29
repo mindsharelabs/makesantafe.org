@@ -61,7 +61,7 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 // remove_action( 'template_redirect', 'wc_disable_author_archives_for_customers', 10 );
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
-
+remove_action('template_redirect', 'wc_disable_author_archives_for_customers', 10 );
 
 add_action('woocommerce_single_product_summary', 'make_display_content', 25);
 function make_display_content() {
