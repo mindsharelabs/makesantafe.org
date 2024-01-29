@@ -192,8 +192,8 @@
 
   <?php else : ?>
     <div class="row">
-      <div class="col-12">
-        <h1 class="page-title">Sorry, this profile is not public.</h1>
+      <div class="col-12 my-5">
+        <h1 class="page-title text-center my-5">Sorry, this profile is not public.</h1>
       </div>
     </div>
   <?php endif; ?>
