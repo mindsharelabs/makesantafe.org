@@ -5,7 +5,6 @@
   $maker_id = $author->ID;
   $public = get_field('display_profile_publicly', 'user_' . $maker_id);
 
-
   $args = array(
     'author'        =>  $author->ID,
     'orderby'       =>  'post_date',
@@ -191,7 +190,12 @@
 
   </section>
 
-
+  <?php else : ?>
+    <div class="row">
+      <div class="col-12">
+        <h1 class="page-title">Sorry, this profile is not public.</h1>
+      </div>
+    </div>
   <?php endif; ?>
 </main>
  <?php
