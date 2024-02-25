@@ -34,6 +34,10 @@ add_action( 'upt_sync_post', function( $post_id, $user_id ) {
 
 
 
+add_action('admin_footer', function() {
+  mapi_var_dump(get_post_meta(get_the_id()));
+});
+
 
 //This adds meta information about the user when FacetWP syncs users to CPT
 //Prevent single upt_user posts from being visible
@@ -41,12 +45,12 @@ add_filter( 'upt_post_type_args', function( $args ) {
   // $args['publicly_queryable'] = false;
   // $args['exclude_from_search'] = false;
   // $args['show_in_rest'] = false;
-  // $args['show_in_menu'] = false;
+  $args['show_in_menu'] = false;
 
-  $args['publicly_queryable'] = true;
-  $args['exclude_from_search'] = true;
-  $args['show_in_rest'] = true;
-  $args['show_in_menu'] = true;
+  // $args['publicly_queryable'] = true;
+  // $args['exclude_from_search'] = true;
+  // $args['show_in_rest'] = true;
+  // $args['show_in_menu'] = true;
   return $args;
 });
 
@@ -61,7 +65,11 @@ add_filter( 'facetwp_facet_dropdown_show_counts', function( $return, $params ) {
 
 //Index serialized data for UPT_users 
 add_filter( 'facetwp_index_row', function ( $params, $class ) {
-
+  if($params['facet_name'] == 'user_search') :
+    mapi_write_log($params);
+  endif;
+  
+ 
   if ( 'user_badges' == $params['facet_name'] ) :
     $values = (array) $params['facet_value'];
     foreach ( $values as $val ) :
@@ -250,4 +258,25 @@ function make_get_badged_members($certID) {
   $wp_user_query = new WP_User_Query($args);
   return $wp_user_query->get_results();
 
+}
+
+
+
+
+
+/**
+ * Register meta box(es).
+ */
+function makesf_register_meta_boxes() {
+	add_meta_box( 'meta-box-id', 'Post Meta', 'makesf_meta_display_callback', 'upt_user' );
+}
+add_action( 'add_meta_boxes', 'makesf_register_meta_boxes' );
+
+/**
+ * Meta box display callback.
+ *
+ * @param WP_Post $post Current post object.
+ */
+function makesf_meta_display_callback( $post ) {
+	echo '<div class="box">' . mapi_var_dump(get_post_meta($post->ID)) . '</div>';
 }
