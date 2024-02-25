@@ -207,7 +207,7 @@ function make_color_luminance( $hex, $percent ) {
 
 function shadeColor ($color, $percent) {
 
-  $color = str_replace("#",Null,$color);
+  $color = str_replace("#",'',$color);
 
   $r = Hexdec(Substr($color,0,2));
   $g = Hexdec(Substr($color,2,2));
