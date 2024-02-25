@@ -8,24 +8,24 @@ include 'layout/notice.php';
 
 
 $makers = new WP_Query(array(
-  "facetwp"        => true,
+  'facetwp'        => true,
   'post_type' => 'upt_user',
   'posts_per_page' => -1,
   'orderby'        => [
     'title' => 'ASC'
   ],
   'meta_query' => array(
-    array(
-      'key' => 'make_active_member',
-      'value' => true,
-      'compare' => '='
-    ),
+    // array(
+    //   'key' => 'make_active_member',
+    //   'value' => true,
+    //   'compare' => '='
+    // ),
     array(
       'key' => 'meta-display_profile_publicly',
       'value' => true,
       'compare' => '='
     ),
-    'relation' => 'AND',
+    // 'relation' => 'AND',
   ),
 ));
 if($makers->have_posts()) :
@@ -62,8 +62,6 @@ if($makers->have_posts()) :
 
     echo '<section class="row makers gy-3 facetwp-template">';
     while($makers->have_posts()) : $makers->the_post();
-      mapi_write_log(get_post_meta(get_the_ID(), 'meta-certifications', true));
-
       echo make_output_member_card(UPT()->get_user_id(), $echo = false);
     endwhile;
     echo '</section>';

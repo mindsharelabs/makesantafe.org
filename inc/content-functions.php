@@ -11,10 +11,11 @@ add_filter('tribe_related_posts_args', function($args) {
 
 
 add_filter( 'upt_sync_skip_user', function( $bool, $user_id ) {
-  $active_member = wc_memberships_is_user_active_member( $user_id);
-  if (!$active_member) {
+  $public_display = get_field('display_profile_publicly', 'user_' . $user_id);
+  $active_members = make_get_active_members_array( $user_id);
+  if(!in_array($user_id, $active_members) || !$public_display) :
     return true;
-  }
+  endif;
   return $bool;
 }, 10, 2 );
 
@@ -22,8 +23,8 @@ add_filter( 'upt_sync_skip_user', function( $bool, $user_id ) {
 
 //This adds meta information about the user when FacetWP syncs users to CPT
 add_action( 'upt_sync_post', function( $post_id, $user_id ) {
-  $active_member = wc_memberships_is_user_active_member( $user_id);
-  if($active_member) :
+  $active_members = make_get_active_members_array( $user_id);
+  if(in_array($user_id, $active_members)) :
     add_post_meta( $post_id, 'make_active_member', true);
     add_user_meta( $user_id, 'make_active_member', true);
   endif;
@@ -37,10 +38,15 @@ add_action( 'upt_sync_post', function( $post_id, $user_id ) {
 //This adds meta information about the user when FacetWP syncs users to CPT
 //Prevent single upt_user posts from being visible
 add_filter( 'upt_post_type_args', function( $args ) {
-  $args['publicly_queryable'] = false;
-  $args['exclude_from_search'] = false;
-  $args['show_in_rest'] = false;
-  $args['show_in_menu'] = false;
+  // $args['publicly_queryable'] = false;
+  // $args['exclude_from_search'] = false;
+  // $args['show_in_rest'] = false;
+  // $args['show_in_menu'] = false;
+
+  $args['publicly_queryable'] = true;
+  $args['exclude_from_search'] = true;
+  $args['show_in_rest'] = true;
+  $args['show_in_menu'] = true;
   return $args;
 });
 
@@ -163,10 +169,8 @@ function make_output_shop_space($term, $echo = false) {
 function make_output_member_card($maker, $echo = false) {
   $maker = get_user_by('ID', $maker);
   if(is_object($maker)) :
-    $member = wc_memberships_is_user_active_member($maker->ID);
-    $public = get_field('display_profile_publicly',  'user_' . $maker->ID);
     $html = '';
-    if($public && $member):
+      
       $user_obj = get_userdata( $maker->ID );
       $thumb = get_field('photo', 'user_' . $maker->ID);
       $name = (get_field('display_name', 'user_' . $maker->ID ) ? get_field('display_name', 'user_' . $maker->ID ) : $user_obj->display_name);
@@ -213,8 +217,6 @@ function make_output_member_card($maker, $echo = false) {
 
         $html .='</div>';
       $html .='</div>';
-    endif; 
- 
 
   if($echo) :
     echo $html;
