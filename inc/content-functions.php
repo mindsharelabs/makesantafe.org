@@ -9,27 +9,38 @@ add_filter('tribe_related_posts_args', function($args) {
 
 
 
+
+add_filter( 'upt_sync_skip_user', function( $bool, $user_id ) {
+  $active_member = wc_memberships_is_user_active_member( $user_id);
+  if (!$active_member) {
+    return true;
+  }
+  return $bool;
+}, 10, 2 );
+
+
+
 //This adds meta information about the user when FacetWP syncs users to CPT
 add_action( 'upt_sync_post', function( $post_id, $user_id ) {
   $active_member = wc_memberships_is_user_active_member( $user_id);
-
   if($active_member) :
     add_post_meta( $post_id, 'make_active_member', true);
     add_user_meta( $user_id, 'make_active_member', true);
-  else :
-    add_post_meta( $post_id, 'make_active_member', false);
-    add_user_meta( $user_id, 'make_active_member', false);
   endif;
 
 
 }, 10, 2 );
 
 
+
+
+//This adds meta information about the user when FacetWP syncs users to CPT
 //Prevent single upt_user posts from being visible
 add_filter( 'upt_post_type_args', function( $args ) {
   $args['publicly_queryable'] = false;
   $args['exclude_from_search'] = false;
   $args['show_in_rest'] = false;
+  $args['show_in_menu'] = false;
   return $args;
 });
 
@@ -44,7 +55,7 @@ add_filter( 'facetwp_facet_dropdown_show_counts', function( $return, $params ) {
 
 //Index serialized data for UPT_users 
 add_filter( 'facetwp_index_row', function ( $params, $class ) {
-  
+
   if ( 'user_badges' == $params['facet_name'] ) :
     $values = (array) $params['facet_value'];
     foreach ( $values as $val ) :
@@ -60,13 +71,6 @@ add_filter( 'facetwp_index_row', function ( $params, $class ) {
 }, 10, 2 );
 
 
-//Force a user sync every 8 hours
-if(function_exists('UPT')) :
-  add_action( 'make_sync_users', [ UPT()->sync, 'run_sync' ] );
-  if ( ! wp_next_scheduled( 'make_sync_users' ) ) {
-      wp_schedule_single_event( time() + 86400, 'make_sync_users' ); //  28800 seconds = every 8 hours
-  }
-endif;
 
 
 add_filter( 'render_block', 'mapi_block_wrapper', 10, 2 );
