@@ -34,23 +34,11 @@ add_action( 'upt_sync_post', function( $post_id, $user_id ) {
 
 
 
-add_action('admin_footer', function() {
-  mapi_var_dump(get_post_meta(get_the_id()));
-});
-
-
 //This adds meta information about the user when FacetWP syncs users to CPT
 //Prevent single upt_user posts from being visible
 add_filter( 'upt_post_type_args', function( $args ) {
-  // $args['publicly_queryable'] = false;
-  // $args['exclude_from_search'] = false;
-  // $args['show_in_rest'] = false;
   $args['show_in_menu'] = false;
 
-  // $args['publicly_queryable'] = true;
-  // $args['exclude_from_search'] = true;
-  // $args['show_in_rest'] = true;
-  // $args['show_in_menu'] = true;
   return $args;
 });
 
