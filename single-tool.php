@@ -96,7 +96,7 @@ $downloads = get_field('downloads');
         $slugs = wp_list_pluck(get_field('badge_category'), 'slug');
         echo '<div class="col-12 ">';
           echo '<h3>Get access to this tool:</h3>';
-          echo do_shortcode('[tribe_events view="summary" filter-bar="true" tribe-bar="false" category="' . implode(', ', $slugs) . '"]');
+          echo do_shortcode('[tribe_events view="summary" filter-bar="false" tribe-bar="false" category="' . implode(', ', $slugs) . '"]');
         echo '</div>';
       endif;
       ?>

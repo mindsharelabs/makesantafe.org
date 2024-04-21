@@ -163,8 +163,7 @@ function make_output_shop_space($term, $echo = false) {
 
 
 function make_output_member_card($maker, $echo = false) {
-  $maker = get_user_by('ID', $maker);
-  if(is_object($maker)) :
+  $maker = get_user_by('ID', $maker->data->ID);
     $html = '';
       
       $user_obj = get_userdata( $maker->ID );
@@ -201,10 +200,10 @@ function make_output_member_card($maker, $echo = false) {
           if($badges) :
             foreach($badges as $badge) :
               if($image = get_field('badge_image', $badge)) :
-                $html .= '<div class="badge-image-holder m-1">';
+                $html .= '<a class="badge-image-holder m-1" href="' . get_permalink($badge) . '">';
                   $html .= wp_get_attachment_image($image);
                   $html .= '<span class="badge-name">' . get_the_title($badge) . '</span>';
-                $html .= '</div>';
+                $html .= '</a>';
               endif;
             endforeach;
           endif;
@@ -218,7 +217,6 @@ function make_output_member_card($maker, $echo = false) {
     echo $html;
   else :
     return $html; 
-  endif;
   endif;
 }
 
@@ -246,6 +244,34 @@ function make_get_badged_members($certID) {
   $wp_user_query = new WP_User_Query($args);
   return $wp_user_query->get_results();
 
+}
+
+
+function make_output_tool_card($tool, $echo = false) {
+  $html = '';
+
+
+  $html .= '<div class="col-12 col-md-4 mb-3">';
+    $html .= '<div class="card h-100">';
+      $html .= '<div class="card-body">';
+        $html .= '<h3 class="post-title text-center">';
+          $html .= '<a href="' . get_the_permalink($tool) . '" title="' . get_the_title($tool) . '">';
+            $html .= get_the_title($tool);
+          $html .= '</a>';
+        $html .= '</h3>';
+        $html .= '<div class="tool-description">';
+          $html .= get_the_excerpt($tool);
+        $html .= '</div>';
+      $html .= '</div>';
+    $html .= '</div>';
+
+  $html .= '</div>';
+
+  if($echo) :
+    echo $html;
+  else :
+    return $html;
+  endif;  
 }
 
 

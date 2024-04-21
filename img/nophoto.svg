@@ -4,21 +4,10 @@
 	.st0{fill:#F1F2F2;}
 	.st1{fill:#BE222E;}
 	.st1{
-    animation-name: ckw;
-    animation-duration: 15.5s;
-    /* Things added */
-    animation-iteration-count: infinite;
-    transform-origin: 50% 50%;
-    display: inline-block;
+		transform-origin: 50% 50%;
+		display: inline-block;
 	}
-	@keyframes ckw {
-	    0% {
-	        transform: rotate(0deg);
-	    }
-	    100% {
-	        transform: rotate(360deg);
-	    }
-	}
+	
 </style>
 <circle class="st0" cx="79.68" cy="79.68" r="65.46"/>
 <g>

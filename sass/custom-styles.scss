@@ -843,10 +843,13 @@ section.member-menu {
       margin: 0;
       .badge-image-holder {
         .badge-name {
-          font-size: 12px;
-          text-align: center;
+          // font-size: 12px;
+          text-align: center; 
           line-height: 13px;
           display: block;
+          font-size: 10px;
+          text-transform: uppercase;
+          font-weight: bold;
         }
       }
     }
@@ -872,11 +875,20 @@ section.maker-profile, section.badged-makers, section.makers {
     justify-content: space-between;
     .badge-image-holder {
       background: #fafafa;
-      padding: 5px;
+      padding: 3px;
       border: #e6e6e6;
-      min-width: 25%;
-      max-width: 33.33333%;
       flex: 1;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 12px;
+      text-decoration: none;
+      color: $dark;
+      &:hover {
+        background-color: darken(#fafafa, 5%);
+      }
+      .badge-name {
+        white-space: nowrap;
+      }
       &.false {
         opacity: .25;
       }

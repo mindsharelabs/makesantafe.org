@@ -4,7 +4,7 @@
 \*------------------------------------*/
 
 add_action('init', 'create_post_type_mind'); // Add our mind Blank Custom Post Type
-add_action( 'init', 'create_staff_taxonomies');
+add_action( 'init', 'make_create_taxonomies');
 
 
 
@@ -84,9 +84,9 @@ function create_post_type_mind(){
 
 // hook into the init action and call create_book_taxonomies when it fires
 
-function create_staff_taxonomies() {
+function make_create_taxonomies() {
 
-  $tool_labels = array(
+  $tool_type_labels = array(
 		'name'              => _x( 'Our Shop Spaces', 'taxonomy general name', 'textdomain' ),
 		'singular_name'     => _x( 'Shop Space', 'taxonomy singular name', 'textdomain' ),
 		'search_items'      => __( 'Search Shop Spaces', 'textdomain' ),
@@ -100,9 +100,9 @@ function create_staff_taxonomies() {
 		'menu_name'         => __( 'Shop Space', 'textdomain' ),
 	);
 
-	$tool_args = array(
+	$tool_type_args = array(
 		'hierarchical'      => true,
-		'labels'            => $tool_labels,
+		'labels'            => $tool_type_labels,
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
@@ -111,7 +111,7 @@ function create_staff_taxonomies() {
 
 
 
-    register_taxonomy( 'tool_type', array( 'tool' ), $tool_args );
+    register_taxonomy( 'tool_type', array( 'tool' ), $tool_type_args );
 
 
 }
