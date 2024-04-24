@@ -116,38 +116,33 @@ function make_output_shop_space($term, $echo = false) {
     ),
   ));
   if($posts->have_posts()) :
-    $images = array();
+    $tool_names = array();
     while($posts->have_posts()) :
       $posts->the_post();
-      if(has_post_thumbnail()) :
-        $images[] = array(
-          'post_id' => get_the_id(),
-          'image' => get_post_thumbnail_id(get_the_id())
-        );
-      endif;
+      $tool_names[] = '<a class="badge rounded-pill text-bg-primary me-1 mb-1" href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . get_the_title() . '</a>';
     endwhile;
   endif;
 
   $html = '<article id="post-' . get_the_ID() . '" class="tool col-12 col-md-4 mb-3">';
     $html .= '<div class="card h-100 d-flex flex-column">';
  
-      if(isset($images)) :
-        $html .= '<div class="image-header d-flex flex-wrap">';
-        foreach($images as $image) :
-          $html .= '<a href="' . get_the_permalink($image['post_id']) . '" title="' . get_the_title($image['post_id']) . '">';
-            $html .= wp_get_attachment_image( $image['image'], 'thumbnail', true, array('class' => 'tool-image') );
-          $html .= '</a>';
-        endforeach;
-        $html .= '</div>';
-      endif;
+      
     
-      $html .= '<div class ="card-body">';
+      $html .= '<div class="card-body">';
         $html .= '<h3 class="post-title text-center">';
           $html .= '<a href="' . get_term_link($term) . '" title="' . $term->name . '">';
             $html .= $term->name;
           $html .= '</a>';
         $html .= '</h3>';
         $html .= term_description($term);
+
+        if(isset($tool_names)) :
+          $html .= '<div class="d-flex flex-wrap">';
+          foreach($tool_names as $tool) :
+            $html .= $tool;
+          endforeach;
+          $html .= '</div>';
+        endif;
 
       $html .= '</div>';
     
