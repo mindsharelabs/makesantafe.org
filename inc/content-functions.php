@@ -259,12 +259,12 @@ function make_output_tool_card($tool, $echo = false) {
   $html = '';
 
 
-  $html .= '<div class="col-6 col-md-3 mb-3">';
+  $html .= '<div class="col-6 col-md-3 col-lg-2 mb-3">';
     $html .= '<div class="card h-100">';
       if(has_post_thumbnail( $tool )) :
         $html .= '<div class="image-header">';
           $html .= '<a href="' . get_the_permalink($tool) . '" title="' . get_the_title($tool) . '">';
-            $html .= get_the_post_thumbnail($tool, 'medium', array('class' => 'card-img-top'));
+            $html .= get_the_post_thumbnail($tool, 'horz-thumbnail', array('class' => 'card-img-top'));
           $html .= '</a>';
         $html .= '</div>';
       endif;
