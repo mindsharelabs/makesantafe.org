@@ -7,6 +7,7 @@ $p_makers = make_get_badged_members(get_the_id());
 
 $tool_access = get_posts(array(
 	'post_type' => 'tool',
+  'posts_per_page' => -1,
 	'meta_query' => array(
 		array(
 			'key' => 'required_badge', // name of custom field
