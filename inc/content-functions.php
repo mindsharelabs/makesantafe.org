@@ -259,7 +259,7 @@ function make_output_tool_card($tool, $echo = false) {
   $html = '';
 
 
-  $html .= '<div class="col-12 col-md-4 mb-3">';
+  $html .= '<div class="col-6 col-md-3 mb-3">';
     $html .= '<div class="card h-100">';
       if(has_post_thumbnail( $tool )) :
         $html .= '<div class="image-header">';
