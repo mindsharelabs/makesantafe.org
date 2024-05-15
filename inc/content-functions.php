@@ -144,7 +144,7 @@ function make_output_shop_space($term, $echo = false) {
         if(isset($tool_names)) :
           $html .= '<div class="d-flex flex-wrap tool-photos">';
           foreach($tool_names as $tool) :
-            if(!$tool['thumb']) :
+            if($tool['thumb']) :
               $html .= '<div class="tool-photo">';
                 $html .= '<a href="' . $tool['link'] . '" title="' . $tool['title'] . '">';
                   $html .= $tool['thumb'];
