@@ -38,28 +38,11 @@ $tool_access = get_posts(array(
               <article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?>>
               <?php
 
-              if($tool_access) :
-                echo '<section class="tool-access mb-4">';
-                  echo '<div class="container">';
-                    echo '<div class="row pt-4 pb-2 mt-4">';
-                      echo '<div class="col-12 my-4">';
-                        echo '<h2 class="strong text-bold text-center">With this badge you gain access to these tools:</h2>';
-                      echo '</div>';
-                    echo '</div>';
-                    echo '<div class="row justify-content-center">';
-                      foreach($tool_access as $key => $tool) :
-                        echo make_output_tool_card($tool);
-                      endforeach;
-                      echo '</div>';
-                    echo '</div>';
-                  echo '</section>';
-                endif;
-
-                if (have_posts()): while (have_posts()) : the_post();
-                    echo '<div class="col-12">';
-                      the_content();
-                    echo '</div>';
-                  endwhile;
+               if (have_posts()): while (have_posts()) : the_post();
+                  echo '<div class="col-12">';
+                    the_content();
+                  echo '</div>';
+                endwhile;
               endif;
               ?>
               </article>
@@ -71,6 +54,22 @@ $tool_access = get_posts(array(
 </main>
 <?php
 
+    if($tool_access) :
+      echo '<section class="tool-access">';
+        echo '<div class="container">';
+          echo '<div class="row pt-4 pb-2 mt-4">';
+            echo '<div class="col-12 my-4">';
+              echo '<h2 class="strong text-bold text-center">With this badge you gain access to these tools:</h2>';
+            echo '</div>';
+          echo '</div>';
+          echo '<div class="row justify-content-center">';
+            foreach($tool_access as $key => $tool) :
+              echo make_output_tool_card($tool);
+            endforeach;
+            echo '</div>';
+          echo '</div>';
+        echo '</section>';
+      endif;
       if($p_makers) :
         echo '<section class="badged-makers">';
           echo '<div class="container">';
