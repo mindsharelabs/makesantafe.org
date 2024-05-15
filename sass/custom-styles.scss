@@ -726,6 +726,53 @@ footer.bottom-footer{
 }
 
 article.tool, article.certs {
+  .tool-photos {
+    display: flex;
+    justify-content: start;
+    .tool-photo {
+      width: 33.33333%;
+      display: block;
+      float: left;
+      margin: 0;
+      position: relative;
+      z-index: 100;
+      @include transition(400ms);
+      a {
+        width: 100%;
+        display: block;
+      }
+      img {
+        max-width: 100%;
+        
+        
+      }
+      .tool-caption {
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        color: white;
+        font-size: .7em;
+        line-height: 1em;
+        background: rgba(1, 1, 1, .5);
+        text-decoration: none;
+        align-content: center;
+        font-weight: bold;
+        padding: 5px 0;
+        @include transition(400ms);
+      }
+      &:hover {
+        transform: scale(1.1);
+        z-index: 1000;
+        @include transition(100ms);
+        .tool-caption {
+          background: rgba(1, 1, 1, .6);
+          padding: 10px 0;
+          @include transition(100ms);
+        }
+      }
+    }
+    
+  }
   .image-header {
     display: flex;
     flex-wrap: wrap;

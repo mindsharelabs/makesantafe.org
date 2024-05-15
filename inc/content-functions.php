@@ -119,7 +119,12 @@ function make_output_shop_space($term, $echo = false) {
     $tool_names = array();
     while($posts->have_posts()) :
       $posts->the_post();
-      $tool_names[] = '<a class="badge rounded-pill text-bg-primary me-1 mb-1" href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . get_the_title() . '</a>';
+      $tool_names[] = array(
+        'link' => get_the_permalink(),
+        'title' => get_the_title(),
+        'id' => get_the_id(),
+        'thumb' => get_the_post_thumbnail( get_the_id(), 'small-square'),
+      );
     endwhile;
   endif;
 
@@ -137,9 +142,17 @@ function make_output_shop_space($term, $echo = false) {
         $html .= term_description($term);
 
         if(isset($tool_names)) :
-          $html .= '<div class="d-flex flex-wrap">';
+          $html .= '<div class="d-flex flex-wrap tool-photos">';
           foreach($tool_names as $tool) :
-            $html .= $tool;
+            if(!$tool['thumb']) :
+              $html .= '<div class="tool-photo">';
+                $html .= '<a href="' . $tool['link'] . '" title="' . $tool['title'] . '">';
+                  $html .= $tool['thumb'];
+                $html .= '</a>';
+                $html .= '<a href="' . $tool['link'] . '" title="' . $tool['title'] . '" class="tool-caption">' . $tool['title'] . '</a>';
+              $html .= '</div>'; 
+            endif;
+            
           endforeach;
           $html .= '</div>';
         endif;
