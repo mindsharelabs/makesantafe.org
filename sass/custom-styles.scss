@@ -897,6 +897,8 @@ section.member-menu {
           font-size: 10px;
           text-transform: uppercase;
           font-weight: bold;
+          word-break: keep-all;
+          white-space: pre-wrap; 
         }
       }
     }
