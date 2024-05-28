@@ -1,4 +1,6 @@
 <?php
+if (!defined('ABSPATH')) die;
+
 
 /**
  * Check if WooCommerce is activated
@@ -167,56 +169,6 @@ function get_active_members_for_membership($memberships){
         LIMIT 999
     ");
 }
-
-/**
- * Removes coupon form, order notes, and several billing fields if the checkout doesn't require payment.
- *
- */
-function make_remove_free_checkout_fields() {
-
-	if(class_exists('woocommerce')) :
-		// first, bail if the cart needs payment, we don't want to do anything
-		if ( WC()->cart && WC()->cart->needs_payment() ) {
-			return;
-		}
-		// now continue only if we're at checkout
-		// is_checkout() was broken as of WC 3.2 in ajax context, double-check for is_ajax
-		// I would check WOOCOMMERCE_CHECKOUT but testing shows it's not set reliably
-		if ( function_exists( 'is_checkout' ) && ( is_checkout() || is_ajax() ) ) {
-			// remove coupon forms since why would you want a coupon for a free cart??
-			remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
-			// Remove the "Additional Info" order notes
-			add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
-			// Unset the fields we don't want in a free checkout
-			
-			add_filter( 'woocommerce_checkout_fields', function ( $fields ) {
-				// add or remove billing fields you do not want
-				// fields: http://docs.woothemes.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/#section-2
-				$billing_keys = array(
-					'billing_company',
-					'billing_phone',
-					'billing_address_1',
-					'billing_address_2',
-					'billing_city',
-					'billing_postcode',
-					'billing_country',
-					'billing_state',
-					'gift_card',
-				);
-				// unset each of those unwanted fields
-				foreach( $billing_keys as $key ) {
-					unset( $fields['billing'][ $key ] );
-				}
-				return $fields;
-			} );
-		}
-	endif;
-}
-
-if(is_woocommerce_activated()) :
-	add_action( 'wp', 'make_remove_free_checkout_fields' );
-endif;
-
 
 
 
@@ -408,3 +360,66 @@ function make_cart_count_retriever() {
     wp_die();
 	endif;
 }
+
+
+
+
+
+
+
+
+
+
+/*
+Add Purchased Items Column
+Description: Display a "Purchased Items" column on the WooCommerce orders page.
+Author: pipdig & mindsharelabs
+*/
+
+add_filter('manage_edit-shop_order_columns', function($columns) {
+	
+	$new_array = [];
+	
+	foreach ($columns as $key => $title) {
+		if ($key == 'billing_address') {
+			$new_array['order_items'] = __('Items Purchased', 'woocommerce');
+		}
+		$new_array[$key] = $title;
+	}
+	
+	return $new_array;
+	
+});
+
+add_action('manage_shop_order_posts_custom_column', function($column) {
+	
+	$order = wc_get_order(get_the_ID());
+	if ($column == 'order_items') {
+		if (!$order) {
+			wp_die();
+		}
+		
+		foreach ($order->get_items() as $item) {
+			
+			$product = wc_get_product($item->get_product_id());
+			
+			$sku_output = '';
+			
+			if ($product) {
+				
+				$sku = $product->get_sku();
+				
+				if ($sku) {
+					$sku_output = ' (' . esc_html($sku) . ')';
+				}
+				
+			}
+			
+			echo absint($item['quantity']) . ' &times; ' . esc_html($item['name']) . $sku_output . '<br />';
+			
+		}
+
+	}
+	
+}, 10, 2);
+
