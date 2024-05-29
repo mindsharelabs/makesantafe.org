@@ -2,7 +2,15 @@
   max-width: unset !important;
 }
 .tribe-embed a, .tribe-events-event-meta a, .tribe-events-single a {
-  color: unset !important;  
+  // color: unset !important;  
+}
+.tribe-block {
+  &.tribe-block__event-website {
+    a {
+      color: $light;
+    }
+  
+  }
 }
 header.tribe-events-header {
   .term-description {
