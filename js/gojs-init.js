@@ -13,7 +13,7 @@ function init() {
     OrgChart.templates.diva.size = [300, 170];
     OrgChart.templates.diva.node = 
         `<rect x="0" y="80" height="70" width="300"></rect>
-        <circle cx="150" cy="50" fill="#ffffff" r="50" stroke="#be202e" stroke-width="2"></circle>`;
+        <circle cx="150" cy="50" fill="#ffffff" r="50" stroke="#FFFFFF" stroke-width="0"></circle>`;
     
     OrgChart.templates.diva.img_0 = 
         `<clipPath id="{randId}"><circle cx="150" cy="50" r="45"></circle></clipPath>
