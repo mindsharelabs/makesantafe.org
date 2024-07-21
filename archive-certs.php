@@ -18,7 +18,7 @@ include 'layout/notice.php';
           echo '</header>';
         echo '</div>';
         echo '<div class="col-12 mb-3">';
-          echo '<h4>All badge\'s cover tool set up, operation and adjustment. Safety and best practices specific to MAKE’s tools will also be covered.</h4>';
+          echo '<h4>All badge\'s cover tool set up, operation and adjustment. Safety and best practices specific to MAKE\'s tools will also be covered. Anyone who wishes to use a studio is required to take one badge in that studio. More advanced badges cover more advanced topics but are not required for full use of the studio.</h4>';
         echo '</div>';
         echo '<div class="col-12 d-flex flex-column">';
           echo (is_user_logged_in() ? '<div class="key-item"><div class="key-square"></div><span class="label">Badge not acquired</span></div>' : '<div class="key-item"><div class="key-square"></div><span class="label">Available Badge</span></div>');
