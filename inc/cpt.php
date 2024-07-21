@@ -70,7 +70,8 @@ function create_post_type_mind(){
               'editor',
               'excerpt',
               'thumbnail',
-              'author'
+              'author',
+              'page-attributes' 
           ), // Go to Dashboard Custom mind Blank post for supports
           'can_export' => true, // Allows export in Teams > Export
           // 'taxonomies' => array(

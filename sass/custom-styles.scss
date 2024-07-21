@@ -1158,4 +1158,56 @@ aside.sidebar {
   }
 }
 
-// Footer Styles
+
+// Badge Chart Styles
+main.type-certs {
+  .key-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    .key-square {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin-right: 10px;
+      background: $primary;
+      &.badged {
+        background: $success;
+      }
+      &.unavailable {
+        background: $light;
+      }
+    }
+    .label {
+      display: inline-block;
+      font-size: .8em;
+      font-weight: bold;
+    }
+  }
+}
+#makeBadges {
+  a {
+    text-decoration: none;
+    &:visited {
+      color: $light;
+    }
+    font-weight: bold;
+  }
+  [data-n-id] circle {
+    stroke: $primary;
+  }
+
+  [data-n-id] rect {
+    fill: #dedede;
+  }
+  .node.active rect {
+    fill: $primary;
+  }
+  .node.badged rect {
+    fill: $success;
+  }
+
+
+
+}

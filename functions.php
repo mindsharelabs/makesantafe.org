@@ -320,11 +320,95 @@ function make_header_text_color() {
   return $color;
 }
 
+
+function get_badge_data() {
+    $badges = new WP_Query(array(
+        'post_type' => 'certs',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC'
+    ));
+    if($badges->have_posts()) :
+        $badge_data = array();
+        $i = 0;
+        while($badges->have_posts()) : $badges->the_post();
+            $tags = array();
+            if(get_field('launched')) {
+                $tags[] = 'active';
+            }
+            if(_user_has_badge(get_the_ID())) {
+                $tags[] = 'badged';
+            }
+
+            $badge_data[] = array(
+                'id' => get_the_ID(),
+                'pid' => wp_get_post_parent_id(get_the_ID() ),
+                'title' => get_the_title(),
+                'url' => get_the_permalink(),
+                'image' => wp_get_attachment_image_url(get_field('badge_image'), 'small-square'),
+                'excerpt' => get_field('short_description', get_the_ID()),
+                'tags' => $tags,
+                
+            ); 
+        endwhile;
+        
+        return $badge_data;
+    else :
+        return false;
+    endif;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function _user_has_badge($badgeID) {
+    $badges = get_user_meta(get_current_user_id(), 'certifications', true);
+    if($badges) :
+        if(in_array($badgeID, $badges)) :
+            return true;
+        else :
+            return false;
+        endif;
+    else :
+        return false;
+    endif;
+}
+
+
 // Load mind Blank conditional scripts
 function mindblank_conditional_scripts()
 {
-    
-    if ( is_page_template( 'template-makers.php' ) ) {
+    if (is_archive('certs')) :
+
+        wp_register_script('orgchart-js', get_template_directory_uri() . '/js/orgchart.js', false, THEME_VERSION, true);
+        wp_enqueue_script('orgchart-js');
+
+        wp_register_script('orgchart-init', get_template_directory_uri() . '/js/gojs-init.js', array('orgchart-js'), THEME_VERSION, true);
+        wp_enqueue_script('orgchart-init');
+        wp_localize_script( 'orgchart-init', 'badgeSettings', array(
+            'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'badgeJSON' => json_encode(get_badge_data(), JSON_UNESCAPED_SLASHES)
+        ));
+    endif;    
+    if ( is_page_template( 'template-makers.php' ) ) :
         // wp_register_script('listjs-min', get_template_directory_uri() . '/js/list.min.js', array('jquery'), THEME_VERSION, true);
         // wp_enqueue_script('listjs-min');
         // // wp_localize_script( 'listjs-min', 'settings', array(
@@ -333,7 +417,7 @@ function mindblank_conditional_scripts()
 
         // wp_register_script('list-js-init', get_template_directory_uri() . '/js/list-js-init.js', array('jquery', 'listjs-min'), THEME_VERSION, true);
         // wp_enqueue_script('list-js-init');
-    }
+    endif;
       
 }
 
