@@ -122,3 +122,41 @@ blockquote.wp-block-quote {
   }
 
 }
+
+
+.post-list-block {
+  .card-body {
+    h3 {
+      font-size: 1.4em;
+      a {
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+    a {
+      &.badge {
+        background: $white;
+        color: $primary;
+        text-decoration: none;
+        font-size: .7em;
+        line-height: 1.5em;
+        border: 1px solid $primary;
+        margin-right: 2px;
+        margin-bottom: 2px;
+        padding: 1px 3px;
+        opacity: .7;
+        display: inline-block;
+        @include transition(500ms);
+        &:hover {
+          @include transition(100ms);
+          opacity: 1;
+        }
+      }
+    }
+    p {
+      font-size: 1em;
+      margin-top: 10px;
+      line-height: 1.1em;
+    }
+  }
+}
