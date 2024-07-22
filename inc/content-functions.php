@@ -171,7 +171,11 @@ function make_output_shop_space($term, $echo = false) {
 
 
 function make_output_member_card($maker, $echo = false) {
-  $maker = get_user_by('ID', $maker);
+    if(!is_object($maker)) :
+      $maker = get_user_by('ID', $maker);
+    endif;
+
+    
     $html = '';
       
       $user_obj = get_userdata( $maker->ID );

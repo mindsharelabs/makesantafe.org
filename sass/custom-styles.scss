@@ -852,6 +852,9 @@ section.badged-makers {
   background-color: $light;
   background: $background;
   border-top: 1px solid $light;
+  .content {
+    border-left: 0 !important;
+  }
 }
 section.member-menu {
   background-color: lighten($dark, 30%);
