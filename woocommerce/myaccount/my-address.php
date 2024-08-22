@@ -10,9 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://woo.com/document/template-structure/
+ * @see     https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 8.7.0
+ * @version 9.2.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -37,6 +37,9 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 		$customer_id
 	);
 }
+
+$oldcol = 1;
+$col    = 1;
 ?>
 
 <p>
@@ -44,39 +47,46 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 </p>
 
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
-	<div class="u-columns woocommerce-Addresses col2-set addresses">
+	<div class="u-columns woocommerce-Addresses col2-set row addresses">
 <?php endif; ?>
 
-<div class="row">
-	<?php foreach ( $get_addresses as $name => $address_title ) : ?>
-		<?php
-			$address = wc_get_account_formatted_address( $name );
-		?>
+<?php foreach ( $get_addresses as $name => $address_title ) : ?>
+	<?php
+		$address = wc_get_account_formatted_address( $name );
+		$col     = $col * -1;
+		$oldcol  = $oldcol * -1;
+	?>
 
-		
-		<div class="col-12 col-md-6 woocommerce-Address">
-			<header class="woocommerce-Address-title title">
-				<h3><?php echo esc_html( $address_title ); ?></h3>
-				<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php echo $address ? esc_html__( 'Edit', 'woocommerce' ) : esc_html__( 'Add', 'woocommerce' ); ?></a>
-			</header>
-			<address>
+	<div class="u-column<?php echo $col < 0 ? 1 : 2; ?> col-12 col-md-6 woocommerce-Address">
+		<header class="woocommerce-Address-title title">
+			<h3><?php echo esc_html( $address_title ); ?></h3>
+			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit">
 				<?php
-					echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'woocommerce' );
-
-					/**
-					 * Used to output content after core address fields.
-					 *
-					 * @param string $name Address type.
-					 * @since 8.7.0
-					 */
-					do_action( 'woocommerce_my_account_after_my_address', $name );
+					printf(
+						/* translators: %s: Address title */
+						$address ? esc_html__( 'Edit %s', 'woocommerce' ) : esc_html__( 'Add %s', 'woocommerce' ),
+						esc_html( $address_title )
+					);
 				?>
-			</address>
-		</div>
-		
+			</a>
+		</header>
+		<address>
+			<?php
+				echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'woocommerce' );
 
-	<?php endforeach; ?>
-</div>
+				/**
+				 * Used to output content after core address fields.
+				 *
+				 * @param string $name Address type.
+				 * @since 8.7.0
+				 */
+				do_action( 'woocommerce_my_account_after_my_address', $name );
+			?>
+		</address>
+	</div>
+
+<?php endforeach; ?>
+
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
 	</div>
 	<?php
