@@ -3,6 +3,11 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
+          <div class="member-menu-title">
+            <h3 class="text-center my-3 text-center">Member Resources</h3>
+          </div>
+        </div>
+        <div class="col-12">
           <nav class="member-menu w-100 pt-2 pb-2">
             <?php
             wp_nav_menu(

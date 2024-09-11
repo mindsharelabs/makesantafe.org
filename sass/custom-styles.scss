@@ -857,7 +857,7 @@ section.badged-makers {
   }
 }
 section.member-menu {
-  background-color: lighten($dark, 30%);
+  background-color: lighten($dark, 70%);
   nav.member-menu {
     width: 100%;
     ul {
@@ -865,10 +865,16 @@ section.member-menu {
       margin: 0;
       padding: 0;
       justify-content: flex-end;
+      justify-content: center;
       list-style: none;
+      flex-wrap: wrap;
       li {
-
+        white-space: nowrap;
+        display: block;
         a {
+          @extend .btn;
+          @extend .btn-dark;
+          margin: 5px;
           padding: 5px 10px;
           color: #fff;
         }
