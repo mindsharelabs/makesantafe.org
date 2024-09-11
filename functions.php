@@ -178,7 +178,6 @@ function register_mind_menu()
         'header-menu' => __('Header Menu', 'mindblank'), // Main Navigation
         'mobile-menu' => __('Mobile Menu', 'mindblank'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'mindblank'), // Sidebar Navigation
-        'member-menu' => __('Member Menu', 'mindblank'), // Sidebar Navigation
         'footer-menu' => __('Footer Menu', 'mindblank'), // Sidebar Navigation
     ));
 }
