@@ -15,6 +15,37 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 * Description: By default, WooCommerce reduces stock for any order containing a product. This means stock will be reduced for both the initial purchase of a subscription product and all renewal orders. This extension stops stock being reduced for renewal order payments so that stock is only reduced on the initial purchase. Requires WooCommerce 2.4 or newer and Subscriptiosn 2.0 or newer.
 */
 
+
+
+add_action( 'woocommerce_thankyou', 'make_add_google_conversion_tracking', 10, 1 );
+
+function make_add_google_conversion_tracking( $order_id ) {
+    // Get the order details
+    $order = wc_get_order( $order_id );
+    
+    // Get order details required for conversion tracking
+    $transaction_id = $order->get_order_number();
+    $value = $order->get_total();
+    $currency = get_woocommerce_currency();
+	mapi_var_dump($transaction_id);
+	mapi_var_dump($value);
+	mapi_var_dump($currency);
+    // Insert the Google conversion tracking code
+    ?>
+    <script>
+    gtag('event', 'conversion', {
+        'send_to': 'AW-11012918498/25YTCLCattEZEOKZr4Mp', // Replace with your Google Ads ID and Conversion Label
+        'value': '<?php echo $value; ?>',
+        'currency': '<?php echo $currency; ?>',
+        'transaction_id': '<?php echo $transaction_id; ?>'
+    });
+    </script>
+    <?php
+}
+
+
+
+
 function make_do_not_reduce_renewal_stock( $reduce_stock, $order ) {
 
 	if ( function_exists( 'wcs_order_contains_renewal' ) && wcs_order_contains_renewal( $order ) ) { // Subscriptions v2.0+
