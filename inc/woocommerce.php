@@ -27,10 +27,7 @@ function make_add_google_conversion_tracking( $order_id ) {
     $transaction_id = $order->get_order_number();
     $value = $order->get_total();
     $currency = get_woocommerce_currency();
-	mapi_var_dump($transaction_id);
-	mapi_var_dump($value);
-	mapi_var_dump($currency);
-    // Insert the Google conversion tracking code
+
     ?>
     <script>
     gtag('event', 'conversion', {
