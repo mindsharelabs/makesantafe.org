@@ -42,7 +42,7 @@ $p_makers = make_get_badged_members(get_the_id());
 <?php
 
 
-      if($p_makers) :
+      if($p_makers && function_exists('make_output_member_card')) :
         echo '<section class="badged-makers">';
           echo '<div class="container">';
             echo '<div class="row pt-4 pb-2 mt-4">';

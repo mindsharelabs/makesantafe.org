@@ -59,12 +59,13 @@ if($makers->have_posts()) :
     echo '</div>';
 
 
-
-    echo '<section class="row makers gy-3 facetwp-template">';
-    while($makers->have_posts()) : $makers->the_post();
-      echo make_output_member_card(UPT()->get_user_id(), $echo = false);
-    endwhile;
-    echo '</section>';
+    if(function_exists('make_output_member_card')) :
+      echo '<section class="row makers gy-3 facetwp-template">';
+      while($makers->have_posts()) : $makers->the_post();
+        echo make_output_member_card(UPT()->get_user_id(), $echo = false);
+      endwhile;
+      echo '</section>';
+    endif;
 
 
 
