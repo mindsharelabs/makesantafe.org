@@ -92,20 +92,18 @@
 
                 $user_has = in_array($badge, $maker_badges);
                 if($user_has){
-                  $class = 'true';
-                } else {
-                  $class = 'false';
+                  if($image = get_field('badge_image', $badge)) :
+                    echo '<div class="badge-image-holder mb-3 true m-1">';
+                      echo '<a href="' . get_permalink($badge) . '" title="' . get_the_title($badge) . '">';
+                        echo wp_get_attachment_image($image);
+                        echo '<h3 class="text-center badge-title">' . get_the_title($badge) . '</h3>';
+                      echo '</a>';
+                    echo '</div>';
+                  endif;
                 }
 
                 
-              if($image = get_field('badge_image', $badge)) :
-                echo '<div class="badge-image-holder mb-3 ' . $class . ' m-1">';
-                  echo '<a href="' . get_permalink($badge) . '" title="' . get_the_title($badge) . '">';
-                    echo wp_get_attachment_image($image);
-                    echo '<h3 class="text-center badge-title">' . get_the_title($badge) . '</h3>';
-                  echo '</a>';
-                echo '</div>';
-              endif;
+              
            
                 
               endif;
