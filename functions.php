@@ -9,11 +9,12 @@ define('THEME_VERSION', '3.7.1');
     External Modules/Files
 \*------------------------------------*/
 
-include_once 'inc/content-functions.php';
-include_once 'inc/cpt.php';
-include_once 'inc/acf-functions.php';
-include_once 'inc/woocommerce.php';
-include_once 'inc/gravity-forms.php';
+include 'inc/content-functions.php';
+include 'inc/cpt.php';
+include 'inc/acf-functions.php';
+include 'inc/woocommerce.php';
+include 'inc/tribe-events.php';
+include 'inc/gravity-forms.php';
 
 /*------------------------------------*\
     Theme Support

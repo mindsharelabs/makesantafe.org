@@ -192,7 +192,7 @@ function make_output_member_card($maker, $echo = false) {
       } else {
         $image = wp_get_attachment_image( $thumb['ID'], 'small-square', false, array('alt' => $name, 'class' => 'rounded-circle'));
       }
-      $html .='<div class="col-6 col-md-3 text-center mb-2">';
+      $html .='<div class="col-6 col-md-4 text-center mb-2">';
         $html .='<div class="mb-4 text-center card make-member-card d-flex flex-column justify-content-start h-100">';
           if($image) :
             $html .='<div class="image profile-image p-3 w-75 mx-auto">';
