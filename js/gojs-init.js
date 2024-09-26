@@ -31,6 +31,8 @@ function init() {
     let chart = new OrgChart("#makeBadges", {
         // options
         template: "diva",
+        mouseScrool: OrgChart.action.yScroll,
+        mouseScrool: OrgChart.action.ctrlZoom,
         nodeMouseClick: OrgChart.action.none,
         orientation: OrgChart.orientation.left_top,
         nodeBinding: {
