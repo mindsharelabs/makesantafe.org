@@ -35,7 +35,7 @@ function init() {
         mouseScrool: OrgChart.action.yScroll,
         mouseScrool: OrgChart.action.ctrlZoom,
         nodeMouseClick: OrgChart.action.none,
-        orientation: OrgChart.orientation.left_top,
+        orientation: OrgChart.orientation.top,
         keyNavigation: true,
         nodeBinding: {
             img_0: "image",
