@@ -31,10 +31,12 @@ function init() {
     let chart = new OrgChart("#makeBadges", {
         // options
         template: "diva",
+        miniMap: true,
         mouseScrool: OrgChart.action.yScroll,
         mouseScrool: OrgChart.action.ctrlZoom,
         nodeMouseClick: OrgChart.action.none,
         orientation: OrgChart.orientation.left_top,
+        keyNavigation: true,
         nodeBinding: {
             img_0: "image",
             field_0: "title",
