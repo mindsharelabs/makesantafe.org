@@ -350,34 +350,33 @@ endif;
 */
 function make_filter_wc_stripe_payment_metadata( $metadata, $order, $source ) {
 	$count = 1;
-	foreach( $order->get_items() as $item_id => $line_item ){
+	foreach( $order->get_items() as $item_id => $line_item ) :
 
-		$terms_line = '';
-    $item_data = $line_item->get_data();
-    $product = $line_item->get_product();
-    $product_name = $product->get_name();
-    $item_quantity = $line_item->get_quantity();
-    $item_total = $line_item->get_total();
-    
-    $terms = $product->get_categories();;
+		$terms = array();
+		$product = $line_item->get_product();
+		$product_name = $product->get_name();
+		$item_quantity = $line_item->get_quantity();
+		$item_total = $line_item->get_total();
+		
+		$terms = $product->get_categories();;
 		foreach ($terms as $term) :
-			$terms_line = $term->name;
-			if(next($terms)) :
-				$terms_line .= ' | ';
-			endif;
+			$terms[] = $term->name;
 		endforeach; //end loop through item categories
-		$metadata['Product Categories'] = $terms_line;
 
-    $metadata['Line Item ' . $count] = 'Product name: '.$product_name.' | Quantity: '.$item_quantity.' | Item total: '. number_format( $item_total, 2 );
-    $count += 1;
-	}
-  $order_data = $order->get_data();
+		$metadata['Line Item ' . $count] = 'Product name: '.$product_name.' | Quantity: '.$item_quantity.' | Item total: '. number_format( $item_total, 2 );
+		$metadata['Categories'] = $terms;
+		$count += 1;
+	endforeach; //end loop through order items
 
 	return $metadata;
 }
 if(is_woocommerce_activated()) :
-	add_filter( 'wc_stripe_payment_metadata', 'make_filter_wc_stripe_payment_metadata', 10, 3 );
+	add_filter( 'wc_stripe_intent_metadata', 'make_filter_wc_stripe_payment_metadata', 10, 3 );
 endif;
+
+
+
+
 
 add_action('wp_ajax_cart_count_retriever', 'make_cart_count_retriever');
 add_action('wp_ajax_nopriv_cart_count_retriever', 'make_cart_count_retriever');
