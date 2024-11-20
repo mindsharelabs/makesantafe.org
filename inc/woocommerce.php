@@ -364,7 +364,7 @@ function make_filter_wc_stripe_payment_metadata( $metadata, $order, $source ) {
 		endforeach; //end loop through item categories
 
 		$metadata['Line Item ' . $count] = 'Product name: '.$product_name.' | Quantity: '.$item_quantity.' | Item total: '. number_format( $item_total, 2 );
-		$metadata['Categories'] = $terms;
+		$metadata['Product Categories'] = $terms;
 		$count += 1;
 	endforeach; //end loop through order items
 
