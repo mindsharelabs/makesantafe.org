@@ -348,31 +348,29 @@ endif;
 /*
 * Add "Product Names" value to Stripe metadata
 */
-function make_filter_wc_stripe_payment_metadata( $metadata, $order, $source ) {
+function make_filter_wc_stripe_payment_metadata( $metadata, $order) {
 	$count = 1;
 	foreach( $order->get_items() as $item_id => $line_item ) :
-
 		$terms = array();
 		$product = $line_item->get_product();
 		$product_name = $product->get_name();
 		$item_quantity = $line_item->get_quantity();
 		$item_total = $line_item->get_total();
-		
-		$terms = $product->get_categories();;
+		$terms = $product->get_categories();
 		foreach ($terms as $term) :
 			$terms[] = $term->name;
 		endforeach; //end loop through item categories
 
-		$metadata['Line Item ' . $count] = 'Product name: '.$product_name.' | Quantity: '.$item_quantity.' | Item total: '. number_format( $item_total, 2 );
-		$metadata['Product Categories'] = $terms;
+		$metadata['Line Item ' . $count] = 'Product name: ' . $product_name.' | Quantity: ' . $item_quantity.' | Item total: '. number_format( $item_total, 2 );
+		$metadata['product_categories'] = $terms;
 		$count += 1;
 	endforeach; //end loop through order items
 
 	return $metadata;
 }
-if(is_woocommerce_activated()) :
-	add_filter( 'wc_stripe_intent_metadata', 'make_filter_wc_stripe_payment_metadata', 10, 3 );
-endif;
+
+add_filter( 'wc_stripe_intent_metadata', 'make_filter_wc_stripe_payment_metadata', 100, 2 );
+add_filter( 'wc_stripe_payment_metadata', 'make_filter_wc_stripe_payment_metadata', 100, 2 );
 
 
 
