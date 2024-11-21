@@ -350,22 +350,30 @@ endif;
 */
 function make_filter_wc_stripe_payment_metadata( $metadata, $order) {
 	$count = 1;
+	$term_string = "";
+	$products = "";
 	foreach( $order->get_items() as $item_id => $line_item ) :
-		$terms = array();
 		$product = $line_item->get_product();
 		$product_name = $product->get_name();
 		$item_quantity = $line_item->get_quantity();
 		$item_total = $line_item->get_total();
-		$terms = $product->get_categories();
-		foreach ($terms as $term) :
-			$terms[] = $term->name;
+		$categories = $product->get_category_ids();
+		foreach ($categories as $term) :
+			$term_string .= get_term( $term )->name;
+			if(next($categories)) :
+				$term_string .= ' | ';
+			endif;
 		endforeach; //end loop through item categories
 
+		$products .= $product_name;
+		if(next($order->get_items())) :
+			$products .= ' | ';
+		endif;
 		$metadata['Line Item ' . $count] = 'Product name: ' . $product_name.' | Quantity: ' . $item_quantity.' | Item total: '. number_format( $item_total, 2 );
-		$metadata['product_categories'] = $terms;
+		$metadata['product_categories'] = $term_string;
 		$count += 1;
 	endforeach; //end loop through order items
-
+	$metadata['shop_products'] = $products;
 	return $metadata;
 }
 
@@ -415,6 +423,20 @@ add_filter('manage_edit-shop_order_columns', function($columns) {
 	return $new_array;
 	
 });
+
+
+add_filter( 'woocommerce_variable_free_price_html',  'hide_free_price_notice' );
+add_filter( 'woocommerce_free_price_html',           'hide_free_price_notice' );
+add_filter( 'woocommerce_variation_free_price_html', 'hide_free_price_notice' );
+
+/**
+ * Hides the 'Free!' price notice
+ */
+function hide_free_price_notice( $price ) {
+
+  return '';
+}
+
 
 add_action('manage_shop_order_posts_custom_column', function($column) {
 	
