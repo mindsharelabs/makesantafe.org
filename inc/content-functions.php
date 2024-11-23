@@ -52,12 +52,7 @@ add_filter( 'facetwp_facet_dropdown_show_counts', function( $return, $params ) {
 
 
 //Index serialized data for UPT_users 
-add_filter( 'facetwp_index_row', function ( $params, $class ) {
-  if($params['facet_name'] == 'user_search') :
-    mapi_write_log($params);
-  endif;
-  
- 
+add_filter( 'facetwp_index_row', function ( $params, $class ) { 
   if ( 'user_badges' == $params['facet_name'] ) :
     $values = (array) $params['facet_value'];
     foreach ( $values as $val ) :
