@@ -82,6 +82,7 @@ function mapi_block_wrapper( $block_content, $block ) {
     'core/cover',
     // 'core/button',
     'acf/container',
+    'acf/make-image-slider'
   );
 
   if(in_array($block['blockName'], $noWrapper)) :
