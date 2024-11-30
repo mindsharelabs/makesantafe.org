@@ -254,10 +254,6 @@ function mindblank_header_scripts()
 
 
 
-        wp_register_script('snapsvg-js', get_template_directory_uri() . '/js/svg.js', array(), THEME_VERSION);
-        wp_enqueue_script('snapsvg-js');
-
-
 
 
     }
@@ -282,19 +278,23 @@ add_filter( 'script_loader_tag', function ( $tag, $handle, $src ) {
 
 add_action('wp', 'localize_header_svg_script');
 function localize_header_svg_script() {
-  wp_register_script('svgintro-js', get_template_directory_uri() . '/js/svg-intro.js', array('snapsvg-js'), '', true);
-  wp_enqueue_script('svgintro-js');
 
-  wp_localize_script( 'svgintro-js', 'svgvars', array(
-    'words' => strtoupper(make_get_title()),
-    'color' => make_header_text_color(),
-    'litcolor' => shadeColor('#36383E', 20),
-    'home' => false,
-    'logo' => get_template_directory_uri() . "/img/make-santa-fe" . (wp_is_mobile() ? '-mobile' : '') . ".svg",
-    'intro' => get_template_directory_uri() . "/img/banner.svg",
-    'circuit' => get_template_directory_uri() . "/img/circuit.svg"
-	)
-  );
+    wp_register_script('snapsvg-js', get_template_directory_uri() . '/js/svg.js', array(), THEME_VERSION);
+    wp_enqueue_script('snapsvg-js');
+
+    wp_register_script('svgintro-js', get_template_directory_uri() . '/js/svg-intro.js', array('snapsvg-js'), '', true);
+    wp_enqueue_script('svgintro-js');
+
+    wp_localize_script( 'svgintro-js', 'svgvars', array(
+        'words' => strtoupper(make_get_title()),
+        'color' => make_header_text_color(),
+        'litcolor' => shadeColor('#36383E', 20),
+        'home' => false,
+        'logo' => get_template_directory_uri() . "/img/make-santa-fe" . (wp_is_mobile() ? '-mobile' : '') . ".svg",
+        'intro' => get_template_directory_uri() . "/img/banner.svg",
+        'circuit' => get_template_directory_uri() . "/img/circuit.svg"
+        )
+    );
 
 }
 
