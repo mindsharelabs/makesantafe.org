@@ -4,6 +4,21 @@
 .tribe-embed a, .tribe-events-event-meta a, .tribe-events-single a {
   // color: unset !important;  
 }
+
+.single-tribe_events {
+  .tribe-events-single-event-title {
+    font-size: 2.5em !important;
+    display: block;
+    max-width: 600px;
+  }
+}
+.tribe-events-schedule__datetime {
+  padding: 5px 10px;
+  background: rgb(246, 246, 246);
+  border: 1px solid rgb(221, 221, 221);
+  font-family: 'Courier Prime', monospace !important;
+}
+
 .tribe-block {
   &.tribe-block__event-website {
     a {
