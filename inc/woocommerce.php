@@ -354,10 +354,17 @@ function make_filter_wc_stripe_payment_metadata( $metadata, $order) {
 	$products = "";
 	foreach( $order->get_items() as $item_id => $line_item ) :
 		$product = $line_item->get_product();
+
+		if( $product->is_type( 'simple' ) ){
+			$categories = $product->get_category_ids();
+		} elseif( $product->is_type( 'variable' ) ){
+			$categories = wp_get_post_terms( $product->get_parent_id(), 'product_cat' );
+		}
+
 		$product_name = $product->get_name();
 		$item_quantity = $line_item->get_quantity();
 		$item_total = $line_item->get_total();
-		$categories = $product->get_category_ids();
+
 		foreach ($categories as $term) :
 			$term_string .= get_term( $term )->name;
 			if(next($categories)) :
