@@ -345,9 +345,12 @@ endif;
 
 
 
-/*
-* Add "Product Names" value to Stripe metadata
-*/
+/**
+ * This function adds custom meta information to the Stripe payment and payment intent metadata.
+ * @param mixed $metadata
+ * @param mixed $order
+ * @return mixed
+ */
 function make_filter_wc_stripe_payment_metadata( $metadata, $order) {
 	$count = 1;
 	$term_string = "";
