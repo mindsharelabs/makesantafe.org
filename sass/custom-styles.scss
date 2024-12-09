@@ -64,7 +64,7 @@ h5 {
 hr {
   width: 100%;
 }
-
+// img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: unset !important; }
 
 main {
   max-width: 1500px;
