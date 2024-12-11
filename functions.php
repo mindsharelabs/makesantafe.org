@@ -71,10 +71,14 @@ if (function_exists('add_theme_support')) {
     // Enable mind support
     add_theme_support('mind', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
 
-    // Localisation Support
-    load_theme_textdomain('mindblank', get_template_directory() . '/languages');
+   
 
 }
+
+add_action('init',function() {
+     // Localisation Support
+     load_theme_textdomain('mindblank', get_template_directory() . '/languages');
+});
 
 add_filter('mind_staff_cards_image_size', function() {
     return 'small-square';

@@ -9,7 +9,7 @@ include 'layout/notice.php';
 
 
       <?php
-      echo '<article id="post-' . get_the_ID() . '" class="' . implode(' ', get_post_class('col-12 col-md mt-2 has-sidebar')) . '">';
+      echo '<article id="post-' . get_the_ID() . '" class="' . implode(' ', get_post_class('col-12 col-md-9 mt-2 has-sidebar')) . '">';
         echo '<header class="fancy-header d-flex">';
           echo '<div class="header-flex-item">';
       			echo '<h1 class="page-title ">';

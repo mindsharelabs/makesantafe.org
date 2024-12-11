@@ -28,7 +28,8 @@ include 'layout/notice.php';
         <!-- /article -->
 
       <?php endwhile; endif; ?>
-  </section>
+    </section>
+  </div>
   <!-- /section -->
 </main>
 <?php
