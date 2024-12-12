@@ -222,8 +222,7 @@ function make_change_button_text( $text, $obj ) {
  * Using the_title filter
  */
 function make_woo_endpoint_title( $items, $endpoints ) {
-  $items['bookings'] = 'Tool Reservations';
-
+  $items['bookings'] = 'Reservation History';
   return $items;
 }
 add_filter( 'woocommerce_account_menu_items', 'make_woo_endpoint_title', 10, 2 );
@@ -242,48 +241,48 @@ add_filter( 'woocommerce_account_menu_items', 'make_woo_endpoint_title', 10, 2 )
 // ------------------
 // 1. Register new endpoint to use for My Account page
 // Note: Resave Permalinks or it will give 404 error
-
+add_action( 'init', 'make_add_make_profile_endpoint' );
 function make_add_make_profile_endpoint() {
     add_rewrite_endpoint( 'make-profile', EP_ROOT | EP_PAGES );
 }
 
-add_action( 'init', 'make_add_make_profile_endpoint' );
-
-
 // ------------------
 // 2. Add new query var
-
+add_filter( 'query_vars', 'make_profile_query_vars', 0 );
 function make_profile_query_vars( $vars ) {
     $vars[] = 'make-profile';
     return $vars;
 }
 
-add_filter( 'query_vars', 'make_profile_query_vars', 0 );
-
-
 // ------------------
 // 3. Insert the new endpoint into the My Account menu
-
+add_filter( 'woocommerce_account_menu_items', 'make_add_make_profile_link_my_account' );
 function make_add_make_profile_link_my_account( $items ) {
     $items['make-profile'] = 'Edit My Public Profile';
     return $items;
 }
 
-add_filter( 'woocommerce_account_menu_items', 'make_add_make_profile_link_my_account' );
-
-
 // ------------------
 // 4. Add content to the new endpoint
-
-function make_premium_support_content() {
-// echo '<h3></h3>';
-include get_template_directory() . '/inc/user-edit-form.php';
-}
-
 add_action( 'woocommerce_account_make-profile_endpoint', 'make_premium_support_content' );
 // Note: add_action must follow 'woocommerce_account_{your-endpoint-slug}_endpoint' format
+function make_premium_support_content() {
+// echo '<h3></h3>';
+	include get_template_directory() . '/inc/user-edit-form.php';
+}
 
 
+
+add_filter( 'woocommerce_account_menu_items', function ( $items, $endpoints ) {
+	$items['tool-reservation'] = 'New Tool Reservation';
+	return $items;
+}, 10, 2 );
+add_filter( 'woocommerce_get_endpoint_url', function ( $url, $endpoint, $value, $permalink ) {
+	if ( $endpoint === 'tool-reservation' ) {
+		$url = home_url( 'product-category/tool-reservation/' );
+	}
+	return $url;
+}, 10, 4 );
 
 
 
