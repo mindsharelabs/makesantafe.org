@@ -356,31 +356,32 @@ function make_filter_wc_stripe_payment_metadata( $metadata, $order) {
 	$products = "";
 	foreach( $order->get_items() as $item_id => $line_item ) :
 		$product = $line_item->get_product();
+		if($product):
+			if( $product->is_type( 'simple' ) ){
+				$categories = $product->get_category_ids();
+			} elseif( $product->is_type( 'variable' ) ){
+				$categories = wp_get_post_terms( $product->get_parent_id(), 'product_cat' );
+			}
 
-		if( $product->is_type( 'simple' ) ){
-			$categories = $product->get_category_ids();
-		} elseif( $product->is_type( 'variable' ) ){
-			$categories = wp_get_post_terms( $product->get_parent_id(), 'product_cat' );
-		}
+			$product_name = $product->get_name();
+			$item_quantity = $line_item->get_quantity();
+			$item_total = $line_item->get_total();
 
-		$product_name = $product->get_name();
-		$item_quantity = $line_item->get_quantity();
-		$item_total = $line_item->get_total();
+			foreach ($categories as $term) :
+				$term_string .= get_term( $term )->name;
+				if(next($categories)) :
+					$term_string .= ' | ';
+				endif;
+			endforeach; //end loop through item categories
 
-		foreach ($categories as $term) :
-			$term_string .= get_term( $term )->name;
-			if(next($categories)) :
-				$term_string .= ' | ';
+			$products .= $product_name;
+			if(next($order->get_items())) :
+				$products .= ' | ';
 			endif;
-		endforeach; //end loop through item categories
-
-		$products .= $product_name;
-		if(next($order->get_items())) :
-			$products .= ' | ';
+			$metadata['Line Item ' . $count] = 'Product name: ' . $product_name.' | Quantity: ' . $item_quantity.' | Item total: '. number_format( $item_total, 2 );
+			$metadata['product_categories'] = $term_string;
+			$count += 1;
 		endif;
-		$metadata['Line Item ' . $count] = 'Product name: ' . $product_name.' | Quantity: ' . $item_quantity.' | Item total: '. number_format( $item_total, 2 );
-		$metadata['product_categories'] = $term_string;
-		$count += 1;
 	endforeach; //end loop through order items
 	$metadata['shop_products'] = $products;
 	return $metadata;
