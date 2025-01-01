@@ -1048,36 +1048,6 @@ aside.sidebar {
   }
 
 }
-//Prioducts
-
-
-.shop-header {
-  background: $primary;
-  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
-    fill: #fff;
-    color: #fff;
-  }
-  #intro-logo-load .dot {
-    stroke: #fff;
-  }
-  #intro-logo-load .fills {
-    fill: lighten($primary, 20%);
-  }
-  #intro-logo-load .lines {
-    stroke: #fff;
-  }
-  #intro-logo-load .circle {
-    fill: transparent;
-    stroke: #fff;
-  }
-  .sidebar-cont a {
-    color: $primary;
-  }
-  .color-back {
-    background-color: $primary;
-    color: #fff;
-  }
-}
 
 .embed-container {
 		position: relative;

@@ -134,9 +134,6 @@ add_action('woocommerce_before_main_content', 'make_woo_before_content_wrapper',
 function make_woo_before_content_wrapper() {
   do_action('make_shop_before_container');
   echo '<div class="container">';
-  if(!is_single()){
-    include 'shop-header.php';
-  }
     echo '<div class="row">';
       echo '<div class="col-12 facetwp-template">';
 

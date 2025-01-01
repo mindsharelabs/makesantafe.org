@@ -28,33 +28,6 @@ if(get_field('show_header')) :
 	  </div>
 	</header>
 	<?php
-	if(is_woocommerce_activated()) :
-		if(is_product()) :
-			echo '<header class="shop-header">';
-				echo '<div class="header-padding">';
-					echo '<div id="intro-logo-holder">';
-						echo '<svg id="intro-logo-load" width="100%" height="100%" ></svg>';
-					echo '</div>';
-				echo '</div>';
-			echo '</header>';
-		elseif(is_product_category()) :
-			echo '<header class="shop-header">';
-				echo '<div class="header-padding">';
-					echo '<div id="intro-logo-holder">';
-						echo '<svg id="intro-logo-load" width="100%" height="100%" ></svg>';
-					echo '</div>';
-				echo '</div>';
-			echo '</header>';
-		endif;
-	else :
-		echo '<header class="header-padding>';
-			echo '<div class="row">';
-				echo '<div class="col-12">';
-
-				echo '</div>';
-			echo '</div>';
-		echo '</header>';
-	endif;
 endif;
 
 
