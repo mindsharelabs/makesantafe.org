@@ -1,4 +1,4 @@
-<div id="cd-logo" class="container-fluid">
+<div id="cd-logo" class="container-fluid px-0">
   <div class="header-padding">
     <div id="header-logo-holder">
       <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">

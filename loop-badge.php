@@ -1,10 +1,3 @@
-<?php
-
-delete_field('cert_color');
-delete_field('cert_icon');
-delete_field('cert_icon_back');
-delete_field('allowed_tools');
-?>
 <!-- article -->
 <article id="post-<?php the_ID(); ?>" <?php post_class('col-12'); ?>>
     <div class="row">

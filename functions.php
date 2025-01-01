@@ -295,8 +295,8 @@ function localize_header_svg_script() {
         'litcolor' => shadeColor('#36383E', 20),
         'home' => false,
         'logo' => get_template_directory_uri() . "/img/make-santa-fe" . (wp_is_mobile() ? '-mobile' : '') . ".svg",
-        'intro' => get_template_directory_uri() . "/img/banner.svg",
-        'circuit' => get_template_directory_uri() . "/img/circuit.svg"
+        // 'intro' => get_template_directory_uri() . "/img/banner.svg",
+        // 'circuit' => get_template_directory_uri() . "/img/circuit.svg"
         )
     );
 

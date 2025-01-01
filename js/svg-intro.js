@@ -27,9 +27,9 @@ if(exists) {
 
 
     setTimeout(function() {
-      top.animate({ transform: 't0,0'}, 500);
+        top.animate({ transform: 't0,0'}, 500);
   
-      bottom.animate({ transform: 't0,0'}, 500, function(){
+        bottom.animate({ transform: 't0,0'}, 500, function(){
         word.animate({opacity: "1"}, 800);
         santafe.animate({opacity: "1"}, 800);
         lbt.animate({opacity: "1"}, 800);
@@ -43,8 +43,8 @@ if(exists) {
       },3000);
 
       objects.animate({
-        opacity: "1"
-      }, 1200);
+        opacity: "0.6"
+      }, 4500);
 
     }, 1000);
 
