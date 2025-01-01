@@ -8,7 +8,7 @@
               <!-- article -->
               <article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?>>
                 <?php
-                echo '<header class="fancy-header d-flex">';
+                echo '<header class="fancy-header">';
                   echo '<div class="header-flex-item">';
               			echo '<h1 class="page-title ">';
                       the_title();

@@ -40,7 +40,7 @@ get_header();
       <div class="row">
         <div class="col-12">
           <?php
-          echo '<header class="fancy-header d-flex mt-5">';
+          echo '<header class="fancy-header mt-5">';
             echo '<div class="header-flex-item">';
               echo '<h1 class="page-title ">';
                 echo $name;

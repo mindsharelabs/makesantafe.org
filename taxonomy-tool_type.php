@@ -5,7 +5,7 @@
       <section class="mt-4">
         <div class="row">
         <?php
-          echo '<header class="fancy-header d-flex my-4">';
+          echo '<header class="fancy-header my-4">';
             echo '<div class="header-flex-item">';
               echo '<h1 class="page-title">';
                 the_archive_title();

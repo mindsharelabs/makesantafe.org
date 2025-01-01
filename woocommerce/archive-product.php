@@ -29,7 +29,7 @@ get_header('shop');
 do_action( 'woocommerce_before_main_content' );
 
 ?>
-<header class="woocommerce-products-header fancy-header d-flex">
+<header class="woocommerce-products-header fancy-header">
 
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 		<div class="header-flex-item">

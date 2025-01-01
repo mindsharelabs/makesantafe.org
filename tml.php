@@ -4,7 +4,7 @@
 
       <?php
       echo '<article id="post-' . get_the_ID() . '" class="' . implode(' ', get_post_class('col-12 col-md-4 offset-md-4 offset-0 mt-2 has-sidebar')) . '">';
-        echo '<header class="fancy-header d-flex">';
+        echo '<header class="fancy-header">';
           echo '<div class="header-flex-item">';
       			echo '<h1 class="page-title ">';
               the_title();

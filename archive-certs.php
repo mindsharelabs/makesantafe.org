@@ -5,7 +5,7 @@
       <?php
       echo '<div class="row">';
         echo '<div class="col-12 mb-4">';
-          echo '<header class="fancy-header d-flex">';
+          echo '<header class="fancy-header">';
             echo '<div class="header-flex-item">';
               echo '<h1 class="page-title">Our Badges</h1>';
             echo '</div>';
