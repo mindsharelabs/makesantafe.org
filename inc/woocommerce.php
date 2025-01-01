@@ -132,8 +132,6 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 add_action('woocommerce_before_main_content', 'make_woo_before_content_wrapper', 10);
 
 function make_woo_before_content_wrapper() {
-  include get_template_directory() . '/layout/page-header.php';
-  include get_template_directory() . '/layout/notice.php';
   do_action('make_shop_before_container');
   echo '<div class="container">';
   if(!is_single()){
