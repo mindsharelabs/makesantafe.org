@@ -1,18 +1,7 @@
 <?php
 if(get_field('show_header')) :
 	$color = (get_field('color') ? get_field('color') : '#be202e');
-	if(has_post_thumbnail()){
-		$image = get_the_post_thumbnail_url( get_the_id(), 'page-header');
-		$background_str = 'background-image: url(' . $image . ')';
-		$color = '#fff';
-		$fill = 'transparent';
-		$stroke = '#fff';
-	} else {
-		$background_str = 'background-color:' . $color;
-		$fill = 'rgba(1,1,1,.1)';
-		$stroke = 'rgba(255,255,255,.3)';
-	}
-
+	$background_str = 'background-color:' . $color;
 	?>
 	<style>
 		#header-logo-holder, #intro-logo-holder {

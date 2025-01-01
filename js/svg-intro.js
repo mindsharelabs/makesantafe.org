@@ -43,7 +43,8 @@ if(exists) {
       },3000);
 
       objects.animate({
-        opacity: "0.6"
+        opacity: "0.6",
+      
       }, 4500);
 
     }, 1000);

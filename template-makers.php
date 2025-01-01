@@ -1,10 +1,6 @@
 <?php
 //Template Name: Makers Page
 get_header();
-include 'layout/page-header.php';
-include 'layout/notice.php';
-
-
 
 
 $makers = new WP_Query(array(
