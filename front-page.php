@@ -1,7 +1,5 @@
 <?php get_header();
 include 'layout/banner.php';
-include 'layout/notice.php';
-// include 'layout/signup.php';
 
 if(have_posts()) : while(have_posts()) :
   the_post();

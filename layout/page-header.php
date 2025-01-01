@@ -1,6 +1,6 @@
 <?php
 if(get_field('show_header')) :
-	$color = get_field('color');
+	$color = (get_field('color') ? get_field('color') : '#be202e');
 	if(has_post_thumbnail()){
 		$image = get_the_post_thumbnail_url( get_the_id(), 'page-header');
 		$background_str = 'background-image: url(' . $image . ')';
@@ -15,68 +15,12 @@ if(get_field('show_header')) :
 
 	?>
 	<style>
-		.header-container {
-	    <?php echo $background_str; ?>;
-	  }
-	  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
-	    fill: #fff;
-	    color: #fff;
-			font-family: 'Courier Prime', monospace;
-    	font-size: 3em;
-	  }
-		#intro-logo-load .dot {
-	    stroke: #fff;
-	  }
-	  #intro-logo-load .fills {
-	    fill: <?php echo $fill; ?>;
-	  }
-	  #intro-logo-load .lines {
-	    stroke: #fff;
-	  }
-	  #intro-logo-load .circle {
-	    fill: #fff;
-	    stroke: #fff;
-	  }
-	  .sidebar-cont a {
-	    color: <?php echo $color; ?>;
-	  }
-	  .color-back {
-	    background-color: <?php echo $color; ?>;
-	    color: #fff;
-	  }
-		#intro-logo-load #banner .lines, #intro-logo-load .fills {
-			stroke: <?php echo $stroke; ?>
-		}
-		#circuit .lines{
-			stroke: #fff !important;
-		}
-		#circuit .circles {
-			fill: #fff !important;
-			stroke: #fff !important;
-		}
-		#circuit .circles {
-			fill: #fff !important;
-			stroke: #fff !important;
-		}
-		#objects .st0 {
-			opacity: unset !important;
-			fill: <?php echo $fill; ?> !important;
-			stroke: <?php echo $stroke; ?> !important;
-		}
-		#objects .st1 {
-			/* fill: #fff !important; */
-			stroke: <?php echo $stroke; ?> !important;
-		}
-		#circut .st2 {
-			/* fill: #fff !important; */
-			stroke: <?php echo $stroke; ?> !important;
-		}
-		#circut .st3 {
-			fill: <?php echo $fill; ?> !important;
-			stroke: <?php echo $stroke; ?> !important;
+		#header-logo-holder, #intro-logo-holder {
+			background: <?php echo $color; ?>; 
+			background: radial-gradient(circle, <?php echo $color; ?> 0%, rgba(50,50,50,1) 100%);
 		}
 	</style>
-	<header class="page-header container-fluid" style="<?php echo $background_str; ?>">
+	<header class="page-header container-fluid px-0" style="<?php echo $background_str; ?>">
 	  <div class="header-padding">
 	    <div id="intro-logo-holder">
 	      <svg id="intro-logo-load" width="100%" height="100%" ></svg>
