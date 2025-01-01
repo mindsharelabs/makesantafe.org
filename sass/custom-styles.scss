@@ -84,15 +84,12 @@ main {
   @extend .btn;
 }
 .fancy-header{
-  height: 40px;
-
   float: left;
   position: relative;
   width: 100%;
   text-transform: uppercase;
   color: $primary;
-  display: flex;
-  background: #fff;
+  font-weight: bold;
   .page-title{
     // font-size: 1.4em;
     line-height: 40px;
@@ -101,7 +98,7 @@ main {
     letter-spacing: 3px;
   }
   .header-flex-svg {
-    margin-top: -8px;
+    margin-top: -34px; 
     flex-grow: 1;
     svg{
       fill:#fff;

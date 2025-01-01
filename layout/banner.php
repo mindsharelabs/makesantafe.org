@@ -2,7 +2,7 @@
 <style>
 		#header-logo-holder, #intro-logo-holder {
 			background: <?php echo $color; ?>; 
-  			background: radial-gradient(circle, <?php echo $color; ?> 0%, rgba(50,50,50,1) 100%);
+  		background: radial-gradient(circle, <?php echo $color; ?> 0%, rgba(50,50,50,1) 100%);
 		}
 	</style>
 

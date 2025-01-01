@@ -5,14 +5,12 @@ include 'layout/notice.php';
 ?>
 <main role="main" aria-label="Content" class="container-fluid">
     <div class="row">
-      <?php get_sidebar(); ?>
-
-
+     
       <?php
-      echo '<article id="post-' . get_the_ID() . '" class="' . implode(' ', get_post_class('col-12 col-md-8 col-lg-9 mt-2 has-sidebar')) . '">';
-        echo '<header class="fancy-header d-flex">';
+      echo '<article id="post-' . get_the_ID() . '" class="' . implode(' ', get_post_class('col-12 col-md-10 offset-0 offset-md-1 mt-5')) . '">';
+        echo '<header class="fancy-header">';
           echo '<div class="header-flex-item">';
-      			echo '<h1 class="page-title ">';
+            echo '<h1 class="page-title text-primary display-5">';
               the_title();
             echo '</h1>';
       		echo '</div>';
