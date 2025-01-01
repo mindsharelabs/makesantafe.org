@@ -1,7 +1,4 @@
-<?php get_header();
-include 'layout/page-header.php';
-include 'layout/notice.php';
- ?>
+<?php get_header();?>
 
   <main role="main" aria-label="Content" <?php post_class('container'); ?>>
     <section class="container blog">

@@ -1,6 +1,5 @@
-<?php get_header();
-include 'layout/page-header.php';
-include 'layout/notice.php';
+<?php 
+get_header();
 
 $p_makers = make_get_badged_members(get_the_id());
 

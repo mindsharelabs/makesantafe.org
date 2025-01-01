@@ -1,5 +1,6 @@
-<?php get_header();
-include 'layout/banner.php';
+<?php 
+get_header();
+
 
 echo '<section class="blog">';
   echo '<div class="container">';

@@ -1,6 +1,5 @@
- <?php get_header();
- include 'layout/page-header.php';
- include 'layout/notice.php';
+<?php 
+get_header();
   $author = get_user_by( 'slug', get_query_var( 'author_name' ) );
   $maker_id = $author->ID;
   $public = get_field('display_profile_publicly', 'user_' . $maker_id);

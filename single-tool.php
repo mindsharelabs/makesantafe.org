@@ -1,7 +1,6 @@
-<?php get_header();
-include 'layout/page-header.php';
-include 'layout/notice.php';
+<?php 
 
+get_header();
 
 $downloads = get_field('downloads');
 ?>

@@ -62,3 +62,4 @@
 <body <?php body_class(); ?>>
 <?php include 'layout/top-header.php'; ?>
 <div id="main-panel">
+<?php include 'layout/page-header.php'; ?>

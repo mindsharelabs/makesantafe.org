@@ -1,7 +1,4 @@
-<?php get_header();
-
-include 'layout/page-header.php';
-?>
+<?php get_header();?>
 <main role="main" aria-label="Content" class="container">
   <div class="row">
     <div class="col-12">
