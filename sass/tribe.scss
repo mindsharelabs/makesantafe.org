@@ -172,3 +172,11 @@ tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-med
 .tribe-common--breakpoint-medium.tribe-common .tribe-common-h4--min-medium {
   padding-left: 0px;
 }
+
+
+
+.woocommerce-order {
+  .tec-tickets__attendees-list-wrapper {
+    display: none !important;
+  }
+}
