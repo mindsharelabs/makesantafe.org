@@ -84,12 +84,11 @@ main {
   @extend .btn;
 }
 .fancy-header{
-  float: left;
   position: relative;
   width: 100%;
   text-transform: uppercase;
   color: $primary;
-  font-weight: bold;
+  font-weight: bold; 
   .page-title{
     // font-size: 1.4em;
     line-height: 40px;
