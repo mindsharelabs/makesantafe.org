@@ -51,7 +51,13 @@ $p_makers = make_get_badged_members(get_the_id());
             echo '</div>';
             echo '<div class="row justify-content-center">';
               foreach($p_makers as $key => $maker) :
-                echo make_output_member_card($maker);
+                echo make_output_member_card($maker, false, array(
+                  'show_badges' => false,
+                  'show_title' => true,
+                  'show_bio' => false,
+                  'show_gallery' => false,
+                  'show_photo' => true,
+                ));
               endforeach;
               echo '</div>';
             echo '</div>';
