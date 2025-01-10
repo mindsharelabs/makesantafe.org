@@ -42,16 +42,20 @@ img {
 h1 {
   font-weight: 900;
 }
-h1, h2, h3, h4, h5, h6, .btn {
-  font-family: 'Courier Prime', monospace;
+h1, h2, h3, h4, h5, h6{ 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
 }
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+.btn {
+  font-weight: 500;
 }
 h2 {
-  font-weight: 400;
   font-size: 2em;
-}
+} 
 h3 {
   font-size: 1.8em;
 }
@@ -71,15 +75,6 @@ main {
   margin: 0px auto;
 }
 
-#header-logo-holder, #intro-logo-holder {
-  // background: rgb(18,140,204);
-  // background: linear-gradient(319deg, rgba(18,140,204,1) 0%, rgba(50,50,50,1) 100%);
-  .bigtext {
-    font-size: 2.5em;
-    letter-spacing: 2px;
-    font-family: 'Courier Prime', monospace;
-  }
-}
 .button {
   @extend .btn;
 }
@@ -631,8 +626,8 @@ footer.footer {
   h3 {
     text-transform: uppercase;
     font-size: 1.3em;
-    margin-bottom: 0;
-    margin-left: 30px;
+    margin-left: 41px;
+    margin-bottom: -6px;
   }
   svg {
     margin-top: -5px;

@@ -125,22 +125,19 @@ function make_add_instructor_role(){
 
 add_action( 'pre_get_posts', 'make_post_type_archive' );
 function make_post_type_archive( $query ) {
-  if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
+    if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
   		$query->set( 'posts_per_page', -1 );
   		$query->set( 'orderby', 'title' );
-      $query->set( 'order', 'ASC' );
-  	}
-
-
-
-  if ( $query->is_main_query() && !is_admin() && is_post_type_archive( 'certs' )) {
-
-      $query->set( 'posts_per_page', -1 );
-  		$query->set( 'orderby', 'title' );
-      $query->set( 'order', 'ASC' );
-  }
-
-
+        $query->set( 'order', 'ASC' );
+  	} elseif( $query->is_main_query() && !is_admin() && is_post_type_archive( 'make_track' ) ) {
+        $query->set( 'posts_per_page', -1 );
+        $query->set( 'order', 'ASC' );
+        $query->set( 'orderby', 'title' );
+    } elseif ( $query->is_main_query() && !is_admin() && is_post_type_archive( 'certs' )) {
+        $query->set( 'posts_per_page', -1 );
+        $query->set( 'orderby', 'title' );
+        $query->set( 'order', 'ASC' );
+    }
 }
 
 function make_add_query_vars( $vars ) {
@@ -431,7 +428,7 @@ function mindblank_styles()
     wp_register_style('mindblankcssmin', get_template_directory_uri() . '/css/style.css', array(), THEME_VERSION);
     wp_enqueue_style('mindblankcssmin');
 
-    wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Courier+Prime:400,700|Montserrat:300i,400,500i,600,800&display=swap', array(), THEME_VERSION);
+    wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300i,400,500i,600,800&display=swap', array(), THEME_VERSION);
     wp_enqueue_style('google-fonts');
 
 
