@@ -580,8 +580,13 @@ add_filter('excerpt_length', 'lobob_excerpt_length', 999);
 function mind_blank_view_article($more)
 {
     global $post;
-    if($post) :
-        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mindblank') . '</a>';
+    //if post type is product
+    if(get_post_type($post) == 'product') :
+        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Product', 'mindblank') . '</a>';
+    elseif(get_post_type($post) == 'make_track') :
+        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Track', 'mindblank') . '</a>';
+    else :
+        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mindblank') . '</a>';    
     endif;
 }
 
