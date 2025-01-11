@@ -545,29 +545,15 @@ function mindwp_pagination()
 }
 
 
-// Create the Custom Excerpts callback
-function mindwp_excerpt($length_callback = '', $more_callback = '')
-{
-    global $post;
-    if (function_exists($length_callback)) {
-        add_filter('excerpt_length', 40);
-    }
-    if (function_exists($more_callback)) {
-        add_filter('excerpt_more', $more_callback);
-    }
-    $output = get_the_excerpt();
-    $output = apply_filters('wptexturize', $output);
-    $output = apply_filters('convert_chars', $output);
-    $output = '<p>' . $output . '</p>';
-    echo $output;
-}
 
-function lobob_excerpt_length($length)
-{
-    return 20;
-}
 
-add_filter('excerpt_length', 'lobob_excerpt_length', 999);
+add_filter('excerpt_length', function ($length){
+    if(is_post_type_archive('make_track')) :
+        return 80;
+    else :
+        return 40;
+    endif;
+}, 999);
 
 
 
