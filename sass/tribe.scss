@@ -4,6 +4,17 @@
 .tribe-embed a, .tribe-events-event-meta a, .tribe-events-single a {
   // color: unset !important;  
 }
+.tribe-events .tribe-events-calendar-list__event-date-tag {
+  width: 100px !important;
+  margin-right: 10px !important;
+  time {
+    padding-top: 0 !important;
+  }
+}
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event-row>.tribe-common-g-col {
+  padding-right: 0px !important;
+} 
+
 
 .single-tribe_events {
   .tribe-events-single-event-title {
