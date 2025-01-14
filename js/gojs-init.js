@@ -1,9 +1,7 @@
 //Docs: https://balkan.app/OrgChartJS/Docs/GettingStarted
 
 function init() {
-    console.log(JSON.parse(badgeSettings.badgeJSON));
 
-    
     OrgChart.templates.ana.img_0 =  '<image preserveAspectRatio="xMidYMid slice" xlink:href="{val}" x="20" y="-15" width="80" height="80"></image>';
     OrgChart.templates.ana.field_0 = '<text class="field_0"  style="font-size: 2px;" fill="#ffffff" x="125" y="30" text-anchor="middle">{val}</text>';
     // OrgChart.templates.ana.field_1 = '<text class="field_1"  style="font-size: 14px;" fill="#ffffff" x="125" y="50" text-anchor="middle">{val}</text>';
