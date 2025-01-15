@@ -56,7 +56,7 @@
     gtag('config', 'AW-11012918498');
     </script>
     
-    
+    <?php include 'social/header.php'; ?>
 </head>
 
 <body <?php body_class(); ?>>
