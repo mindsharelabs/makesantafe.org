@@ -26,15 +26,7 @@ $makers = new WP_Query(array(
 ));
 if($makers->have_posts()) :
   echo '<div class="container">';
-
-    echo '<div class="row">';
-      echo '<div class="col-12">';
-        echo '<h2 class="text-center display-4 mb-4">Make Santa Fe Members</h2>';
-      echo '</div>';
-    echo '</div>';
-
-
-    echo '<div class="row filter-row">';
+    echo '<div class="row filter-row my-3">';
       echo '<div class="col-12 d-flex flex-row">';
         echo '<div class="facet-cont me-3">';
           echo '<span class="label">Search Members:</span>';
