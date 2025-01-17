@@ -49,7 +49,8 @@ $display-font-sizes: (
 ) !default;
 
 $display-font-weight: 600;
-$display-line-height: $headings-line-height !default;
+$display-line-height: 1.2em;
+$display-font-style: normal;
 // scss-docs-end display-headings
 
 .background {

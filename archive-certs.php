@@ -1,6 +1,6 @@
 <?php get_header();?>
 <main role="main" aria-label="Content" <?php post_class(); ?>>
-  <div class="container-fluid">
+  <div class="container-fluid archive-certs">
     
       <?php
       echo '<div class="row">';
@@ -26,12 +26,54 @@
 
           
       
-      echo '<section id="makeBadges"></section>';
-      echo '<small class="text-muted text-center d-block w-100 text-primary fw-bold my-3">Click and drag to navigate badge tree.</small>';
+      if(have_posts()) :
+        echo '<section class="row badges gy-2">';
+        while(have_posts()) : the_post();
 
-         
+          $has_badge = make_user_has_badge(get_the_id());
+          $launched = get_field('launched');
+          $class = '';
+          if($has_badge) {
+            $class = 'has-badge';
+          } elseif(!$launched) {
+            $class = 'unavailable';
+          }
+
+
+          echo '<div class="col-12 col-md-6 col-lg-4 col-xl-3 badge-card-cont">';
+            echo '<div class="card badge-card h-100 d-flex flex-column justify-content-between ' . $class . '">';
+
+              $badge_image = get_field('badge_image');
+              if($badge_image) :
+                $url = wp_get_attachment_image_url(get_field('badge_image'), 'small-square');
+                echo '<a href="' . get_permalink() . '" class="badge-image">';
+                  echo '<img src="' . $url . '" class="card-img-top" alt="' . get_the_title() . '">';
+                echo '</a>';
+              endif;
+
+
+              echo '<div class="card-header">';
+                echo '<h3 class="card-title h5 text-center">' . get_the_title() . '</h3>';
+              echo '</div>';
+
+              if($short_desc = get_field('short_description')) :
+              echo '<div class="card-body">';
+                echo '<div class="card-text">' . $short_desc . '</div>';
+              echo '</div>';
+              endif;
+
+              echo '<a href="' . get_the_permalink() . '" class="badge-arrow-link"><i class="fas fa-arrow-right"></i></a>';
+
+            echo '</div>';
+          echo '</div>';
+
+
+
+        endwhile;
+        echo '</section>';
+      endif;
+
       ?>
-  <?php get_template_part('pagination'); ?>
   </div>
     
 </main>

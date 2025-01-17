@@ -828,6 +828,108 @@ aside.sidebar {
   }
 }
 
+.archive-certs {
+  // Badge Chart Styles
+  .key-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    .key-square {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin-right: 10px;
+      background: $primary;
+      &.badged {
+        background: $success;
+      }
+      &.unavailable {
+        background: $light;
+      }
+    }
+    .label {
+      display: inline-block;
+      font-size: .8em;
+      font-weight: bold;
+    }
+  }
+}
+section {
+  &.badges {
+    margin-bottom: 120px;
+    .badge-card-cont {
+      margin-top: 120px;
+      .badge-card {
+        background-color: #fafafa;
+        .badge-image {
+          display: block;
+          width: 50%;
+          border-width: 3px;
+          border-style: solid;
+          border-color: $primary;
+          margin: 0 auto;
+          border-radius: 50%;
+          margin-bottom: 10px;
+          margin-top: -75px;
+          background: white;
+          padding: 20px;
+          @include transition(300ms);
+          &:hover {
+            background:#f1f1f1;
+            padding: 10px; 
+            @include transition(50ms);
+          }
+        }
+        .card-header {
+          background-color: #fafafa;
+          .card-title {
+            margin: 0;
+          }
+        }
+        .card-body {
+          background-color: #fff;
+        }
+
+        &.has-badge {
+          .badge-image {
+            border-color: $success;
+          }
+        }
+        &.unavailable {
+          .badge-image {
+            border-color: $light;
+          }
+        }
+
+
+
+        .badge-arrow-link {
+          margin: 0 auto;
+          height: 60px;
+          width: 60px;
+          text-align: center;
+          font-size: 32px;
+          background: white;
+          border: 2px solid $primary;
+          border-radius: 30px;
+          line-height: 60px;
+          margin-bottom: -30px;
+          @include transition(300ms);
+          &:hover {
+            background: $light;
+            @include transition(50ms);
+          }
+        }
+      }
+      
+    }
+    
+    
+  }
+}
+
+
 section.team, section.makers {
   .content{
     h3 {
@@ -1104,55 +1206,4 @@ aside.sidebar {
 }
 
 
-// Badge Chart Styles
-main.type-certs {
-  .key-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 5px;
-    .key-square {
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      margin-right: 10px;
-      background: $primary;
-      &.badged {
-        background: $success;
-      }
-      &.unavailable {
-        background: $light;
-      }
-    }
-    .label {
-      display: inline-block;
-      font-size: .8em;
-      font-weight: bold;
-    }
-  }
-}
-#makeBadges {
-  a {
-    text-decoration: none;
-    &:visited {
-      color: $light;
-    }
-    font-weight: bold;
-  }
-  [data-n-id] circle {
-    stroke: $primary;
-  }
 
-  [data-n-id] rect {
-    fill: #dedede;
-  }
-  .node.active rect {
-    fill: $primary;
-  }
-  .node.badged rect {
-    fill: $success;
-  }
-
-
-
-}
