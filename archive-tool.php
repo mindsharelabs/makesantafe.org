@@ -3,20 +3,7 @@
   <div class="row">
       <div class="col-12">
         <?php
-
-        echo '<div class="row">';
-          echo '<header class="fancy-header">';
-            echo '<div class="header-flex-item">';
-              echo '<h1 class="page-title ">';
-                echo __('Make Tools');
-              echo '</h1>';
-            echo '</div>';
-            echo '<div class="header-flex-svg">';
-              include get_template_directory() . '/inc/svgheader.svg';
-            echo '</div>';
-          echo '</header>';
-        echo '</div>';
-        
+      
 
             $terms = get_terms( array(
               'taxonomy' => 'tool_type',

@@ -287,28 +287,37 @@ function localize_header_svg_script() {
     wp_enqueue_script('svgintro-js');
 
     wp_localize_script( 'svgintro-js', 'svgvars', array(
-        'words' => strtoupper(make_get_title()),
-        'color' => make_header_text_color(),
-        'litcolor' => shadeColor('#36383E', 20),
-        'home' => false,
-        'logo' => get_template_directory_uri() . "/img/make-santa-fe.svg",
-        // 'intro' => get_template_directory_uri() . "/img/banner.svg",
-        // 'circuit' => get_template_directory_uri() . "/img/circuit.svg"
+        'title' => strtoupper(make_get_title()),
+        'home' => (is_front_page(  ) ? true : false),
+        'logo' => (is_front_page(  ) ? get_template_directory_uri() . "/img/make-santa-fe.svg" : get_template_directory_uri() . "/img/make-santa-fe-sub-page.svg"),
         )
     );
 
 }
 
+
+
+
+
 function make_get_title() {
-  if(is_home()) :
-    $title = get_bloginfo('description');
-  elseif(class_exists('WC')) :
-    if(is_product_category()) :
-        $title = single_term_title('', false);
+    if(is_home()) :
+        $title = get_bloginfo('description');
+    elseif(class_exists('WC')) :
+        if(is_product_category()) :
+            $title = single_term_title('', false);
+        elseif(is_product()) :
+            $title = get_the_title();
+        endif;
+    elseif(is_archive(  )) :
+        $title = get_the_archive_title();
+    elseif(is_single()) :
+        $title = get_the_title();
+
+    else :
+        $title = get_the_title();
     endif;
-  else :
-    $title = get_the_title();
-  endif;
+
+
   return $title;
 }
 
@@ -324,23 +333,7 @@ function make_header_text_color() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string');
 
 
 function make_user_has_badge($badgeID) {

@@ -1,9 +1,12 @@
 
-var exists = document.getElementById("intro-logo-load");
-var introHeader = Snap("#intro-logo-load");
-var logo = Snap("#header-logo-load");
+var frontPage = document.getElementById("intro-logo-load");
+var subPage = document.getElementById("sub-page-header");
 
-if(exists) {
+if(frontPage) {
+
+  var introHeader = Snap("#intro-logo-load");
+
+
   Snap.load( svgvars.logo, function(f) {
     introHeader.append(f);
     var top = introHeader.select('#top');
@@ -51,6 +54,51 @@ if(exists) {
 
 
 
-});
+  });
+} else if(subPage) {
+
+  var introHeader = Snap("#sub-page-header");
+
+  Snap.load( svgvars.logo, function(f) {
+    introHeader.append(f);
+    var circut = introHeader.select('#circut');
+    var objects = introHeader.select('#objects');
+    var title = introHeader.select('#title');
+
+
+    var t = introHeader.text("50%", "50%", svgvars.title).attr('text-anchor', 'middle').attr('dominant-baseline', 'middle').
+
+
+    title.add(t)
+
+    console.log(title);
+
+
+    title.animate({opacity: "0"}, 0);
+    objects.animate({opacity: "0"}, 0);
+    circut.animate({opacity: "0"}, 0);
+
+
+    setTimeout(function() {
+        title.animate({opacity: "1"}, 800);
+    },400);
+
+
+    setTimeout(function() {
+      circut.animate({
+        opacity:"1"
+      },3000);
+
+      objects.animate({
+        opacity: "0.6",
+      
+      }, 4500);
+
+    }, 1000);
+    
+
+
+  });
+
 }
 
