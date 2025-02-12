@@ -52,6 +52,13 @@ h1, h2, h3, h4, h5, h6{
 }
 .btn {
   font-weight: 500;
+  &.btn-primary {
+    background: $primary;
+    color: $light !important;
+    &:hover {
+      background: darken($primary, 10%);
+    }
+  }
 }
 h2 {
   font-size: 2em;

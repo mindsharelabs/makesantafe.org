@@ -11,10 +11,6 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
     }
 }
 
-/*
-* Description: By default, WooCommerce reduces stock for any order containing a product. This means stock will be reduced for both the initial purchase of a subscription product and all renewal orders. This extension stops stock being reduced for renewal order payments so that stock is only reduced on the initial purchase. Requires WooCommerce 2.4 or newer and Subscriptiosn 2.0 or newer.
-*/
-
 
 
 add_action( 'woocommerce_thankyou', 'make_add_google_conversion_tracking', 10, 1 );
@@ -42,7 +38,9 @@ function make_add_google_conversion_tracking( $order_id ) {
 
 
 
-
+/*
+* Description: By default, WooCommerce reduces stock for any order containing a product. This means stock will be reduced for both the initial purchase of a subscription product and all renewal orders. This extension stops stock being reduced for renewal order payments so that stock is only reduced on the initial purchase. Requires WooCommerce 2.4 or newer and Subscriptiosn 2.0 or newer.
+*/
 function make_do_not_reduce_renewal_stock( $reduce_stock, $order ) {
 
 	if ( function_exists( 'wcs_order_contains_renewal' ) && wcs_order_contains_renewal( $order ) ) { // Subscriptions v2.0+
@@ -475,3 +473,21 @@ add_action('manage_shop_order_posts_custom_column', function($column) {
 	
 }, 10, 2);
 
+
+
+// enable gutenberg for woocommerce
+function activate_gutenberg_product( $can_edit, $post_type ) {
+	if ( $post_type == 'product' ) {
+		$can_edit = true;
+	}
+	return $can_edit;
+}
+add_filter( 'use_block_editor_for_post_type', 'activate_gutenberg_product', 10, 2 );
+
+
+function make_enable_taxonomy_rest( $args ) {
+	$args['show_in_rest'] = true;
+	return $args;
+}
+add_filter( 'woocommerce_taxonomy_args_product_cat', 'make_enable_taxonomy_rest' );
+add_filter( 'woocommerce_taxonomy_args_product_tag', 'make_enable_taxonomy_rest' );

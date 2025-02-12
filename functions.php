@@ -13,7 +13,6 @@ include 'inc/content-functions.php';
 include 'inc/cpt.php';
 include 'inc/acf-functions.php';
 include 'inc/woocommerce.php';
-include 'inc/tribe-events.php';
 include 'inc/gravity-forms.php';
 
 /*------------------------------------*\
@@ -56,11 +55,11 @@ if (function_exists('add_theme_support')) {
 
     //WooCommerce
     add_theme_support('woocommerce');
-    add_theme_support('wc-product-gallery-zoom');
-    add_theme_support('wc-product-gallery-lightbox');
+    // add_theme_support('wc-product-gallery-zoom');
+    // add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 
-
+    
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
@@ -74,6 +73,9 @@ if (function_exists('add_theme_support')) {
    
 
 }
+
+
+add_filter('wp_img_tag_add_auto_sizes', '__return_false');
 
 add_action('init',function() {
      // Localisation Support
@@ -302,6 +304,7 @@ function localize_header_svg_script() {
 function make_get_title() {
     if(is_home()) :
         $title = get_bloginfo('description');
+
     elseif(class_exists('WC')) :
         if(is_product_category()) :
             $title = single_term_title('', false);
@@ -317,8 +320,7 @@ function make_get_title() {
         $title = get_the_title();
     endif;
 
-
-  return $title;
+    return html_entity_decode($title);
 }
 
 function make_header_text_color() {
