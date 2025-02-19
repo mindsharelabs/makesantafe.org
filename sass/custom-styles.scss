@@ -51,6 +51,13 @@ h1, h2, h3, h4, h5, h6, .btn {
 h2 {
   font-weight: 400;
   font-size: 2em;
+  &.wp-block-heading {
+    position: relative;
+    width: 100%;
+    text-transform: uppercase;
+    color: $primary;
+    font-weight: bold;
+  }
 }
 h3 {
   font-size: 1.8em;
@@ -84,7 +91,6 @@ main {
   @extend .btn;
 }
 .fancy-header{
-  float: left;
   position: relative;
   width: 100%;
   text-transform: uppercase;
