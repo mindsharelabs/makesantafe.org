@@ -56,7 +56,7 @@ if (function_exists('add_theme_support')) {
 
     //WooCommerce
     add_theme_support('woocommerce');
-    add_theme_support('wc-product-gallery-zoom');
+    // add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 
@@ -588,6 +588,7 @@ function enable_threaded_comments()
 \*------------------------------------*/
 
 // Add Actions
+add_filter('wp_img_tag_add_auto_sizes', '__return_false'); // Disable inline image size attributes
 add_action('init', 'mindblank_header_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_print_scripts', 'mindblank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
