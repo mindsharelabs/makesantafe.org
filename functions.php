@@ -93,6 +93,14 @@ add_filter('mind_staff_card_title_classes', function() {
     return 'staff-name text-center mb-1 mt-2 h4';
 });
 
+
+add_filter('mindevents_calendar_label', function($label) {
+    return '<h3 class="event-schedule_label">Upcoming Classes</h3>';
+});
+add_filter('mindevents_list_label', function($label) {
+    return '<h3 class="event-schedule_label">Upcoming Classes</h3>';
+});
+
 function make_param_shortcode( $atts ) {
     extract( shortcode_atts( array(
         'param' => 'param',
