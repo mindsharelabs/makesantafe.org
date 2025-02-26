@@ -13,7 +13,7 @@ include 'inc/content-functions.php';
 include 'inc/cpt.php';
 include 'inc/acf-functions.php';
 include 'inc/woocommerce.php';
-include 'inc/tribe-events.php';
+include 'inc/mindshare-events.php';
 include 'inc/gravity-forms.php';
 
 /*------------------------------------*\
