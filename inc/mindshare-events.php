@@ -2,7 +2,7 @@
 
 
 
-add_action(MINDEVENTS_PREPEND . 'after_single_container', function() {
+add_action('mindevents_after_single_container', function() {
     // mapi_write_log();
     $related_events = new WP_Query(
       array(
