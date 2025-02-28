@@ -20,7 +20,7 @@ $dark:          rgba(1, 1, 1, 1);
 
 $grid-gutter-width:           10px;
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      'Raleway', sans-serif;
+$font-family-sans-serif:      'Montserrat', sans-serif;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:            $font-family-sans-serif;
 // stylelint-enable value-keyword-case
@@ -36,6 +36,22 @@ $h4-font-size:                $font-size-base * 1.5;
 $h5-font-size:                $font-size-base * 1.25;
 $h6-font-size:                $font-size-base;
 
+
+
+// scss-docs-start display-headings
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 2.5rem
+) !default;
+
+$display-font-weight: 600;
+$display-line-height: 1.2em;
+$display-font-style: normal;
+// scss-docs-end display-headings
 
 .background {
   background: $background;

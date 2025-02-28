@@ -8,7 +8,7 @@
         </div>
 
 
-        <div class="col-10 offset-0 offset-md-8 col-md-2 text-end my-auto">
+        <div class="col-10 offset-0 offset-md-6 col-md-3 text-end my-auto">
             <?php
             if($icons = get_field('header_icons', 'options')) :
               foreach ($icons as $icon) :
@@ -20,7 +20,7 @@
               if(class_exists('woocommerce')) :
                 $cart_count = WC()->cart->cart_contents_count; // Set variable for cart item count
                 $cart_url = wc_get_cart_url(); 
-                echo '<a href="' . $cart_url . '" class="ms-4 icon cart-icon" style="vertical-align: top;" title="Shopping Cart">';
+                echo '<a href="' . $cart_url . '" class="ms-3 icon cart-icon" style="vertical-align: top;" title="Shopping Cart">';
                   echo '<i class="fa-solid fa-shopping-cart fa-sm"></i>';
                   if($cart_count > 0) :
                     echo '<span class="cart-contents-count"><i class="text-success fa-xs fa fa-inverse fa-circle-' . $cart_count . '"></i></span>';
@@ -29,11 +29,11 @@
 
 
                 if(is_user_logged_in()) :
-                  echo '<a href="' . get_permalink( get_option('woocommerce_myaccount_page_id') ) . '" class="ms-4 icon account-icon" style="vertical-align: top;" title="My Account">';
+                  echo '<a href="' . get_permalink( get_option('woocommerce_myaccount_page_id') ) . '" class="ms-3 icon account-icon" style="vertical-align: top;" title="My Account">';
                     echo '<i class="fa-solid fa-user fa-sm"></i>';
                   echo '</a>';
                 else :
-                  echo '<a href="' . get_permalink( get_option('woocommerce_myaccount_page_id') ) . '" class="ms-4 icon account-icon" style="vertical-align: top;" title="My Account">';
+                  echo '<a href="' . get_permalink( get_option('woocommerce_myaccount_page_id') ) . '" class="ms-3 icon account-icon" style="vertical-align: top;" title="My Account">';
                     echo '<i class="fa-solid fa-sm fa-arrow-right-to-arc"></i> ';
                   echo '</a>';
                 endif;

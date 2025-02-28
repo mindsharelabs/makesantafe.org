@@ -13,18 +13,6 @@ $downloads = get_field('downloads');
         <section class="mt-4">
           <article id="post-<?php the_ID(); ?>" <?php post_class('row mb-5'); ?>>
             <?php
-            echo '<header class="fancy-header mb-4">';
-              echo '<div class="header-flex-item">';
-                echo '<h1 class="page-title">';
-                  the_title();
-                echo '</h1>';
-              echo '</div>';
-              echo '<div class="header-flex-svg">';
-                include get_template_directory() . '/inc/svgheader.svg';
-              echo '</div>';
-            echo '</header>';
-
-
 
             if (have_posts()): 
               while (have_posts()) : the_post(); ?>

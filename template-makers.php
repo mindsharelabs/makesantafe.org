@@ -26,15 +26,7 @@ $makers = new WP_Query(array(
 ));
 if($makers->have_posts()) :
   echo '<div class="container">';
-
-    echo '<div class="row">';
-      echo '<div class="col-12">';
-        echo '<h2 class="text-center display-4 mb-4">Make Santa Fe Members</h2>';
-      echo '</div>';
-    echo '</div>';
-
-
-    echo '<div class="row filter-row">';
+    echo '<div class="row filter-row my-3">';
       echo '<div class="col-12 d-flex flex-row">';
         echo '<div class="facet-cont me-3">';
           echo '<span class="label">Search Members:</span>';
@@ -58,6 +50,10 @@ if($makers->have_posts()) :
     if(function_exists('make_output_member_card')) :
       echo '<section class="row makers gy-3 facetwp-template">';
       while($makers->have_posts()) : $makers->the_post();
+
+        mapi_write_log(get_post_meta(get_the_id()));
+
+
         echo make_output_member_card(UPT()->get_user_id(), $echo = false);
       endwhile;
       echo '</section>';

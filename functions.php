@@ -4,7 +4,7 @@
  * URL: https://mind.sh/are | @mindblank
  *
  */
-define('THEME_VERSION', '3.9.0');
+define('THEME_VERSION', '4.1.0');
 /*------------------------------------*\
     External Modules/Files
 \*------------------------------------*/
@@ -125,22 +125,19 @@ function make_add_instructor_role(){
 
 add_action( 'pre_get_posts', 'make_post_type_archive' );
 function make_post_type_archive( $query ) {
-  if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
+    if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'team' ) ) {
   		$query->set( 'posts_per_page', -1 );
   		$query->set( 'orderby', 'title' );
-      $query->set( 'order', 'ASC' );
-  	}
-
-
-
-  if ( $query->is_main_query() && !is_admin() && is_post_type_archive( 'certs' )) {
-
-      $query->set( 'posts_per_page', -1 );
-  		$query->set( 'orderby', 'title' );
-      $query->set( 'order', 'ASC' );
-  }
-
-
+        $query->set( 'order', 'ASC' );
+  	} elseif( $query->is_main_query() && !is_admin() && is_post_type_archive( 'make_track' ) ) {
+        $query->set( 'posts_per_page', -1 );
+        $query->set( 'order', 'ASC' );
+        $query->set( 'orderby', 'title' );
+    } elseif ( $query->is_main_query() && !is_admin() && is_post_type_archive( 'certs' )) {
+        $query->set( 'posts_per_page', -1 );
+        $query->set( 'orderby', 'title' );
+        $query->set( 'order', 'ASC' );
+    }
 }
 
 function make_add_query_vars( $vars ) {
@@ -290,28 +287,37 @@ function localize_header_svg_script() {
     wp_enqueue_script('svgintro-js');
 
     wp_localize_script( 'svgintro-js', 'svgvars', array(
-        'words' => strtoupper(make_get_title()),
-        'color' => make_header_text_color(),
-        'litcolor' => shadeColor('#36383E', 20),
-        'home' => false,
-        'logo' => get_template_directory_uri() . "/img/make-santa-fe.svg",
-        // 'intro' => get_template_directory_uri() . "/img/banner.svg",
-        // 'circuit' => get_template_directory_uri() . "/img/circuit.svg"
+        'title' => strtoupper(make_get_title()),
+        'home' => (is_front_page(  ) ? true : false),
+        'logo' => (is_front_page(  ) ? get_template_directory_uri() . "/img/make-santa-fe.svg" : get_template_directory_uri() . "/img/make-santa-fe-sub-page.svg"),
         )
     );
 
 }
 
+
+
+
+
 function make_get_title() {
-  if(is_home()) :
-    $title = get_bloginfo('description');
-  elseif(class_exists('WC')) :
-    if(is_product_category()) :
-        $title = single_term_title('', false);
+    if(is_home()) :
+        $title = get_bloginfo('description');
+    elseif(class_exists('WC')) :
+        if(is_product_category()) :
+            $title = single_term_title('', false);
+        elseif(is_product()) :
+            $title = get_the_title();
+        endif;
+    elseif(is_archive(  )) :
+        $title = get_the_archive_title();
+    elseif(is_single()) :
+        $title = get_the_title();
+
+    else :
+        $title = get_the_title();
     endif;
-  else :
-    $title = get_the_title();
-  endif;
+
+
   return $title;
 }
 
@@ -325,65 +331,12 @@ function make_header_text_color() {
 }
 
 
-function get_badge_data() {
-    $badges = new WP_Query(array(
-        'post_type' => 'certs',
-        'posts_per_page' => -1,
-        'orderby' => 'title',
-        'order' => 'ASC'
-    ));
-    if($badges->have_posts()) :
-        $badge_data = array();
-        $i = 0;
-        while($badges->have_posts()) : $badges->the_post();
-            $tags = array();
-            if(get_field('launched')) {
-                $tags[] = 'active';
-            }
-            if(_user_has_badge(get_the_ID())) {
-                $tags[] = 'badged';
-            }
-
-            $badge_data[] = array(
-                'id' => get_the_ID(),
-                'pid' => wp_get_post_parent_id(get_the_ID() ),
-                'title' => get_the_title(),
-                'url' => get_the_permalink(),
-                'image' => wp_get_attachment_image_url(get_field('badge_image'), 'small-square'),
-                'excerpt' => get_field('short_description', get_the_ID()),
-                'tags' => $tags,
-                
-            ); 
-        endwhile;
-        
-        return $badge_data;
-    else :
-        return false;
-    endif;    
-}
 
 
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function _user_has_badge($badgeID) {
+function make_user_has_badge($badgeID) {
     $badges = get_user_meta(get_current_user_id(), 'certifications', true);
     if($badges) :
         if(in_array($badgeID, $badges)) :
@@ -398,19 +351,17 @@ function _user_has_badge($badgeID) {
 
 
 // Load mind Blank conditional scripts
-function mindblank_conditional_scripts()
-{
+function mindblank_conditional_scripts(){
     if (is_archive('certs')) :
+        // wp_register_script('orgchart-js', get_template_directory_uri() . '/js/orgchart.js', false, THEME_VERSION, true);
+        // wp_enqueue_script('orgchart-js');
 
-        wp_register_script('orgchart-js', get_template_directory_uri() . '/js/orgchart.js', false, THEME_VERSION, true);
-        wp_enqueue_script('orgchart-js');
-
-        wp_register_script('orgchart-init', get_template_directory_uri() . '/js/gojs-init.js', array('orgchart-js'), THEME_VERSION, true);
-        wp_enqueue_script('orgchart-init');
-        wp_localize_script( 'orgchart-init', 'badgeSettings', array(
-            'ajax_url' => admin_url( 'admin-ajax.php' ),
-            'badgeJSON' => json_encode(get_badge_data(), JSON_UNESCAPED_SLASHES)
-        ));
+        // wp_register_script('orgchart-init', get_template_directory_uri() . '/js/gojs-init.js', array('orgchart-js'), THEME_VERSION, true);
+        // wp_enqueue_script('orgchart-init');
+        // wp_localize_script( 'orgchart-init', 'badgeSettings', array(
+        //     'ajax_url' => admin_url( 'admin-ajax.php' ),
+        //     'badgeJSON' => json_encode(get_badge_data(), JSON_UNESCAPED_SLASHES)
+        // ));
     endif;    
     if ( is_page_template( 'template-makers.php' ) ) :
         // wp_register_script('listjs-min', get_template_directory_uri() . '/js/list.min.js', array('jquery'), THEME_VERSION, true);
@@ -426,12 +377,11 @@ function mindblank_conditional_scripts()
 }
 
 // Load mind Blank styles
-function mindblank_styles()
-{
+function mindblank_styles(){
     wp_register_style('mindblankcssmin', get_template_directory_uri() . '/css/style.css', array(), THEME_VERSION);
     wp_enqueue_style('mindblankcssmin');
 
-    wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Courier+Prime:400,700|Montserrat:300i,400,500i,600,800&display=swap', array(), THEME_VERSION);
+    wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:300i,400,500i,600,800&display=swap', array(), THEME_VERSION);
     wp_enqueue_style('google-fonts');
 
 
@@ -548,40 +498,54 @@ function mindwp_pagination()
 }
 
 
-// Create the Custom Excerpts callback
-function mindwp_excerpt($length_callback = '', $more_callback = '')
-{
-    global $post;
-    if (function_exists($length_callback)) {
-        add_filter('excerpt_length', 40);
-    }
-    if (function_exists($more_callback)) {
-        add_filter('excerpt_more', $more_callback);
-    }
-    $output = get_the_excerpt();
-    $output = apply_filters('wptexturize', $output);
-    $output = apply_filters('convert_chars', $output);
-    $output = '<p>' . $output . '</p>';
-    echo $output;
+
+
+add_filter('excerpt_length', function ($length){
+    if(is_post_type_archive('make_track')) :
+        return 80;
+    else :
+        return 40;
+    endif;
+}, 999);
+
+
+
+
+
+//Disable emojis in WordPress
+add_action( 'init', 'make_disable_emojis' );
+
+function make_disable_emojis() {
+  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+  remove_action( 'wp_print_styles', 'print_emoji_styles' );
+  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+  remove_action( 'admin_print_styles', 'print_emoji_styles' );
+  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+  add_filter( 'tiny_mce_plugins', 'make_disable_emojis_tinymce' );
 }
 
-function lobob_excerpt_length($length)
-{
-    return 20;
+function make_disable_emojis_tinymce( $plugins ) {
+  if ( is_array( $plugins ) ) {
+    return array_diff( $plugins, array( 'wpemoji' ) );
+  } else {
+    return array();
+  }
 }
-
-add_filter('excerpt_length', 'lobob_excerpt_length', 999);
-
-
-
 
 
 // Custom View Article link to Post
 function mind_blank_view_article($more)
 {
     global $post;
-    if($post) :
-        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mindblank') . '</a>';
+    //if post type is product
+    if(get_post_type($post) == 'product') :
+        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Product', 'mindblank') . '</a>';
+    elseif(get_post_type($post) == 'make_track') :
+        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Track', 'mindblank') . '</a>';
+    elseif(get_post_type($post) == 'post'):
+        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mindblank') . '</a>';    
     endif;
 }
 

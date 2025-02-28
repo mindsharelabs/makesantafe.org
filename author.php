@@ -37,24 +37,6 @@ get_header();
       $title = get_field('title', 'user_' . $maker_id );
       
       ?>
-      <div class="row">
-        <div class="col-12">
-          <?php
-          echo '<header class="fancy-header mt-5">';
-            echo '<div class="header-flex-item">';
-              echo '<h1 class="page-title ">';
-                echo $name;
-              echo '</h1>';
-            echo '</div>';
-            echo '<div class="header-flex-svg">';
-              include get_template_directory() . '/inc/svgheader.svg';
-            echo '</div>';
-          echo '</header>';
-          echo '<hr class="clear">';
-          ?>
-        </div>
-      </div>
-
 
 
 

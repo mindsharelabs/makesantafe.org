@@ -42,15 +42,20 @@ img {
 h1 {
   font-weight: 900;
 }
-h1, h2, h3, h4, h5, h6, .btn {
-  font-family: 'Courier Prime', monospace;
+h1, h2, h3, h4, h5, h6{ 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
 }
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+.btn {
+  font-weight: 500;
 }
 h2 {
-  font-weight: 400;
   font-size: 2em;
+<<<<<<< HEAD
   &.wp-block-heading {
     position: relative;
     width: 100%;
@@ -59,6 +64,9 @@ h2 {
     font-weight: bold;
   }
 }
+=======
+} 
+>>>>>>> 8aff09e32d614157745ad1a0e04166d244ea21c5
 h3 {
   font-size: 1.8em;
 }
@@ -78,15 +86,6 @@ main {
   margin: 0px auto;
 }
 
-#header-logo-holder, #intro-logo-holder {
-  // background: rgb(18,140,204);
-  // background: linear-gradient(319deg, rgba(18,140,204,1) 0%, rgba(50,50,50,1) 100%);
-  .bigtext {
-    font-size: 2.5em;
-    letter-spacing: 2px;
-    font-family: 'Courier Prime', monospace;
-  }
-}
 .button {
   @extend .btn;
 }
@@ -95,7 +94,7 @@ main {
   width: 100%;
   text-transform: uppercase;
   color: $primary;
-  font-weight: bold;
+  font-weight: bold; 
   .page-title{
     // font-size: 1.4em;
     line-height: 40px;
@@ -638,8 +637,8 @@ footer.footer {
   h3 {
     text-transform: uppercase;
     font-size: 1.3em;
-    margin-bottom: 0;
-    margin-left: 30px;
+    margin-left: 41px;
+    margin-bottom: -6px;
   }
   svg {
     margin-top: -5px;
@@ -839,6 +838,108 @@ aside.sidebar {
     }
   }
 }
+
+.archive-certs {
+  // Badge Chart Styles
+  .key-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    .key-square {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin-right: 10px;
+      background: $primary;
+      &.badged {
+        background: $success;
+      }
+      &.unavailable {
+        background: $light;
+      }
+    }
+    .label {
+      display: inline-block;
+      font-size: .8em;
+      font-weight: bold;
+    }
+  }
+}
+section {
+  &.badges {
+    margin-bottom: 120px;
+    .badge-card-cont {
+      margin-top: 120px;
+      .badge-card {
+        background-color: #fafafa;
+        .badge-image {
+          display: block;
+          width: 50%;
+          border-width: 3px;
+          border-style: solid;
+          border-color: $primary;
+          margin: 0 auto;
+          border-radius: 50%;
+          margin-bottom: 10px;
+          margin-top: -75px;
+          background: white;
+          padding: 20px;
+          @include transition(300ms);
+          &:hover {
+            background:#f1f1f1;
+            padding: 10px; 
+            @include transition(50ms);
+          }
+        }
+        .card-header {
+          background-color: #fafafa;
+          .card-title {
+            margin: 0;
+          }
+        }
+        .card-body {
+          background-color: #fff;
+        }
+
+        &.has-badge {
+          .badge-image {
+            border-color: $success;
+          }
+        }
+        &.unavailable {
+          .badge-image {
+            border-color: $light;
+          }
+        }
+
+
+
+        .badge-arrow-link {
+          margin: 0 auto;
+          height: 60px;
+          width: 60px;
+          text-align: center;
+          font-size: 32px;
+          background: white;
+          border: 2px solid $primary;
+          border-radius: 30px;
+          line-height: 60px;
+          margin-bottom: -30px;
+          @include transition(300ms);
+          &:hover {
+            background: $light;
+            @include transition(50ms);
+          }
+        }
+      }
+      
+    }
+    
+    
+  }
+}
+
 
 section.team, section.makers {
   .content{
@@ -1116,55 +1217,4 @@ aside.sidebar {
 }
 
 
-// Badge Chart Styles
-main.type-certs {
-  .key-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 5px;
-    .key-square {
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      margin-right: 10px;
-      background: $primary;
-      &.badged {
-        background: $success;
-      }
-      &.unavailable {
-        background: $light;
-      }
-    }
-    .label {
-      display: inline-block;
-      font-size: .8em;
-      font-weight: bold;
-    }
-  }
-}
-#makeBadges {
-  a {
-    text-decoration: none;
-    &:visited {
-      color: $light;
-    }
-    font-weight: bold;
-  }
-  [data-n-id] circle {
-    stroke: $primary;
-  }
 
-  [data-n-id] rect {
-    fill: #dedede;
-  }
-  .node.active rect {
-    fill: $primary;
-  }
-  .node.badged rect {
-    fill: $success;
-  }
-
-
-
-}

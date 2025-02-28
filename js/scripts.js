@@ -5,14 +5,19 @@
 
 		var docWidth = document.documentElement.offsetWidth;
 
-		[].forEach.call(
-			document.querySelectorAll('*'),
-			function(el) {
-				if (el.offsetWidth > docWidth) {
-					console.log($(el));
-				}
-			}
-		);
+
+		const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+
+		// [].forEach.call(
+		// 	document.querySelectorAll('*'),
+		// 	function(el) {
+		// 		if (el.offsetWidth > docWidth) {
+		// 			console.log($(el));
+		// 		}
+		// 	}
+		// );
 
 		$(".cert-holder").popover({ trigger: "hover" });
 

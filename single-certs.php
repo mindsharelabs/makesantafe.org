@@ -1,8 +1,5 @@
 <?php 
 get_header();
-
-$p_makers = make_get_badged_members(get_the_id());
-
 ?>
 <main role="main" aria-label="Content" class="container">
     <div class="row">
@@ -38,29 +35,5 @@ $p_makers = make_get_badged_members(get_the_id());
     </div>
 
 </main>
-<?php
-
-
-      if($p_makers && function_exists('make_output_member_card')) :
-        echo '<section class="badged-makers">';
-          echo '<div class="container">';
-            echo '<div class="row pt-4 pb-2 mt-4">';
-              echo '<div class="col-12 my-4">';
-                echo '<h2 class="strong text-bold text-center">Makers with this Badge</h2>';
-              echo '</div>';
-            echo '</div>';
-            echo '<div class="row justify-content-center">';
-              foreach($p_makers as $key => $maker) :
-                echo make_output_member_card($maker);
-              endforeach;
-              echo '</div>';
-            echo '</div>';
-          echo '</section>';
-        endif;
-
-
-        
-      ?>
-<?php
-
+<?php 
 get_footer();
