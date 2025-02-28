@@ -75,7 +75,7 @@
         stroke-width: 1.7px;
       }
       text {
-        font-size: 2.2em;
+        font-size: 6.2em;
         font-weight:700;
         fill: #fff;
         font-family: 'Montserrat', sans-serif;

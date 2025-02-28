@@ -50,10 +50,6 @@ if($makers->have_posts()) :
     if(function_exists('make_output_member_card')) :
       echo '<section class="row makers gy-3 facetwp-template">';
       while($makers->have_posts()) : $makers->the_post();
-
-        mapi_write_log(get_post_meta(get_the_id()));
-
-
         echo make_output_member_card(UPT()->get_user_id(), $echo = false);
       endwhile;
       echo '</section>';

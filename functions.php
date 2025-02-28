@@ -13,7 +13,7 @@ include 'inc/content-functions.php';
 include 'inc/cpt.php';
 include 'inc/acf-functions.php';
 include 'inc/woocommerce.php';
-include 'inc/tribe-events.php';
+include 'inc/mindshare-events.php';
 include 'inc/gravity-forms.php';
 
 /*------------------------------------*\
@@ -56,7 +56,7 @@ if (function_exists('add_theme_support')) {
 
     //WooCommerce
     add_theme_support('woocommerce');
-    add_theme_support('wc-product-gallery-zoom');
+    // add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 
@@ -91,6 +91,14 @@ add_filter('mind_staff_cards_image_classes', function() {
 });
 add_filter('mind_staff_card_title_classes', function() {
     return 'staff-name text-center mb-1 mt-2 h4';
+});
+
+
+add_filter('mindevents_calendar_label', function($label) {
+    return '<h3 class="event-schedule_label">Upcoming Classes</h3>';
+});
+add_filter('mindevents_list_label', function($label) {
+    return '<h3 class="event-schedule_label">Upcoming Classes</h3>';
 });
 
 function make_param_shortcode( $atts ) {
@@ -588,6 +596,7 @@ function enable_threaded_comments()
 \*------------------------------------*/
 
 // Add Actions
+add_filter('wp_img_tag_add_auto_sizes', '__return_false'); // Disable inline image size attributes
 add_action('init', 'mindblank_header_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_print_scripts', 'mindblank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments

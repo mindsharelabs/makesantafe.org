@@ -65,14 +65,9 @@ if(frontPage) {
     var objects = introHeader.select('#objects');
     var title = introHeader.select('#title');
 
+    var t = introHeader.text("50%", "50%", svgvars.title).attr('text-anchor', 'middle').attr('dominant-baseline', 'middle');
 
-    var t = introHeader.text("50%", "50%", svgvars.title).attr('text-anchor', 'middle').attr('dominant-baseline', 'middle').
-
-
-    title.add(t)
-
-    console.log(title);
-
+    title.add(t);
 
     title.animate({opacity: "0"}, 0);
     objects.animate({opacity: "0"}, 0);

@@ -72,7 +72,6 @@ add_filter( 'facetwp_index_row', function ( $params, $class ) {
 
 add_filter( 'render_block', 'mapi_block_wrapper', 10, 2 );
 function mapi_block_wrapper( $block_content, $block ) {
-  // mapi_write_log($block_content);
   $noWrapper = array(
     'core/cover',
     // 'core/button',
@@ -81,7 +80,6 @@ function mapi_block_wrapper( $block_content, $block ) {
   );
 
   if(in_array($block['blockName'], $noWrapper)) :
-    // mapi_write_log($block['blockName']);
     $content = '</main>';
     $content .= '</div>';
     $content .= '</article>';
