@@ -70,3 +70,29 @@ add_action('mindevents_single_after_events', function() {
     endif;
     wp_reset_postdata();
   }, 99);
+
+
+
+
+add_action('mindevents_single_title', function($id) {
+  $event_category = get_the_terms($id, 'event_category');
+  if($event_category) {
+    echo '<div class="event-category d-flex w-100 d-inline-block justify-content-end">';
+        foreach($event_category as $category) {
+          //only display top level categories
+          if($category->parent == 0) {
+            $color = get_field ('event_color', $category);
+            echo '<span><a href="' . get_term_link($category) . '" class="badge rounded-pill" style="text-decoration:none; border: 2px solid ' . $color . '; color:' . $color . '">' . $category->name . '</a></span>';
+          }
+          
+        }
+    echo '</div>';
+  }
+
+
+}, 15, 1);
+
+
+add_filter('mindevents_single_datespan', function($datespan, $startdate, $enddate) {
+  return null;
+}, 10, 3);

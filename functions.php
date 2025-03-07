@@ -32,6 +32,9 @@ if(!function_exists('mapi_write_log')) {
     }
 }
 
+add_filter('wp_img_tag_add_auto_sizes', function() {
+    return false;
+});
 
 /**
  * Check if WooCommerce is activated
