@@ -77,12 +77,12 @@ add_action('mindevents_single_after_events', function() {
 add_action('mindevents_single_title', function($id) {
   $event_category = get_the_terms($id, 'event_category');
   if($event_category) {
-    echo '<div class="event-category d-flex w-100 d-inline-block justify-content-end">';
+    echo '<div class="event-category d-flex w-100 d-inline-block justify-content-start">';
         foreach($event_category as $category) {
           //only display top level categories
           if($category->parent == 0) {
             $color = get_field ('event_color', $category);
-            echo '<span><a href="' . get_term_link($category) . '" class="badge rounded-pill" style="text-decoration:none; border: 2px solid ' . $color . '; color:' . $color . '">' . $category->name . '</a></span>';
+            echo '<a href="' . get_term_link($category) . '" class="badge category rounded-pill" style="border: 2px solid ' . $color . '; color:' . $color . '">' . $category->name . '</a>';
           }
           
         }

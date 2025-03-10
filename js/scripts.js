@@ -23,7 +23,6 @@
 
 
 		$( document.body ).on( 'updated_cart_totals', function(){
-			console.log("this happedn");
 			var cart_count_container = $(".cart-contents-count");
 			$.ajax({
                 url : settings.ajax_url,
