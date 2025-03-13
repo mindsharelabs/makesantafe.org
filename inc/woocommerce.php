@@ -47,8 +47,6 @@ function make_do_not_reduce_renewal_stock( $reduce_stock, $order ) {
 
 	if ( function_exists( 'wcs_order_contains_renewal' ) && wcs_order_contains_renewal( $order ) ) { // Subscriptions v2.0+
 		$reduce_stock = false;
-	} elseif ( class_exists( 'WC_Subscriptions_Renewal_Order' ) && WC_Subscriptions_Renewal_Order::is_renewal( $order ) ) {
-		$reduce_stock = false;
 	}
 
 	return $reduce_stock;
