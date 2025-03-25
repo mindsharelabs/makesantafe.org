@@ -13,7 +13,17 @@
 
   }
 }
-
+.woocommerce {
+  &.add_to_cart_inline {
+    .amount {
+      margin-right: 10px;
+    }
+  }
+  .button {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+}
 .mind-button {
   .buttons {
     a {
