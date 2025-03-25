@@ -20,6 +20,8 @@
     }
   }
   .button {
+    color: $light !important;
+    background: $primary !important;
     @extend .btn;
     @extend .btn-primary;
   }
