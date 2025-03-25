@@ -65,9 +65,53 @@ if(frontPage) {
     var objects = introHeader.select('#objects');
     var title = introHeader.select('#title');
 
-    var t = introHeader.text("50%", "50%", svgvars.title).attr('text-anchor', 'middle').attr('dominant-baseline', 'middle');
+    //split the title into multiple lines so it doesnt overlap
+    // Function to split the title into multiple lines
+    function splitTextIntoLines(text, maxWidth, snapInstance) {
+      var words = text.split(" ");
+      var lines = [];
+      var currentLine = "";
 
-    title.add(t);
+      words.forEach(function(word) {
+          var testLine = currentLine ? currentLine + " " + word : word;
+          var testText = snapInstance.text(0, 0, testLine).attr({ visibility: "hidden" });
+          var textWidth = testText.getBBox().width;
+
+          if (textWidth > maxWidth) {
+              lines.push(currentLine);
+              currentLine = word;
+          } else {
+              currentLine = testLine;
+          }
+
+          testText.remove();
+      });
+
+      if (currentLine) {
+          lines.push(currentLine);
+      }
+
+      return lines;
+    }
+
+    // Split the title into multiple lines
+    var maxWidth = window.innerWidth - 200; // Adjust this value based on your design
+
+    var lines = splitTextIntoLines(svgvars.title, maxWidth, introHeader);
+
+    // Create the text elements for each line
+    var lineHeight = 40; // Adjust line height as needed
+    var startY = 50; // Starting Y position
+    lines.forEach(function(line, index) {
+        introHeader.text("50%", startY + index * lineHeight, line)
+            .attr({
+                'text-anchor': 'middle',
+                'dominant-baseline': 'middle',
+                //font size
+                'font-size': '40px'
+            });
+    });
+
 
     title.animate({opacity: "0"}, 0);
     objects.animate({opacity: "0"}, 0);
