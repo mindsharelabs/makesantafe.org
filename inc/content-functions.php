@@ -11,6 +11,7 @@ add_action('mindevents_archive_loop_start', function() {
   echo '<div class="container-fluid">';
     echo '<div class="row my-4">';
       echo '<div class="col-12 d-flex flex-wrap justify-content-center">';
+        echo '<a href="' . get_post_type_archive_link( 'events' ) . '" class="badge fs-6 text-bg-primary rounded-pill m-2">All Events</a>';
         foreach($event_cats as $cat):
           $cat_link = get_term_link($cat);
           $cat_name = $cat->name;
@@ -20,7 +21,7 @@ add_action('mindevents_archive_loop_start', function() {
           echo '<a href="' . $cat_link . '" class="badge fs-6 rounded-pill m-2" style="color:' . $text_color . ';background-color:' . $cat_color . '">' . $cat_name . '</a>';
 
         endforeach;
-        echo '<a href="' . get_post_type_archive_link( 'events' ) . '" class="badge fs-6 text-bg-primary rounded-pill m-2">All Events</a>';
+       
 
       echo '</div>';
     echo '</div>';
