@@ -28,15 +28,9 @@
                 echo '</a>';
 
 
-                if(is_user_logged_in()) :
-                  echo '<a href="' . get_permalink( get_option('woocommerce_myaccount_page_id') ) . '" class="ms-3 icon account-icon" style="vertical-align: top;" title="My Account">';
-                    echo '<i class="fa-solid fa-user fa-sm"></i>';
-                  echo '</a>';
-                else :
-                  echo '<a href="' . get_permalink( get_option('woocommerce_myaccount_page_id') ) . '" class="ms-3 icon account-icon" style="vertical-align: top;" title="My Account">';
-                    echo '<i class="fa-solid fa-sm fa-arrow-right-to-arc"></i> ';
-                  echo '</a>';
-                endif;
+                echo '<a href="' . get_permalink( get_option('woocommerce_myaccount_page_id') ) . '" class="ms-3 icon account-icon" style="vertical-align: top;" title="My Account">';
+                  echo '<i class="fa-solid fa-user"></i>';
+                echo '</a>';
 
 
               endif;
