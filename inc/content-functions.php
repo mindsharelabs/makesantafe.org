@@ -1,5 +1,40 @@
 <?php
 
+add_action('mindevents_archive_loop_start', function() {
+  $event_cats = get_terms(array(
+    'taxonomy' => 'event_category',
+    'hide_empty' => true,
+    'parent' => 0,
+    'orderby' => 'name',
+    'order' => 'ASC',
+  ));
+  echo '<div class="container-fluid">';
+    echo '<div class="row my-4">';
+      echo '<div class="col-12 d-flex flex-wrap justify-content-center">';
+        foreach($event_cats as $cat):
+          $cat_link = get_term_link($cat);
+          $cat_name = $cat->name;
+          $cat_color = get_field('event_color', $cat);
+          $text_color = makeGgetContrastColor($cat_color);
+   
+          echo '<a href="' . $cat_link . '" class="badge fs-6 rounded-pill m-2" style="color:' . $text_color . ';background-color:' . $cat_color . '">' . $cat_name . '</a>';
+
+        endforeach;
+        echo '<a href="' . get_post_type_archive_link( 'events' ) . '" class="badge fs-6 text-bg-primary rounded-pill m-2">All Events</a>';
+
+      echo '</div>';
+    echo '</div>';
+  echo '</div>';
+});
+
+function makeGgetContrastColor($hexcolor) {
+  $r = hexdec(substr($hexcolor, 1, 2));
+  $g = hexdec(substr($hexcolor, 3, 2));
+  $b = hexdec(substr($hexcolor, 5, 2));
+  $yiq = (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  return ($yiq >= 150) ? '#333' : '#fff';
+}
+
 add_filter( 'upt_sync_skip_user', function( $bool, $user_id ) {
   $public_display = get_field('display_profile_publicly', 'user_' . $user_id);
   $active_members = make_get_active_members_array( $user_id);
