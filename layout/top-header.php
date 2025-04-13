@@ -3,7 +3,7 @@
     <div class="row justify-content-between">
         <div class="col-2 my-1 make-logo">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-            <img src="<?php echo get_template_directory_uri() . '/img/logo.svg';?>" class="logo-img"/>
+            <img src="<?php echo get_template_directory_uri() . '/img/logo.svg';?>" alt="Make Santa Fe" class="logo-img"/>
           </a>
         </div>
 
