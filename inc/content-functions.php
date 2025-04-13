@@ -59,6 +59,15 @@ add_action( 'upt_sync_post', function( $post_id, $user_id ) {
 }, 10, 2 );
 
 
+//pre get psots make all "tool" post type items display
+add_action( 'pre_get_posts', function( $query ) {
+  if ( !is_admin() && $query->is_main_query() && is_post_type_archive('tool') ) :
+    $query->set('orderby', 'title');
+    $query->set('order', 'ASC');
+    $query->set( 'posts_per_page', -1 );
+  endif;
+} );
+
 
 //This adds meta information about the user when FacetWP syncs users to CPT
 //Prevent single upt_user posts from being visible

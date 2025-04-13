@@ -26,8 +26,19 @@ else :
 					echo wp_get_attachment_image($image);
 				echo '</div>';
 			endif;
-			echo '<h1 class="page-title">' . get_the_title() . '</h1>';
-		
+
+			if(is_archive() || is_post_type_archive()) :
+				echo '<h1 class="page-title">' . post_type_archive_title('', false) . '</h1>';
+			elseif(is_tax()) :
+				$term = get_queried_object();
+				echo '<h1 class="page-title">' . $term->name . '</h1>';
+			elseif(is_single()) :
+				echo '<h1 class="page-title">' . get_the_title() . '</h1>';
+			elseif(is_page()) :
+				echo '<h1 class="page-title">' . get_the_title() . '</h1>';
+			endif;
+
+			
 		echo '</div>';
 		
 
