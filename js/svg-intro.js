@@ -95,7 +95,7 @@ if(frontPage) {
     }
 
     // Split the title into multiple lines
-    var maxWidth = window.innerWidth - 200; // Adjust this value based on your design
+    var maxWidth = window.innerWidth - 150; // Adjust this value based on your design
 
     var lines = splitTextIntoLines(svgvars.title, maxWidth, introHeader);
 
@@ -120,7 +120,7 @@ if(frontPage) {
 
     setTimeout(function() {
         title.animate({opacity: "1"}, 800);
-    },400);
+    },1400);
 
 
     setTimeout(function() {

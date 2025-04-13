@@ -88,17 +88,17 @@ function create_post_type_mind(){
 function make_create_taxonomies() {
 
   $tool_type_labels = array(
-		'name'              => _x( 'Our Shop Spaces', 'taxonomy general name', 'textdomain' ),
-		'singular_name'     => _x( 'Shop Space', 'taxonomy singular name', 'textdomain' ),
-		'search_items'      => __( 'Search Shop Spaces', 'textdomain' ),
-		'all_items'         => __( 'All Shop Spaces', 'textdomain' ),
-		'parent_item'       => __( 'Parent Shop Space', 'textdomain' ),
-		'parent_item_colon' => __( 'Parent Shop Space:', 'textdomain' ),
-		'edit_item'         => __( 'Edit Shop Space', 'textdomain' ),
-		'update_item'       => __( 'Update Shop Space', 'textdomain' ),
-		'add_new_item'      => __( 'Add New Shop Space', 'textdomain' ),
-		'new_item_name'     => __( 'New Shop Space Name', 'textdomain' ),
-		'menu_name'         => __( 'Shop Space', 'textdomain' ),
+		'name'              => _x( 'Functional Practices', 'taxonomy general name', 'textdomain' ),
+		'singular_name'     => _x( 'Functional Practice', 'taxonomy singular name', 'textdomain' ),
+		'search_items'      => __( 'Search Practices', 'textdomain' ),
+		'all_items'         => __( 'All Practices', 'textdomain' ),
+		'parent_item'       => __( 'Parent Practice', 'textdomain' ),
+		'parent_item_colon' => __( 'Parent Practice:', 'textdomain' ),
+		'edit_item'         => __( 'Edit Practice', 'textdomain' ),
+		'update_item'       => __( 'Update Practice', 'textdomain' ),
+		'add_new_item'      => __( 'Add New Practice', 'textdomain' ),
+		'new_item_name'     => __( 'New Practice Name', 'textdomain' ),
+		'menu_name'         => __( 'Practice', 'textdomain' ),
 	);
 
 	$tool_type_args = array(
@@ -107,7 +107,7 @@ function make_create_taxonomies() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'tool-type' ),
+		'rewrite'           => array( 'slug' => 'practice' ),
 	);
 
 
