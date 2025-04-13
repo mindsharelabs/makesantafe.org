@@ -898,8 +898,17 @@ table.tools-table {
   }
   .tool-badge {
     text-align: left;
+    min-width: 200px;
     .badge-holder {
       max-width: 80px;
+      img {
+        width: 80px;
+        @include transition(400ms);
+        &:hover {
+          transform: scale(1.1);
+          @include transition(100ms);
+        }
+      }
     }
   }
   .tool-func-practice {
