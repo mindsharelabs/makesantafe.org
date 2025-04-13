@@ -119,6 +119,26 @@ header {
       svg{
         width: 100%;
       }
+      .title-container {
+        opacity: 1;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        
+        h1 {
+          font-size: 2.5em;
+          margin-bottom: 0;
+          color: $light;
+          text-transform: uppercase;
+          font-weight: bold;
+          line-height: 1.2em;
+        }
+      }
     }
   }
   &.top-header {

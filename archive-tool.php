@@ -5,11 +5,8 @@
         <?php
       
 
-            $terms = get_terms( array(
-              'taxonomy' => 'tool_type',
-              'hide_empty' => true,
-            ) );
-            if($terms) :
+        
+            if(have_posts()) :
               echo '<section class="row mt-4 tools">';
               foreach($terms as $term) :
                 echo make_output_shop_space($term);
