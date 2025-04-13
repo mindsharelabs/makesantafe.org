@@ -65,7 +65,7 @@
                               echo '</div>';
                             endforeach;
                           else :
-                            echo '<span class="badge-link">No Badge Required</span>';
+                            echo '<span class="badge-link small fw-bold pill">No Badge Required</span>';
                           endif;
                         echo '</td>';
                         echo '<td class="tool-func-practice">';
