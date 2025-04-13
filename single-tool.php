@@ -5,9 +5,8 @@ get_header();
 $downloads = get_field('downloads');
 ?>
 <main role="main" aria-label="Content">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
-      <?php get_sidebar(); ?>
       <div class="col-12 col-md-8">
         <!-- section -->
         <section class="mt-4">
