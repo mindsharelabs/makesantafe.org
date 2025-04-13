@@ -65,14 +65,14 @@
                               echo '</div>';
                             endforeach;
                           else :
-                            echo '<span class="badge-link small fw-bold pill">No Badge Required</span>';
+                            echo '<span class="badge-link badge rounded-pill text-bg-info">No Badge Required</span>';
                           endif;
                         echo '</td>';
                         echo '<td class="tool-func-practice">';
                           $terms = get_the_terms(get_the_ID(), 'tool_type');
                           if($terms && !is_wp_error($terms)) :
                             foreach($terms as $term) :
-                              echo esc_html($term->name);
+                              echo '<span class="badge rounded-pill text-bg-primary">' . esc_html($term->name) . '</span>';
                             endforeach;
                           endif;
                         echo '</td>';
