@@ -64,16 +64,15 @@
                                 echo '</a>';
                               echo '</div>';
                             endforeach;
+                          else :
+                            echo '<span class="badge-link">No Badge Required</span>';
                           endif;
                         echo '</td>';
                         echo '<td class="tool-func-practice">';
                           $terms = get_the_terms(get_the_ID(), 'tool_type');
                           if($terms && !is_wp_error($terms)) :
                             foreach($terms as $term) :
-                              $term_link = get_term_link($term);
-                              echo '<a href="' . esc_url($term_link) . '" class="badge-link badge rounded-pill text-bg-primary">';
-                                echo esc_html($term->name);
-                              echo '</a>';
+                              echo esc_html($term->name);
                             endforeach;
                           endif;
                         echo '</td>';
