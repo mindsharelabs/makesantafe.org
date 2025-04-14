@@ -5,73 +5,78 @@ get_header();
 $downloads = get_field('downloads');
 ?>
 <main role="main" aria-label="Content">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-8">
+  
         <!-- section -->
         <section class="mt-4">
           <article id="post-<?php the_ID(); ?>" <?php post_class('row mb-5'); ?>>
             <?php
 
             if (have_posts()): 
-              while (have_posts()) : the_post(); ?>
-                <div class="col-12 col-md-4">
-                  <?php 
+              while (have_posts()) : the_post();
+
+
+                echo '<div class="col-12 col-md-4">';
                   if(has_post_thumbnail()) :
                     the_post_thumbnail('medium', array('class' => 'w-100'));
                   endif;
+                  if($gallery = get_field('tool_gallery')) :
+                    echo '<div class="d-flex">';
+                        foreach($gallery as $image) :
+                          $image_url = wp_get_attachment_image( $image['id'], 'small-square');
+                          echo '<div class="tool-image p-1">';
+                            echo $image_url;
+                          echo '</div>';
+                        endforeach;
+                    echo '</div>';
+                    
+                  endif; 
 
+                echo '</div>';
 
-                  if($downloads) :
-                    echo '<h5 class="mt-3">Downloads</h5>';
-                    echo '<ul class="downloads border-top mt-2 pt-2">';
-
-                      foreach ($downloads as $key => $download) :
-                        echo '<li><a href="' . $download['file']['url'] . '" class="link" target="_blank"><i class="fas fa-download mr-2"></i><span class="label mb-2">' . $download['label'] . '</span></a></li>';
-                      endforeach;
-
-                    echo '</ul>';
-                  endif;
-
-
-                  ?>
-                </div>
-                <div class="col-12 col-md-8">
-                  <?php the_content();?>
-                </div>
-
-                <?php if($gallery = get_field('tool_gallery')) : ?>
-                  <div class="col-12 mt-5 tool-gallery">
-                    <h4>Tool Gallery</h4>
-                    <div class="d-flex">
-                      <?php
-                      foreach($gallery as $image) :
-                        $image_url = wp_get_attachment_image( $image['id'], 'small-square');
-                        echo '<div class="tool-image p-1">';
-                          echo $image_url;
+                echo '<div class="col-12 col-md-8">';
+                  
+                  echo '<p class="text-muted fw-bold">Last Updated: <i class="fas fa-calendar-alt me-2"></i>' . get_the_modified_date( 'F j, Y' ) . '</p>';
+                  the_content();
+                  
+                  if($required_badges = get_field('required_badge')) :
+                    echo '<h2 class="mt-5">Required Badge' . (count($required_badges) > 1 ? '(s)' : '') . '</h2>';
+                      foreach($required_badges as $badge) :
+                        echo '<div class="badge-holder w-25">';
+                          $badge_image = get_field('badge_image', $badge);
+                          $badge_link = get_permalink($badge);
+                          echo '<a href="' . $badge_link . '" class="badge-link text-center text-decoration-none">';
+                            echo wp_get_attachment_image($badge_image, 'very-small-square',false, array('class' => 'w-100'));
+                            echo '<h3 class="h5 badge-label">' . get_the_title($badge) . '</h3>';
+                          echo '</a>';
                         echo '</div>';
                       endforeach;
-                      ?>
-                    </div>
-                  </div>
-                <?php endif; 
+                  endif;
+                  if(get_field('tool_video')) :
+                    echo '<h2 class="mt-5">How-to Video</h2>';
+                    echo '<div class="embed-container">';
+                      the_field('tool_video');
+                    echo '</div>';
+                  endif;
 
-                if(get_field('tool_video')) : ?>
-                  <div class="col-12 mt-5">
-                    <h4>Video</h4>
-                    <div class="embed-container">
-                      <?php the_field('tool_video');?>
-                    </div>
-                  </div>
-                <?php endif;
+                  if($downloads) :
+                    echo '<h2 class="mt-5">Downloads</h2>';
+                    echo '<div class="downloads list-group">';
+
+                      foreach ($downloads as $key => $download) :
+                        echo '<a href="' . $download['file']['url'] . '" class="list-group-item list-group-item-action" target="_blank"><i class="fas fa-download me-2"></i><span class="label mb-2">' . $download['label'] . '</span></a>';
+                      endforeach;
+
+                    echo '</div>';
+                  endif;
+                  
+                echo '</div>';
+
+
               endwhile; 
             endif; ?>
           </article>
         </section>
-      </div>
 
-    </div>
-  </div>
 
 </main>
 <?php
