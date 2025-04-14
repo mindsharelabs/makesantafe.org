@@ -8,7 +8,7 @@
         </div>
 
 
-        <div class="col-10 offset-0 offset-md-6 col-md-3 text-end my-auto">
+        <div class="col-10 offset-0 offset-md-6 col-md-4 text-end my-auto">
             <?php
             if($icons = get_field('header_icons', 'options')) :
               foreach ($icons as $icon) :

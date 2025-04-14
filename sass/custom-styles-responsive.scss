@@ -20,26 +20,6 @@
 // Breakpoint styles: these styles will only apply on screens smaller than
 // the defined @grid-float-breakpoint-max (usually 767px).
 
-@media (max-width: map-get($grid-breakpoints, md)) {
-
-  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
-    font-size: 20px;
-  }
-  #intro-logo-load {
-    height: 200px;
-  }
-  #header-logo-holder, #intro-logo-holder {
-    // height: 200px;
-  }
-  header.page-header .header-padding{
-    // height: 250px;
-  }
-  /* sidebars and asides */
-  .has-sidebar {
-    padding-left: 0px;
-  }
-}
-
 // XS styles - default: x <= 479px
 //xs: 0,
 //sm: 576px,
@@ -47,6 +27,9 @@
 //lg: 992px,
 //xl: 1200px
 @media (max-width: 576px) {
+  #main-panel {
+    margin-top: 18px;
+  }
   header {
     &.page-header {
       background-size: cover;
@@ -125,8 +108,10 @@
 }
 
 // Small styles - default: 480px <= x <= 991px
-@media (min-width: 576px) and (max-width: 992px) {
-
+@media (min-width: 576px) and (max-width: 768px) {
+  #main-panel {
+    margin-top: 54px;
+  }
   .admin-bar {
     header.top-header, .slideout-menu {
       margin-top: 32px;
@@ -149,9 +134,37 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 992px) {
+  #main-panel {
+    margin-top: 110px;
+  }
+  .admin-bar {
+    header.top-header {
+      margin-top: 32px;
+    }
+  }
+  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
+    font-size: 25px;
+  }
+  #intro-logo-load {
+    height: 300px;
+  }
+  #header-logo-holder, #intro-logo-holder {
+    // height: 300px;
+  }
+  .has-sidebar {
+    padding-left: 30px;
+}
+  header.page-header .header-padding{
+    // height: 300px;
+  }
+}
+
 // Medium styles - default: 992px <= x <= 1199px
 @media (min-width: 992px) and (max-width: 1200px) {
-
+  #main-panel {
+    margin-top: 78px;
+  }
   #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
     font-size: 25px;
   }
@@ -171,7 +184,9 @@
 
 // Large styles - default: 1200px <= x
 @media (min-width: 1200px) {
-
+  #main-panel {
+    margin-top: 78px;
+  }
   #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
     font-size: 30px;
   }

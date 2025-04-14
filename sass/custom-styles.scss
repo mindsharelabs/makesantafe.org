@@ -83,6 +83,7 @@ main {
   margin: 0px auto;
 }
 
+
 .button {
   @extend .btn;
 }
@@ -143,7 +144,7 @@ header {
     }
   }
   &.top-header {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
