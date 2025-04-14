@@ -38,11 +38,6 @@
   .has-sidebar {
     padding-left: 0px;
   }
-  .admin-bar {
-    header.top-header, .slideout-menu {
-      margin-top: 46px;
-    }
-  }
 }
 
 // XS styles - default: x <= 479px
@@ -52,11 +47,6 @@
 //lg: 992px,
 //xl: 1200px
 @media (max-width: 576px) {
-  .admin-bar {
-    header.top-header, .slideout-menu {
-      margin-top: 46px;
-    }
-  }
   header {
     &.page-header {
       background-size: cover;
@@ -162,11 +152,6 @@
 // Medium styles - default: 992px <= x <= 1199px
 @media (min-width: 992px) and (max-width: 1200px) {
 
-  .admin-bar {
-    header.top-header, .slideout-menu {
-      margin-top: 32px;
-    }
-  }
   #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
     font-size: 25px;
   }
@@ -187,11 +172,6 @@
 // Large styles - default: 1200px <= x
 @media (min-width: 1200px) {
 
-  .admin-bar {
-    header.top-header, .slideout-menu {
-      margin-top: 32px;
-    }
-  }
   #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
     font-size: 30px;
   }
