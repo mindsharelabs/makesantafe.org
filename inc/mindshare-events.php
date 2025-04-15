@@ -38,8 +38,8 @@ add_action('mindevents_single_after_events', function() {
             while ( $related_events->have_posts() ) :
             $related_events->the_post();
             //output the event card
-            echo '<div class="col-12 col-md-3">';
-                echo '<div class="event-card card  d-flex justify-content-center h-100">';
+            echo '<div class="col-12 col-md-3 mb-4">';
+                echo '<div class="event-card card d-flex justify-content-center h-100">';
                     
                     echo '<div class="event-card-image card-img-top">';
                         echo '<a href="' . get_the_permalink() . '">';
