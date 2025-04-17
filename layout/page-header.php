@@ -20,7 +20,7 @@ if(is_front_page(  )) :
 else :
 	echo '<header class="page-header container-fluid px-0" style="' . $background_str . '">';
 	  echo '<div class="header-padding">';
-	  	echo '<div class="title-container">';
+	  	echo '<div class="title-container page-title w-50 text-center">';
 			if($image = get_field('badge_image')) :
 				echo '<div class="badge-image-holder">';
 					echo wp_get_attachment_image($image);
