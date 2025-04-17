@@ -27,7 +27,7 @@ else :
 				echo '</div>';
 			endif;
 
-			if(is_archive() || is_post_type_archive()) :
+			if(is_post_type_archive()) :
 				echo '<h1 class="page-title">' . post_type_archive_title('', false) . '</h1>';
 			elseif(is_tax()) :
 				$term = get_queried_object();
@@ -36,6 +36,17 @@ else :
 				echo '<h1 class="page-title">' . get_the_title() . '</h1>';
 			elseif(is_page()) :
 				echo '<h1 class="page-title">' . get_the_title() . '</h1>';
+			elseif(is_author()) :
+				$author = get_queried_object();
+				$display_name = get_field('display_name', 'user_' . $author->ID);
+				$title = get_field('title', 'user_' . $author->ID);
+				if(!$display_name) :
+					$display_name = $author->display_name;
+				endif;
+				echo '<h1 class="page-title">' . $display_name . '</h1>';
+				if($title) :
+					echo '<h2 class="h4 page-subtitle text-center text-white">' . $title . '</h2>';
+				endif;
 			endif;
 
 			

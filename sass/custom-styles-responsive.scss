@@ -28,7 +28,7 @@
 //xl: 1200px
 @media (max-width: 576px) {
   #main-panel {
-    margin-top: 18px;
+    margin-top: 54px;
   }
   header {
     &.page-header {
@@ -110,7 +110,7 @@
 // Small styles - default: 480px <= x <= 991px
 @media (min-width: 576px) and (max-width: 768px) {
   #main-panel {
-    margin-top: 54px;
+    margin-top: 70px;
   }
   .admin-bar {
     header.top-header, .slideout-menu {
@@ -163,7 +163,7 @@
 // Medium styles - default: 992px <= x <= 1199px
 @media (min-width: 992px) and (max-width: 1200px) {
   #main-panel {
-    margin-top: 78px;
+    margin-top: 110px;
   }
   #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
     font-size: 25px;
@@ -185,7 +185,7 @@
 // Large styles - default: 1200px <= x
 @media (min-width: 1200px) {
   #main-panel {
-    margin-top: 78px;
+    margin-top: 110px;
   }
   #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
     font-size: 30px;
