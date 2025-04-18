@@ -20,7 +20,7 @@ if(is_front_page(  )) :
 else :
 	echo '<header class="page-header container-fluid px-0" style="' . $background_str . '">';
 	  echo '<div class="header-padding">';
-	  	echo '<div class="title-container page-title w-50 text-center">';
+	  	echo '<div class="title-container">';
 			if($image = get_field('badge_image')) :
 				echo '<div class="badge-image-holder">';
 					echo wp_get_attachment_image($image);
@@ -28,14 +28,14 @@ else :
 			endif;
 
 			if(is_post_type_archive()) :
-				echo '<h1 class="page-title">' . post_type_archive_title('', false) . '</h1>';
+				echo '<h1 class="page-title page-title w-50 text-center">' . post_type_archive_title('', false) . '</h1>';
 			elseif(is_tax()) :
 				$term = get_queried_object();
-				echo '<h1 class="page-title">' . $term->name . '</h1>';
+				echo '<h1 class="page-title page-title w-50 text-center">' . $term->name . '</h1>';
 			elseif(is_single()) :
-				echo '<h1 class="page-title">' . get_the_title() . '</h1>';
+				echo '<h1 class="page-title page-title w-50 text-center">' . get_the_title() . '</h1>';
 			elseif(is_page()) :
-				echo '<h1 class="page-title">' . get_the_title() . '</h1>';
+				echo '<h1 class="page-title page-title w-50 text-center">' . get_the_title() . '</h1>';
 			elseif(is_author()) :
 				$author = get_queried_object();
 				$display_name = get_field('display_name', 'user_' . $author->ID);
@@ -43,9 +43,9 @@ else :
 				if(!$display_name) :
 					$display_name = $author->display_name;
 				endif;
-				echo '<h1 class="page-title">' . $display_name . '</h1>';
+				echo '<h1 class="page-title page-title w-50 text-center">' . $display_name . '</h1>';
 				if($title) :
-					echo '<h2 class="h4 page-subtitle text-center text-white">' . $title . '</h2>';
+					echo '<h2 class="h4 w-50 text-center page-subtitle text-center text-white">' . $title . '</h2>';
 				endif;
 			endif;
 
