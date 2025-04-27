@@ -15,7 +15,7 @@ get_header();
 
  ?>
 <main role="main" aria-label="Content" <?php post_class('container'); ?>>
-  <section class="maker-profile">
+  <section class="maker-profile mt-3">
     
     
     
