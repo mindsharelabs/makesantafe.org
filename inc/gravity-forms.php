@@ -8,3 +8,10 @@ function make_map_user_to_entry( $entry, $form ) {
     $meta_value = array( 'entry_id' => $entry['id'], 'form_id' => $form['id'] );
     $return = add_user_meta( $user_id, $meta_key, $meta_value);
 }
+
+
+add_filter( 'gform_allowable_tags', 'allow_br_tag' );
+function allow_br_tag( $allowed_tags ) {
+    $allowed_tags['br'] = true;
+    return $allowed_tags;
+}
