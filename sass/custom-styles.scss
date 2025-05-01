@@ -76,6 +76,9 @@ h5 {
 hr {
   width: 100%;
 }
+b, strong {
+  font-weight: bolder !important;
+}
 // img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: unset !important; }
 
 main {
@@ -189,7 +192,7 @@ header {
         font-weight: bold;
   
         white-space: nowrap;
-        li {
+        li { 
           padding: 0;
           flex-grow:1;
           display: block;
