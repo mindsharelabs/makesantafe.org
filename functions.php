@@ -98,23 +98,29 @@ add_filter('mind_staff_card_title_classes', function() {
 
 
 add_filter('mindevents_calendar_label', function($label) {
-    $id = get_the_ID();
-    $event_type = get_post_meta($id, 'event_type', true);
-    if($event_type == 'single-event') :
-        return '<h3 class="event-schedule_label">Event Sessions</h3>';
-    else :
-        return '<h3 class="event-schedule_label">Upcoming Classes</h3>';
-    endif;
+    // $id = get_the_ID();
+    // $event_type = get_post_meta($id, 'event_type', true);
+    // if($event_type == 'single-event') :
+    //     return '<h3 class="event-schedule_label">Event Sessions</h3>';
+    // else :
+    //     return '<h3 class="event-schedule_label">Upcoming Classes</h3>';
+    // endif;
+
+    return '';
     
 });
+
+
 add_filter('mindevents_list_label', function($label) {
-    $id = get_the_ID();
-    $event_type = get_post_meta($id, 'event_type', true);
-    if($event_type == 'single-event') :
-        return '<h3 class="event-schedule_label">Event Sessions</h3>';
-    else :
-        return '<h3 class="event-schedule_label">Upcoming Classes</h3>';
-    endif;
+    // $id = get_the_ID();
+    // $event_type = get_post_meta($id, 'event_type', true);
+    // if($event_type == 'single-event') :
+    //     return '<h3 class="event-schedule_label">Event Sessions</h3>';
+    // else :
+    //     return '<h3 class="event-schedule_label">Upcoming Classes</h3>';
+    // endif;
+
+    return '';
 });
 
 function make_param_shortcode( $atts ) {
