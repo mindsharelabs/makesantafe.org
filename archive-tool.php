@@ -12,7 +12,7 @@
           echo '</div>';
           echo '<div class="col-12 col-md-4 filter-holder">';
             echo '<div class="tool-type">';
-              echo '<span class="tool-type-label fw-bold small">Filter by Fucntional Practice:</span>';
+              echo '<span class="tool-type-label fw-bold small">Filter by Functional Practice:</span>';
               echo facetwp_display( 'facet', 'tool_type' );
             echo '</div>';
           echo '</div>';
