@@ -1,7 +1,7 @@
 <?php
 
 $color = (get_field('color') ? get_field('color') : '#be202e');
-$show_header = (get_field('show_header', get_the_id()) ? get_field('show_header', get_the_id()) : true);
+$show_header = get_field('show_header');
 
 
 $background_str = 'background-color:' . $color;
