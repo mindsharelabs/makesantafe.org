@@ -13,9 +13,7 @@ get_header();
                 <section>
                     <?php
                     if(!get_field('show_header')):
-                      echo '<h1>';
-                        the_title();
-                      echo '</h1>';
+                      echo '<h1>' . get_the_title() . '</h1>';
                     endif;
                     if (have_posts()): while (have_posts()) : the_post(); ?>
                         <!-- article -->
