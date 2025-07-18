@@ -74,7 +74,7 @@ add_action('mindevents_single_after_events', function() {
 
 
 
-add_action('mindevents_single_title', function($id) {
+add_action(MINDEVENTS_PREPEND . 'single_title', function($id) {
   $event_category = get_the_terms($id, 'event_category');
   if($event_category) {
     echo '<div class="event-category d-flex w-100 d-inline-block justify-content-start">';
@@ -90,9 +90,4 @@ add_action('mindevents_single_title', function($id) {
   }
 
 
-}, 15, 1);
-
-
-add_filter('mindevents_single_datespan', function($datespan, $startdate, $enddate) {
-  return null;
-}, 10, 3);
+}, 25, 1);
