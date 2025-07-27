@@ -622,7 +622,7 @@ add_filter('wp_img_tag_add_auto_sizes', '__return_false'); // Disable inline ima
 add_action('init', 'mindblank_header_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_print_scripts', 'mindblank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
-add_action('wp_enqueue_scripts', 'mindblank_styles'); // Add Theme Stylesheet
+add_action('wp_enqueue_scripts', 'mindblank_styles'); // Add Theme Stylesheet to front-end
 add_action('init', 'register_mind_menu'); // Add mind Blank Menu
 
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
