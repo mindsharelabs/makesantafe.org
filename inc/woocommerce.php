@@ -372,11 +372,11 @@ function make_filter_wc_stripe_payment_metadata( $metadata, $order) {
 				$products .= ' | ';
 			endif;
 			$metadata['Line Item ' . $count] = 'Product name: ' . $product_name.' | Quantity: ' . $item_quantity.' | Item total: '. number_format( $item_total, 2 );
-			$metadata['product_categories'] = $term_string;
+			$metadata['product_categories'] = mb_strimwidth($term_string, 0, 475, "...");;
 			$count += 1;
 		endif;
 	endforeach; //end loop through order items
-	$metadata['shop_products'] = $products;
+	$metadata['shop_products'] = mb_strimwidth($products, 0, 475, "...");
 	return $metadata;
 }
 
