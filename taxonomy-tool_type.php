@@ -6,7 +6,14 @@
 
         <div class="col-12">
           <h1 class="mb-4 text-center display-3"><?php single_term_title(); ?></h1>
-          <p class="lead"><?php echo term_description(); ?></p>
+          <?php
+          $term = get_queried_object();
+          if ($term && !is_wp_error($term)) :
+            echo '<p class="lead text-center my-3">' . $term->description . '</p>';
+          endif;
+
+
+          ?>
         </div>
 
 

@@ -2,6 +2,13 @@
 <main role="main" aria-label="Content" class="container-fluid">
   
     <?php
+
+      echo '<div class="col-12">';
+        echo '<h1 class="mb-4 text-center display-3">' . get_the_archive_title() . '</h1>';
+      echo '</div>';
+
+
+
       if(function_exists('facetwp_display')) :
         echo '<div class="row my-2">';
           echo '<div class="col-12 col-md-4 filter-holder">';
