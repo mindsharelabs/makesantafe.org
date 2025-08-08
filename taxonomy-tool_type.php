@@ -5,13 +5,13 @@
       <section class="row mt-4">
 
         <div class="col-12">
-          <h1 class="mb-4 text-center display-1"><?php single_term_title(); ?></h1>
+          <h1 class="mb-4 text-center display-3"><?php single_term_title(); ?></h1>
           <p class="lead"><?php echo term_description(); ?></p>
         </div>
 
 
 
-        <div class="col-12">
+        <div class="col-12 mt-3">
           <div class="row">
             <?php
             if(have_posts()) :
