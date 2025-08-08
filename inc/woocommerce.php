@@ -365,6 +365,9 @@ function make_filter_wc_stripe_payment_metadata( $metadata, $order) {
 				if(next($categories)) :
 					$term_string .= ' | ';
 				endif;
+				if(next($order->get_items())) :
+					$term_string .= ' | ';
+				endif;
 			endforeach; //end loop through item categories
 
 			$products .= $product_name;
