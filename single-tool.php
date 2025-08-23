@@ -39,10 +39,12 @@ $downloads = get_field('downloads');
                         $name = $consumable['name'];
                         $purchase_link = $consumable['purchase_link'];
                         $notes = $consumable['notes'];
-                        echo '<a href="' . $purchase_link . '" class="list-group-item list-group-item-action" target="_blank">' . $name . '</a>';
-                        if($notes) :
-                          echo '<div class="consumable-notes">' . $notes . '</div>';
-                        endif;
+                        echo '<div class="list-group-item">';
+                          echo '<a href="' . $purchase_link . '" target="_blank">' . $name . '</a>';
+                          if($notes) :
+                            echo '<div class="consumable-notes">' . $notes . '</div>';
+                          endif;
+                        echo '</div>';
                       endforeach;
 
                     echo '</div>';
