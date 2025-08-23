@@ -30,6 +30,23 @@ $downloads = get_field('downloads');
                     echo '</div>';
                     
                   endif; 
+
+                  if($consumables = get_field('consumables')) :
+                    echo '<h2 class="mt-5">Consumables</h2>';
+                    echo '<div class="consumables list-group">';
+
+                      foreach ($consumables as $key => $consumable) :
+                        $name = $consumable['name'];
+                        $purchase_link = $consumable['purchase_link'];
+                        $notes = $consumable['notes'];
+                        echo '<a href="' . $purchase_link . '" class="list-group-item list-group-item-action" target="_blank">' . $name . '</a>';
+                        if($notes) :
+                          echo '<div class="consumable-notes">' . $notes . '</div>';
+                        endif;
+                      endforeach;
+
+                    echo '</div>';
+                  endif;
                 echo '</div>';
 
                 echo '<div class="col-12 col-md-8">';
@@ -69,22 +86,7 @@ $downloads = get_field('downloads');
                   endif;
 
 
-                  if($consumables = get_field('consumables')) :
-                    echo '<h2 class="mt-5">Consumables</h2>';
-                    echo '<div class="consumables list-group">';
-
-                      foreach ($consumables as $key => $consumable) :
-                        $name = $consumable['name'];
-                        $purchase_link = $consumable['purchase_link'];
-                        $notes = $consumable['notes'];
-                        echo '<a href="' . $purchase_link . '" class="list-group-item list-group-item-action" target="_blank">' . $name . '</a>';
-                        if($notes) :
-                          echo '<div class="consumable-notes">' . $notes . '</div>';
-                        endif;
-                      endforeach;
-
-                    echo '</div>';
-                  endif;
+                  
                   
                 echo '</div>';
 
