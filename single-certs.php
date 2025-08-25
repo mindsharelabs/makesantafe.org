@@ -4,7 +4,7 @@ get_header();
 <main role="main" aria-label="Content" class="container">
     <div class="row">
         
-        <div class="col-12 col-md-8 offset-0 offset-md-2">
+        <div class="col-12 col-lg-8 offset-0 offset-lg-2">
             <!-- section -->
             <section class="mt-4">
               <article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?>>
@@ -31,7 +31,7 @@ get_header();
 
                   if ( $gained_tools->have_posts() ) {
                     echo '<h2 class="mt-5 mb-1">Gain access to these tools and more!</h2>';
-                    echo '<div class="row mb-3 row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">';
+                    echo '<div class="row mb-3 row-cols-2 row-cols-sm-3 row-cols-md-4 g-3">';
                     while ( $gained_tools->have_posts() ) {
                       $gained_tools->the_post();
                       echo '<div class="col">';
