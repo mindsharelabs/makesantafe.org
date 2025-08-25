@@ -38,7 +38,7 @@ get_header();
                         echo '<div class="card h-100 shadow-sm">';
                           if ( has_post_thumbnail() ) {
                             echo '<a href="' . get_permalink() . '">';
-                            echo get_the_post_thumbnail( get_the_ID(), 'medium', ['class' => 'card-img-top', 'alt' => get_the_title()] );
+                            echo get_the_post_thumbnail( get_the_ID(), 'small-square', ['class' => 'card-img-top', 'alt' => get_the_title()] );
                             echo '</a>';
                           }
                           echo '<div class="card-body">';
