@@ -13,7 +13,7 @@ $downloads = get_field('downloads');
 
             if (have_posts()): 
               while (have_posts()) : the_post();
-
+                echo '<div class="col-12"><h1 class="mt-2">' . get_the_title() . '</h1></div>';
 
                 echo '<div class="col-12 col-md-4">';
                   if(has_post_thumbnail()) :
