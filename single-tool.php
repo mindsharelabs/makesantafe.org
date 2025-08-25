@@ -7,7 +7,7 @@ $downloads = get_field('downloads');
 <main role="main" aria-label="Content">
   
         <!-- section -->
-        <section class="mt-4">
+        <section class="container mt-4">
           <article id="post-<?php the_ID(); ?>" <?php post_class('row mb-5'); ?>>
             <?php
 
