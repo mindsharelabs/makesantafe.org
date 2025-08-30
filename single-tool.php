@@ -7,13 +7,16 @@ $downloads = get_field('downloads');
 <main role="main" aria-label="Content">
   
         <!-- section -->
-        <section class="mt-4">
+        <section class="container mt-4">
           <article id="post-<?php the_ID(); ?>" <?php post_class('row mb-5'); ?>>
             <?php
 
             if (have_posts()): 
               while (have_posts()) : the_post();
-
+                echo '<div class="col-12">';
+                echo '<h1 class="mt-2">' . get_the_title() . '</h1>';
+                echo '<p class="text-muted fw-bold">Last Updated: <i class="fas fa-calendar-alt me-2"></i>' . get_the_modified_date( 'F j, Y' ) . '</p>';
+                echo '</div>';
 
                 echo '<div class="col-12 col-md-4">';
                   do_action('single_tool_before_sidebar', $post);
@@ -52,19 +55,20 @@ $downloads = get_field('downloads');
 
                     echo '</div>';
                   endif;
-
                   if($required_badges = get_field('required_badge')) :
                     echo '<h2 class="mt-5">Required Badge' . (count($required_badges) > 1 ? '(s)' : '') . '</h2>';
+                    echo '<div class="row">';
                       foreach($required_badges as $badge) :
-                        echo '<div class="badge-holder w-25">';
+                        echo '<div class="badge-holder col-4 col-m-3">';
                           $badge_image = get_field('badge_image', $badge);
                           $badge_link = get_permalink($badge);
                           echo '<a href="' . $badge_link . '" class="badge-link text-center text-decoration-none">';
                             echo wp_get_attachment_image($badge_image, 'very-small-square',false, array('class' => 'w-100'));
-                            echo '<h3 class="h5 badge-label">' . get_the_title($badge) . '</h3>';
+                            echo '<span class="label badge-label fw-100 fs-6 lh-1 text-center">' . get_the_title($badge) . '</span>';
                           echo '</a>';
                         echo '</div>';
                       endforeach;
+                      echo '</div>';
                   endif;
 
 
@@ -75,6 +79,15 @@ $downloads = get_field('downloads');
                   
                   echo '<p class="text-muted fw-bold">Last Updated: <i class="fas fa-calendar-alt me-2"></i>' . get_the_modified_date( 'F j, Y' ) . '</p>';
                   do_action('single_tool_before_content', $post);
+                  
+                  the_content();
+                  
+                  
+
+                echo '</div>';
+
+                echo '<div class="col-12 col-md-8">';
+                  
                   
                   the_content();
                   
