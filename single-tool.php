@@ -16,6 +16,9 @@ $downloads = get_field('downloads');
 
 
                 echo '<div class="col-12 col-md-4">';
+                  do_action('single_tool_before_sidebar', $post);
+
+                  
                   if(has_post_thumbnail()) :
                     the_post_thumbnail('medium', array('class' => 'w-100'));
                   endif;
@@ -49,13 +52,7 @@ $downloads = get_field('downloads');
 
                     echo '</div>';
                   endif;
-                echo '</div>';
 
-                echo '<div class="col-12 col-md-8">';
-                  
-                  echo '<p class="text-muted fw-bold">Last Updated: <i class="fas fa-calendar-alt me-2"></i>' . get_the_modified_date( 'F j, Y' ) . '</p>';
-                  the_content();
-                  
                   if($required_badges = get_field('required_badge')) :
                     echo '<h2 class="mt-5">Required Badge' . (count($required_badges) > 1 ? '(s)' : '') . '</h2>';
                       foreach($required_badges as $badge) :
@@ -69,6 +66,19 @@ $downloads = get_field('downloads');
                         echo '</div>';
                       endforeach;
                   endif;
+
+
+                  do_action('single_tool_after_sidebar', $post);
+                echo '</div>';
+
+                echo '<div class="col-12 col-md-8">';
+                  
+                  echo '<p class="text-muted fw-bold">Last Updated: <i class="fas fa-calendar-alt me-2"></i>' . get_the_modified_date( 'F j, Y' ) . '</p>';
+                  do_action('single_tool_before_content', $post);
+                  
+                  the_content();
+                  
+                  
                   if(get_field('tool_video')) :
                     echo '<h2 class="mt-5">How-to Video</h2>';
                     echo '<div class="embed-container">';
@@ -88,8 +98,8 @@ $downloads = get_field('downloads');
                   endif;
 
 
-                  
-                  
+
+                  do_action('single_tool_after_content', $post);
                 echo '</div>';
 
 

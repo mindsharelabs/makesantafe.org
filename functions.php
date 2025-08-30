@@ -726,3 +726,8 @@ function make_author_base() {
     $author_slug = 'maker'; // change slug name
     $wp_rewrite->author_base = $author_slug;
 }
+
+
+add_filter('mo_oauth_server_authorize_dialog_template_path', function( $template ) {
+    return get_template_directory() . '/inc/miniorange-authscreen.php';
+});
