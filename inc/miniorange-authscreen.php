@@ -12,6 +12,8 @@ function mo_oauth_server_emit_html( $client_credentials, $scope_message ) {
 
     $chosen_client   = get_option( 'mo_oauth_server_client' );
     $client_settings = $oauth_client_list_json_data[ $chosen_client ];
+
+    $is_woocommerce_member = ''; //TODO: Only allow members to continue to wiki.
     ?>
     <div class="container py-5">
         <div class="row justify-content-center">
@@ -51,6 +53,11 @@ function mo_oauth_server_emit_html( $client_credentials, $scope_message ) {
             </div>
         </div>
     </div>
+    <style>
+        body {
+            opacity: 1 !important;
+        }
+    </style>
     <?php
 }
 get_footer('blank');
