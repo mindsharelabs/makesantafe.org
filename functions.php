@@ -49,38 +49,43 @@ if (!isset($content_width)) {
     $content_width = 900;
 }
 
-if (function_exists('add_theme_support')) {
+function make_theme_setup() {
+    if (function_exists('add_theme_support')) {
 
-    add_image_size('very-small-square', 100, 100, array('center', 'center'));
-    add_image_size('small-square', 400, 400, array('center', 'center'));
-    add_image_size('page-header', 1500, 300, array('center', 'center'));
-    add_image_size('horz-thumbnail', 300, 150, array('center', 'center'));
-    add_image_size('horz-thumbnail-lg', 500, 300, array('center', 'center'));
+        add_image_size('very-small-square', 100, 100, array('center', 'center'));
+        add_image_size('small-square', 400, 400, array('center', 'center'));
+        add_image_size('page-header', 1500, 300, array('center', 'center'));
+        add_image_size('horz-thumbnail', 300, 150, array('center', 'center'));
+        add_image_size('horz-thumbnail-lg', 500, 300, array('center', 'center'));
 
-    //WooCommerce
-    add_theme_support('woocommerce');
-    // add_theme_support('wc-product-gallery-zoom');
-    add_theme_support('wc-product-gallery-lightbox');
-    add_theme_support('wc-product-gallery-slider');
+        //WooCommerce
+        add_theme_support('woocommerce');
+        // add_theme_support('wc-product-gallery-zoom');
+        add_theme_support('wc-product-gallery-lightbox');
+        add_theme_support('wc-product-gallery-slider');
 
 
+        load_theme_textdomain('mindblank', get_template_directory() . '/languages');
+        
+        // Add Thumbnail Theme Support
+        add_theme_support('post-thumbnails');
 
-    // Add Thumbnail Theme Support
-    add_theme_support('post-thumbnails');
+        // Enables post and comment RSS feed links to head
+        add_theme_support('automatic-feed-links');
 
-    // Enables post and comment RSS feed links to head
-    add_theme_support('automatic-feed-links');
+        // Enable mind support
+        add_theme_support('mind', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
 
-    // Enable mind support
-    add_theme_support('mind', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
+    
 
-   
-
+    }
 }
+
 
 add_action('init',function() {
      // Localisation Support
-     load_theme_textdomain('mindblank', get_template_directory() . '/languages');
+     make_theme_setup();
+     
 });
 
 add_filter('mind_staff_cards_image_size', function() {
