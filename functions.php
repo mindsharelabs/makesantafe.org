@@ -65,7 +65,7 @@ if (!isset($content_width)) {
         add_theme_support('wc-product-gallery-slider');
 
 
-        load_theme_textdomain('mindblank', get_template_directory() . '/languages');
+        //load_theme_textdomain('mindblank', get_template_directory() . '/languages');
         
         // Add Thumbnail Theme Support
         add_theme_support('post-thumbnails');

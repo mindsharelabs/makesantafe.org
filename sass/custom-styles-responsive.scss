@@ -30,10 +30,12 @@
   #main-panel {
     margin-top: 54px;
   }
+
   header {
     &.page-header {
       background-size: cover;
       background-position: center;
+
       .header-padding {
         .title-container {
 
@@ -46,29 +48,44 @@
       }
     }
   }
-  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
+
+  #header-logo-holder .bigtext,
+  #intro-logo-holder .bigtext {
     font-size: 20px;
   }
+
   #intro-logo-load {
     height: 250px;
   }
-  #header-logo-holder, #intro-logo-holder {
+
+  #header-logo-holder,
+  #intro-logo-holder {
     // height: 250px;
   }
+
   .has-sidebar {
     padding-left: 20px;
   }
-  header.page-header .header-padding{
+
+  header.page-header .header-padding {
     // height: 250px;
   }
 
   body.woocommerce-account.woocommerce-page {
+    .woocommerce {
+      flex-direction: column !important;
+    }
+
     .woocommerce-MyAccount-navigation {
       width: 100%;
       float: none;
+
       ul {
         display: flex;
         flex-direction: column;
+        padding: 0;
+        margin: 0;
+
         li {
           flex-grow: 1;
           margin: 2px 2px 0 2px;
@@ -77,23 +94,30 @@
           align-items: center;
           line-height: 1.1em;
           text-align: center;
-          &:hover {
-            border-top: 4px solid $primary;
-          }
+
           &:last-child {
-            border-bottom: 1px solid $light;
             margin-right: 0;
           }
+
           &:first-child {
             margin-left: 0;
           }
-          &.is-active {
-            border-bottom: none;
-            border-top: 4px solid $primary;
+
+          &.is-active, &:hover {
+            border-color: transparent !important;
+            margin-right: 0 !important;
+            background-color: $primary;
+            color: $light;
+            a {
+              text-decoration: none;
+              font-weight: bold;
+              color: $light;
+            }
           }
         }
       }
     }
+
     .woocommerce-MyAccount-content {
       width: 100%;
       float: none;
@@ -112,24 +136,34 @@
   #main-panel {
     margin-top: 70px;
   }
+
   .admin-bar {
-    header.top-header, .slideout-menu {
+
+    header.top-header,
+    .slideout-menu {
       margin-top: 32px;
     }
   }
-  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
+
+  #header-logo-holder .bigtext,
+  #intro-logo-holder .bigtext {
     font-size: 25px;
   }
+
   #intro-logo-load {
     height: 300px;
   }
-  #header-logo-holder, #intro-logo-holder {
+
+  #header-logo-holder,
+  #intro-logo-holder {
     // height: 300px;
   }
+
   .has-sidebar {
     padding-left: 30px;
-}
-  header.page-header .header-padding{
+  }
+
+  header.page-header .header-padding {
     // height: 300px;
   }
 }
@@ -138,24 +172,32 @@
   #main-panel {
     margin-top: 110px;
   }
+
   .admin-bar {
     header.top-header {
       margin-top: 32px;
     }
   }
-  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
+
+  #header-logo-holder .bigtext,
+  #intro-logo-holder .bigtext {
     font-size: 25px;
   }
+
   #intro-logo-load {
     height: 300px;
   }
-  #header-logo-holder, #intro-logo-holder {
+
+  #header-logo-holder,
+  #intro-logo-holder {
     // height: 300px;
   }
+
   .has-sidebar {
     padding-left: 30px;
-}
-  header.page-header .header-padding{
+  }
+
+  header.page-header .header-padding {
     // height: 300px;
   }
 }
@@ -165,19 +207,26 @@
   #main-panel {
     margin-top: 110px;
   }
-  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
+
+  #header-logo-holder .bigtext,
+  #intro-logo-holder .bigtext {
     font-size: 25px;
   }
+
   #intro-logo-load {
     height: 450px;
   }
-  #header-logo-holder, #intro-logo-holder {
+
+  #header-logo-holder,
+  #intro-logo-holder {
     // height: 450px;
   }
+
   .has-sidebar {
     padding-left: 30px;
   }
-  header.page-header .header-padding{
+
+  header.page-header .header-padding {
     // height: 450px;
   }
 }
@@ -187,19 +236,26 @@
   #main-panel {
     margin-top: 110px;
   }
-  #header-logo-holder .bigtext, #intro-logo-holder .bigtext {
+
+  #header-logo-holder .bigtext,
+  #intro-logo-holder .bigtext {
     font-size: 30px;
   }
+
   #intro-logo-load {
     height: 450px;
   }
-  #header-logo-holder, #intro-logo-holder {
+
+  #header-logo-holder,
+  #intro-logo-holder {
     // height: 450px;
   }
+
   .has-sidebar {
     padding-left: 30px;
   }
-  header.page-header .header-padding{
+
+  header.page-header .header-padding {
     // height: 450px;
   }
 }
