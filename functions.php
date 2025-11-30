@@ -64,7 +64,6 @@ function make_theme_setup() {
         add_theme_support('wc-product-gallery-lightbox');
         add_theme_support('wc-product-gallery-slider');
 
-
         load_theme_textdomain('mindblank', get_template_directory() . '/languages');
         
         // Add Thumbnail Theme Support
