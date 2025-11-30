@@ -19,7 +19,7 @@ add_action('mindevents_archive_loop_start', function() {
             $cat_color = get_field('event_color', $cat);
             $text_color = makeGgetContrastColor($cat_color);
     
-            echo '<a href="' . $cat_link . '" class="btn btn-sm btn-info" style="color:' . $text_color . ';background-color:' . $cat_color . ';border:none;">' . $cat_name . '</a>';
+            echo '<a href="' . $cat_link . '" class="btn me-1 mb-1 btn-sm btn-info" style="color:' . $text_color . ';background-color:' . $cat_color . ';border:none;">' . $cat_name . '</a>';
 
           endforeach;
         echo '</div>';
