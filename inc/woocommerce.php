@@ -107,10 +107,10 @@ function make_display_content() {
 add_filter( 'woocommerce_account_menu_items', 'make_remove_address_my_account', 999 );
 
 function make_remove_address_my_account( $items ) {
-  // mapi_var_dump($items);
-  $items['subscriptions'] = 'Membership';
+  $items['subscriptions'] = 'My Membership';
   unset($items['edit-address']);
   unset($items['edit-account']);
+  unset($items['customer-logout']);
   return $items;
 }
 
@@ -251,7 +251,7 @@ function make_profile_query_vars( $vars ) {
 // 3. Insert the new endpoint into the My Account menu
 add_filter( 'woocommerce_account_menu_items', 'make_add_make_profile_link_my_account' );
 function make_add_make_profile_link_my_account( $items ) {
-    $items['make-profile'] = 'Edit My Public Profile';
+    $items['make-profile'] = 'My Public Profile';
     return $items;
 }
 

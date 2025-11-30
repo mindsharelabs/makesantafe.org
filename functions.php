@@ -4,7 +4,7 @@
  * URL: https://mind.sh/are | @mindblank
  *
  */
-define('THEME_VERSION', '4.4.1');
+define('THEME_VERSION', '4.5.1');
 /*------------------------------------*\
     External Modules/Files
 \*------------------------------------*/
@@ -49,7 +49,7 @@ if (!isset($content_width)) {
     $content_width = 900;
 }
 
-function make_theme_setup() {
+// function make_theme_setup() {
     if (function_exists('add_theme_support')) {
 
         add_image_size('very-small-square', 100, 100, array('center', 'center'));
@@ -59,12 +59,13 @@ function make_theme_setup() {
         add_image_size('horz-thumbnail-lg', 500, 300, array('center', 'center'));
 
         //WooCommerce
-        add_theme_support('woocommerce');
+        add_theme_support( 'woocommerce' );
         // add_theme_support('wc-product-gallery-zoom');
         add_theme_support('wc-product-gallery-lightbox');
         add_theme_support('wc-product-gallery-slider');
 
-        load_theme_textdomain('mindblank', get_template_directory() . '/languages');
+
+        //load_theme_textdomain('mindblank', get_template_directory() . '/languages');
         
         // Add Thumbnail Theme Support
         add_theme_support('post-thumbnails');
@@ -78,14 +79,14 @@ function make_theme_setup() {
     
 
     }
-}
+// }
 
 
-add_action('init',function() {
-     // Localisation Support
-     make_theme_setup();
+// add_action('init',function() {
+//      // Localisation Support
+//      make_theme_setup();
      
-});
+// });
 
 add_filter('mind_staff_cards_image_size', function() {
     return 'small-square';
