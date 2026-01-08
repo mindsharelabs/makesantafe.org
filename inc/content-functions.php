@@ -11,15 +11,15 @@ add_action('mindevents_archive_loop_start', function() {
   echo '<div class="container-fluid">';
     echo '<div class="row my-4">';
       echo '<div class="col-12 d-flex flex-wrap justify-content-center">';
-        echo '<div class="btn-group mb-3" role="group" aria-label="Event Categories">';
-          echo '<a href="' . get_post_type_archive_link( 'events' ) . '" class="btn btn-sm btn-info">All Events</a>';
+        echo '<div class="my-3">';
+          echo '<a href="' . get_post_type_archive_link( 'events' ) . '" class="btn me-1 mb-1 btn-sm btn-info">All Events</a>';
           foreach($event_cats as $cat):
             $cat_link = get_term_link($cat);
             $cat_name = $cat->name;
             $cat_color = get_field('event_color', $cat);
             $text_color = makeGgetContrastColor($cat_color);
     
-            echo '<a href="' . $cat_link . '" class="btn btn-sm btn-info" style="color:' . $text_color . ';background-color:' . $cat_color . ';border:none;">' . $cat_name . '</a>';
+            echo '<a href="' . $cat_link . '" class="btn me-1 mb-1 btn-sm btn-info" style="color:' . $text_color . ';background-color:' . $cat_color . ';border:none;">' . $cat_name . '</a>';
 
           endforeach;
         echo '</div>';
