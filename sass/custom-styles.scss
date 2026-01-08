@@ -314,7 +314,11 @@ header {
               }
             }
           }
-  
+          &:last-child {
+            ul {
+              right: 0;
+            }
+          }
         }
   
       }
