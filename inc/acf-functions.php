@@ -1,4 +1,8 @@
 <?php
+
+add_action('acf/init', 'mind_add_options_pages');
+
+function mind_add_options_pages() {
 if( function_exists('acf_add_options_page') ) {
 
     acf_add_options_page(array(
@@ -42,4 +46,5 @@ if( function_exists('acf_add_options_page') ) {
     //     'parent_slug'	=> 'theme-general-settings',
     // ));
 
+}
 }
