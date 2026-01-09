@@ -81,8 +81,8 @@ add_action(MINDEVENTS_PREPEND . 'single_title', function($id) {
         foreach($event_category as $category) {
           //only display top level categories
           if($category->parent == 0) {
-            $color = get_field ('event_color', $category);
-            echo '<a href="' . get_term_link($category) . '" class="badge category rounded-pill" style="border: 2px solid ' . $color . '; color:' . $color . '">' . $category->name . '</a>';
+            $color = (get_field ('event_color', $category)) ? get_field ('event_color', $category) : '#000000';
+            echo '<a href="' . get_term_link($category) . '" class="badge category rounded-pill me-2" style="border: 2px solid ' . $color . '; color:' . $color . '">' . $category->name . '</a>';
           }
           
         }
