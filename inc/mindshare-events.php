@@ -73,21 +73,22 @@ add_action('mindevents_single_after_events', function() {
 
 
 
-
-add_action(MINDEVENTS_PREPEND . 'single_title', function($id) {
-  $event_category = get_the_terms($id, 'event_category');
-  if($event_category) {
-    echo '<div class="event-category d-flex w-100 d-inline-block justify-content-start">';
-        foreach($event_category as $category) {
-          //only display top level categories
-          if($category->parent == 0) {
-            $color = (get_field ('event_color', $category)) ? get_field ('event_color', $category) : '#000000';
-            echo '<a href="' . get_term_link($category) . '" class="badge category rounded-pill me-2" style="border: 2px solid ' . $color . '; color:' . $color . '">' . $category->name . '</a>';
+if(defined('MINDEVENTS_PREPEND')) :
+  add_action(MINDEVENTS_PREPEND . 'single_title', function($id) {
+    $event_category = get_the_terms($id, 'event_category');
+    if($event_category) {
+      echo '<div class="event-category d-flex w-100 d-inline-block justify-content-start">';
+          foreach($event_category as $category) {
+            //only display top level categories
+            if($category->parent == 0) {
+              $color = (get_field ('event_color', $category)) ? get_field ('event_color', $category) : '#000000';
+              echo '<a href="' . get_term_link($category) . '" class="badge category rounded-pill me-2" style="border: 2px solid ' . $color . '; color:' . $color . '">' . $category->name . '</a>';
+            }
+            
           }
-          
-        }
-    echo '</div>';
-  }
+      echo '</div>';
+    }
 
 
-}, 25, 1);
+  }, 25, 1);
+endif;
