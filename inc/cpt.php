@@ -10,40 +10,6 @@ add_action( 'init', 'make_create_taxonomies');
 
 
 function create_post_type_mind(){
-    register_post_type('tool', // Register Custom Post Type
-        array(
-            'labels' => array(
-                'name' => __('Make Tools', 'mindblank'), // Rename these to suit
-                'singular_name' => __('Tool', 'mindblank'),
-                'add_new' => __('Add New', 'mindblank'),
-                'add_new_item' => __('Add New Tool', 'mindblank'),
-                'edit' => __('Edit Tool', 'mindblank'),
-                'edit_item' => __('Edit Tool', 'mindblank'),
-                'new_item' => __('New Tool', 'mindblank'),
-                'view' => __('View Tool', 'mindblank'),
-                'view_item' => __('View Tool', 'mindblank'),
-                'search_items' => __('Search Tools', 'mindblank'),
-                'not_found' => __('No Tools found', 'mindblank'),
-                'not_found_in_trash' => __('NoTools found in Trash', 'mindblank')
-            ),
-            'public' => true,
-            'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-            'has_archive' => 'tools-and-equipment',
-            'show_in_rest' => true,
-            'supports' => array(
-                'title',
-                'editor',
-                'excerpt',
-                'thumbnail',
-                'author'
-            ), // Go to Dashboard Custom mind Blank post for supports
-            'can_export' => true, // Allows export in Tools > Export
-            'taxonomies' => array(
-                'post_tag',
-                // 'category'
-            ) // Add Category and Post Tags support
-        ));
-
         
      register_post_type('certs', // Register Custom Post Type
       array(
@@ -87,32 +53,7 @@ function create_post_type_mind(){
 
 function make_create_taxonomies() {
 
-  $tool_type_labels = array(
-		'name'              => _x( 'Functional Practices', 'taxonomy general name', 'textdomain' ),
-		'singular_name'     => _x( 'Functional Practice', 'taxonomy singular name', 'textdomain' ),
-		'search_items'      => __( 'Search Practices', 'textdomain' ),
-		'all_items'         => __( 'All Practices', 'textdomain' ),
-		'parent_item'       => __( 'Parent Practice', 'textdomain' ),
-		'parent_item_colon' => __( 'Parent Practice:', 'textdomain' ),
-		'edit_item'         => __( 'Edit Practice', 'textdomain' ),
-		'update_item'       => __( 'Update Practice', 'textdomain' ),
-		'add_new_item'      => __( 'Add New Practice', 'textdomain' ),
-		'new_item_name'     => __( 'New Practice Name', 'textdomain' ),
-		'menu_name'         => __( 'Practice', 'textdomain' ),
-	);
-
-	$tool_type_args = array(
-		'hierarchical'      => true,
-		'labels'            => $tool_type_labels,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'practice' ),
-	);
-
-
-
-    register_taxonomy( 'tool_type', array( 'tool' ), $tool_type_args );
+  
 
 
 }
