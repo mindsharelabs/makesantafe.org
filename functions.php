@@ -576,7 +576,7 @@ function mind_blank_view_article($more)
     global $post;
     //if post type is product
     if(get_post_type($post) == 'product') :
-        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Product', 'mindblank') . '</a>';
+        // return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Product', 'mindblank') . '</a>';
     elseif(get_post_type($post) == 'make_track') :
         return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Track', 'mindblank') . '</a>';
     elseif(get_post_type($post) == 'post'):

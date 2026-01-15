@@ -67,7 +67,11 @@ body.woocommerce-account.woocommerce-page {
     }
   }
 }
-
+.woocommerce-products-header__title.page-title {
+  text-align: center;
+  color: $primary;
+  margin-bottom: 20px;
+}
 .woocommerce span.onsale.wc-memberships-member-discount {
   position: absolute;
   left: 0;

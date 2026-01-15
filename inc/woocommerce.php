@@ -11,6 +11,13 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
     }
 }
 
+
+///remove product results count
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+
+
+
 /*
 * Description: By default, WooCommerce reduces stock for any order containing a product. This means stock will be reduced for both the initial purchase of a subscription product and all renewal orders. This extension stops stock being reduced for renewal order payments so that stock is only reduced on the initial purchase. Requires WooCommerce 2.4 or newer and Subscriptiosn 2.0 or newer.
 */
@@ -99,6 +106,7 @@ function make_display_content() {
 // remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 // add_action('make_shop_before_container', 'woocommerce_breadcrumb');
 
+//remove view article and add excerpt to product loop
 
 
 
