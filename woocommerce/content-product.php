@@ -24,7 +24,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div class="col-12 col-md-4 mb-4">
+<div class="col-12 col-md-3 mb-4">
     <div <?php wc_product_class( 'h-100 card', $product ); ?>>
         <?php
         /**
