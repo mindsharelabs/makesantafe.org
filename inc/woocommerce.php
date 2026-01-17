@@ -31,6 +31,7 @@ add_action('woocommerce_after_subcategory_title', function ( $category ) {
 	// display list of products in category by title as bootstrap list group
 	$args = array(
 		'post_type' => 'product',
+        'post_status' => 'publish',
 		'posts_per_page' => -1,
 		'tax_query' => array(
 			array(
@@ -39,6 +40,13 @@ add_action('woocommerce_after_subcategory_title', function ( $category ) {
 				'terms' => $category->term_id,
 			),
 		),
+		'meta_query' => array(
+			array(
+				'key'       => '_visibility',
+				'value'     => 'hidden',
+				'compare'   => '!=',
+			)
+		)
 	);
 	$query = new WP_Query( $args );
 	if ( $query->have_posts() ) {
