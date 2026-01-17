@@ -15,8 +15,42 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 ///remove product results count
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
+//remove link on categories
+remove_action('woocommerce_before_subcategory', 'woocommerce_template_loop_category_link_open');
+
+remove_action('woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10);
+add_action( 'woocommerce_shop_loop_subcategory_title', function ( $category ) { 
+	echo '<a href="' . get_permalink() . '">';
+    	echo apply_filters( 'woocommerce_subcategory_count_html', '<h2 class="text-center h4 my-2">' . $category->name . '</h2>', $category );
+    echo '</a>';
+}, 90 );
 
 
+
+add_action('woocommerce_after_subcategory_title', function ( $category ) { 
+	// display list of products in category by title as bootstrap list group
+	$args = array(
+		'post_type' => 'product',
+		'posts_per_page' => -1,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'term_id',
+				'terms' => $category->term_id,
+			),
+		),
+	);
+	$query = new WP_Query( $args );
+	if ( $query->have_posts() ) {
+		echo '<ul class="list-group list-group-flush">';
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			echo '<li class="list-group-item"><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+		}
+		echo '</ul>';
+	}
+	wp_reset_postdata();
+}, 10 );
 
 /*
 * Description: By default, WooCommerce reduces stock for any order containing a product. This means stock will be reduced for both the initial purchase of a subscription product and all renewal orders. This extension stops stock being reduced for renewal order payments so that stock is only reduced on the initial purchase. Requires WooCommerce 2.4 or newer and Subscriptiosn 2.0 or newer.

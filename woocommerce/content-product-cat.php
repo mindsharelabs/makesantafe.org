@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="col-12 col-md-3 mb-4"></div>
+<div class="col-12 col-md-3 mb-4">
     <div <?php wc_product_cat_class( 'h-100 card', $category ); ?>>
 	<?php
 	/**
@@ -43,17 +43,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	do_action( 'woocommerce_shop_loop_subcategory_title', $category );
 
-	/**
-	 * The woocommerce_after_subcategory_title hook.
-	 */
-	do_action( 'woocommerce_after_subcategory_title', $category );
+    
+    /**
+     * The woocommerce_after_subcategory_title hook.
+     */
+    do_action( 'woocommerce_after_subcategory_title', $category );
 
-	/**
-	 * The woocommerce_after_subcategory hook.
-	 *
-	 * @hooked woocommerce_template_loop_category_link_close - 10
-	 */
-	do_action( 'woocommerce_after_subcategory', $category );
+    /**
+     * The woocommerce_after_subcategory hook.
+     *
+     * @hooked woocommerce_template_loop_category_link_close - 10
+     */
+    do_action( 'woocommerce_after_subcategory', $category );
+
 	?>
     </div>
 </div>

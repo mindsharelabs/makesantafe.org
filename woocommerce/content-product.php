@@ -34,7 +34,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
          */
         do_action( 'woocommerce_before_shop_loop_item' );
 
-        echo get_the_post_thumbnail( $product->get_id(), 'medium', array( 'class' => 'card-img-top mx-auto' ) );;
+        echo get_the_post_thumbnail( $product->get_id(), 'medium', array( 'class' => 'card-img-top mx-auto' ) );
         echo '<div class="card-header text-center">';
 
             /**
@@ -44,7 +44,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
              */
             echo '<a href="' . get_permalink() . '">';
              echo '<h2 class="text-center h4 my-2">' . get_the_title() . '</h2>';
-            echo '</a>';//not sure why this a tag needs to be here...
+            echo '</a>';
             /**
              * Hook: woocommerce_after_shop_loop_item_title.
              *
@@ -73,5 +73,5 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
             do_action( 'woocommerce_after_shop_loop_item' );
         echo '</div>';
         ?>
-</div>
+    </div>
 </div>
