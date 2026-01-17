@@ -20,7 +20,7 @@ remove_action('woocommerce_before_subcategory', 'woocommerce_template_loop_categ
 
 remove_action('woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10);
 add_action( 'woocommerce_shop_loop_subcategory_title', function ( $category ) { 
-	echo '<a href="' . get_permalink() . '">';
+	echo '<a href="' . get_term_link($category) . '">';
     	echo apply_filters( 'woocommerce_subcategory_count_html', '<h2 class="text-center h4 my-2">' . $category->name . '</h2>', $category );
     echo '</a>';
 }, 90 );
