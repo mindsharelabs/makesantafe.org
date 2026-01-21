@@ -22,6 +22,9 @@
     <meta name="apple-mobile-web-app-title" content="Make Santa Fe" />
     <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/img/site.webmanifest" />    
 
+    <!-- Facebook Meta Verification -->
+    <meta name="facebook-domain-verification" content="g9jbw28wxpc5pz5w9x4ybq5bv4tiu7" />
+
     <?php wp_head(); ?>
 
 <!-- Meta Pixel Code -->
