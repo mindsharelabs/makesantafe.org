@@ -55,7 +55,28 @@ src="https://www.facebook.com/tr?id=111420803632337&ev=PageView&noscript=1"
     gtag('config', 'AW-11012918498');
     </script>
     
-    <?php include 'social/header.php'; ?>
+</head>
+<?php
+// Output OG tags unless already set in social/header.php
+ob_start();
+include 'social/header.php';
+$social_header = ob_get_clean();
+echo $social_header;
+
+if (strpos($social_header, 'og:') === false) {
+    // Fallback OG tags
+    $og_title = wp_get_document_title();
+    $og_url = get_permalink();
+    $og_desc = get_bloginfo('description');
+    $og_image = get_template_directory_uri() . '/img/og-default.png'; // Change to your default image
+    echo "<meta property=\"og:title\" content=\"$og_title\" />\n";
+    echo "<meta property=\"og:description\" content=\"$og_desc\" />\n";
+    echo "<meta property=\"og:url\" content=\"$og_url\" />\n";
+    echo "<meta property=\"og:type\" content=\"website\" />\n";
+    echo "<meta property=\"og:image\" content=\"$og_image\" />\n";
+}
+?>
+</head>
 </head>
 
 <body <?php body_class(); ?>>
