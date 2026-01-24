@@ -79,4 +79,9 @@ $settings = array(
 	'kses'	=> true
 
 );
+
+echo '<a href="' . esc_url($author_url) . '" class="btn btn-secondary ms-3 mb-2" target="_blank">View Public Profile</a>';
+echo '<hr>';
+echo '<h2 class="ms-3">Edit My Profile</h2>';
+
 acf_form($settings);

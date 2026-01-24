@@ -310,6 +310,12 @@ add_action( 'woocommerce_account_make-profile_endpoint', 'make_premium_support_c
 // Note: add_action must follow 'woocommerce_account_{your-endpoint-slug}_endpoint' format
 function make_premium_support_content() {
 // echo '<h3></h3>';
+
+  	//get current user ID
+  	$current_user_id = get_current_user_id();
+	//add link to author page
+	$author_url = get_author_posts_url($current_user_id);
+	
 	include get_template_directory() . '/inc/user-edit-form.php';
 }
 
