@@ -7,7 +7,7 @@ get_header();
     'author'        =>  $author->ID,
     'orderby'       =>  'post_date',
     'order'         =>  'DESC',
-    'posts_per_page' => 8
+    'posts_per_page' => 12
   ));
 
 
@@ -144,7 +144,7 @@ get_header();
     if($upcoming_classes) :
       //card layout for upcoming classes
       echo '<div class="col-12">';
-        echo '<h2 class="text-center my-4 h3">Upcoming Classes by ' . $name . '</h2>';
+        echo '<h2 class="text-center my-4 h3">Upcoming Classes</h2>';
         echo '<div class="row gy-2">';
           foreach ($upcoming_classes as $key => $event) :
             $parentID = wp_get_post_parent_id($event);
@@ -172,23 +172,28 @@ get_header();
         echo '<h2 class="text-center my-4 h3">Articles by ' . $name . '</h2>';
         echo '<div class="row gy-2">';
           foreach ($maker_posts as $key => $post) :
-            $cats = wp_get_post_categories(get_the_id(), array('fields' => 'id=>name'));
+            $cats = wp_get_post_categories($post->ID, array('fields' => 'id=>name'));
+            $date = get_the_date('F j, Y', $post->ID);
             echo '<div class="col-12 col-md-6 col-lg-4">';
               echo '<div class="card mb-2">';
                 echo '<div class="card-body">';
                   echo '<h3 class="card-title h4">' . $post->post_title . '</h3>';
-                  echo '<p class="card-text">' . $post->post_excerpt . '</p>';
+                  echo '<p class="small text-muted mb-1">Article Published: ' . $date . '</p>';
 
                   if(count($cats) > 0) :
                     echo '<div class="categories mb-2 w-100">';
-                    foreach ($cats as $key => $cat) :
-                      echo '<a href="' . get_term_link($key, 'category') . '" class="small text-muted pr-2" title="' . $cat . '">' . $cat . '</a>';
-                      if(next($cats)) :
+                    $cat_count = 0;
+                    $cat_total = count($cats);
+                    foreach ($cats as $cat_id => $cat_name) :
+                      echo '<a href="' . get_term_link($cat_id, 'category') . '" class="small text-muted pr-2" title="' . $cat_name . '">' . $cat_name . '</a>';
+                      $cat_count++;
+                      if($cat_count < $cat_total) :
                         echo ' | ';
                       endif;
                     endforeach;
                     echo '</div>';
                   endif;
+                  echo '<p class="card-text">' . get_the_excerpt($post) . '</p>';
 
 
                   echo '<a href="' . get_permalink($post->ID) . '" class="btn btn-primary">Read More</a>';
