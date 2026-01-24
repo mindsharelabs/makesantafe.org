@@ -60,6 +60,18 @@ get_header();
 
 
     <div class="row">
+
+      <?php
+      //author name
+      echo '<h1 class="page-title display-3 mt-4 col-12">' . esc_html($name) . '</h1>';
+      //author title
+      if($title) :
+        echo '<h2 class="page-subtitle text-muted mb-4 col-12">' . esc_html($title) . '</h2>';
+      endif;  
+
+      ?>
+
+
       <div class="col-12 col-md-4">
         <?php
 
