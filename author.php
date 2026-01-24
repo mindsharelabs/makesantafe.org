@@ -7,7 +7,7 @@ get_header();
     'author'        =>  $author->ID,
     'orderby'       =>  'post_date',
     'order'         =>  'DESC',
-    'posts_per_page' => 12
+    'posts_per_page' => 8
   ));
 
 
@@ -16,7 +16,7 @@ get_header();
     'meta_key' => 'instructorID',
     'meta_value' => $maker_id,
     'meta_compare' => '=',
-    'posts_per_page' => -1,
+    'posts_per_page' => 8,
     'meta_query' => array(
       array(
         'key' => 'event_date',
