@@ -3,14 +3,33 @@ get_header();
   $author = get_user_by( 'slug', get_query_var( 'author_name' ) );
   $maker_id = $author->ID;
   $public = get_field('display_profile_publicly', 'user_' . $maker_id);
-
-  $args = array(
+  $maker_posts = get_posts(array(
     'author'        =>  $author->ID,
     'orderby'       =>  'post_date',
     'order'         =>  'DESC',
     'posts_per_page' => 8
-  );
-  $maker_posts = get_posts( $args );
+  ));
+
+
+  $upcoming_classes = get_posts( array(
+    'post_type' => 'sub_event',
+    'meta_key' => 'instructorID',
+    'meta_value' => $maker_id,
+    'meta_compare' => '=',
+    'posts_per_page' => -1,
+    'meta_query' => array(
+      array(
+        'key' => 'event_date',
+        'value' => date('Y-m-d H:i:s'),
+        'compare' => '>=',
+        'type' => 'DATETIME'
+      )
+    ),
+    'orderby' => 'meta_value',
+    'order' => 'ASC'
+  ) );
+
+
 
 
  ?>
@@ -121,10 +140,33 @@ get_header();
             echo '</div>';
         endif;
       echo '</div>';
-      ?>
-    
 
-    <?php 
+    if($upcoming_classes) :
+      //card layout for upcoming classes
+      echo '<div class="col-12">';
+        echo '<h2 class="text-center my-4 h3">Upcoming Classes by ' . $name . '</h2>';
+        echo '<div class="row gy-2">';
+          foreach ($upcoming_classes as $key => $event) :
+            $parentID = wp_get_post_parent_id($event);
+            $parent_event = get_post($parentID);
+            $event_date = get_post_meta($event->ID, 'event_start_time_stamp', true);
+            $formatted_date = date('F j, Y g:i a', strtotime($event_date));
+            echo '<div class="col-12 col-md-6 col-lg-4">';
+              echo '<div class="card mb-2">';
+                echo '<div class="card-body">';
+                echo '<h3 class="card-title h4">' . get_the_title($parent_event) . '</h3>';
+                echo '<p class="small mb-2">Date: ' . $formatted_date . '</p>';
+                  echo '<p class="card-text text-muted small lh-sm">' . get_the_excerpt($parent_event) . '</p>';
+                  echo '<a href="' . get_permalink($parent_event->ID) . '" class="btn btn-primary d-block">View Class</a>';
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          endforeach;
+        echo '</div>';
+      echo '</div>';
+    endif;
+
+
     if($maker_posts) :
       echo '<div class="col-12">';
         echo '<h2 class="text-center my-4 h3">Articles by ' . $name . '</h2>';
@@ -160,10 +202,8 @@ get_header();
 
 
     endif;
-
-
     ?>
-
+  </div>
 
 
 
