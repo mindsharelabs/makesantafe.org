@@ -187,7 +187,7 @@ get_header();
             $cats = wp_get_post_categories($post->ID, array('fields' => 'id=>name'));
             $date = get_the_date('F j, Y', $post->ID);
             echo '<div class="col-12 col-md-6 col-lg-4">';
-              echo '<div class="card mb-2">';
+              echo '<div class="card mb-2 h-100">';
                 echo '<div class="card-body">';
                   echo '<h3 class="card-title h4">' . $post->post_title . '</h3>';
                   echo '<p class="small text-muted mb-1">Article Published: ' . $date . '</p>';
