@@ -26,6 +26,10 @@ $makers = new WP_Query(array(
 ));
 if($makers->have_posts()) :
   echo '<div class="container">';
+
+    //page title
+    echo '<h1 class="page-title display-2 my-3 text-center">Our Makers</h1>';
+
     echo '<div class="row filter-row my-3">';
       echo '<div class="col-12 d-flex flex-row">';
         echo '<div class="facet-cont me-3">';
