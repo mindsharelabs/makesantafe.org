@@ -320,6 +320,12 @@ function make_premium_support_content() {
 }
 
 
+add_filter( 'woocommerce_billing_fields', 'make_remove_required_phone', 10, 1 );
+function make_remove_required_phone( $address_fields ) {
+    $address_fields['billing_phone']['required'] = false;
+    return $address_fields;
+}
+
 
 add_filter( 'woocommerce_account_menu_items', function ( $items, $endpoints ) {
 	$items['tool-reservation'] = 'New Tool Reservation';
