@@ -12,18 +12,13 @@ get_header();
                 <!-- section -->
                 <section>
                     <?php
-                    if(!get_field('show_header')):
-                      echo '<h1>';
-                        the_title();
-                      echo '</h1>';
+                    if(!get_field('show_header') && !get_field('hide_title') ) :
+                      echo '<h1>' . get_the_title() . '</h1>';
                     endif;
                     if (have_posts()): while (have_posts()) : the_post(); ?>
                         <!-- article -->
-                        <article id="post-<?php the_ID(); ?>" <?php post_class('mt-3'); ?>>
-
+                        <article id="post-<?php the_ID(); ?>" <?php post_class('mt-3 d-flex flex-row justify-content-center'); ?>>
                             <?php the_content(); ?>
-                            <?php mapi_post_edit(); ?>
-
                         </article>
                         <!-- /article -->
                     <?php endwhile; ?>

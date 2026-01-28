@@ -12,7 +12,7 @@ get_header();
                 <!-- section -->
                 <section>
                     <?php
-                    if(!get_field('show_header')):
+                    if(!get_field('show_header') && !get_field('hide_title') ) :
                       echo '<h1>' . get_the_title() . '</h1>';
                     endif;
                     if (have_posts()): while (have_posts()) : the_post(); ?>
