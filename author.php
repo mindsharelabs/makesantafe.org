@@ -132,14 +132,14 @@ get_header();
       <?php
       echo '<div class="col-12 col-md-8 mb-3">';
         if($bio) : 
-          echo '<div class="lead">' . $bio . '</div>';
+          echo '<div>' . $bio . '</div>';
         endif; 
         if($gallery) :
-          echo '<div class="row row-cols-1 row-cols-md-3 g-3 my-4" data-masonry="{ \"percentPosition\": true }">';
+          echo '<div class="row my-4">';
             foreach ($gallery as $key => $image) :
               $image_elem = wp_get_attachment_image( $image['image']['ID'], 'large', false, array('class' => 'img-fluid w-100 rounded') );
               if($image_elem):
-                echo '<div class="col">';
+                echo '<div class="col-12 col-md-6 col-lg-4 mb-3">';
                   echo '<div class="card h-100 border-0 shadow-sm">';
                     echo $image_elem;
                     if($image['caption']) :
