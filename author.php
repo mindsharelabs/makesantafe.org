@@ -135,21 +135,21 @@ get_header();
           echo '<div class="lead">' . $bio . '</div>';
         endif; 
         if($gallery) :
-          echo '<div class="row gy-3 mb-4">';
+          echo '<div class="row row-cols-1 row-cols-md-3 g-3 mb-4" data-masonry="{ \"percentPosition\": true }">';
             foreach ($gallery as $key => $image) :
-              $image_elem = wp_get_attachment_image( $image['image']['ID'], 'small-square', false, array('class' => 'card-img-top'));
+              $image_elem = wp_get_attachment_image( $image['image']['ID'], 'large', false, array('class' => 'img-fluid w-100 rounded') );
               if($image_elem):
-                echo '<div class="col-12 col-md-4">';
-                  echo '<div class="card">';
+                echo '<div class="col">';
+                  echo '<div class="card h-100 border-0 shadow-sm">';
                     echo $image_elem;
                     if($image['caption']) :
-                      echo '<div class="card-body small text-center p-1">' . $image['caption'] . '</div>';
+                      echo '<div class="card-body small text-center p-1">' . esc_html($image['caption']) . '</div>';
                     endif;
                   echo '</div>';
                 echo '</div>';
               endif;
             endforeach;
-            echo '</div>';
+          echo '</div>';
         endif;
       echo '</div>';
 
