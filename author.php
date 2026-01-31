@@ -135,7 +135,7 @@ get_header();
           echo '<div class="lead">' . $bio . '</div>';
         endif; 
         if($gallery) :
-          echo '<div class="row row-cols-1 row-cols-md-3 g-3 mb-4" data-masonry="{ \"percentPosition\": true }">';
+          echo '<div class="row row-cols-1 row-cols-md-3 g-3 my-4" data-masonry="{ \"percentPosition\": true }">';
             foreach ($gallery as $key => $image) :
               $image_elem = wp_get_attachment_image( $image['image']['ID'], 'large', false, array('class' => 'img-fluid w-100 rounded') );
               if($image_elem):
