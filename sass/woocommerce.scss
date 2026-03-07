@@ -271,4 +271,8 @@ span.onsale {
 
 
 
-
+.woocommerce .products ul li, .woocommerce ul.products li {
+  a {
+    text-decoration: none;
+  }
+}

@@ -320,6 +320,31 @@ function make_premium_support_content() {
 }
 
 
+//hide some categories from shop page
+add_action( 'pre_get_posts', function ( $q ) {
+
+    if ( ! $q->is_main_query() || is_admin() || ! is_shop() || is_product_category() ) {
+        return;
+    }
+
+    // HERE Define your product categories slugs to be excluded
+    $terms = array( 'track-products', 'tool-reservation' ); 
+
+    $tax_query = (array) $q->get( 'tax_query' );
+
+    $tax_query[] = array(
+        'taxonomy' => 'product_cat',
+        'field' => 'slug', // Or 'term_id' if you prefer using IDs
+        'terms' => $terms,
+        'operator' => 'NOT IN' // Exclude the specified terms
+    );
+
+    $q->set( 'tax_query', $tax_query );
+} );
+
+
+
+
 add_filter( 'woocommerce_billing_fields', 'make_remove_required_phone', 10, 1 );
 function make_remove_required_phone( $address_fields ) {
     $address_fields['billing_phone']['required'] = false;
