@@ -13,20 +13,35 @@ get_header();
 
   $upcoming_classes = get_posts( array(
     'post_type' => 'sub_event',
-    'meta_key' => 'instructorID',
-    'meta_value' => $maker_id,
-    'meta_compare' => '=',
-    'posts_per_page' => 9,
+    'meta_key' => 'event_start_time_stamp',
+    // 'meta_value' => $maker_id,
+    // 'meta_compare' => '=',
+    'orderby' => 'meta_value_date',
+    'posts_per_page' => -1,
+    // 'meta_query' => array(
+    //   array(
+    //     'key' => 'event_start_time_stamp',
+    //     'value' => date('Y-m-d H:i:s'),
+    //     'compare' => '>=',
+    //     'type' => 'DATETIME'
+    //   )
+    // ),
+    'orderby' => 'meta_value',
+    'order' => 'ASC',
     'meta_query' => array(
+      'relation' => 'AND',
       array(
-        'key' => 'event_date',
+        'key' => 'instructorID',
+        'value' => $maker_id,
+        'compare' => '='
+      ),
+      array(
+        'key' => 'event_start_time_stamp',
         'value' => date('Y-m-d H:i:s'),
         'compare' => '>=',
         'type' => 'DATETIME'
       )
-    ),
-    'orderby' => 'meta_value',
-    'order' => 'ASC'
+    )
   ) );
 
 
