@@ -76,7 +76,7 @@ if (strpos($social_header, 'og:') === false) {
     echo "<meta property=\"og:image\" content=\"$og_image\" />\n";
 }
 ?>
-</head>
+
 </head>
 
 <body <?php body_class(); ?>>
