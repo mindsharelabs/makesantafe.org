@@ -12,6 +12,13 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 }
 
 
+add_filter( 'woocommerce_gallery_thumbnail_size', 'make_woocommerce_thumb_size' );
+add_filter( 'single_product_archive_thumbnail_size', 'make_woocommerce_thumb_size' );
+add_filter( 'subcategory_archive_thumbnail_size', 'make_woocommerce_thumb_size' );
+function make_woocommerce_thumb_size($size) {
+	return 'small-square';
+}
+
 ///remove product results count
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
