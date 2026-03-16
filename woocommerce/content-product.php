@@ -34,7 +34,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
          */
         do_action( 'woocommerce_before_shop_loop_item' );
 
-        echo get_the_post_thumbnail( $product->get_id(), 'medium', array( 'class' => 'card-img-top mx-auto' ) );
+        echo get_the_post_thumbnail( $product->get_id(), 'small-square', array( 'class' => 'card-img-top mx-auto' ) );
         echo '<div class="card-header text-center">';
 
             /**
