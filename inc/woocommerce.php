@@ -164,6 +164,7 @@ function make_remove_address_my_account( $items ) {
   unset($items['edit-address']);
   unset($items['edit-account']);
   unset($items['customer-logout']);
+  unset($items['bookings']);
   return $items;
 }
 
@@ -260,15 +261,6 @@ function make_change_button_text( $text, $obj ) {
   }
   return $text;
 }
-/*
- * Change the entry title of the endpoints that appear in My Account Page - WooCommerce 2.6
- * Using the_title filter
- */
-function make_woo_endpoint_title( $items, $endpoints ) {
-  $items['bookings'] = 'Reservation History';
-  return $items;
-}
-add_filter( 'woocommerce_account_menu_items', 'make_woo_endpoint_title', 10, 2 );
 
 
 
@@ -324,7 +316,7 @@ function make_premium_support_content() {
 //hide some categories from shop page
 add_filter( 'woocommerce_product_subcategories_args', function( $args ) {
     $exclude = array();
-    $slugs   = array( 'track-products', 'tool-reservation' );
+    $slugs   = array( 'track-products');
 
     foreach ( $slugs as $slug ) {
         $term = get_term_by( 'slug', $slug, 'product_cat' );
