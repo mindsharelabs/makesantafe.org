@@ -254,11 +254,8 @@ function get_active_members_for_membership($memberships){
 
 add_filter( 'woocommerce_product_add_to_cart_text', 'make_change_button_text', 100, 2);
 function make_change_button_text( $text, $obj ) {
-  $tool_reservation = has_term('tool-reservation','product_cat', $obj->get_ID());
   $workshop = has_term('certification', 'product_cat', $obj->get_ID());
-  if ( $tool_reservation) {
-      $text = __( 'Reserve This Tool', 'woocommerce' );
-  } elseif($workshop) {
+  if ($workshop) {
     $text = __( 'Attend this Workshop', 'woocommerce' );
   }
   return $text;
@@ -351,18 +348,6 @@ function make_remove_required_phone( $address_fields ) {
     $address_fields['billing_phone']['required'] = false;
     return $address_fields;
 }
-
-
-add_filter( 'woocommerce_account_menu_items', function ( $items, $endpoints ) {
-	$items['tool-reservation'] = 'New Tool Reservation';
-	return $items;
-}, 10, 2 );
-add_filter( 'woocommerce_get_endpoint_url', function ( $url, $endpoint, $value, $permalink ) {
-	if ( $endpoint === 'tool-reservation' ) {
-		$url = home_url( 'product-category/tool-reservation/' );
-	}
-	return $url;
-}, 10, 4 );
 
 
 
