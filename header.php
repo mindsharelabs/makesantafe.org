@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?> class="no-js" data-bs-theme="light">
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <title><?php wp_title(''); ?><?php if (wp_title('', false)) {
@@ -24,6 +24,23 @@
 
     <!-- Facebook Meta Verification -->
     <meta name="facebook-domain-verification" content="g9jbw28wxpc5pz5w9x4ybq5bv4tiu7" />
+
+    <script>
+    (function() {
+        var theme = 'light';
+
+        try {
+            theme = localStorage.getItem('make-theme-mode') || 'light';
+        } catch (error) {}
+
+        if (theme !== 'dark') {
+            theme = 'light';
+        }
+
+        document.documentElement.setAttribute('data-bs-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+    }());
+    </script>
 
     <?php wp_head(); ?>
 

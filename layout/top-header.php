@@ -8,7 +8,7 @@
         </div>
 
 
-        <div class="col-10 offset-0 offset-md-6 col-md-4 text-end my-auto">
+        <div class="col-10 offset-0 offset-md-6 col-md-4 text-end my-auto header-actions">
             <?php
             if($icons = get_field('header_icons', 'options')) :
               foreach ($icons as $icon) :
@@ -40,6 +40,12 @@
 
             endif;
             ?>
+            <button type="button" class="theme-toggle ms-3" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode" title="Switch to dark mode">
+              <span class="theme-toggle__text" data-theme-toggle-text>Dark</span>
+              <span class="theme-toggle__track" aria-hidden="true">
+                <span class="theme-toggle__thumb"></span>
+              </span>
+            </button>
           </div>
 
     </div>

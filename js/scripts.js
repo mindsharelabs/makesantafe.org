@@ -1,7 +1,64 @@
 (function( root, $, undefined ) {
 	"use strict";
 
+	const THEME_STORAGE_KEY = 'make-theme-mode';
+
+	function normalizeTheme(theme) {
+		return theme === 'dark' ? 'dark' : 'light';
+	}
+
+	function getStoredTheme() {
+		try {
+			return normalizeTheme(localStorage.getItem(THEME_STORAGE_KEY));
+		} catch (error) {
+			return 'light';
+		}
+	}
+
+	function persistTheme(theme) {
+		try {
+			localStorage.setItem(THEME_STORAGE_KEY, normalizeTheme(theme));
+		} catch (error) {}
+	}
+
+	function getThemeToggleState(theme) {
+		if (theme === 'dark') {
+			return {
+				pressed: 'true',
+				text: 'Light',
+				label: 'Switch to light mode'
+			};
+		}
+
+		return {
+			pressed: 'false',
+			text: 'Dark',
+			label: 'Switch to dark mode'
+		};
+	}
+
+	function syncThemeToggle(theme) {
+		const state = getThemeToggleState(theme);
+		const $toggle = $('[data-theme-toggle]');
+
+		$toggle.attr('aria-pressed', state.pressed);
+		$toggle.attr('aria-label', state.label);
+		$toggle.attr('title', state.label);
+		$toggle.toggleClass('is-dark', theme === 'dark');
+		$('[data-theme-toggle-text]').text(state.text);
+	}
+
+	function applyTheme(theme) {
+		const nextTheme = normalizeTheme(theme);
+
+		document.documentElement.setAttribute('data-bs-theme', nextTheme);
+		document.documentElement.style.colorScheme = nextTheme;
+		syncThemeToggle(nextTheme);
+	}
+
 	$(function () {
+
+		applyTheme(document.documentElement.getAttribute('data-bs-theme') || getStoredTheme());
 
 		var docWidth = document.documentElement.offsetWidth;
 
@@ -96,6 +153,14 @@
 			$(this).parent().toggleClass('expanded');
 
 		})
+
+		$(document).on('click', '[data-theme-toggle]', function() {
+			var currentTheme = normalizeTheme(document.documentElement.getAttribute('data-bs-theme'));
+			var nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+			applyTheme(nextTheme);
+			persistTheme(nextTheme);
+		});
 
 	
 		jQuery('body').addClass('fade-in');
