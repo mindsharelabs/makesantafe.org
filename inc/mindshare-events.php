@@ -1,6 +1,7 @@
 <?php
 
-
+// Keep event archives limited to upcoming occurrences by default.
+add_filter('mindevents_events_archive_show_past_events', '__return_false');
 
 add_action('mindevents_single_after_events', function() {
     // mapi_write_log();
