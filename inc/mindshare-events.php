@@ -91,3 +91,4 @@ if(defined('MINDEVENTS_PREPEND')) :
     }
 
   }, 15, 1);
+endif;
