@@ -90,5 +90,5 @@ if(defined('MINDEVENTS_PREPEND')) :
     }
 
 
-  }, 25, 1);
+  }, 15, 1);
 endif;
