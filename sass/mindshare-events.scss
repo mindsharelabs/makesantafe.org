@@ -1,3 +1,11 @@
+// Override plugin's near-transparent hover color on list view event titles.
+#mindCalanderList .list_day_container .item_meta_container .list-item-title {
+    .event-title-link:hover .event-title,
+    .event-title-link:focus .event-title {
+        color: #be202e;
+    }
+}
+
 #singleEventContainer {
     .event-datespan {
         margin-bottom: 10px;
