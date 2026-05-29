@@ -1,7 +1,38 @@
 <?php
 
-// Keep event archives limited to upcoming occurrences by default.
-add_filter('mindevents_events_archive_show_past_events', '__return_false');
+// Show past events on month/week views (greyed out); hide them on list view.
+add_filter('mindevents_events_archive_show_past_events', function($show) {
+  if (!function_exists('mindevents_get_frontend_filters')) {
+    return $show;
+  }
+  $filters = mindevents_get_frontend_filters();
+  $view    = !empty($filters['event_view']) ? $filters['event_view'] : 'month';
+  return $view !== 'list';
+});
+
+// Exclude past events from the archive list view query.
+// (The list view in archive mode ignores show_past_events, so we enforce it here.)
+add_filter('mindevents_front_list_query_args', function($args) {
+  if (!function_exists('mindevents_get_frontend_filters')) {
+    return $args;
+  }
+  $filters = mindevents_get_frontend_filters();
+  if (empty($filters['apply'])) {
+    return $args;
+  }
+  if (!isset($args['meta_query']) || !is_array($args['meta_query'])) {
+    $args['meta_query'] = array('relation' => 'AND');
+  } elseif (!isset($args['meta_query']['relation'])) {
+    $args['meta_query']['relation'] = 'AND';
+  }
+  $args['meta_query'][] = array(
+    'key'     => 'event_start_time_stamp',
+    'value'   => current_time('mysql'),
+    'compare' => '>=',
+    'type'    => 'DATETIME',
+  );
+  return $args;
+}, 20);
 
 add_action('mindevents_single_after_events', function() {
     // mapi_write_log();
