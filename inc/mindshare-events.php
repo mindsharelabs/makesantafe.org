@@ -27,7 +27,7 @@ add_filter('mindevents_front_list_query_args', function($args) {
   }
   $args['meta_query'][] = array(
     'key'     => 'event_start_time_stamp',
-    'value'   => current_time('mysql'),
+    'value'   => current_time('Y-m-d') . ' 00:00:00',
     'compare' => '>=',
     'type'    => 'DATETIME',
   );
