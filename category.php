@@ -10,6 +10,9 @@
           <div class="row">
             <?php
             while (have_posts()) : the_post();
+              $author_name = get_the_author();
+              $posted_date = get_the_date('F j, Y');
+              $posted_date_attr = get_the_date('c');
 
               echo '<div class="col-12 col-md-4 mb-3">';
                 echo '<div class="card h-100">';
@@ -17,9 +20,13 @@
                     the_post_thumbnail( 'horz-thumbnail-lg', array('class' => 'card-img-top loop-card') );
                   endif;
                   echo '<div class="card-body">';
-                    echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+                    echo '<h5 class="card-title">' . esc_html(get_the_title()) . '</h5>';
+                    echo '<div class="blog-card-meta" aria-label="Post details">';
+                      echo '<p class="blog-card-meta-line"><span class="blog-card-meta-label">Author</span><span class="blog-card-meta-value">' . esc_html($author_name) . '</span></p>';
+                      echo '<p class="blog-card-meta-line"><span class="blog-card-meta-label">Posted</span><time class="blog-card-meta-value" datetime="' . esc_attr($posted_date_attr) . '">' . esc_html($posted_date) . '</time></p>';
+                    echo '</div>';
                     echo '<p class="card-text">' . get_the_excerpt() . '</p>';
-                    echo '<a href="' . get_permalink() . '" class="btn btn-primary">Read More</a>';
+                    echo '<a href="' . esc_url(get_permalink()) . '" class="btn btn-primary">Read More</a>';
                   echo '</div>';
                 echo '</div>';
               echo '</div>';

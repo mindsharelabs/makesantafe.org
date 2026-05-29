@@ -97,6 +97,42 @@ main {
 .button {
   @extend .btn;
 }
+
+section.blog {
+  .blog-card-meta {
+    display: grid;
+    gap: 0.2rem;
+    margin: 0 0 0.9rem;
+  }
+
+  .blog-card-meta-line {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin: 0;
+    min-width: 0;
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .blog-card-meta-label {
+    flex: 0 0 4.3rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $primary;
+  }
+
+  .blog-card-meta-value {
+    min-width: 0;
+    overflow: hidden;
+    color: rgba($dark, 0.72);
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
 .fancy-header{
   position: relative;
   width: 100%;
@@ -1308,6 +1344,5 @@ aside.sidebar {
     margin-right: 0;
   }
 }
-
 
 
