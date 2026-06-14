@@ -21,4 +21,30 @@
             font-size: 1.2em;
         }
     }
+
+    .mindevents-single-overview__intro {
+        > .mindevents-single-overview__copy:only-child {
+            grid-column: 1 / -1;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    #mindevents-event-title,
+    #mindevents-archive-title,
+    #mindevents-category-title,
+    #mindevents-archive-schedule-heading,
+    #singleEventContainer .mindevents-registration-panel__title,
+    #singleEventContainer .mindevents-single-section-heading h2,
+    #singleEventContainer .mindevents-single-section-heading h3,
+    #singleEventContainer .related-events h2 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        line-height: 1.1;
+    }
+
+    #mindCalanderList .list_day_container .item_meta_container .list-item-title .event-title,
+    .mindevents-single-occurrence-list .list_day_container .item_meta_container .list-item-title .event-title {
+        font-size: 1.05rem;
+        line-height: 1.15;
+    }
 }
