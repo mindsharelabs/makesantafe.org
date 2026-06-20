@@ -148,25 +148,6 @@ function make_display_content() {
     the_content();
 };
 
-// remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
-// add_action('make_shop_before_container', 'woocommerce_breadcrumb');
-
-//remove view article and add excerpt to product loop
-
-
-
-
-
-add_filter( 'woocommerce_account_menu_items', 'make_remove_address_my_account', 999 );
-
-function make_remove_address_my_account( $items ) {
-  $items['subscriptions'] = 'My Membership';
-  unset($items['edit-address']);
-  unset($items['edit-account']);
-  unset($items['customer-logout']);
-  unset($items['bookings']);
-  return $items;
-}
 
 
 if( !wp_next_scheduled( 'make_class_daily' ) ) {
@@ -265,72 +246,6 @@ function make_change_button_text( $text, $obj ) {
 
 
 
-/**
- * @snippet       WooCommerce Add New Tab @ My Account
- * @how-to        Watch tutorial @ https://businessbloomer.com/?p=19055
- * @sourcecode    https://businessbloomer.com/?p=21253
- * @credits       https://github.com/woothemes/woocommerce/wiki/2.6-Tabbed-My-Account-page
- * @author        Rodolfo Melogli
- * @testedwith    WooCommerce 3.4.5
- */
-// ------------------
-// 1. Register new endpoint to use for My Account page
-// Note: Resave Permalinks or it will give 404 error
-add_action( 'init', 'make_add_make_profile_endpoint' );
-function make_add_make_profile_endpoint() {
-    add_rewrite_endpoint( 'make-profile', EP_ROOT | EP_PAGES );
-}
-
-// ------------------
-// 2. Add new query var
-add_filter( 'query_vars', 'make_profile_query_vars', 0 );
-function make_profile_query_vars( $vars ) {
-    $vars[] = 'make-profile';
-    return $vars;
-}
-
-// ------------------
-// 3. Insert the new endpoint into the My Account menu
-add_filter( 'woocommerce_account_menu_items', 'make_add_make_profile_link_my_account' );
-function make_add_make_profile_link_my_account( $items ) {
-    $items['make-profile'] = 'My Public Profile';
-    return $items;
-}
-
-// ------------------
-// 4. Add content to the new endpoint
-add_action( 'woocommerce_account_make-profile_endpoint', 'make_premium_support_content' );
-// Note: add_action must follow 'woocommerce_account_{your-endpoint-slug}_endpoint' format
-function make_premium_support_content() {
-// echo '<h3></h3>';
-
-  	//get current user ID
-  	$current_user_id = get_current_user_id();
-	//add link to author page
-	$author_url = get_author_posts_url($current_user_id);
-	
-	include get_template_directory() . '/inc/user-edit-form.php';
-}
-
-
-//hide some categories from shop page
-add_filter( 'woocommerce_product_subcategories_args', function( $args ) {
-    $exclude = array();
-    $slugs   = array( 'track-products');
-
-    foreach ( $slugs as $slug ) {
-        $term = get_term_by( 'slug', $slug, 'product_cat' );
-        if ( $term && ! is_wp_error( $term ) ) {
-            $exclude[] = $term->term_id;
-        }
-    }
-
-    if ( ! empty( $exclude ) ) {
-        $args['exclude'] = $exclude;
-    }
-
-    return $args;
-} );
 
 
 
