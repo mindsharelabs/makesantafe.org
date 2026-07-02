@@ -281,7 +281,8 @@ function mindblank_header_scripts()
 
         
 
-        wp_register_script('fontawesome', 'https://kit.fontawesome.com/936fcf5834.js', array(), THEME_VERSION, true);
+
+        wp_register_script('fontawesome', 'https://kit.fontawesome.com/5bcc5329ee.js', array(), THEME_VERSION, true);
         wp_enqueue_script('fontawesome');
         add_action('wp_head', function() {
           echo '<link rel="preconnect" href="https://kit-pro.fontawesome.com">';
