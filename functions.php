@@ -2,6 +2,8 @@
 /**
  * Author: Mindshare Labs | @mindsharelabs
  * URL: https://mind.sh/are | @mindblank
+ * License: GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html  
  *
  */
 define('THEME_VERSION', '4.6.4');
